@@ -1,7 +1,16 @@
+
+.bg-primary {
+  background-color: #CC0000 !important;
+}
+
 * {
   font-family: roboto
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: oswald-light;
+}
+
+.nav-link {
+  font-family: oswald-light !important;
 }

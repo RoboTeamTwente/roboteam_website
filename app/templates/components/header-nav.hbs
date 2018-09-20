@@ -1,2 +1,23 @@
-hoi
-a component
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="#">RT logo</a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          {{#link-to "index"}}
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          {{/link-to}}
+        </li>
+        <li class="nav-item">
+          {{#link-to "about"}}
+            <a class="nav-link" href="#">About</a>
+          {{/link-to}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
