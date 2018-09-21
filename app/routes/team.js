@@ -8,7 +8,7 @@ export default Route.extend({
               type: 'member',
               attributes: {
                 name: "Rob Verbeek",
-                imageSrc: "content/teampictures/test-picture.jpeg",
+                imageSrc: "content/teampictures/rob.JPG",
                 role: "Team leader",
                 study: "ATLAS",
                 story: "Hi i'm rob"
@@ -20,7 +20,7 @@ export default Route.extend({
               type: 'member',
               attributes: {
                 name: "Rolf van der Hulst",
-                imageSrc: "content/teampictures/test-picture.jpeg",
+                imageSrc: "content/teampictures/rolf.JPG",
                 role: "Team leader",
                 study: "ATLAS",
                 story: "Hi i'm rob"
@@ -32,7 +32,7 @@ export default Route.extend({
               type: 'member',
               attributes: {
                 name: "Koen Hertenberg",
-                imageSrc: "content/teampictures/test-picture.jpeg",
+                imageSrc: "content/teampictures/koen.JPG",
                 role: "External affairs",
                 study: "ATLAS",
                 story: "Hi i'm rob"
@@ -44,7 +44,7 @@ export default Route.extend({
               type: 'member',
               attributes: {
                 name: "Selina Zwerver",
-                imageSrc: "content/teampictures/test-picture.jpeg",
+                imageSrc: "content/teampictures/selina.JPG",
                 role: "Secretary",
                 study: "ATLAS",
                 story: "Hi i'm rob"
