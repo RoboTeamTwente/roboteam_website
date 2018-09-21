@@ -9,7 +9,7 @@ export default Route.extend({
               attributes: {
                 name: "Rob Verbeek",
                 imageSrc: "content/teampictures/rob.JPG",
-                role: "Team leader",
+                role: "Chairman",
                 study: "ATLAS",
                 story: "Hi i'm rob"
               },
@@ -21,7 +21,7 @@ export default Route.extend({
               attributes: {
                 name: "Rolf van der Hulst",
                 imageSrc: "content/teampictures/rolf.JPG",
-                role: "Team leader",
+                role: "Treasurer",
                 study: "ATLAS",
                 story: "Hi i'm rob"
               },
@@ -46,7 +46,7 @@ export default Route.extend({
                 name: "Selina Zwerver",
                 imageSrc: "content/teampictures/selina.JPG",
                 role: "Secretary",
-                study: "ATLAS",
+                study: "BMT", //TODO
                 story: "Hi i'm rob"
               },
               relationships: {}
@@ -56,9 +56,9 @@ export default Route.extend({
               type: 'member',
               attributes: {
                 name: "Cas Doornkamp",
-                imageSrc: "content/teampictures/test-picture.jpeg",
+                imageSrc: "content/teampictures/cas.JPG",
                 role: "Electronics",
-                study: "ATLAS",
+                study: "Electrical Engineering",
                 story: "Hi i'm rob"
               },
               relationships: {}
@@ -68,9 +68,9 @@ export default Route.extend({
               type: 'member',
               attributes: {
                 name: "Baris Imre",
-                imageSrc: "content/teampictures/test-picture.jpeg",
+                imageSrc: "content/teampictures/baris.JPG",
                 role: "AI development",
-                study: "ATLAS",
+                study: "Technical Computer Science",
                 story: "Hi i'm rob"
               },
               relationships: {}
@@ -79,10 +79,10 @@ export default Route.extend({
               id: 7,
               type: 'member',
               attributes: {
-                name: "Baris Imre",
-                imageSrc: "content/teampictures/test-picture.jpeg",
+                name: "Thijs Luttikhuis",
+                imageSrc: "content/teampictures/thijs.JPG",
                 role: "AI development",
-                study: "ATLAS",
+                study: "Applied Physics",
                 story: "Hi i'm rob"
               },
               relationships: {}
@@ -91,15 +91,100 @@ export default Route.extend({
               id: 8,
               type: 'member',
               attributes: {
-                name: "Baris Imre",
-                imageSrc: "content/teampictures/test-picture.jpeg",
+                name: "Antonio Sanchez-Martin",
+                imageSrc: "content/teampictures/antonio.JPG",
+                role: "Electronics",
+                study: "Electrical Engineering",
+                story: "Hi i'm rob"
+              },
+              relationships: {}
+            },
+            {
+              id: 9,
+              type: 'member',
+              attributes: {
+                name: "Lukas Bos",
+                imageSrc: "content/teampictures/lukas.JPG",
                 role: "AI development",
+                study: "Embedded systems",
+                story: "Hi i'm rob"
+              },
+              relationships: {}
+            },
+            {
+              id: 10,
+              type: 'member',
+              attributes: {
+                name: "Alice Petry",
+                imageSrc: "content/teampictures/alice.JPG",
+                role: "Mechanics",
                 study: "ATLAS",
                 story: "Hi i'm rob"
               },
               relationships: {}
+            },
+            {
+              id: 11,
+              type: 'member',
+              attributes: {
+                name: "Simen Bootstra",
+                imageSrc: "content/teampictures/simen.JPG",
+                role: "Control",
+                study: "Applied Physics",
+                story: "Hi i'm rob"
+              },
+              relationships: {}
+            },
+            {
+              id: 12,
+              type: 'member',
+              attributes: {
+                name: "Emil Kerimov",
+                imageSrc: "content/teampictures/emil.JPG",
+                role: "Electronics",
+                // TODO: Change study
+                study: "",
+                story: "Hi i'm rob"
+              },
+              relationships: {}
+            },
+            {
+              id: 13,
+              type: 'member',
+              attributes: {
+                name: "Freek Nijweide",
+                imageSrc: "content/teampictures/freek.JPG",
+                role: "AI development", //TODO
+                study: "Advanced Technology",
+                story: "Hi i'm rob"
+              },
+              relationships: {}
+            },
+            {
+              id: 14,
+              type: 'member',
+              attributes: {
+                name: "Inkeri Kollmann",
+                imageSrc: "content/teampictures/inkeri.JPG",
+                role: "Public Relations",
+                //// TODO: change study Inkeri
+                study: " ",
+                story: "Hi i'm rob"
+              },
+              relationships: {}
+            },
+            {
+              id: 15,
+              type: 'member',
+              attributes: {
+                name: "Pepijn de Vos",
+                imageSrc: "content/teampictures/pepijn.JPG",
+                role: "Electronics",
+                study: "Electrical Engineering",
+                story: "Hi i'm rob"
+              },
+              relationships: {}
             }
-
           ]});
 
           return this.store.findAll('member');
