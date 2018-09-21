@@ -1,6 +1,9 @@
 <div class="container">
-  <div class="col-12">
-    <h1> hey </h1>
-this is the news page
-</div>
+  <div class="col-12 mt-5">
+    <h1> News </h1>
+    {{#each model as |article|}}
+      <h3> {{article.title}} </h3>
+      <p> {{article.content}} </p>
+    {{/each}}
+  </div>
 </div>
