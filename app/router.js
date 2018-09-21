@@ -7,7 +7,6 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('about')
   this.route('news')
   this.route('robocup')
   this.route('team')
@@ -15,6 +14,7 @@ Router.map(function() {
   this.route('events')
   this.route('documentation')
   this.route('contact')
+
 });
 
 export default Router;
