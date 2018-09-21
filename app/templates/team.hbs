@@ -1,5 +1,16 @@
 <div class="container">
-  <div class="col-12">
+  <div class="col-12 mt-5">
     <h1> The team </h1>
+
+    <div class="row">
+    {{#each model as |member|}}
+
+    <div class="col-3">
+      <img src={{member.imageSrc}} style="width: 100%"/>
+      <i> {{member.name}} </i> <br>
+      {{member.role}}
+    </div>
+      {{/each}}
+    </div>
   </div>
 </div>
