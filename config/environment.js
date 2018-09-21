@@ -4,7 +4,7 @@ module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'roboteam-website',
     environment,
-    rootURL: '/',
+    rootURL: '/roboteamtwente/',
     locationType: 'auto',
     locationType: 'router-scroll',
     historySupportMiddleware: true,
