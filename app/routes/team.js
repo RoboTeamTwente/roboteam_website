@@ -56,7 +56,7 @@ export default Route.extend({
               type: 'member',
               attributes: {
                 name: "Cas Doornkamp",
-                imageSrc: "content/teampictures/test-picture.jpeg",
+                imageSrc: "content/teampictures/cas.JPG",
                 role: "Electronics",
                 study: "ATLAS",
                 story: "Hi i'm rob"
@@ -68,7 +68,7 @@ export default Route.extend({
               type: 'member',
               attributes: {
                 name: "Baris Imre",
-                imageSrc: "content/teampictures/test-picture.jpeg",
+                imageSrc: "content/teampictures/baris.JPG",
                 role: "AI development",
                 study: "ATLAS",
                 story: "Hi i'm rob"
@@ -80,7 +80,7 @@ export default Route.extend({
               type: 'member',
               attributes: {
                 name: "Baris Imre",
-                imageSrc: "content/teampictures/test-picture.jpeg",
+                imageSrc: "content/teampictures/freek.JPG",
                 role: "AI development",
                 study: "ATLAS",
                 story: "Hi i'm rob"
@@ -92,7 +92,7 @@ export default Route.extend({
               type: 'member',
               attributes: {
                 name: "Baris Imre",
-                imageSrc: "content/teampictures/test-picture.jpeg",
+                imageSrc: "content/teampictures/inkeri.JPG",
                 role: "AI development",
                 study: "ATLAS",
                 story: "Hi i'm rob"
