@@ -167,8 +167,7 @@ export default Route.extend({
                 name: "Inkeri Kollmann",
                 imageSrc: "content/teampictures/inkeri.JPG",
                 role: "Public Relations",
-                //// TODO: change study Inkeri
-                study: " ",
+                study: "European Public Administration",
                 story: "Hi i'm rob"
               },
               relationships: {}
