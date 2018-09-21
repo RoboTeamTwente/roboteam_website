@@ -12,10 +12,8 @@ Router.map(function() {
   this.route('robocup')
   this.route('team')
   this.route('partners')
-  this.route('events')
   this.route('documentation')
   this.route('contact')
-
 });
 
 export default Router;
