@@ -79,8 +79,13 @@ export default Route.extend({
               id: 7,
               type: 'member',
               attributes: {
+<<<<<<< HEAD
                 name: "Thijs Luttikhuis",
                 imageSrc: "content/teampictures/thijs.JPG",
+=======
+                name: "Baris Imre",
+                imageSrc: "content/teampictures/freek.JPG",
+>>>>>>> 1a2e78549ff409a31b0852fb3fb22e645ce5c1e7
                 role: "AI development",
                 study: "Applied Physics",
                 story: "Hi i'm rob"
@@ -91,6 +96,7 @@ export default Route.extend({
               id: 8,
               type: 'member',
               attributes: {
+<<<<<<< HEAD
                 name: "Antonio Sanchez-Martin",
                 imageSrc: "content/teampictures/antonio.JPG",
                 role: "Electronics",
@@ -105,6 +111,10 @@ export default Route.extend({
               attributes: {
                 name: "Lukas Bos",
                 imageSrc: "content/teampictures/lukas.JPG",
+=======
+                name: "Baris Imre",
+                imageSrc: "content/teampictures/inkeri.JPG",
+>>>>>>> 1a2e78549ff409a31b0852fb3fb22e645ce5c1e7
                 role: "AI development",
                 study: "Embedded systems",
                 story: "Hi i'm rob"
