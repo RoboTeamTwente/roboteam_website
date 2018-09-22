@@ -1,10 +1,8 @@
 # roboteam-website
-
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This repository holds the website for RoboTeam Twente.
+It is a frontend-only website build with Ember. It is designed to be easily extended by a backend if that would be a desired feature later on.
 
 ## Prerequisites
-
 You will need the following things properly installed on your computer.
 
 * [Git](https://git-scm.com/)
@@ -46,10 +44,9 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+* move the contents of the 'dist' folder into the root of the domain on the server. It should work out of the box.
 
 ## Further Reading / Useful Links
-
 * [ember.js](https://emberjs.com/)
 * [ember-cli](https://ember-cli.com/)
 * Development Browser Extensions
