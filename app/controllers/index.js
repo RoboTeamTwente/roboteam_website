@@ -41,6 +41,7 @@ export default Ember.Controller.extend({
     selectHeader(id) {
       this.set('selectedHeader', this.get('headers').objectAt(id));
 
+      // make sure to reset the automatic interval after click
       clearInterval(this.get('interval'));
       this.autoPlayHeaders();
     }
