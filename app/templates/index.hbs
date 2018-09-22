@@ -1,12 +1,25 @@
-<div style="background: url('content/rttheader.jpg'); width: 100%; height: 400px;">
+<div style="background: url('content/rttheader3.jpg'); background-size: cover; background-position: center; width: 100%; height: 480px;">
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-5">
-        <img class="col-12" src="images/rtt_logo_small.png"/>
-        <h4 class="text-white justify-content-center">
-          Striving for inspiration and innovation in the field of robotics and artificial intelligence
-        </h4>
-       </div>
+    <div class="row justify-content-between p-5">
+
+
+
+      <h2 class="text-white col-12 col-md-6 pl-2 pl-md-5 pt-2 pt-md-5 mt-2 mt-md-5" style="text-decoration: underline; text-shadow: 2px 2px 2px rgba(0, 0, 0, .5);" >
+        Striving for inspiration and innovation in the field of robotics and artificial intelligence
+        <br>
+        {{#link-to 'team'}}
+          <span style="font-weight: 100; font-size: 1rem;"> Meet the new team that will play in Sydney in 2019 </span>
+        {{/link-to}}
+      </h2>
+
+
+      <img class="pr-4 pl-4 pb-5 mr-3 mt-0 d-none col-6 d-md-block" src="images/rtt_logo_medium.png" style="max-width: 250px;
+      -webkit-filter: drop-shadow(5px 5px 5px #222);
+      filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, .5));
+      object-fit: contain;
+      "/>
+
+
     </div>
   </div>
 </div>
@@ -39,13 +52,8 @@
     <div class="col-12 col-md-4 mt-5">
       <h1> Recent news </h1>
       <p>
-          RoboTeam Twente is a multidisciplinary team of students from the University of Twente.
-          We aspire to innovate in both robotics and artificial intelligence.
-          Next, we want to inspire everyone for these two sectors and show the world what can be achieved with them.
-          We believe robotics and artificial intelligence can make the world a better place if used correctly.
 
       </p>
-
     </div>
   </div>
 
@@ -53,7 +61,7 @@
     class="mt-5"
     title="We believe robotics and artificial intelligence can make the world a better place if used correctly."
     subtitle="Learn more about why we do what we do"
-    link=""
+    link="robocup"
     imageSrc="images/ai.jpg"
   }}
 
@@ -62,20 +70,7 @@
   <div class="row">
 
     <div class="col-12 col-md-8">
-<p>
 
-  The RoboCup is an annual competition of robotics. There are a few different categories of leagues you can compete in. The RoboCup soccer league, RoboCup rescue league and the RoboCup@Home league. The main focus of the RoboCup is on the soccer competition. The RoboCup Soccer league is the oldest league, which was held for the first time in 1997. This is also the competition we are eager to compete in.
-
-  RoboCup holds up the ultimate goal:
-
-  By the middle of the 21st century, a team of fully autonomous humanoid robot soccer players shall win a soccer game, complying with the official rules of FIFA, against the winner of the most recent World Cup.
-
-  Within the soccer category, there are 5 different leagues to compete in: the Small Size, Middle Size, Humanoid, Standard Platform and Simulation league. Each league has a different focus on innovation. We are preparing for the Small Size league, which focusses on the problem of intelligent multi-robot/agent cooperation and control in a highly dynamic environment with a hybrid centralized/distributed system.
-
-  For the Small Size league we have to build a team of 6 robots (with a height of 150 mm and a diameter of 180 mm) that can communicate with each other and can play a soccer match by themselves. There is no remote controlling involved. The games will be played with an orange golf ball, on a 9 by 5 meter carpet field. The RoboCup2018 will be held in Montréal, Canada, starting on the 17th of June.
-
-  You can find the official RoboCup website here.
-</p>
 
 </div>
 
@@ -95,6 +90,5 @@
     link="team"
     imageSrc="content/team.JPG"
   }}
-
 
 </div>
