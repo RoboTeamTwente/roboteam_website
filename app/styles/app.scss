@@ -1,4 +1,6 @@
 
+@import 'hamburger';
+
 .bg-primary {
   background-color: #CC0000 !important;
 }
@@ -53,7 +55,6 @@ a {
   background-color: #eee;
 }
 
-
 .slideModal {
   background-color: rgba(230, 230, 230, 0.95);
   z-index: 10;
@@ -61,4 +62,26 @@ a {
   bottom: 0;
   height: 480px;
   width: 100vw;
+}
+
+.mobile-menu {
+  background-color: rgba(230, 230, 230, 0.95);
+  position: fixed;
+  z-index: 1050;
+  bottom: 0;
+  top: 56px;
+  left: 0;
+  right: 0;
+  padding-left: 50px;
+  padding-top: 50px;
+  height: 100vh;
+  transition: opacity .3s linear;
+  opacity: 0;
+  pointer-events: none;
+
+  &.visible {
+    opacity: 1;
+    pointer-events: auto;
+
+  }
 }

@@ -5,38 +5,32 @@
       <span class="nav-link d-inline d-lg-none text-light"> RoboTeam Twente </span>
     {{/link-to}}
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button class="d-block d-lg-none hamburger hamburger--squeeze {{if showMobileMenu 'is-active'}}" type="button" {{action 'toggleMobileMenu'}}>
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
+        {{#each menuItems as |item|}}
           <li class="nav-item">
-          {{#link-to "robocup"}}
-            <a class="nav-link" href="#">RoboCup</a>
-          {{/link-to}}
-        </li>
-          <li class="nav-item">
-          {{#link-to "team"}}
-            <a class="nav-link" href="#">Team</a>
-          {{/link-to}}
-        </li>
-          <li class="nav-item">
-          {{#link-to "partners"}}
-            <a class="nav-link" href="#">Partners</a>
-          {{/link-to}}
-        </li>
-          <li class="nav-item">
-          {{#link-to "documentation"}}
-            <a class="nav-link" href="#">Documentation</a>
-          {{/link-to}}
-        </li>
-          <li class="nav-item">
-          {{#link-to "contact"}}
-            <a class="nav-link" href="#">Contact</a>
-          {{/link-to}}
-        </li>
+            {{#link-to item.link}}
+              <a class="nav-link" href="#">{{item.name}}</a>
+            {{/link-to}}
+          </li>
+        {{/each}}
       </ul>
     </div>
   </div>
 </nav>
+
+<div class="mobile-menu {{if showMobileMenu 'visible'}} d-block d-lg-none pl-4" {{action 'closeMobileMenu'}}>
+  <div class="container">
+    {{#each menuItems as |item|}}
+      {{#link-to item.link}}
+        <h4 class="p-3 text-dark" href="#">{{item.name}}</h4>
+      {{/link-to}}
+    {{/each}}
+  </div>
+</div>
