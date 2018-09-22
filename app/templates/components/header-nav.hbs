@@ -1,22 +1,26 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
   <div class="container">
+
+    {{!-- Our beautiful logo! --}}
     {{#link-to "index"}}
       <img class="header-logo ml-3 mr-0 mr-lg-4" src="images/header-logo.png">
       <span class="nav-link d-inline d-lg-none text-light"> RoboTeam Twente </span>
     {{/link-to}}
 
+    {{!-- Menu button for mobile devices --}}
     <button class="d-block d-lg-none hamburger hamburger--squeeze {{if showMobileMenu 'is-active'}}" type="button" {{action 'toggleMobileMenu'}}>
       <span class="hamburger-box">
         <span class="hamburger-inner"></span>
       </span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    {{!-- Navbar for non-mobile devices --}}
+    <div class="collapse navbar-collapse">
       <ul class="navbar-nav">
         {{#each menuItems as |item|}}
           <li class="nav-item">
             {{#link-to item.link}}
-              <a class="nav-link" href="#">{{item.name}}</a>
+              <a class="nav-link" href="#"> {{item.name}} </a>
             {{/link-to}}
           </li>
         {{/each}}
@@ -25,6 +29,7 @@
   </div>
 </nav>
 
+{{!-- Menu overlay for mobile devices --}}
 <div class="mobile-menu {{if showMobileMenu 'visible'}} d-block d-lg-none pl-4" {{action 'closeMobileMenu'}}>
   <div class="container">
     {{#each menuItems as |item|}}

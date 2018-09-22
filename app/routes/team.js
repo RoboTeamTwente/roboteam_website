@@ -11,16 +11,12 @@ export default Route.extend({
                 imageSrc: "content/teampictures/rob.JPG",
                 role: "Chairman",
                 study: "ATLAS",
-                story: `Hi, my name is Rob Verbeek, and I just graduated from ATLAS University
-College. I am the chairman of this year's RoboTeam Twente and part of
-the software team focusing on Artificial Intelligence. As third RoboTeam
- we have the advantage of starting the year with a fully functioning
-team of robots, and as team leader I want to assure that everyone can
-work to the best of their ability, using this advantage to create a
-winning team for the robocup in Sydney! Next to this I want to
-contribute to starting to use machine learning in our robots, which is
-also the study direction I'm going into, and one of the reasons I joined
- this amazing team!`
+                story: `Hi, my name is Rob Verbeek, and I just graduated from ATLAS University College. I am the chairman of this year's RoboTeam Twente and part ofthe software team focusing on Artificial Intelligence. As third RoboTeam
+                        we have the advantage of starting the year with a fully functioning
+                        team of robots, and as team leader I want to assure that everyone can
+                        work to the best of their ability, using this advantage to create a
+                        winning team for the robocup in Sydney!
+                        Next to this I want to contribute to starting to use machine learning in our robots, which is also the study direction I'm going into, and one of the reasons I joined this amazing team!`
               },
               relationships: {}
             },
@@ -32,16 +28,15 @@ also the study direction I'm going into, and one of the reasons I joined
                 imageSrc: "content/teampictures/selina.JPG",
                 role: "Secretary",
                 study: "BMT",
-                story: `Hi everyone, I’m
-Selina, I’m 20 years old and I am originally from the beautiful
-city of Leeuwarden, Friesland. Last year I got my bachelor’s degree
-in Biomedical Engineering and this year I will be the Secretary and
-part of the software team. In the software team I will be focusing on
-improving the control of the robot. I chose to participate in the
-RoboTeam Twente because I wanted to do something else than studying
-and I think participating in this team will be a wonderful
-preparation for my master. The fact that we’re also going to Sydney
-to compete in the RoboCup is just a bonus!!!!!!!!`
+                story: `Hi everyone, I’m Selina, I’m 20 years old and I am originally from the beautiful
+                        city of Leeuwarden, Friesland. Last year I got my bachelor’s degree
+                        in Biomedical Engineering and this year I will be the Secretary and
+                        part of the software team. In the software team I will be focusing on
+                        improving the control of the robot. I chose to participate in the
+                        RoboTeam Twente because I wanted to do something else than studying
+                        and I think participating in this team will be a wonderful
+                        preparation for my master. The fact that we’re also going to Sydney
+                        to compete in the RoboCup is just a bonus!!!!!!!!`
               },
               relationships: {}
             },
@@ -54,12 +49,9 @@ to compete in the RoboCup is just a bonus!!!!!!!!`
                 role: "Treasurer",
                 study: "ATLAS",
                 story: `Hey, I am Rolf van der Hulst. After doing ATLAS (UCT) as bachelor I wanted a challenge that was something different than just studying and would also allow me to develop other skills. Since I'm only 20 years old, I did not want to start a master immediately and wanted to take this opportunity to do other activities. In my case, this turned out to be RoboTeam.
-My internal function is mostly being a member of the software team. I will be working on the AI of our robots mostly, specifically the more mathematically intensive parts of our system.  Next to that, I am also a board member and treasurer of the RoboTeam, keeping track of all the finances.
-
-I chose to do RoboTeam mostly because it is still a young team, and there is a lot of opportunities to innovate still in contrast to some of the more established teams. I did not know much about robotics yet, but I see this as a chance to learn more. At the same time, I also get to develop my skills as software developer and use my skills to help contribute to a future with better AI.
-
-Next to the RoboTeam, I mostly am busy with music. It is no secret that I love singing, especially acapella, and I play on my guitar and piano quite a bit.
-`
+                        My internal function is mostly being a member of the software team. I will be working on the AI of our robots mostly, specifically the more mathematically intensive parts of our system.  Next to that, I am also a board member and treasurer of the RoboTeam, keeping track of all the finances.
+                        I chose to do RoboTeam mostly because it is still a young team, and there is a lot of opportunities to innovate still in contrast to some of the more established teams. I did not know much about robotics yet, but I see this as a chance to learn more. At the same time, I also get to develop my skills as software developer and use my skills to help contribute to a future with better AI.
+                        Next to the RoboTeam, I mostly am busy with music. It is no secret that I love singing, especially acapella, and I play on my guitar and piano quite a bit.`
               },
               relationships: {}
             },
@@ -148,7 +140,10 @@ Four years ago I moved to Enschede to study Creative Technology, where I quickly
                 imageSrc: "content/teampictures/alice.JPG",
                 role: "Mechanics",
                 study: "ATLAS",
-                story: `"Hi i'm rob"`
+                story: `Hey, my name is Alice Petry, I'm from Luxembourg, and I'm a University College Twente graduate, and this year, I will be responsible for the mechanics in the RoboTeam Twente.
+The RoboTeam Twente is all about innovation and inspiration. Last year's team inspired me to
+take the plunge and join the team, and this year, I want to give back to the team by coming up with innovative designs, and inspire other students to discover the field of robotics for themselves.
+Additionally, this year allows me to get some practical experience in the field of mechanical engineering, which I would like to further explore during my master studies.`
               },
               relationships: {}
             },
@@ -182,7 +177,6 @@ the RoboCup in Sydney!`
                 name: "Emil Kerimov",
                 imageSrc: "content/teampictures/emil.JPG",
                 role: "Electronics",
-                // TODO: Change study
                 study: "MsC Electrical Engineering",
                 story: `Hi there, my name is Emil Kerimov. I’m a Masters student in Electrical Engineering and I’m a member of the Electronics group of RoboTeam. Together with the rest of the team, we will be improving and redesigning base hardware of our robots, to ensure a stable and powerful platform for all software features. I’m interested in electronics and always love a challenge, both of which I know I’ll find at RoboTeam! It’s an all-around experience, with technical and business aspects, which is a great way to find out what you can expect in the industry. Looking forward to my time with the team!`
               },

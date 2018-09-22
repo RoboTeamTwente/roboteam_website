@@ -1,6 +1,8 @@
 import DS from 'ember-data';
+import { computed } from '@ember/object';
+import { htmlSafe } from '@ember/template';
 
-const { Model, attr, belongsTo, hasMany } = DS;
+const { Model, attr } = DS;
 
 export default Model.extend({
   name: attr('string'),
@@ -9,7 +11,7 @@ export default Model.extend({
   study: attr('string'),
   story: attr('string'),
 
-  storyFormatted: Ember.computed('story', function(){
-    return Ember.String.htmlSafe(this.get('story').replace(/\n/g, '<br>'));
+  storyFormatted: computed('story', function(){
+    return htmlSafe(this.get('story').replace(/\n/g, '<br>'));
   })
 });

@@ -1,12 +1,9 @@
 <div class="container">
   <div class="col-12 mt-5">
-
-
-
     <div class="row mb-5 pb-5">
     {{#each model as |member|}}
       <div class="col-6 mt-5 col-sm-4 col-md-3 col-xl-2 link" {{action 'selectMember' member.id}}>
-        <img src={{member.imageSrc}} style="width: 100%"/>
+        <img src={{member.imageSrc}} style="width: 100%">
         <h5 class="mb-0"> {{member.name}} </h5>
         {{member.role}}
       </div>
@@ -17,12 +14,11 @@
 
 {{#if selectedMember}}
   <div class="slideModal p-5" {{action 'deselectMember'}}>
-
     <div class="container">
       <div class="col-12">
         <div class="row">
         <div class="col-3">
-          <img src={{selectedMember.imageSrc}} style="width: 100%"/>
+          <img src={{selectedMember.imageSrc}} style="width: 100%">
         </div>
           <div class="col-9">
             <h3 class="mb-0"> {{selectedMember.name}} </h3>

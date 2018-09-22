@@ -1,0 +1,44 @@
+* {
+  font-family: roboto;
+  text-decoration: none; /* no underline */
+}
+
+body {
+  padding-top: 56px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Oswald', sans-serif;
+  text-decoration: none; /* no underline */
+
+  a {
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    text-decoration: none; /* no underline */
+
+    &:hover{
+      font-family: 'Oswald', sans-serif;
+      color: white;
+    }
+  }
+}
+
+.bg-primary {
+  background-color: #CC0000 !important;
+}
+
+.content {
+  min-height: 80vh;
+}
+
+a {
+  color: #cc0000;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.bg-gray {
+  background-color: #eee;
+}

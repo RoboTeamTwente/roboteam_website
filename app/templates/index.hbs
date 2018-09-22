@@ -1,57 +1,40 @@
-<div>
+{{!-- preload all header backgrounds --}}
+{{#each headers as |header|}}
+  <img class="header-image {{if (eq header.id selectedHeader.id) 'visible'}}" src={{header.imageSrc}} alt={{header.title}}>
+{{/each}}
 
-
-  {{#each headers as |header|}}
-    <img class="header-image {{if (eq header.id selectedHeader.id) 'visible'}}" src={{header.imageSrc}} style="object-fit: cover; width:100%; height:560px; background-position: center; position:absolute"/>
-  {{/each}}
-
-
-  <div class="container" style="height: 560px;">
-    <div class="row justify-content-between p-5">
-
-
-      <h1 class="text-white col-12 col-md-6 pl-2 pl-md-5 pt-2 pt-md-5 mt-2 mt-md-5" style="text-decoration: underline; text-shadow: 2px 2px 2px rgba(0, 0, 0, .5);" >
-        {{selectedHeader.title}}
-        <br>
-        <span style="font-weight: 100; font-size: 1.3rem;"> {{selectedHeader.subtitle}} </span>
-      </h1>
-
-
-      <img class="pr-4 pl-4 pb-5 mr-3 mt-0 d-none col-6 d-md-block" src="images/rtt_logo_medium.png" style="max-width: 250px;
-      -webkit-filter: drop-shadow(5px 5px 5px #222);
-      filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, .5));
-      object-fit: contain;
-      "/>
-
-
-    </div>
+{{!-- Title and subtitle --}}
+<div class="container" style="height: 560px;">
+  <div class="row justify-content-between p-5">
+    <h1 class="header-image-title text-white col-12 col-md-6 pl-2 pl-md-5 pt-2 pt-md-5 mt-2 mt-md-5">
+      {{selectedHeader.title}} <br> <span class="subtitle"> {{selectedHeader.subtitle}} </span>
+    </h1>
+    <img class="header-rtt-logo p-4 col-6 d-none d-md-block" src="images/rtt_logo_medium.png">
   </div>
 </div>
 
+{{!-- Show the 'news-items' which are the blocks under the large header image --}}
 <div class="container-fluid">
-<div class="row">
-
-{{#each headers as |header|}}
-
-<div class=" news-item col border-bottom border-right pl-3 pr-5 pt-3 pb-3 {{if (eq header.id selectedHeader.id) 'active'}}" {{action 'selectHeader' header.id}}>
-  <h4 class=""> {{header.title}} </h4>
-  <span class="text-muted"> {{header.subtitle}} </span>
- </div>
-{{/each}}
-
-</div>
+  <div class="row">
+    {{#each headers as |header|}}
+      <div class="news-item col border-bottom border-right pl-3 pr-5 pt-3 pb-3 {{if (eq header.id selectedHeader.id) 'active'}}" {{action 'selectHeader' header.id}}>
+        <h4 class=""> {{header.title}} </h4>
+        <span class="text-muted"> {{header.subtitle}} </span>
+       </div>
+    {{/each}}
+  </div>
 </div>
 
+{{!-- Content --}}
 <div class="container">
   <div class="row">
     <div class="col-12 col-md-7 mt-5">
       <h1> About the RoboTeam </h1>
       <p>
-          RoboTeam Twente is a multidisciplinary team of students from the University of Twente.
-          We aspire to innovate in both robotics and artificial intelligence.
-          Next, we want to inspire everyone for these two sectors and show the world what can be achieved with them.
-          We believe robotics and artificial intelligence can make the world a better place if used correctly.
-
+        RoboTeam Twente is a multidisciplinary team of students from the University of Twente.
+        We aspire to innovate in both robotics and artificial intelligence.
+        Next, we want to inspire everyone for these two sectors and show the world what can be achieved with them.
+        We believe robotics and artificial intelligence can make the world a better place if used correctly.
       </p>
       <p>
         Our medium to achieve these goals is the RoboCup, this year in Sydney.
@@ -67,9 +50,9 @@
       </p>
     </div>
 
+    {{!-- Youtube video --}}
     <div class="col-12 col-md-5 mt-5">
       <iframe style="width: 100%" height="280px" src="https://www.youtube.com/embed/o5aIkALemNs?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
     </div>
   </div>
 
@@ -81,29 +64,31 @@
     imageSrc="images/ai.jpg"
   }}
 
-<div class="row pt-5 pb-5 justify-content-center">
-  <div class="col-12 col-md-7">
-    <h1> Inspiration </h1>
-    <p>
-    Besides our effort to win the RoboCup, we also aim to inspire and educate people about Artificial intelligence and robotics.
-    We do this by attending events from companies and by visiting high schools. RoboTeam Twente offers live demonstrations of our football robots, but also inspiring talks about Artificial Intelligence,
-    interesting workshops where everybody can create tactics using a special-built graphical interface.
-    </p>
+  {{!-- inspiration content block --}}
+  <div class="row pt-5 pb-5 justify-content-center">
+    <div class="col-12 col-md-7">
+      <h1> Inspiration </h1>
+      <p>
+      Besides our effort to win the RoboCup, we also aim to inspire and educate people about Artificial intelligence and robotics.
+      We do this by attending events from companies and by visiting high schools. RoboTeam Twente offers live demonstrations of our football robots, but also inspiring talks about Artificial Intelligence,
+      interesting workshops where everybody can create tactics using a special-built graphical interface.
+      </p>
 
-    <p>
-      Be sure to contact us!
-    </p>
+      <p>
+        Be sure to contact us!
+      </p>
+    </div>
   </div>
-</div>
 
-{{img-banner
-  class="mt-5"
-  title="The RoboTeam is a group of 15 students from more than 6 different studies"
-  subtitle="Look who we are and why we are in the team"
-  link="team"
-  imageSrc="content/team.JPG"
-}}
+  {{img-banner
+    class="mt-5"
+    title="The RoboTeam is a group of 15 students from more than 6 different studies"
+    subtitle="Look who we are and why we are in the team"
+    link="team"
+    imageSrc="content/team.JPG"
+  }}
 
+  {{!-- Innovation content block --}}
   <div class="row pt-5 pb-5 justify-content-center">
     <div class="col-12 col-md-7">
       <h1> Innovation </h1>
@@ -114,6 +99,4 @@
       </p>
     </div>
   </div>
-
-
 </div>
