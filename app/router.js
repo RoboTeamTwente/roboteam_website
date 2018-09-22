@@ -14,6 +14,8 @@ Router.map(function() {
   this.route('partners')
   this.route('documentation')
   this.route('contact')
+  this.route('previousteams')
+
 });
 
 export default Router;
