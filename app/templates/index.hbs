@@ -2,19 +2,25 @@
 {{#each headers as |header|}}
   <img class="header-image {{if (eq header.id selectedHeader.id) 'visible'}}" src={{header.imageSrc}} alt={{header.title}}>
 {{/each}}
+<div class="gradient"></div>
 
 {{!-- Title and subtitle --}}
 <div class="container" style="height: 560px;">
-  <div class="row justify-content-between p-5">
-    <h1 class="header-image-title text-white col-12 col-md-6 pl-2 pl-md-5 pt-2 pt-md-5 mt-2 mt-md-5">
-      {{selectedHeader.title}} <br> <span class="subtitle"> {{selectedHeader.subtitle}} </span>
-    </h1>
-    <img class="header-rtt-logo p-4 col-6 d-none d-md-block" src="images/rtt_logo_medium.png">
+  <div class="row justify-content-center">
+    <img class="header-rtt-logo col-12 pt-5" src="images/rtt_logo_medium.png">
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h1 class="header-image-title text-white mt-0 mt-md-5 ml-2 ml-md-5 pl-2 pl-md-5">
+        {{selectedHeader.title}}
+      </h1>
+       <span class="header-image-title text-white mt-0 mt-md-5 ml-2 ml-md-5 pl-2 pl-md-5 subtitle"> {{selectedHeader.subtitle}} </span>
+    </div>
   </div>
 </div>
 
 {{!-- Show the 'news-items' which are the blocks under the large header image --}}
-<div class="container-fluid">
+<div class="container-fluid d-none d-md-block">
   <div class="row">
     {{#each headers as |header|}}
       <div class="news-item col border-bottom border-right pl-3 pr-5 pt-3 pb-3 {{if (eq header.id selectedHeader.id) 'active'}}" {{action 'selectHeader' header.id}}>

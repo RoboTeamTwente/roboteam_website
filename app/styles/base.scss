@@ -46,3 +46,23 @@ a {
 .bg-gray {
   background-color: #eee;
 }
+
+
+
+h1 {
+  font-size: 1.8rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+}
+
+@include media-breakpoint-up(md) {
+  h1 {
+    font-size: 2.4rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+}
