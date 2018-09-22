@@ -40,3 +40,25 @@ h1, h2, h3, h4, h5, h6 {
 .content {
   min-height: 80vh;
 }
+
+a {
+  color: #cc0000;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.bg-gray {
+  background-color: #eee;
+}
+
+
+.slideModal {
+  background-color: rgba(230, 230, 230, 0.95);
+  z-index: 10;
+  position: fixed;
+  bottom: 0;
+  height: 480px;
+  width: 100vw;
+}
