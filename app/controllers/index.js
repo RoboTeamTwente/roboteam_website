@@ -1,16 +1,21 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  interval: null,
   init() {
+    this.autoPlayHeaders();
+  },
+  autoPlayHeaders() {
     let self = this;
-    setInterval(function() {
-      self.set('selectedHeader', self.get('headers').objectAt((self.get('selectedHeader').id + 1) % 4));
+    let interval = setInterval(function() {
+      self.set('selectedHeader', self.get('headers').objectAt((self.get('selectedHeader').id + 1) % self.get('headers').length));
     }, 10000)
 
+    this.set('interval', interval);
   },
   selectedHeader: Ember.computed('headers', function() {
     return this.get('headers').objectAt(0);
-  }), // there must always be 4 headers!
+  }),
   headers: [
     {
       id: 0,
@@ -22,26 +27,22 @@ export default Ember.Controller.extend({
       id: 1,
       title: "RoboTeamTwente at your event?",
       subtitle: "We are always interested in becoming partners",
-      imageSrc: "content/rttheader2.jpg"
+      imageSrc: "content/demo.jpg"
     },
     {
       id: 2,
-
       title: "Meet the new team for 2018/2019",
       subtitle: "Get to know us!",
       imageSrc: "content/team.JPG"
-    },
-    {
-      id: 3,
-      title: "Read about our technology",
-      subtitle: "We have things open source",
-      imageSrc: "content/formation.jpg"
-    },
+    }
   ],
 
   actions: {
     selectHeader(id) {
       this.set('selectedHeader', this.get('headers').objectAt(id));
+
+      clearInterval(this.get('interval'));
+      this.autoPlayHeaders();
     }
   }
 });

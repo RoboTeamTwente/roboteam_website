@@ -33,7 +33,7 @@
 
 {{#each headers as |header|}}
 
-<div class="news-item col-3 border-bottom border-right pl-5 pr-5 pt-3 pb-3 {{if (eq header.id selectedHeader.id) 'active'}}">
+<div class=" news-item col border-bottom border-right pl-3 pr-5 pt-3 pb-3 {{if (eq header.id selectedHeader.id) 'active'}}" {{action 'selectHeader' header.id}}>
   <h4 class=""> {{header.title}} </h4>
   <span class="text-muted"> {{header.subtitle}} </span>
  </div>
