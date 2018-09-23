@@ -19,7 +19,7 @@ export default Controller.extend({
         id: 1,
         title:    "RoboTeamTwente at your event?",
         subtitle: "We are always interested in becoming partners",
-        imageSrc: "content/demo.jpg"
+        imageSrc: "content/rttheader2.jpg"
       },
       {
         id: 2,
