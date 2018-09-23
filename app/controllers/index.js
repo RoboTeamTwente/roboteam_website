@@ -13,19 +13,21 @@ export default Controller.extend({
         id: 0,
         title:    "On the road to Sydney 2019",
         subtitle: "Watch our journey",
-        imageSrc: "content/sydney.jpg"
+        imageSrc: "content/sydney.jpg",
       },
       {
         id: 1,
-        title:    "RoboTeamTwente at your event?",
-        subtitle: "We are always interested in becoming partners",
-        imageSrc: "content/rttheader2.jpg"
+        title:    "RoboTeam Twente at your event?",
+        subtitle: "Let's become partners!",
+        imageSrc: "content/rttheader2.jpg",
+        link: "partners"
       },
       {
         id: 2,
         title:    "Meet the new team for 2018/2019",
         subtitle: "Get to know us!",
-        imageSrc: "content/team.JPG"
+        imageSrc: "content/team.JPG",
+        link: "team"
       }
     ];
   },

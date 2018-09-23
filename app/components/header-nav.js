@@ -13,13 +13,14 @@ export default Component.extend({
           link: 'team'
         },
         {
+          name: 'Technology',
+          link: 'documentation'
+        },
+        {
           name: 'Partners',
           link: 'partners'
         },
-        {
-          name: 'Documentation',
-          link: 'documentation'
-        },
+      
         {
           name: 'Contact',
           link: 'contact'

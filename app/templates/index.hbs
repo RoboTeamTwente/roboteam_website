@@ -11,10 +11,12 @@
   </div>
   <div class="row">
     <div class="col-12">
-      <h1 class="header-image-title text-white mt-0 mt-md-5 ml-2 ml-md-5 pl-2 pl-md-5">
-        {{selectedHeader.title}}
-      </h1>
-       <span class="header-image-title text-white mt-0 mt-md-5 ml-2 ml-md-5 pl-2 pl-md-5 subtitle"> {{selectedHeader.subtitle}} </span>
+      {{#link-to selectedHeader.link}}
+        <h1 class="header-image-title text-white mt-0 mt-md-5 ml-2 ml-md-5 pl-2 pl-md-5">
+          {{selectedHeader.title}}
+        </h1>
+        <span class="header-image-title text-white mt-0 mt-md-5 ml-2 ml-md-5 pl-2 pl-md-5 subtitle"> {{selectedHeader.subtitle}} </span>
+      {{/link-to}}
     </div>
   </div>
 </div>
@@ -63,15 +65,15 @@
   </div>
 
   {{img-banner
-    class="mt-5"
-    title="We believe robotics and artificial intelligence can make the world a better place if used correctly."
+    class="mt-5 pt-5 pb-5"
+    title="We believe robotics and artificial intelligence can make the world a better place"
     subtitle="Learn more about why we do what we do"
     link="robocup"
     imageSrc="images/ai.jpg"
   }}
 
   {{!-- inspiration content block --}}
-  <div class="row pt-5 pb-5 justify-content-center">
+  <div class="row pt-5 pb-5">
     <div class="col-12 col-md-7">
       <h1> Inspiration </h1>
       <p>
@@ -80,14 +82,11 @@
       interesting workshops where everybody can create tactics using a special-built graphical interface.
       </p>
 
-      <p>
-        Be sure to contact us!
-      </p>
     </div>
   </div>
 
   {{img-banner
-    class="mt-5"
+    class="mt-5 pt-5"
     title="The RoboTeam is a group of 15 students from more than 6 different studies"
     subtitle="Look who we are and why we are in the team"
     link="team"
@@ -95,7 +94,7 @@
   }}
 
   {{!-- Innovation content block --}}
-  <div class="row pt-5 pb-5 justify-content-center">
+  <div class="row pt-5 pb-5">
     <div class="col-12 col-md-7">
       <h1> Innovation </h1>
       <p>

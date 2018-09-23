@@ -37,6 +37,11 @@ ul {
 
 a {
   color: #cc0000;
+
+  &:hover {
+    color: #aa0000;
+
+  }
 }
 
 .link {
