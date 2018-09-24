@@ -10,17 +10,17 @@ export default Controller.extend({
 
     this.headers = [
       {
-        id: 0,
-        title:    "On the road to Sydney 2019",
-        subtitle: "Watch our journey",
-        imageSrc: "content/sydney.jpg",
-      },
-      {
         id: 1,
         title:    "RoboTeam Twente at your event?",
         subtitle: "Let's become partners!",
         imageSrc: "content/rttheader2.jpg",
         link: "partners"
+      },
+      {
+        id: 0,
+        title:    "On the road to Sydney 2019",
+        subtitle: "Watch our journey",
+        imageSrc: "content/sydney.jpg",
       },
       {
         id: 2,
