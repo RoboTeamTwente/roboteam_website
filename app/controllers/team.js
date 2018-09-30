@@ -1,14 +1,15 @@
-import Ember from 'ember';
 import Controller from '@ember/controller';
 
 export default Controller.extend({
   selectedMember: null,
+  sideBarOpen: false,
   actions: {
     selectMember(id) {
       this.set('selectedMember', this.store.peekRecord('member', id));
+      this.set('sideBarOpen', true);
     },
     deselectMember() {
-      this.set('selectedMember', null);
+      this.set('sideBarOpen', false);
     }
   }
 });

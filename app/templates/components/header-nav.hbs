@@ -3,12 +3,12 @@
 
     {{!-- Our beautiful logo! --}}
     {{#link-to "index"}}
-      <img class="header-logo ml-3 mr-0 mr-lg-4" src="images/header-logo.png">
+      <img class="header-logo ml-3 mr-0 mr-lg-4" alt="RoboTeam Twente" src="images/header-logo.png">
       <span class="nav-link d-inline d-lg-none text-light"> RoboTeam Twente </span>
     {{/link-to}}
 
     {{!-- Menu button for mobile devices --}}
-    <button class="d-block d-lg-none hamburger hamburger--squeeze {{if showMobileMenu 'is-active'}}" type="button" {{action 'toggleMobileMenu'}}>
+    <button class="d-block d-lg-none hamburger hamburger--squeeze {{if showMobileMenu 'is-active'}}" type="button" {{action "toggleMobileMenu"}}>
       <span class="hamburger-box">
         <span class="hamburger-inner"></span>
       </span>
@@ -30,7 +30,7 @@
 </nav>
 
 {{!-- Menu overlay for mobile devices --}}
-<div class="mobile-menu {{if showMobileMenu 'visible'}} d-block d-lg-none pl-4" {{action 'closeMobileMenu'}}>
+<div class="mobile-menu {{if showMobileMenu 'visible'}} d-block d-lg-none pl-4" {{action "closeMobileMenu"}}>
   <div class="container">
     {{#each menuItems as |item|}}
       {{#link-to item.link}}

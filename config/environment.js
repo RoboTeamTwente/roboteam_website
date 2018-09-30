@@ -5,7 +5,6 @@ module.exports = function(environment) {
     modulePrefix: 'roboteam-website',
     environment,
     rootURL: '/',
-    locationType: 'auto',
     locationType: 'router-scroll',
     historySupportMiddleware: true,
     EmberENV: {

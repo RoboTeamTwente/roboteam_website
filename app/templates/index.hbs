@@ -1,13 +1,16 @@
 {{!-- preload all header backgrounds --}}
+
 {{#each headers as |header|}}
-  <img class="header-image {{if (eq header.id selectedHeader.id) 'visible'}}" src={{header.imageSrc}} alt={{header.title}}>
+  <img class="header-image {{if (eq header.id selectedHeader.id) 'visible'}}" src={{header.imageSrc}} alt={{header.title}}
+  >
 {{/each}}
+
 <div class="gradient"></div>
 
 {{!-- Title and subtitle --}}
-<div class="container" style="height: 560px;">
+<div class="container frontpage-header">
   <div class="row justify-content-center">
-    <img class="header-rtt-logo col-12 pt-5" src="images/rtt_logo_medium.png">
+    <img class="header-rtt-logo col-12 pt-5" alt="RoboTeam Twente" src="images/rtt_logo_medium.png">
   </div>
   <div class="row">
     <div class="col-12">
@@ -28,7 +31,7 @@
       <div class="news-item col border-bottom border-right pl-3 pr-5 pt-3 pb-3 {{if (eq header.id selectedHeader.id) 'active'}}" {{action 'selectHeader' header.id}}>
         <h4 class=""> {{header.title}} </h4>
         <span class="text-muted"> {{header.subtitle}} </span>
-       </div>
+      </div>
     {{/each}}
   </div>
 </div>
@@ -60,7 +63,7 @@
 
     {{!-- Youtube video --}}
     <div class="col-12 col-md-5 mt-5">
-      <iframe style="width: 100%" height="280px" src="https://www.youtube.com/embed/o5aIkALemNs?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <iframe class="max-width" height="280px" src="https://www.youtube.com/embed/o5aIkALemNs?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
   </div>
 
@@ -77,69 +80,66 @@
     <div class="col-12 col-md-6">
       <h1> Inspiration </h1>
       <p>
-      Besides our effort to win the RoboCup, we also aim to inspire and educate people about Artificial intelligence and robotics.
-      We do this by attending events from companies and by visiting high schools. RoboTeam Twente offers live demonstrations of our football robots, but also inspiring talks about Artificial Intelligence,
-      interesting workshops where everybody can create tactics using a special-built graphical interface.
+        Besides our effort to win the RoboCup, we also aim to inspire and educate people about Artificial intelligence and robotics.
+        We do this by attending events from companies and by visiting high schools. RoboTeam Twente offers live demonstrations of our football robots, but also inspiring talks about Artificial Intelligence,
+        interesting workshops where everybody can create tactics using a special-built graphical interface.
       </p>
     </div>
     <div class="col-12 col-md-6">
       <h1> Innovation </h1>
       <p>
         Within the roboteam a lot of time is spent on innovation. Last year one of the main innovations of RoboTeam Twente was the Geneva Drive.
-         You can read all about our innovations in our team description papers in the {{#link-to 'documentation'}} documentation {{/link-to}}
-         part of our website.
+        You can read all about our innovations in our team description papers in the {{#link-to 'documentation'}} documentation {{/link-to}} part of our website.
       </p>
     </div>
   </div>
 
   {{img-banner
-  class="mt-5"
-  title="The RoboTeam is a group of 15 students from more than 6 different studies"
-  subtitle="Look who we are and why we are in the team"
-  link="team"
-  imageSrc="content/team.JPG"
-}}
+    class="mt-5"
+    title="The RoboTeam is a group of 15 students from more than 6 different studies"
+    subtitle="Look who we are and why we are in the team"
+    link="team"
+    imageSrc="content/team.JPG"
+  }}
 
 
-<!-- LightWidget WIDGET -->
-
-<h1 class="mt-5 pt-5"> Follow us on Instagram! </h1>
-<script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/b3f9f84fb8625a868870d3c69ae57981.html" scrolling="no" allowtransparency="true" class="lightwidget-widget mb-5" style="width:100%;border:0;overflow:hidden;"></iframe>
+  {{!-- Lightwidget Instagram widget--}}
+  <h1 class="mt-5 pt-5"> Follow us on Instagram! </h1>
+  <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/b3f9f84fb8625a868870d3c69ae57981.html" scrolling="no" allowtransparency="true" class="lightwidget-widget instagram-widget mb-5"></iframe>
 </div>
-
-
 
 {{!-- partners content block (full width) --}}
 <div class="container-fluid p-5">
-    <div class="row justify-content-center">
-      <h1 class="col-12 mt-5 pt-5" style="text-align: center"> Our partners </h1>
+  <div class="row justify-content-center">
+    <h1 class="col-12 mt-5 pt-5 text-centered"> Our partners </h1>
 
-      <img class="sponsor col-4 col-md-2" src="content/partners/gigabyte/nexperia.png">
-      <img class="sponsor col-4 col-md-2" src="content/partners/gigabyte/utwente.jpg">
-      <img class="sponsor col-4 col-md-2" src="content/partners/gigabyte/xsens.jpg">
-      <img class="sponsor col-4 col-md-2" src="content/partners/gigabyte/novelt.png">
-      <img class="sponsor col-4 col-md-2" src="content/partners/gigabyte/maxon.jpg">
-      <img class="sponsor col-4 col-md-2" src="content/partners/gigabyte/q8.png">
+    <img class="sponsor col-4 col-md-2" alt="Nexperia" src="content/partners/gigabyte/nexperia.png">
+    <img class="sponsor col-4 col-md-2" alt="University of Twente" src="content/partners/gigabyte/utwente.jpg">
+    <img class="sponsor col-4 col-md-2" alt="XSens" src="content/partners/gigabyte/xsens.jpg">
+    <img class="sponsor col-4 col-md-2" alt="Novel-T" src="content/partners/gigabyte/novelt.png">
+    <img class="sponsor col-4 col-md-2" alt="Maxon" src="content/partners/gigabyte/maxon.jpg">
+    <img class="sponsor col-4 col-md-2" alt="Q8" src="content/partners/gigabyte/q8.png">
 
-      <img class="sponsor col-4 col-md-2" src="content/partners/gigabyte/hemabo.jpg">
-      <img class="sponsor col-4 col-md-2" src="content/partners/megabyte/altium.jpg">
-      <img class="sponsor col-4 col-md-2" src="content/partners/megabyte/basler.png">
-      <img class="sponsor col-4 col-md-2" src="content/partners/megabyte/betterbe.png">
-      <img class="sponsor col-4 col-md-2" src="content/partners/megabyte/demcon.jpg">
-      <img class="sponsor col-4 col-md-2" src="content/partners/megabyte/designlab.jpg">
+    <img class="sponsor col-4 col-md-2" alt="Hemabo" src="content/partners/gigabyte/hemabo.jpg">
+    <img class="sponsor col-4 col-md-2" alt="Altium" src="content/partners/megabyte/altium.jpg">
+    <img class="sponsor col-4 col-md-2" alt="Basler" src="content/partners/megabyte/basler.png">
+    <img class="sponsor col-4 col-md-2" alt="Better Be" src="content/partners/megabyte/betterbe.png">
+    <img class="sponsor col-4 col-md-2" alt="Demcon" src="content/partners/megabyte/demcon.jpg">
+    <img class="sponsor col-4 col-md-2" alt="Designlab" src="content/partners/megabyte/designlab.jpg">
 
-      <img class="sponsor col-4 col-md-1" src="content/partners/megabyte/eurocircuits.png">
-      <img class="sponsor col-4 col-md-1" src="content/partners/megabyte/ovsoftware.png">
-      <img class="sponsor col-4 col-md-1" src="content/partners/megabyte/rs.png">
-      <img class="sponsor col-4 col-md-1" src="content/partners/megabyte/smans.jpg">
-      <img class="sponsor col-4 col-md-2" src="content/partners/kilobyte/ic.jpg">
-      <img class="sponsor col-4 col-md-2" src="content/partners/kilobyte/jbtech.png">
-      <img class="sponsor col-4 col-md-2" src="content/partners/kilobyte/neonode.png">
-      <img class="sponsor col-4 col-md-1" src="content/partners/byte/egberts.jpg">
-      <img class="sponsor col-4 col-md-2" src="content/partners/byte/farnel.png">
-      <img class="sponsor col-4 col-md-2" src="content/partners/byte/kramp.png">
-      <img class="sponsor col-4 col-md-2" src="content/partners/byte/rinarck.jpg">
-      <img class="sponsor col-4 col-md-1" src="content/partners/byte/tti.jpg">
-      <img class="sponsor col-4 col-md-2" src="content/partners/byte/vink.png">
+    <img class="sponsor col-4 col-md-2" alt="Nuclino" src="content/partners/kilobyte/nuclino.png">
+    <img class="sponsor col-4 col-md-1" alt="Eurocircuits" src="content/partners/megabyte/eurocircuits.png">
+    <img class="sponsor col-4 col-md-1" alt="ovSoftware" src="content/partners/megabyte/ovsoftware.png">
+    <img class="sponsor col-4 col-md-1" alt="RS" src="content/partners/megabyte/rs.png">
+    <img class="sponsor col-4 col-md-1" alt="Smans" src="content/partners/megabyte/smans.jpg">
+    <img class="sponsor col-4 col-md-2" alt="IC" src="content/partners/kilobyte/ic.jpg">
+    <img class="sponsor col-4 col-md-2" alt="JB Tech" src="content/partners/kilobyte/jbtech.png">
+    <img class="sponsor col-4 col-md-2" alt="NeoNode" src="content/partners/kilobyte/neonode.png">
+    <img class="sponsor col-4 col-md-1" alt="Egberts" src="content/partners/byte/egberts.jpg">
+    <img class="sponsor col-4 col-md-2" alt="Farnel" src="content/partners/byte/farnel.png">
+    <img class="sponsor col-4 col-md-2" alt="Kramp" src="content/partners/byte/kramp.png">
+    <img class="sponsor col-4 col-md-2" alt="Rinarck" src="content/partners/byte/rinarck.jpg">
+    <img class="sponsor col-4 col-md-1" alt="TTI" src="content/partners/byte/tti.jpg">
+    <img class="sponsor col-4 col-md-2" alt="Vink" src="content/partners/byte/vink.png">
   </div>
 </div>
