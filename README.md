@@ -2,6 +2,18 @@
 This repository holds the website for RoboTeam Twente.
 It is a frontend-only website build with Ember. It is designed to be easily extended by a backend if that would be a desired feature later on.
 
+
+# Roadmap
+Currently the website, which is on version 1, runs on pure Ember.js with it's contents hardcoded as JSON strings. Version 2 will be more advanced and use a small custom-made backend to add and edit content. FireBase with the EmberFire plugin will provide for this features.
+
+## Upcoming in V2
+- Administration page
+- Events page
+- News 
+- Probably much more...
+
+# installation
+
 ## Prerequisites
 You will need the following things properly installed on your computer.
 
