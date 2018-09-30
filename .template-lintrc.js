@@ -1,5 +1,11 @@
 'use strict';
 
 module.exports = {
-  extends: 'recommended'
+  extends: 'recommended',
+
+   rules: {
+    'attribute-indentation': false,
+    'no-invalid-interactive': false,
+    'quotes': false
+  }
 };

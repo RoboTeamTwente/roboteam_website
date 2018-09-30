@@ -5,36 +5,37 @@
       <span class="link"> View previous teams </span>
     {{/link-to}}
     <div class="row mb-5 pb-5">
-    {{#each model as |member|}}
-      <div class="col-6 mt-5 col-sm-4 col-md-3 col-xl-2 link" {{action 'selectMember' member.id}}>
-        <img src={{member.imageSrc}} style="width: 100%">
-        <h5 class="mb-0"> {{member.name}} </h5>
-        {{member.role}}
-      </div>
+      {{#each model as |member|}}
+        <div class="col-6 mt-5 col-sm-4 col-md-3 col-xl-2 link" {{action 'selectMember' member.id}}>
+          <img class="max-width" alt={{member.name}} src={{member.imageSrc}}>
+          <h5 class="mb-0"> {{member.name}} </h5>
+          {{member.role}}
+        </div>
       {{/each}}
     </div>
   </div>
 </div>
 
 <div class="backdrop {{if selectedMember 'visible'}}" {{action 'deselectMember'}}> </div>
-  <div class="slideModal {{if selectedMember 'visible'}} p-0">
-    <div class="container">
+
+<div class="slideModal {{if selectedMember 'visible'}} p-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mt-5 p-5">
         <div class="row">
-          <div class="col-12 mt-5 p-5">
-            <div class="row">
-              <div class="col-12 col-md-6">
-                <img src={{selectedMember.imageSrc}} style="width: 100%">
-              </div>
-              <div class="col-12 col-md-6">
-                <h3 class="mt-2 pt-2"> {{selectedMember.name}} </h3>
-                {{selectedMember.role}} <br>
-                {{selectedMember.study}} <br>
-            </div>
+          <div class="col-12 col-md-6">
+            <img class="max-width" alt={{selectedMember.name}} src={{selectedMember.imageSrc}}>
+          </div>
+          <div class="col-12 col-md-6">
+            <h3 class="mt-2 pt-2"> {{selectedMember.name}} </h3>
+            {{selectedMember.role}} <br>
+            {{selectedMember.study}} <br>
           </div>
         </div>
-        <div class="col-12 pl-5 pr-5 pt-2 pb-5">
-          <span> {{selectedMember.storyFormatted}} </span>
-        </div>
       </div>
+      <div class="col-12 pl-5 pr-5 pt-2 pb-5">
+        <span> {{selectedMember.storyFormatted}} </span>
+      </div>
+    </div>
   </div>
 </div>

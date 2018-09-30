@@ -71,3 +71,15 @@ h2 {
     font-size: 2rem;
   }
 }
+
+img.max-width {
+  max-width: 100%;
+}
+
+img.contain {
+  object-fit: contain;
+}
+
+.text-centered {
+  text-align: center;
+}
