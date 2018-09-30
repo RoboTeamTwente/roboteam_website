@@ -9,6 +9,7 @@ export default Model.extend({
   imageSrc: attr('string'),
   role: attr('string'),
   study: attr('string'),
+  mail: attr('string'),
   story: attr('string'),
 
   storyFormatted: computed('story', function(){
