@@ -1,4 +1,7 @@
 # roboteam-website
+
+[![Build Status](https://travis-ci.com/RoboTeamTwente/roboteam_website.svg?branch=master)](https://travis-ci.com/RoboTeamTwente/roboteam_website)
+
 This repository holds the website for RoboTeam Twente.
 It is a frontend-only website build with Ember. It is designed to be easily extended by a backend if that would be a desired feature later on.
 
