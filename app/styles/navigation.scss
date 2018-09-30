@@ -17,6 +17,10 @@
   font-family: 'Roboto Condensed', sans-serif;
 }
 
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+}
+
 .mobile-menu {
   background-color: rgba(230, 230, 230, 0.95);
   position: fixed;
@@ -36,5 +40,11 @@
     opacity: 1;
     pointer-events: auto;
 
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .nav-link {
+    font-size: 1.3rem;
   }
 }
