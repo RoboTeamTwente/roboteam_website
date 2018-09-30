@@ -3,8 +3,10 @@
 
     {{!-- Our beautiful logo! --}}
     {{#link-to "index"}}
-      <img class="header-logo ml-3 mr-0 mr-lg-4" alt="RoboTeam Twente" src="images/header-logo.png">
-      <span class="nav-link d-inline d-lg-none text-light"> RoboTeam Twente </span>
+      <span {{action "closeMobileMenu"}}> 
+        <img class="header-logo ml-3 mr-0 mr-lg-4" alt="RoboTeam Twente" src="images/header-logo.png">
+        <span class="nav-link d-inline d-lg-none text-light"> RoboTeam Twente </span>
+      </span>
     {{/link-to}}
 
     {{!-- Menu button for mobile devices --}}
