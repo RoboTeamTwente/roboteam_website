@@ -42,7 +42,7 @@ export default Route.extend({
                 name: "Rolf van der Hulst",
                 imageSrc: "content/teampictures/rolf.JPG",
                 role: "Treasurer & AI development",
-                mail: "r.vd.hulst@roboteamtwente.nl",
+                mail: "r.vanderhulst@roboteamtwente.nl",
                 study: "ATLAS University College",
                 story: `Hey, I am Rolf van der Hulst. After doing ATLAS (UCT) as bachelor I wanted a challenge that was something different than just studying and would also allow me to develop other skills. Since I'm only 20 years old, I did not want to start a master immediately and wanted to take this opportunity to do other activities. In my case, this turned out to be RoboTeam.
                         My internal function is mostly being a member of the software team. I will be working on the AI of our robots mostly, specifically the more mathematically intensive parts of our system.  Next to that, I am also a board member and treasurer of the RoboTeam, keeping track of all the finances.
@@ -114,7 +114,7 @@ I am participating in the team because I wanted to take a step in a different di
                 name: "Antonio Sanchez-Martin",
                 imageSrc: "content/teampictures/antonio.JPG",
                 role: "Electronics",
-                mail: "a.sanchez-martin@roboteamtwente.nl",
+                mail: "a.s.martin@roboteamtwente.nl",
                 study: "Electrical Engineering",
                 story: `My name's Antonio and I am a BSc Electrical Engineering student at the UT. I come from Spain, but I came to the Netherlands seeking a more practical education and new experiences that only a different country can bring. Alongside the other students in the electronics team, I will help/take care of programming microcontrollers, anything involving voltages and currents, fixing robots when needed, and other stuff. I joined the RoboTeam because… it looked like fun! The idea of working with other students to make robots which (on their own!) would try to win in a soccer match seemed amazing. Along the way, I would like to learn how it is to work with other people in a large-scale project, which will provide experience unlike anything a degree may offer. Besides, I am interested in the field of Embedded Systems for the future, so this can give me a real-life taste of how it would be.`
               },
@@ -213,7 +213,7 @@ During my last three university years I did not have the time to participate in 
                 name: "Pepijn de Vos",
                 imageSrc: "content/teampictures/pepijn.JPG",
                 role: "Electronics",
-                mail: "p.vos@roboteamtwente.nl",
+                mail: "p.devos@roboteamtwente.nl",
                 study: "Electrical Engineering",
                 story: `I'm Pepijn de Vos. Right out of school I started my own business as a software developer, but after a few years of making web applications I got bored with my job and decided to study Electrical Engineering. I just finished my bachelor this year, and am now starting my master, while also having a part-time job at the Robotics and Mechatronics department, and being a part-time member of RoboTeam.
 Due to my experience as both an electrical engineer and software developer, I will be working on both ends, connecting everything together, literally! My first project will be the wireless communication between the strategy code on the base station and the robots. I was working on my bachelor assignment in Integrated Circuit Design, when I felt the itch to write some code. I asked a friend in the team if I could play around with their code, after which they proceeded to pressure me into a full-time board position in the new team. I managed to negotiate a part-time position after all haha. Because they did not let me play with their code just before the competition, I ended up making my own soccer robot from Lego.`
