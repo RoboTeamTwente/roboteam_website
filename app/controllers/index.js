@@ -1,12 +1,11 @@
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 export default Controller.extend({
-  interval: null,
+  poll: service(),
   init() {
     this._super(...arguments);
-    this.autoPlayHeaders();
-
     this.headers = [
       {
         id: 0,
@@ -29,15 +28,8 @@ export default Controller.extend({
         link: "team"
       }
     ];
-  },
 
-  // this function lets the header images change over a time interval
-  autoPlayHeaders() {
-    let self = this;
-    let interval = setInterval(function() {
-      self.set('selectedHeader', self.get('headers').objectAt((self.get('selectedHeader').id + 1) % self.get('headers').length));
-    }, 10000)
-    this.set('interval', interval);
+    this.createPollingRequest();
   },
 
   // Return the selected header
@@ -45,13 +37,28 @@ export default Controller.extend({
     return this.get('headers').objectAt(0);
   }),
 
+  // Make a poll request to change the header automatically
+  createPollingRequest() {
+     let autoChangeHeader = () => { 
+        this.set('selectedHeader', this.get('headers').objectAt((this.get('selectedHeader').id + 1) % this.get('headers').length));
+      }
+      let pollingRequest = this.get('poll').addPoll({
+        interval: 10 * 1000, // 5 seconds
+        callback: autoChangeHeader
+      });
+      this.set('pollingRequest', pollingRequest);
+  },
+
   actions: {
+    willTransition() {
+      this.get('poll').stopPoll(this.get('pollingRequest'));
+    },
     selectHeader(id) {
       this.set('selectedHeader', this.get('headers').objectAt(id));
 
-      // make sure to reset the automatic interval after click
-      clearInterval(this.get('interval'));
-      this.autoPlayHeaders();
+      // restart the interval
+      this.get('poll').clearAll();
+      this.createPollingRequest();
     }
   }
 });
