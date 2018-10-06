@@ -7,13 +7,14 @@ module.exports = function(environment) {
     rootURL: '/',
     locationType: 'router-scroll',
     historySupportMiddleware: true,
-    firebase:
+    firebase: {
       apiKey: "AIzaSyAtC4bf4lKOfp01F1LXSVKL4dDVIxOg1lE",
       authDomain: "roboteamtwentesite.firebaseapp.com",
       databaseURL: "https://roboteamtwentesite.firebaseio.com",
       projectId: "roboteamtwentesite",
       storageBucket: "roboteamtwentesite.appspot.com",
       messagingSenderId: "422324353918"
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
