@@ -14,6 +14,7 @@ Router.map(function() {
   this.route('partners')
   this.route('documentation')
   this.route('contact')
+  this.route('login')
   this.route('previousteams')
 
 });
