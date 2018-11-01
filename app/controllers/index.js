@@ -40,7 +40,7 @@ export default Controller.extend({
    
       {     
         id: 0,
-        imageSrc: "content/headers/still.jpg",
+        imageSrc: "content/circuit.jpg",
       }
     ];
 
