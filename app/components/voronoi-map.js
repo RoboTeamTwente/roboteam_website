@@ -1,57 +1,77 @@
-
-import { select, mouse } from 'd3-selection'
-import { range } from 'd3-array'
-import { path } from 'd3-path'
-import { transition } from 'd3-transition'
+import { select } from 'd3-selection'
 import { Delaunay } from 'd3-delaunay'
-import { randomUniform } from 'd3-random'
-import { scaleLinear } from 'd3-scale';
+import { interval } from 'd3-timer'
 import Component from '@ember/component';
-import { inject as service } from '@ember/service';
 
 export default Component.extend({
 	height: 560,
 	didInsertElement() {
-		let width = window.innerWidth;
-		let height = this.get('height');
-
-  		const points = Array.from({length: 44}, () => [Math.random() * width, Math.random() * height]);
+		let amountOfParticles = 22;
+		let maxParticleSpeed = .5;
+		let width;
+		let height;
+		let canvas;
+		let context;
+		let points;
+		let movements;
 		let container = document.getElementById("voronoi-map");
-		let canvas = select(container).append('canvas').attr('width', width).attr('height', height);
-		let context = canvas.node().getContext("2d");
+
+
+		let initialize = () => {
+			width = window.innerWidth;
+			height = this.get('height');
+			canvas = select(container).append('canvas').attr('width', width).attr('height', height);
+			context = canvas.node().getContext("2d");
+			points = Array.from({length: amountOfParticles}, () => [Math.random() * width, Math.random() * height]);
+			movements = Array.from({length: amountOfParticles}, () => [Math.random() * (maxParticleSpeed*2) - maxParticleSpeed, Math.random() * (maxParticleSpeed*2) - maxParticleSpeed]);
+		}
 
 		let update = () => {
+			for (let i = 0; i<points.length; i++) {
+				points[i][0] += movements[i][0];
+				points[i][1] += movements[i][1];
+
+				if (points[i][0] > width || points[i][0] < 0 ) { movements[i][0] = -movements[i][0] }
+				if (points[i][1] > height || points[i][1] < 0) { movements[i][1] = -movements[i][1] }
+
+			}
 
 			const delaunay = Delaunay.from(points);
 			const voronoi = delaunay.voronoi([0, 0, width, height]);
 
-		    context.clearRect(0, 0, width, height);
+			context.clearRect(0, 0, width, height);
 
-		    context.beginPath();
-		    delaunay.render(context);
-		    context.strokeStyle = "rgba(0, 165, 255, .2)";
-		    context.stroke();
+			// delaunay vectors
+			context.beginPath();
+			delaunay.render(context);
+			context.strokeStyle = "rgba(150, 150, 200, .1)";
+			context.stroke();
 
-		 	context.beginPath();
-		    voronoi.render(context);
-		    voronoi.renderBounds(context);
-		    context.strokeStyle = "rgba(0, 165, 255, .5)";
-		    context.strokeOpacity = .4;
-		    context.stroke();
+			// voronoi bounds
+			context.beginPath();
+			voronoi.render(context);
+			voronoi.renderBounds(context);
+			context.strokeStyle = "rgba(120, 150, 200, .2)";
+			context.strokeOpacity = .4;
+			context.stroke();
 
-		    context.beginPath();
-		    delaunay.renderPoints(context, 5);
-		    context.fillStyle = "rgba(0, 165, 255, .4)";
-		    context.fill();
+			// the points
+			context.beginPath();
+			delaunay.renderPoints(context, 3);
+			context.fillStyle = "rgba(120, 150, 200, .3)";
+			context.fill();
 		}
 
+		initialize();
 		update();
 
-		context.canvas.ontouchmove = 
-		  context.canvas.onmousemove = event => {
-		    event.preventDefault();
-		    points[0] = [event.layerX, event.layerY];
-		    update();
+		interval(update, 10);
+
+		window.addEventListener("resize", initialize);
+		context.canvas.ontouchmove = context.canvas.onmousemove = event => {
+			event.preventDefault();
+			points[0] = [event.layerX, event.layerY];
+			update();
 		};
 	}
 });
