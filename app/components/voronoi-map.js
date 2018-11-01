@@ -15,42 +15,45 @@ export default Component.extend({
 		let width = window.innerWidth;
 		let height = this.get('height');
 
-  		const points = Array.from({length: 22}, () => [Math.random() * width, Math.random() * height]);
+  		const points = Array.from({length: 44}, () => [Math.random() * width, Math.random() * height]);
 		let container = document.getElementById("voronoi-map");
 		let canvas = select(container).append('canvas').attr('width', width).attr('height', height);
 		let context = canvas.node().getContext("2d");
 
-	let update = () => {
+		let update = () => {
 
-		const delaunay = Delaunay.from(points);
-		const voronoi = delaunay.voronoi([0, 0, width, height]);
+			const delaunay = Delaunay.from(points);
+			const voronoi = delaunay.voronoi([0, 0, width, height]);
 
-	    context.clearRect(0, 0, width, height);
+		    context.clearRect(0, 0, width, height);
 
-	    context.beginPath();
-	    delaunay.render(context);
-	    context.strokeStyle = "#ccc";
-	    context.stroke();
+		    context.beginPath();
+		    delaunay.render(context);
+		    context.strokeStyle = "rgba(0, 165, 255, .2)";
+		    context.stroke();
 
-	 	context.beginPath();
-	    voronoi.render(context);
-	    voronoi.renderBounds(context);
-	    context.strokeStyle = "#00ff00";
-	    context.stroke();
+		 	context.beginPath();
+		    voronoi.render(context);
+		    voronoi.renderBounds(context);
+		    context.strokeStyle = "rgba(0, 165, 255, .5)";
+		    context.strokeOpacity = .4;
+		    context.stroke();
 
-	    context.beginPath();
-	    delaunay.renderPoints(context);
-	    context.fill();
+		    context.beginPath();
+		    delaunay.renderPoints(context, 5);
+		    context.fillStyle = "rgba(0, 165, 255, .4)";
+		    context.fill();
 		}
 
-update();
+		update();
+
 		context.canvas.ontouchmove = 
 		  context.canvas.onmousemove = event => {
 		    event.preventDefault();
 		    points[0] = [event.layerX, event.layerY];
 		    update();
-		  };
-  	}
+		};
+	}
 });
 
 
