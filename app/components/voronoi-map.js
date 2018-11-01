@@ -10,56 +10,47 @@ import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 
 export default Component.extend({
-	poll: service(),
+	height: 560,
 	didInsertElement() {
-  		this.createPollingRequest();
-	},
+		let width = window.innerWidth;
+		let height = this.get('height');
 
- 	// Make a poll request to change the header automatically
- 	createPollingRequest() {
+  		const points = Array.from({length: 22}, () => [Math.random() * width, Math.random() * height]);
+		let container = document.getElementById("voronoi-map");
+		let canvas = select(container).append('canvas').attr('width', width).attr('height', height);
+		let context = canvas.node().getContext("2d");
 
-			var svg = select("svg"),
-			    width = +svg.attr("width"),
-			    height = +svg.attr("height");
+	let update = () => {
 
-    		var x = scaleLinear().range([50, width]);
-			var y = scaleLinear().range([height, 50]);
+		const delaunay = Delaunay.from(points);
+		const voronoi = delaunay.voronoi([0, 0, width, height]);
 
-			var points = [];
-			var wanderDirections = [];
-			for (var i = 0; i < 22; i++) {
-			  var x = randomUniform(0,width)();
-			  var y = randomUniform(0,height)();
-			  points.push([x, y]);
+	    context.clearRect(0, 0, width, height);
 
-			    var wanderx = randomUniform(-10,10)();
-			  var wandery = randomUniform(-10,10)();
-			  wanderDirections.push[[wanderx,wandery]];
-			}
+	    context.beginPath();
+	    delaunay.render(context);
+	    context.strokeStyle = "#ccc";
+	    context.stroke();
 
- 		// D3 draw loop here
-        let loop = () => { 
+	 	context.beginPath();
+	    voronoi.render(context);
+	    voronoi.renderBounds(context);
+	    context.strokeStyle = "#00ff00";
+	    context.stroke();
 
+	    context.beginPath();
+	    delaunay.renderPoints(context);
+	    context.fill();
+		}
 
-        	for (let i = 0; i < wanderDirections.length; i++) {
-        		points[i][0] += wanderDirections[i][0];
-        		points[i][1] += wanderDirections[i][1];
-        	}
-
-			const delaunay = Delaunay.from(points);
-			const voronoi = delaunay.voronoi([0, 0, 960, 500]);
-		    var path = svg.append('path').attr('d', voronoi.render()).attr('stroke', 'red');
-		    for (let i = 0; i < delaunay.triangles.length; i++) {
-		      var path = svg.append('path').attr('d', delaunay.renderTriangle(i)).attr('stroke', 'gray').attr('fill', 'transparent');
-		    }
-      	}
-
-      let pollingRequest = this.get('poll').addPoll({
-        interval: 10, //10 milliseconds
-        callback: loop
-      });
-      this.set('pollingRequest', pollingRequest);
-  }
+update();
+		context.canvas.ontouchmove = 
+		  context.canvas.onmousemove = event => {
+		    event.preventDefault();
+		    points[0] = [event.layerX, event.layerY];
+		    update();
+		  };
+  	}
 });
 
 
