@@ -1,11 +1,9 @@
 {{!-- preload all header backgrounds --}}
 
 {{#each headers as |header|}}
-  <img class="header-image {{if (eq header.id selectedHeader.id) 'visible'}}" src={{header.imageSrc}} alt={{header.title}}
-  >
+  <img class="header-image {{if (eq header.id selectedHeader.id) 'visible'}}" src={{header.imageSrc}} alt={{header.title}}>
 {{/each}}
 
-<div class="gradient"></div>
 
 {{!-- Title and subtitle --}}
 <div class="container frontpage-header">
@@ -14,27 +12,32 @@
   </div>
   <div class="row">
     <div class="col-12">
-      {{#link-to selectedHeader.link}}
-        <h1 class="header-image-title text-white mt-5 ml-2 ml-md-5 pl-2 pl-md-5">
-          {{selectedHeader.title}}
-        </h1>
-        <span class="header-image-title text-white mt-0 mt-md-5 ml-2 ml-md-5 pl-2 pl-md-5 subtitle"> {{selectedHeader.subtitle}} </span>
-      {{/link-to}}
+      <h1 class="header-image-title text-white mt-5 pt-5">
+        {{headerTitle}}
+      </h1>
     </div>
   </div>
 </div>
 
-{{!-- Show the 'news-items' which are the blocks under the large header image --}}
-<div class="container-fluid d-none d-md-block">
-  <div class="row">
-    {{#each headers as |header|}}
-      <div class="news-item col border-bottom border-right pl-3 pr-5 pt-3 pb-3 {{if (eq header.id selectedHeader.id) 'active'}}" {{action 'selectHeader' header.id}}>
-        <h4 class=""> {{header.title}} </h4>
-        <span class="text-muted"> {{header.subtitle}} </span>
-      </div>
+{{!-- Articles --}}
+<div class="container">
+  <div class="row mt-5">
+    {{#each articles as |article|}}
+        <div class="col-4">
+          {{#link-to article.link}}
+            <img class="max-width" height="200" style="object-fit: cover" src={{article.imageSrc}} alt={{article.title}}>
+            <h4 class="text-dark mt-2">
+              {{article.title}}
+            </h4>
+            <span class="text-dark"> {{article.subtitle}} </span>
+          {{/link-to}}
+        </div>
     {{/each}}
   </div>
 </div>
+
+
+{{voronoi-map}}
 
 {{!-- Content --}}
 <div class="container">
