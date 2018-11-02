@@ -7,7 +7,7 @@ export default Component.extend({
 	height: 560,
 	didInsertElement() {
 		let amountOfParticles = 22;
-		let maxParticleSpeed = .5;
+		let maxParticleSpeed = .2;
 		let width;
 		let height;
 		let canvas;
@@ -44,21 +44,20 @@ export default Component.extend({
 			// delaunay vectors
 			context.beginPath();
 			delaunay.render(context);
-			context.strokeStyle = "rgba(150, 150, 200, .1)";
+			context.strokeStyle = "rgba(255, 255, 255, .1)";
 			context.stroke();
 
 			// voronoi bounds
 			context.beginPath();
 			voronoi.render(context);
 			voronoi.renderBounds(context);
-			context.strokeStyle = "rgba(120, 150, 200, .2)";
-			context.strokeOpacity = .4;
+			context.strokeStyle = "rgba(255, 255, 255, .1)";
 			context.stroke();
 
 			// the points
 			context.beginPath();
-			delaunay.renderPoints(context, 3);
-			context.fillStyle = "rgba(120, 150, 200, .3)";
+			delaunay.renderPoints(context, 5);
+			context.fillStyle = "rgba(255, 255, 255, .5)";
 			context.fill();
 		}
 
@@ -67,7 +66,6 @@ export default Component.extend({
 
 		interval(update, 10);
 
-		window.addEventListener("resize", initialize);
 		context.canvas.ontouchmove = context.canvas.onmousemove = event => {
 			event.preventDefault();
 			points[0] = [event.layerX, event.layerY];
