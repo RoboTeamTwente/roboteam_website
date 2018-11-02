@@ -1,19 +1,16 @@
 <div class="container">
   <div class="col-12 mt-5">
     <h1> RoboTeam Twente 2018/2019 </h1>
-
     <p> 
       {{#link-to 'previousteams'}}
         <span class="link"> View previous teams </span>
       {{/link-to}}
-
     </p>
     {{img-banner
       class="mt-5"
       imageSrc="content/team.JPG"
     }}
  
-
     <div class="row mb-5 pb-5">
       {{#each model as |member|}}
         <div class="col-6 mt-5 col-sm-4 col-md-3 col-xl-2 link" {{action 'selectMember' member.id}}>
@@ -27,7 +24,6 @@
 </div>
 
 <div class="backdrop {{if sideBarOpen 'visible'}}" {{action 'deselectMember'}}> </div>
-
 <div class="slideModal {{if sideBarOpen 'visible'}} p-0">
   <div class="container">
     <div class="row">
