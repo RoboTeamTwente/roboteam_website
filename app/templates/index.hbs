@@ -1,5 +1,7 @@
 <div class="gradient"> </div>
 
+{{!-- {{voronoi-map class="voronoi-map-holder" height=560}}
+ --}}
 {{!-- preload all header backgrounds --}}
 {{#each headers as |header|}}
   <img class="header-image {{if (eq header.id selectedHeader.id) 'visible'}}" src={{header.imageSrc}} alt={{header.title}}>
@@ -16,6 +18,12 @@
       <h1 class="header-image-title text-white mt-5 pt-5">
         {{headerTitle}}
       </h1>
+
+      {{#link-to 'crowdfunding'}}
+        <span class="header-image-subtitle text-white mt-5 pt-5">
+          We are currently running a crowdfunding campaign! Please support us by clicking here!
+        </span>
+      {{/link-to}}
     </div>
   </div>
 </div>
@@ -36,6 +44,7 @@
     {{/each}}
   </div>
 </div>
+
 
 {{!-- Content --}}
 <div class="container">
@@ -62,21 +71,19 @@
       </p>
     </div>
 
-    {{!-- Youtube video --}}
     <div class="col-12 col-md-5 mt-3 mt-md-5">
-
-      <iframe class="max-width" height="280px" src="https://www.youtube.com/embed/o5aIkALemNs?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <h1> We use Robotics and Artificial intelligence to create the best robot soccer team in the world </h1>
     </div>
   </div>
 </div>
 
-  {{img-banner
-    class="mt-5"
-    title="We believe robotics and artificial intelligence can make the world a better place"
-    subtitle="Why we do what we do"
-    link="robocup"
-    imageSrc="images/ai.jpg"
-  }}
+{{img-banner
+  class="mt-5"
+  title="We believe robotics and artificial intelligence can make the world a better place"
+  subtitle="Why we do what we do"
+  link="robocup"
+  imageSrc="images/ai.jpg"
+}}
 
 <div class="container">
   {{!-- inspiration and innovation content block --}}
@@ -97,18 +104,8 @@
       </p>
     </div>
   </div>
-
-  <div class="row pt-2 pt-md-5 justify-content-center">
-    {{counter-text class="m-5 p-5 col-8 text-centered"}}
-  </div>
 </div>
-  {{img-banner
-    class="mt-5"
-    title="The RoboTeam is a group of 15 students from more than 6 different studies"
-    subtitle="Look who we are and why we are in the team"
-    link="team"
-    imageSrc="content/team.JPG"
-  }}
+
 
 <div class="container">
   {{!-- Lightwidget Instagram widget--}}

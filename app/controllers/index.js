@@ -22,9 +22,9 @@ export default Controller.extend({
      {
         id: 1,
         title:    "Help us with our crowdfunding",
-        subtitle: "We need your help!",
-        imageSrc: "content/circuit.JPG",
-        link: "team"
+        subtitle: "We need your support!",
+        imageSrc: "content/rttheader2.jpg",
+        link: "crowdfunding"
       },
   
       {
