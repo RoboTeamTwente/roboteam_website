@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html>
+<title>RoboTeam Twente Soundboard</title>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+
+<style type="text/css">
+	body{
+		font-family: Arial, sans-serif;
+		color: white;
+		background-color: #bd0000;
+	}
+	table{
+		border: 5px solid white;
+		text-align: center;
+		font-size: 16px;
+		width: 92%;
+		margin: 0 auto;
+		border-spacing: 10px;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+	h1{
+		margin-bottom: 0px;
+	}
+	td{
+		color: black;
+		font-weight: bold;
+		background-color: white;
+		width: 12.5%;
+		height: 60px;
+	}
+	td:hover{
+		color: #bd0000;
+		background-color: #dfd2d2;
+		cursor: pointer;
+	}
+	.nosound{
+		background-color: white;
+	}
+	.nosound:hover{
+		color: black;
+		background-color: white;
+		cursor: default;
+	}
+	.audiofiles{
+		height: 0px;
+	}
+  </style>
+
+<script>
+    var currentsound;
+    function SoundBoard(soundobj) {
+        var thissound=document.getElementById(soundobj);
+        if(currentsound && currentsound != thissound){
+            currentsound.pause();
+        }
+        if(thissound.paused)
+            thissound.play();
+        else
+            thissound.pause();
+            thissound.currentTime = 0;
+            currentsound = thissound;
+        thissound.play();
+    }
+</script>
+    
+</head>
+<body>
+</div>
+
+<div class="audiofiles">
+<audio preload="auto" id="pils" src="sounds/pils.ogg"></audio>
+<audio preload="auto" id="bepaalikzelfwel" src="sounds/bepaalikzelfwel.ogg"></audio>
+<audio preload="auto" id="pushtomaster" src="sounds/pushtomaster.ogg"></audio>
+<audio preload="auto" id="whereskoen" src="sounds/whereskoen.ogg"></audio>
+<audio preload="auto" id="cakepoint" src="sounds/cakepoint.ogg"></audio>
+<audio preload="auto" id="segfault" src="sounds/seg.ogg"></audio>
+<audio preload="auto" id="wow" src="sounds/wow.ogg"></audio>
+<audio preload="auto" id="yes" src="sounds/yes.ogg"></audio>
+<audio preload="auto" id="gofix" src="sounds/gofix.ogg"></audio>
+<audio preload="auto" id="roob" src="sounds/roob.ogg"></audio>
+<!--
+<audio preload="auto" id="" src="sounds/.wav"></audio>
+<audio preload="auto" id="" src="sounds/.mp3"></audio>
+-->
+</div>
+
+<table>
+	<tr>
+		<th colspan="8"><h1>RoboTeam Twente Soundboard</h1></th>
+	</tr>
+	<tr>
+		<td onclick="SoundBoard('pils')">Pils!</td>
+        <td onclick="SoundBoard('bepaalikzelfwel')">Dat bepaal ik zelf wel</td>
+        <td onclick="SoundBoard('pushtomaster')">Never push to master</td>
+        <td onclick="SoundBoard('roob')">Roob!</td>
+    </tr>
+    <tr>
+        <td onclick="SoundBoard('whereskoen')">Where's Koen?</td>
+        <td onclick="SoundBoard('cakepoint')">Cakepoint?</td>
+        <td onclick="SoundBoard('segfault')">Segmentation fault</td>
+    </tr>
+    <tr>
+        <td onclick="SoundBoard('wow')">WOW!</td>
+        <td onclick="SoundBoard('yes')">yes</td>
+        <td onclick="SoundBoard('gofix')">Go fix!</td>
+    </tr>
+
+	<!--
+	onclick="SoundBoard('')"
+	-->
+	
+	<!--
+	Extra rij om toe te voegen
+	<tr>
+		<td class="nosound"></td>
+		<td class="nosound"></td>
+		<td class="nosound"></td>
+		<td class="nosound"></td>
+		<td class="nosound"></td>
+		<td class="nosound"></td>
+		<td class="nosound"></td>
+		<td class="nosound"></td>
+	</tr>
+	-->
+</table>
+
+</body>
+</html>
