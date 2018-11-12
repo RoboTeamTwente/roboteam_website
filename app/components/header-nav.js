@@ -9,6 +9,10 @@ export default Component.extend({
           link: 'robocup'
         },
         {
+          name: 'Crowdfunding',
+          link: 'crowdfunding'
+        },
+        {
           name: 'Team',
           link: 'team'
         },
@@ -20,7 +24,6 @@ export default Component.extend({
           name: 'Partners',
           link: 'partners'
         },
-      
         {
           name: 'Contact',
           link: 'contact'
