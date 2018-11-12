@@ -94,6 +94,10 @@ img.cover {
   .object-fit: cover 
 }  
 
+.no-pointer-events {
+  pointer-events: none;
+}
+
 .text-centered {
   text-align: center;
 }
