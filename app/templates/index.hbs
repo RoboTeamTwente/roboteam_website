@@ -1,36 +1,45 @@
-{{!-- preload all header backgrounds --}}
+<div class="gradient"> </div>
 
+{{!-- {{voronoi-map class="voronoi-map-holder" height=560}}
+ --}}
+{{!-- preload all header backgrounds --}}
 {{#each headers as |header|}}
-  <img class="header-image {{if (eq header.id selectedHeader.id) 'visible'}}" src={{header.imageSrc}} alt={{header.title}}
-  >
+  <img class="header-image {{if (eq header.id selectedHeader.id) 'visible'}}" src={{header.imageSrc}} alt={{header.title}}>
 {{/each}}
 
-<div class="gradient"></div>
 
 {{!-- Title and subtitle --}}
 <div class="container frontpage-header">
   <div class="row justify-content-center">
-    <img class="header-rtt-logo col-12 pt-5" alt="RoboTeam Twente" src="images/rtt_logo_medium.png">
+    <img class="header-rtt-logo col-12 pt-0 pt-md-5" alt="RoboTeam Twente" src="images/rtt_logo_medium.png">
   </div>
   <div class="row">
     <div class="col-12">
-      {{#link-to selectedHeader.link}}
-        <h1 class="header-image-title text-white mt-5 ml-2 ml-md-5 pl-2 pl-md-5">
-          {{selectedHeader.title}}
-        </h1>
-        <span class="header-image-title text-white mt-0 mt-md-5 ml-2 ml-md-5 pl-2 pl-md-5 subtitle"> {{selectedHeader.subtitle}} </span>
+      <h1 class="header-image-title text-white mt-5 pt-5">
+        {{headerTitle}}
+      </h1>
+
+      {{#link-to 'crowdfunding'}}
+        <span class="header-image-subtitle text-white mt-5 pt-5">
+          We are currently running a crowdfunding campaign! Please support us by clicking here!
+        </span>
       {{/link-to}}
     </div>
   </div>
 </div>
 
-{{!-- Show the 'news-items' which are the blocks under the large header image --}}
-<div class="container-fluid d-none d-md-block">
-  <div class="row">
-    {{#each headers as |header|}}
-      <div class="news-item col border-bottom border-right pl-3 pr-5 pt-3 pb-3 {{if (eq header.id selectedHeader.id) 'active'}}" {{action 'selectHeader' header.id}}>
-        <h4 class=""> {{header.title}} </h4>
-        <span class="text-muted"> {{header.subtitle}} </span>
+{{!-- Articles --}}
+<div class="container">
+  <div class="row mt-5">
+    {{#each articles as |article|}}
+      <div class="col-12 col-md-4 mb-5 mb-md-5">
+        {{#link-to article.link}}
+          <img class="max-width cover" height="200" src={{article.imageSrc}} alt={{article.title}}>
+          <h4 class="text-dark mt-2">
+            {{article.title}}
+          </h4>
+          <span class="text-dark"> {{article.subtitle}} </span>
+        {{/link-to}}
       </div>
     {{/each}}
   </div>
@@ -38,15 +47,22 @@
 
 {{!-- Content --}}
 <div class="container">
-  <div class="row mt-2 mt-md-5 justify-content-center">
-    <div class="col-12 col-md-7 mt-3 mt-md-5">
-      <h1> About the RoboTeam </h1>
+  <div class="row mt-2 mt-md-5">
+    <div class="col-12 col-md-7 mt-3 mt-md-6">
+      <h1> About us </h1>
       <p>
         RoboTeam Twente is a multidisciplinary team of students from the University of Twente.
         We aspire to innovate in both robotics and artificial intelligence.
         Next, we want to inspire everyone for these two sectors and show the world what can be achieved with them.
         We believe robotics and artificial intelligence can make the world a better place if used correctly.
       </p>
+    </div>
+
+    <div class="col-12 col-md-5 mt-md-3">
+      <h2 class="roboto font-weight-light font-italic mt-3 mt-md-5 pt-2 text-md-right mb-4 mb-md-0" > We use Robotics and Artificial intelligence to create the best robot soccer team in the world </h2>
+    </div>
+
+    <div class="col-12 mb-5">
       <p>
         Our medium to achieve these goals is the RoboCup, this year in Sydney.
         The RoboCup hosts multiple competitions for soccer and rescue robots as well as robots that can help at home or on the work floor.
@@ -60,25 +76,20 @@
         If you don’t want to miss anything of our progress and if you want to be notified when we are going to practice, follow us on Facebook or Linkedin!
       </p>
     </div>
-
-    {{!-- Youtube video --}}
-    <div class="col-12 col-md-5 mt-3 mt-md-5">
-      <iframe class="max-width" height="280px" src="https://www.youtube.com/embed/o5aIkALemNs?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
   </div>
 </div>
 
-  {{img-banner
-    class="mt-5 pt-2 pt-md-5 pb-2 pb-md-2"
-    title="We believe robotics and artificial intelligence can make the world a better place"
-    subtitle="Learn more about why we do what we do"
-    link="robocup"
-    imageSrc="images/ai.jpg"
-  }}
+{{img-banner
+  class="mt-5"
+  title="We believe robotics and artificial intelligence can make the world a better place"
+  subtitle="Learn more about our goal of winning the Robocup"
+  link="robocup"
+  imageSrc="images/ai.jpg"
+}}
 
-<div class="container">
+<div class="container mt-5">
   {{!-- inspiration and innovation content block --}}
-  <div class="row pt-2 pt-md-5">
+  <div class="row pt-2 pt-md-5 justify-content-center">
     <div class="col-12 col-md-6">
       <h1> Inspiration </h1>
       <p>
@@ -94,22 +105,23 @@
         You can read all about our innovations in our team description papers in the {{#link-to 'documentation'}} documentation {{/link-to}} part of our website.
       </p>
     </div>
+    <div class="col-6 mt-5 mb-5">
+      {{counter-text class="text-center"}}
+    </div>
   </div>
 </div>
-  {{img-banner
-    class="mt-5"
-    title="The RoboTeam is a group of 15 students from more than 6 different studies"
-    subtitle="Look who we are and why we are in the team"
-    link="team"
-    imageSrc="content/team.JPG"
-  }}
+
+{{img-banner
+  class="mt-5"
+  title="We currently have a crowdfunding campaign going on!"
+  subtitle="We can really use your help! Learn more about our crowdfunding campaign."
+  link="crowdfunding"
+  imageSrc="content/triangles.jpg"
+}}
 
 <div class="container">
-  {{!-- Lightwidget Instagram widget--}}
   <h1 class="mt-5 pt-5"> Follow us on Instagram! </h1>
-
   {{instagram-feed}}
-
 </div>
 
 {{!-- partners content block (full width) --}}
@@ -145,5 +157,42 @@
     <img class="sponsor col-4 col-md-2" alt="Rinarck" src="content/partners/byte/rinarck.jpg">
     <img class="sponsor col-4 col-md-1" alt="TTI" src="content/partners/byte/tti.jpg">
     <img class="sponsor col-4 col-md-2" alt="Vink" src="content/partners/byte/vink.png">
+  </div>
+</div>
+
+<div class="container"> 
+  <div class="row">
+    <div class="col-12">
+      <h1> Our crowdfunders! </h1>
+    </div>
+    <ul class="col-6">
+      <li> Wouter Lensing </li>
+      <li> Peter Hoekstra </li>
+      <li> Erna Brus </li>
+      <li> Dirk Hoekstra </li>
+      <li> Trix Rubbens-van Iersel </li>
+      <li> Trees van Braak </li>
+      <li> Elektrotechniek Ruurd Westra </li>
+      <li> Wouter van Veelen </li>
+      <li> Familie Wijers </li>
+      <li> R.C.H. Croll </li>
+      <li> Winnifred Blokland </li>
+      <li> Autoservice Timmer </li>
+      <li> Ornée & Vermeer Tekstbureau </li>
+    </ul>
+    <ul class="col-6">
+      <li> Corry & Peter van der Wal </li>
+      <li> Marc van Wessel </li>
+      <li> HKJ Hardnekkig </li>
+      <li> Bert Jan Offrein </li>
+      <li> Gerard de Groot </li>
+      <li> Familie Te Poele </li>
+      <li> Directus Calvatus </li>
+      <li> Anja en Jacco ten Berk de Boer </li>
+      <li> Familie Bijlsma </li>
+      <li> P.A.M. van Iersel </li>
+      <li> Han Wopereis </li>
+      <li> Frank van Iersel & Lotty van Minnen </li>
+    </ul>
   </div>
 </div>

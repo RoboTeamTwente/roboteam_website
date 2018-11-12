@@ -224,5 +224,4 @@ Due to my experience as both an electrical engineer and software developer, I wi
 
           return this.store.findAll('member');
       }
-
 });
