@@ -53,10 +53,14 @@
   height: 560px;
 }
 
-.instagram-widget {
-  width:100%;
-  border:0;
-  overflow:hidden;
+#instafeed {
+  .insta-image {   
+    height: inherit;
+    max-height: inherit;
+    overflow-y: hidden;
+    width: 100%;
+    object-fit: cover;
+    height: 200px;
+  };
 }
-
 
