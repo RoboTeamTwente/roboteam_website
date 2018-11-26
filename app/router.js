@@ -16,6 +16,7 @@ Router.map(function() {
   this.route('contact')
   this.route('previousteams')
   this.route('crowdfunding')
+  this.route('designpresentation')
 });
 
 export default Router;

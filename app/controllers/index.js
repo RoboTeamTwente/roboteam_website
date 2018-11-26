@@ -12,28 +12,27 @@ export default Controller.extend({
     this._super(...arguments);
 
     this.articles = [
-       {
+        {
         id: 0,
-        title:    "RoboTeam Twente at your event?",
-        subtitle: "Let's become partners!",
-        imageSrc: "content/ic.JPG",
-        link: "partners"
+        title:    "Visit our design presentation!",
+        subtitle: "14/12/2018 @ DesignLab, Utwente",
+        imageSrc: "content/design-presentation-header.jpg",
+        link: "designpresentation"
       },
-     {
+      {
         id: 1,
         title:    "Help us with our crowdfunding",
         subtitle: "We need your support!",
         imageSrc: "content/rttheader2.jpg",
         link: "crowdfunding"
       },
-  
-      {
+       {
         id: 2,
-        title:    "Meet the new team for 2018/2019",
-        subtitle: "Get to know us!",
-        imageSrc: "content/team.JPG",
-        link: "team"
-      }   
+        title:    "RoboTeam Twente at your event?",
+        subtitle: "Let's become partners!",
+        imageSrc: "content/ic.JPG",
+        link: "partners"
+      }  
     ];
 
     this.headers = [
