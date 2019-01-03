@@ -14,19 +14,19 @@ export default Controller.extend({
     this.articles = [
         {
         id: 0,
-        title:    "View our technologies",
-        subtitle: "All our work is open source",
+        title:    "View our publications",
+        subtitle: "All our work is open source!",
         imageSrc: "images/ai.jpg",
         link: "documentation"
       },
       {
         id: 1,
-        title:    "Help us with our crowdfunding",
-        subtitle: "We need your support!",
-        imageSrc: "content/rttheader2.jpg",
-        link: "crowdfunding"
+        title:    "Meet the team",
+        subtitle: "RoboTeam 3 (Sydney 2018/2019)",
+        imageSrc: "content/team.JPG",
+        link: "team"
       },
-       {
+      {
         id: 2,
         title:    "RoboTeam Twente at your event?",
         subtitle: "Let's become partners!",
@@ -36,7 +36,6 @@ export default Controller.extend({
     ];
 
     this.headers = [
-   
       {     
         id: 0,
         imageSrc: "content/ai8.jpg",
