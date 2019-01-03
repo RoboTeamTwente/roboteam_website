@@ -14,10 +14,10 @@ export default Controller.extend({
     this.articles = [
         {
         id: 0,
-        title:    "Visit our design presentation!",
-        subtitle: "14/12/2018 @ DesignLab, Utwente",
-        imageSrc: "content/design-presentation-header.jpg",
-        link: "designpresentation"
+        title:    "View our technologies",
+        subtitle: "All our work is open source",
+        imageSrc: "images/ai.jpg",
+        link: "documentation"
       },
       {
         id: 1,
