@@ -15,7 +15,6 @@ Router.map(function() {
   this.route('documentation')
   this.route('contact')
   this.route('previousteams')
-  this.route('designpresentation')
 });
 
 export default Router;
