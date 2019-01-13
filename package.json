@@ -28,6 +28,7 @@
     "ember-cli-app-version": "^3.2.0",
     "ember-cli-babel": "^6.16.0",
     "ember-cli-dependency-checker": "^3.0.0",
+    "ember-cli-deploy-ftps": "^1.0.0",
     "ember-cli-eslint": "^4.2.3",
     "ember-cli-htmlbars": "^3.0.0",
     "ember-cli-htmlbars-inline-precompile": "^1.0.3",
@@ -54,5 +55,8 @@
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
+  },
+  "dependencies": {
+    "ember-cli-deploy": "^1.0.2"
   }
 }
