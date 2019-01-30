@@ -6,10 +6,29 @@ export default Controller.extend({
 
   headerImageSrc: "content/wave.gif",
   headerTitle: "The Artificial Intelligence student team of the University of Twente",
-
+  moment: service(),
   poll: service(),
   init() {
     this._super(...arguments);
+
+
+    this.events = [
+    {
+      id: 0,
+      title: "Embedded World",
+      location: "Breda, NL",
+      startdate: new Date(2019, 3, 2, 8, 0, 0, 0),
+      enddate: new Date(2019, 3, 2, 18, 0, 0, 0) 
+
+    },
+     {
+      id: 1,
+      title: "Open dagen University of Twente",
+      location: "Enschede, NL",
+      startdate: new Date(2019, 3, 10, 10, 0, 0, 0), 
+      enddate: new Date(2019, 3, 3, 16, 0, 0, 0) 
+    }]
+
 
     this.articles = [
         {
