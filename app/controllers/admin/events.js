@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 
 export default Controller.extend({
+  error: null,
   title: null,
   location: null,
   startDate: null,
@@ -9,18 +10,26 @@ export default Controller.extend({
   link: null,
   actions: {
     addEvent: function() {
-      let title = this.get('title').trim(); // trim to reduce whitespaces
-      let location = this.get('location').trim();
+      const title = this.get('title').trim(); // trim to reduce whitespaces
+      const location = this.get('location').trim();
+      const startDate = this.get('startDate');
+      const endDate = this.get('endDate');
+      const description = this.get('description');
+      const link = this.get('link');
 
-      // if there is a title it is okay-ish
-      if (title != "" && title != null) {
+      // chech the required variables
+      if (title && startDate && endDate && location && description) {
         var newEvent = this.store.createRecord('event', {
           title: title,
           location: location,
-          startDate: this.get('startDate'),
-          endDate: this.get('endDate')
+          link: link,
+          description: description,
+          startDate: startDate,
+          endDate: endDate
         });
         newEvent.save();
+      } else {
+      	this.set('error', "not all fields where set propely");
       }
     },
     removeEvent: function(id) {
