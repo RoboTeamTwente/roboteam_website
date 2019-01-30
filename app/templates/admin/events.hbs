@@ -1,3 +1,41 @@
 {{admin-nav}}
 
-events admin
+<div class="container">
+  <div class="card mt-5">
+	<form {{action "addEvent" on="submit"}}>
+	    <div class="form-group pl-4 pr-4 pt-3">
+	        <div class="row">
+	          {{input type="text" class="form-control col m-2" placeholder="Open Days" value=title}}
+	          {{input type="text" class="form-control col-3 m-2" placeholder="Enschede" value=location}}
+	          {{input type="date" class="form-control col m-2" placeholder="startDate" value=startDate}}
+	          {{input type="date" class="form-control col-3 m-2" placeholder="endDate" value=endDate}}
+	          <button type="submit" class="btn btn-danger col-3 m-2"> Add Event</button>
+	  	  </div>
+	    </div>            
+	</form>
+
+	<table class="table table-striped">
+	  <thead>
+	    <tr>
+	      <th scope="col"> Event </th>
+	      <th scope="col"> Location </th>
+	      <th scope="col"> Start date </th>
+	      <th scope="col"> End date </th>
+	      <th scope="col"> Options </th>
+	    </tr>
+	  </thead>
+	  
+	  <tbody>
+	  	{{#each model as |event|}}
+		    <tr>
+		      <td>{{event.title}}</td>
+		      <td>{{event.location}}</td>
+		      <td>{{moment-format event.startDate "DD-MM-YYYY hh:mm"}}</td>
+		      <td>{{moment-format event.endDate "DD-MM-YYYY hh:mm"}}</td>
+		      <td> <a class="link text-danger" {{action "removeEvent" event.id}}> Remove </a> </td>
+		    </tr>
+	    {{/each}}
+	  </tbody>
+	</table>
+  </div>
+</div>
