@@ -1,15 +1,12 @@
 import Controller from '@ember/controller';
-import { computed } from '@ember/object';
 
 export default Controller.extend({
   title: null,
   location: null,
-  startDate: computed(function() { 
-    return new Date(); 
-  }),
-  endDate: computed(function() { 
-    return new Date(); 
-  }),
+  startDate: null,
+  endDate: null,
+  description: null,
+  link: null,
   actions: {
     addEvent: function() {
       let title = this.get('title').trim(); // trim to reduce whitespaces

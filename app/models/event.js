@@ -6,5 +6,7 @@ export default Model.extend({
   title: attr('string'),
   location: attr('string'),
   startdate: attr('date'),
-  enddate: attr('date')
+  enddate: attr('date'),
+  description: attr('string'),
+  link: attr('string')
 });

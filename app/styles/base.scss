@@ -111,6 +111,23 @@ img.cover {
   background-color: #111;
 }
 
+label {
+  width: inherit;
+  
+  .text {
+    color: #cc0000;
+    padding-top: 4px;
+    font-family: "roboto condensed";
+  }
+}
+
+.pell-actionbar {
+  sub {
+    bottom: 1.75em;
+    left: 0.8em;
+  }
+}
+
 /* Style all font awesome icons */
 .fa {
     padding: 13px;
