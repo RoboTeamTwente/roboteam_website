@@ -20,7 +20,6 @@ export default Component.extend({
           name: 'Partners',
           link: 'partners'
         },
-      
         {
           name: 'Contact',
           link: 'contact'

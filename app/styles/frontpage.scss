@@ -5,18 +5,21 @@
   object-fit: cover;
   background-position: center;
   z-index:-1;
-
+  background: #000;
 }
 
 .gradient {
   position: absolute;
-  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.25) 100%);
-  height: 560px;
-  width: 100vw;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%);
+  margin-top: 360px;
+  height: 200px;
+  width: 100%;
+  pointer-events: none;
 }
 
 .header-image-title {
   text-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
+  pointer-events: none;
 
   &.subtitle {
     font-weight: 100;
@@ -24,34 +27,40 @@
   }
 }
 
+@include media-breakpoint-down(md) {
+  .header-image {
+    height: 300px; 
+  }
+  .gradient {
+    height: 100px; 
+    margin-top: 200px;
+  }
+
+  .frontpage-header {
+    height: 300px !important;
+    overflow-y: hidden;
+  }
+}
+
 .header-rtt-logo {
   filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, .5));
   max-width: 350px;
   object-fit: contain;
-}
-
-.news-item {
-  transition: all .3s ease-in-out;
-  border-top: 3px solid rgba(0,0,0,0);
-  background-color: #f3f3f3;
-  min-height: 100px;
-  cursor: pointer;
-
-  &.active {
-    border-top: 3px solid #cc0000;
-  }
-
-  &:hover {
-    background-color: #eee;
-  }
+  pointer-events: none;
 }
 
 .frontpage-header {
   height: 560px;
 }
 
-.instagram-widget {
-  width:100%;
-  border:0;
-  overflow:hidden;
+#instafeed {
+  .insta-image {   
+    height: inherit;
+    max-height: inherit;
+    overflow-y: hidden;
+    width: 100%;
+    object-fit: cover;
+    height: 200px;
+  };
 }
+

@@ -1,36 +1,39 @@
-{{!-- preload all header backgrounds --}}
+<div class="gradient"> </div>
 
+{{!-- {{voronoi-map class="voronoi-map-holder" height=560}}
+ --}}
+{{!-- preload all header backgrounds --}}
 {{#each headers as |header|}}
-  <img class="header-image {{if (eq header.id selectedHeader.id) 'visible'}}" src={{header.imageSrc}} alt={{header.title}}
-  >
+  <img class="header-image {{if (eq header.id selectedHeader.id) 'visible'}}" src={{header.imageSrc}} alt={{header.title}}>
 {{/each}}
 
-<div class="gradient"></div>
 
 {{!-- Title and subtitle --}}
 <div class="container frontpage-header">
   <div class="row justify-content-center">
-    <img class="header-rtt-logo col-12 pt-5" alt="RoboTeam Twente" src="images/rtt_logo_medium.png">
+    <img class="header-rtt-logo col-12 pt-0 pt-md-5" alt="RoboTeam Twente" src="images/rtt_logo_medium.png">
   </div>
   <div class="row">
     <div class="col-12">
-      {{#link-to selectedHeader.link}}
-        <h1 class="header-image-title text-white mt-5 ml-2 ml-md-5 pl-2 pl-md-5">
-          {{selectedHeader.title}}
-        </h1>
-        <span class="header-image-title text-white mt-0 mt-md-5 ml-2 ml-md-5 pl-2 pl-md-5 subtitle"> {{selectedHeader.subtitle}} </span>
-      {{/link-to}}
+      <h1 class="header-image-title text-white mt-5 pt-5">
+        {{headerTitle}}
+      </h1>
     </div>
   </div>
 </div>
 
-{{!-- Show the 'news-items' which are the blocks under the large header image --}}
-<div class="container-fluid d-none d-md-block">
-  <div class="row">
-    {{#each headers as |header|}}
-      <div class="news-item col border-bottom border-right pl-3 pr-5 pt-3 pb-3 {{if (eq header.id selectedHeader.id) 'active'}}" {{action 'selectHeader' header.id}}>
-        <h4 class=""> {{header.title}} </h4>
-        <span class="text-muted"> {{header.subtitle}} </span>
+{{!-- Articles --}}
+<div class="container">
+  <div class="row mt-5">
+    {{#each articles as |article|}}
+      <div class="col-12 col-md-4 mb-5 mb-md-5">
+        {{#link-to article.link}}
+          <img class="max-width cover" height="200" src={{article.imageSrc}} alt={{article.title}}>
+          <h4 class="text-dark mt-2">
+            {{article.title}}
+          </h4>
+          <span class="text-dark"> {{article.subtitle}} </span>
+        {{/link-to}}
       </div>
     {{/each}}
   </div>
@@ -38,15 +41,22 @@
 
 {{!-- Content --}}
 <div class="container">
-  <div class="row mt-2 mt-md-5 justify-content-center">
-    <div class="col-12 col-md-7 mt-3 mt-md-5">
-      <h1> About the RoboTeam </h1>
+  <div class="row mt-2 mt-md-5">
+    <div class="col-12 col-md-7 mt-3 mt-md-6">
+      <h1> About us </h1>
       <p>
         RoboTeam Twente is a multidisciplinary team of students from the University of Twente.
         We aspire to innovate in both robotics and artificial intelligence.
         Next, we want to inspire everyone for these two sectors and show the world what can be achieved with them.
         We believe robotics and artificial intelligence can make the world a better place if used correctly.
       </p>
+    </div>
+
+    <div class="col-12 col-md-5 mt-md-3">
+      <h2 class="roboto font-weight-light font-italic mt-3 mt-md-5 pt-2 text-md-right mb-4 mb-md-0" > We use Robotics and Artificial intelligence to create the best robot soccer team in the world </h2>
+    </div>
+
+    <div class="col-12 mb-5">
       <p>
         Our medium to achieve these goals is the RoboCup, this year in Sydney.
         The RoboCup hosts multiple competitions for soccer and rescue robots as well as robots that can help at home or on the work floor.
@@ -60,25 +70,20 @@
         If you don’t want to miss anything of our progress and if you want to be notified when we are going to practice, follow us on Facebook or Linkedin!
       </p>
     </div>
-
-    {{!-- Youtube video --}}
-    <div class="col-12 col-md-5 mt-3 mt-md-5">
-      <iframe class="max-width" height="280px" src="https://www.youtube.com/embed/o5aIkALemNs?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
   </div>
 </div>
 
-  {{img-banner
-    class="mt-5 pt-2 pt-md-5 pb-2 pb-md-2"
-    title="We believe robotics and artificial intelligence can make the world a better place"
-    subtitle="Learn more about why we do what we do"
-    link="robocup"
-    imageSrc="images/ai.jpg"
-  }}
+{{img-banner
+  class="mt-5"
+  title="We believe robotics and artificial intelligence can make the world a better place"
+  subtitle="Learn more about our goal of winning the Robocup"
+  link="robocup"
+  imageSrc="images/ai.jpg"
+}}
 
-<div class="container">
+<div class="container mt-5">
   {{!-- inspiration and innovation content block --}}
-  <div class="row pt-2 pt-md-5">
+  <div class="row pt-2 pt-md-5 justify-content-center">
     <div class="col-12 col-md-6">
       <h1> Inspiration </h1>
       <p>
@@ -94,20 +99,19 @@
         You can read all about our innovations in our team description papers in the {{#link-to 'documentation'}} documentation {{/link-to}} part of our website.
       </p>
     </div>
+    <div class="col-6 mt-5 mb-5">
+      {{counter-text class="text-center"}}
+    </div>
   </div>
 </div>
-  {{img-banner
-    class="mt-5"
-    title="The RoboTeam is a group of 15 students from more than 6 different studies"
-    subtitle="Look who we are and why we are in the team"
-    link="team"
-    imageSrc="content/team.JPG"
-  }}
+
+<div class="col-12"> 
+  {{social-media centered=true}}
+</div>
 
 <div class="container">
-  {{!-- Lightwidget Instagram widget--}}
   <h1 class="mt-5 pt-5"> Follow us on Instagram! </h1>
-  <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/b3f9f84fb8625a868870d3c69ae57981.html" scrolling="no" allowtransparency="true" class="lightwidget-widget instagram-widget mb-5"></iframe>
+  {{instagram-feed}}
 </div>
 
 {{!-- partners content block (full width) --}}
@@ -129,19 +133,97 @@
     <img class="sponsor col-4 col-md-2" alt="Demcon" src="content/partners/megabyte/demcon.jpg">
     <img class="sponsor col-4 col-md-2" alt="Designlab" src="content/partners/megabyte/designlab.jpg">
 
+    <img class="sponsor col-4 col-md-1" alt="Kiwi Electronics" src="content/partners/kilobyte/kiwi.png">
     <img class="sponsor col-4 col-md-2" alt="Nuclino" src="content/partners/kilobyte/nuclino.png">
     <img class="sponsor col-4 col-md-1" alt="Eurocircuits" src="content/partners/megabyte/eurocircuits.png">
     <img class="sponsor col-4 col-md-1" alt="ovSoftware" src="content/partners/megabyte/ovsoftware.png">
     <img class="sponsor col-4 col-md-1" alt="RS" src="content/partners/megabyte/rs.png">
     <img class="sponsor col-4 col-md-1" alt="Smans" src="content/partners/megabyte/smans.jpg">
-    <img class="sponsor col-4 col-md-2" alt="IC" src="content/partners/kilobyte/ic.jpg">
-    <img class="sponsor col-4 col-md-2" alt="JB Tech" src="content/partners/kilobyte/jbtech.png">
+    <img class="sponsor col-4 col-md-1" alt="X#" src="content/partners/kilobyte/xsharp.png">
     <img class="sponsor col-4 col-md-2" alt="NeoNode" src="content/partners/kilobyte/neonode.png">
     <img class="sponsor col-4 col-md-1" alt="Egberts" src="content/partners/byte/egberts.jpg">
     <img class="sponsor col-4 col-md-2" alt="Farnel" src="content/partners/byte/farnel.png">
     <img class="sponsor col-4 col-md-2" alt="Kramp" src="content/partners/byte/kramp.png">
-    <img class="sponsor col-4 col-md-2" alt="Rinarck" src="content/partners/byte/rinarck.jpg">
-    <img class="sponsor col-4 col-md-1" alt="TTI" src="content/partners/byte/tti.jpg">
     <img class="sponsor col-4 col-md-2" alt="Vink" src="content/partners/byte/vink.png">
+  </div>
+</div>
+
+<div class="container"> 
+  <div class="row">
+    <div class="col-12">
+      <h1> Our crowdfunders! </h1>
+    </div>
+    <ul class="col-6">
+      <li> Wouter Lensing </li>
+      <li> Peter Hoekstra </li>
+      <li> Erna Brus </li>
+      <li> Dirk Hoekstra </li>
+      <li> Trix Rubbens-van Iersel </li>
+      <li> Trees van Braak </li>
+      <li> Elektrotechniek Ruurd Westra </li>
+      <li> Wouter van Veelen </li>
+      <li> Familie Wijers </li>
+      <li> R.C.H. Croll </li>
+      <li> Winnifred Blokland </li>
+      <li> Autoservice Timmer </li>
+      <li> Ornée & Vermeer Tekstbureau </li>
+      <li> Corry & Peter van der Wal </li>
+      <li> Marc van Wessel </li>
+      <li> HKJ Hardnekkig </li>
+      <li> Bert Jan Offrein </li>
+      <li> Gerard de Groot </li>
+      <li> Familie Te Poele </li>
+      <li> Ewoud </li>
+      <li> Dioni </li>
+      <li> DJC BLUF </li>
+      <li> Directus Calvatus </li>
+      <li> Anja en Jacco ten Berk de Boer </li>
+      <li> Familie Bijlsma </li>
+      <li> P.A.M. van Iersel </li>
+      <li> Han Wopereis </li>
+      <li> Frank van Iersel & Lotty van Minnen </li>
+      <li> Nahuel Manterola </li>
+      <li> Koen Hertenberg </li>
+      <li> Rob Verbeek </li>
+      <li> Jelle Zult </li>
+      <li> Simen Bootsma </li>
+    </ul>
+    <ul class="col-6">
+      <li> Renate Schouten </li>
+      <li> Ewoud Croll </li>
+      <li> Tante Petra Schouten </li>
+      <li> Iris Weijers </li>
+      <li> Michiel Bootsma </li>
+      <li> Jim Hoekstra </li>
+      <li> Pake Luik </li>
+      <li> Tine Bootsma-Cnossen </li>
+      <li> Michiel Overeem </li>
+      <li> Bob Rubbens </li>
+      <li> Alfred Stobbelaar  </li>
+      <li> Martijndoetdingen </li>
+      <li> Paul en Silvia  Luttikhuis  </li>
+      <li> E. Steerneman  </li>
+      <li> Yvonne Grobbink  </li>
+      <li> Françoise Petry </li>
+      <li> Locamation B.V. </li>
+      <li> Inkeri Kollmann  </li>
+      <li> Veris Bouwmaterialengroep BV </li>
+      <li> Coen en Silvia  Zwerver </li>
+      <li> Laurens van der Velde </li>
+      <li> Marc Dommers </li>
+      <li> Ton Zijlstra h.o.d.n. MakerHouse </li>
+      <li> Remco Sikkema </li>
+      <li> Elina Kollmann </li>
+      <li> Peter & Henny Bos </li>
+      <li> Raymond Jeene </li>
+      <li> Diana Dalenoord </li>
+      <li> Baris Imre </li>
+      <li> Thijs Luttikhuis </li>
+      <li> Eddo & Emiel HobertMan </li>
+      <li> Lukas Bos </li>
+      <li> Folkert de Vries </li>
+      <li> Benny Herbert </li>
+      <li> Jelmer de Vries </li>
+    </ul>
   </div>
 </div>
