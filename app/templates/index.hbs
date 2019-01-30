@@ -40,29 +40,6 @@
   </div>
 </div>
 
-
-<div class="container">
-  <h1> Upcoming events </h1>
-  <div class="row">
-    <ul class="list-group">
-      {{#each events as |event|}}
-        <li class="list-group-item">
-          <div class="row"> 
-            <div class="col-4">
-              <h2 class="mb-0"> {{moment-format event.date "MM/DD"}} </h2>
-              <small class="text-muted">  {{moment-format event.startdate "hh:mm"}} - {{moment-format event.enddate "hh:mm"}} </small>
-            </div>
-            <div class="col">
-              <span> {{event.title}} </span> <br>
-              <span class="text-muted">  {{event.location}} </span>
-            </div>
-          </div>
-        </li>
-      {{/each}}
-    </ul>
-  </div>
-</div>
-
 {{!-- Content --}}
 <div class="container">
   <div class="row mt-2 mt-md-5">

@@ -24,8 +24,8 @@ export default Controller.extend({
           location: location,
           link: link,
           description: description,
-          startDate: startDate,
-          endDate: endDate
+          startdate: startDate,
+          enddate: endDate
         });
         newEvent.save();
       } else {

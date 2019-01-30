@@ -17,6 +17,10 @@ Router.map(function() {
   this.route('login')
   this.route('previousteams')
 
+  this.route('events', function() {
+    this.route('show', { path: '/:event_id' });
+  });
+
   // maintenance routes
   this.route('admin', function() {
     this.route('events');
