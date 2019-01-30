@@ -17,14 +17,27 @@ Router.map(function() {
   this.route('login')
   this.route('previousteams')
 
+
+  this.route('news', function() {
+    this.route('show', { path: '/:article_id' });
+  });
+
   this.route('events', function() {
     this.route('show', { path: '/:event_id' });
   });
 
   // maintenance routes
   this.route('admin', function() {
-    this.route('events');
     this.route('crowdfunders');
+
+   this.route('events', function() {
+      this.route('edit',  { path: 'edit/:event_id' });
+      this.route('new');
+    });
+
+    this.route('news', function() {
+      this.route('new');
+    });
   });
 
 });

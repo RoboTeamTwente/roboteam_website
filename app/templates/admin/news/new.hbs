@@ -1,7 +1,5 @@
-{{admin-nav}}
-
 <div class="container">
-  <h3 class="mt-5"> Add new event </h3>
+  <h3 class="mt-5"> Add new article </h3>
   <div class="card">
     <form {{action "addEvent" on="submit"}}>
     <div class="form-group pl-4 pr-4 pt-3">
@@ -62,32 +60,5 @@
       </div>
     </div>            
   </form>
-  </div>
-
-  <h3 class="mt-5"> All listed events </h3>
-  <div class="card">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col" class="border-0"> Event </th>
-        <th scope="col" class="border-0"> Location </th>
-        <th scope="col" class="border-0"> Start date </th>
-        <th scope="col" class="border-0"> End date </th>
-        <th scope="col" class="border-0"> Options </th>
-      </tr>
-    </thead>
-    
-    <tbody>
-      {{#each model as |event|}}
-        <tr>
-          <td>{{event.title}}</td>
-          <td>{{event.location}}</td>
-          <td>{{moment-format event.startDate "DD-MM-YYYY hh:mm"}}</td>
-          <td>{{moment-format event.endDate "DD-MM-YYYY hh:mm"}}</td>
-          <td> <a class="link text-danger" {{action "removeEvent" event.id}}> Remove </a> </td>
-        </tr>
-      {{/each}}
-    </tbody>
-  </table>
   </div>
 </div>

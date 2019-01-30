@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <h3 class="mt-5 col"> All listed events </h3>
+    {{#link-to "admin.events.new" class="col-4"}} 
+      <button class="btn btn-danger mt-5 float-right"> Create new event </button>
+    {{/link-to}}
+  </div>
+  <div class="card">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col" class="border-0"> Event </th>
+        <th scope="col" class="border-0"> Location </th>
+        <th scope="col" class="border-0"> Start date </th>
+        <th scope="col" class="border-0"> End date </th>
+        <th scope="col" class="border-0"> Options </th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      {{#each model as |event|}}
+        <tr>
+          <td>{{event.title}}</td>
+          <td>{{event.location}}</td>
+          <td>{{moment-format event.startDate "DD-MM-YYYY hh:mm"}}</td>
+          <td>{{moment-format event.endDate "DD-MM-YYYY hh:mm"}}</td>
+          <td> 
+            <a class="link text-danger" {{action "removeEvent" event.id}}> Remove </a> / 
+            {{#link-to "admin.events.edit" event.id}} <a class="link text-muted"> Edit </a> {{/link-to}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  </div>
+</div>
