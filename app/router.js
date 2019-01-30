@@ -18,7 +18,10 @@ Router.map(function() {
   this.route('previousteams')
 
   // maintenance routes
-  this.route('admin')
+  this.route('admin', function() {
+    this.route('events');
+    this.route('crowdfunders');
+  });
 
 });
 
