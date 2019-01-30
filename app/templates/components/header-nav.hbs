@@ -16,8 +16,6 @@
       </span>
     </button>
 
-          
-
     {{!-- Navbar for non-mobile devices --}}
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav">
@@ -28,30 +26,34 @@
             {{/link-to}}
           </li>
         {{/each}}
-
-        {{#if session.isAuthenticated}}
-
-          {{#bs-dropdown as |dd|}}
-                {{#dd.button class="btn-secondary"}} {{session.currentUser.email}} <span class="caret"></span>{{/dd.button}}
-                {{#dd.menu as |ddm|}}
-
-
-                    {{#ddm.item}}
-                      <a href onclick={{action "signOut" dd.closeDropdown}}> Sign out </a>
-                    {{/ddm.item}}
-
-                    {{#ddm.item}}{{#ddm.link-to "admin"}}Admin panel{{/ddm.link-to}}{{/ddm.item}}
-
-                    {{#ddm.item}}
-                      <a href onclick={{action dd.closeDropdown}}> Analytics </a>
-                    {{/ddm.item}}
-                  {{/dd.menu}}
-              {{/bs-dropdown}}
-            {{/if}}
-            
       </ul>
     </div>
-
+   
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        {{#if session.isAuthenticated}}
+          {{#bs-dropdown as |dd|}}
+            {{#dd.button class="btn-secondary"}} {{session.currentUser.email}} <span class="caret"></span>{{/dd.button}}
+            {{#dd.menu as |ddm|}}
+              {{#ddm.item}}{{#ddm.link-to "admin"}}Admin panel{{/ddm.link-to}}{{/ddm.item}}
+              {{#ddm.item}}
+                <a href onclick={{action dd.closeDropdown}} class="dropdown-item"> Analytics </a>
+              {{/ddm.item}}
+              {{ddm.divider}}
+              {{#ddm.item}}
+                <a href onclick={{action "signOut" dd.closeDropdown}} class="dropdown-item"> Sign out </a>
+              {{/ddm.item}}
+            {{/dd.menu}}
+          {{/bs-dropdown}}
+        {{else}}
+          <li class="nav-item">
+            {{#link-to "login"}}
+              <a class="nav-link" href="login"> Login </a>
+            {{/link-to}}
+          </li>
+        {{/if}}  
+      </ul>
+    </div>
   </div>
 </nav>
 
