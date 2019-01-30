@@ -16,6 +16,10 @@ Router.map(function() {
   this.route('contact')
   this.route('login')
   this.route('previousteams')
+
+  // maintenance routes
+  this.route('admin')
+
 });
 
 export default Router;

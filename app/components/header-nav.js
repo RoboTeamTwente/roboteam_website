@@ -35,6 +35,9 @@ export default Component.extend({
     },
     closeMobileMenu() {
       this.set('showMobileMenu', false);
+    },
+    signOut: function() {
+      this.get('session').close();
     }
   }
 });

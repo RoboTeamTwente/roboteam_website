@@ -4,21 +4,28 @@ import { inject as service } from '@ember/service';
 export default Route.extend({
   session: service(),
   beforeModel: function() {
-    return this.get('session').fetch().catch(function() {});
+    if (this.get('session.isAuthenticated')) {
+      this.transitionTo('admin'); 
+    }
   },
   actions: {
     signIn: function(mail,) {
-      console.log(this.controller.get('email'));
+      let self = this;
+
       this.get('session').open('firebase', { 
         provider: 'password',
         email: this.controller.get('email'),
         password: this.controller.get('password')}
       ).then(function(data) {
-        console.log(data.currentUser);
+
+        // if success, go to the admin panel
+        self.transitionTo('admin'); 
+
+      }, function(error){
+
+        // otherwise set an error message
+        self.controller.set('error', error);
       });
-    },
-    signOut: function() {
-      this.get('session').close();
     }
   }
 });

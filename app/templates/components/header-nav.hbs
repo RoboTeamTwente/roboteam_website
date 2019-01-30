@@ -29,14 +29,25 @@
           </li>
         {{/each}}
 
-        {{#bs-dropdown as |dd|}}
-              {{#dd.button class="btn-secondary"}} {{session.currentUser.email}} <span class="caret"></span>{{/dd.button}}
-              {{#dd.menu as |ddm|}}
-                  {{#ddm.item}}{{#ddm.link-to "index"}}Sign out{{/ddm.link-to}}{{/ddm.item}}
-                  {{#ddm.item}}{{#ddm.link-to "index"}}Admin panel{{/ddm.link-to}}{{/ddm.item}}
-                  {{#ddm.item}}{{#ddm.link-to "index"}}Analytics{{/ddm.link-to}}{{/ddm.item}}
-                {{/dd.menu}}
-            {{/bs-dropdown}}
+        {{#if session.isAuthenticated}}
+
+          {{#bs-dropdown as |dd|}}
+                {{#dd.button class="btn-secondary"}} {{session.currentUser.email}} <span class="caret"></span>{{/dd.button}}
+                {{#dd.menu as |ddm|}}
+
+
+                    {{#ddm.item}}
+                      <a href onclick={{action "signOut" dd.closeDropdown}}> Sign out </a>
+                    {{/ddm.item}}
+
+                    {{#ddm.item}}{{#ddm.link-to "admin"}}Admin panel{{/ddm.link-to}}{{/ddm.item}}
+
+                    {{#ddm.item}}
+                      <a href onclick={{action dd.closeDropdown}}> Analytics </a>
+                    {{/ddm.item}}
+                  {{/dd.menu}}
+              {{/bs-dropdown}}
+            {{/if}}
             
       </ul>
     </div>
