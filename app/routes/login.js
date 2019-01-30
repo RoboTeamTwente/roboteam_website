@@ -2,22 +2,23 @@ import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 
 export default Route.extend({
-  torii: service(),
+  session: service(),
   beforeModel: function() {
-    return this.get('torii').fetch().catch(function() {});
+    return this.get('session').fetch().catch(function() {});
   },
   actions: {
-    signIn: function(provider) {
-      this.get('torii').open('firebase', { 
+    signIn: function(mail,) {
+      console.log(this.controller.get('email'));
+      this.get('session').open('firebase', { 
         provider: 'password',
-        email: this.get('email'),
-        password: this.get('password')}
+        email: this.controller.get('email'),
+        password: this.controller.get('password')}
       ).then(function(data) {
         console.log(data.currentUser);
       });
     },
     signOut: function() {
-      this.get('torii').close();
+      this.get('session').close();
     }
   }
 });

@@ -16,6 +16,8 @@
       </span>
     </button>
 
+          
+
     {{!-- Navbar for non-mobile devices --}}
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav">
@@ -26,8 +28,19 @@
             {{/link-to}}
           </li>
         {{/each}}
+
+        {{#bs-dropdown as |dd|}}
+              {{#dd.button class="btn-secondary"}} {{session.currentUser.email}} <span class="caret"></span>{{/dd.button}}
+              {{#dd.menu as |ddm|}}
+                  {{#ddm.item}}{{#ddm.link-to "index"}}Sign out{{/ddm.link-to}}{{/ddm.item}}
+                  {{#ddm.item}}{{#ddm.link-to "index"}}Admin panel{{/ddm.link-to}}{{/ddm.item}}
+                  {{#ddm.item}}{{#ddm.link-to "index"}}Analytics{{/ddm.link-to}}{{/ddm.item}}
+                {{/dd.menu}}
+            {{/bs-dropdown}}
+            
       </ul>
     </div>
+
   </div>
 </nav>
 

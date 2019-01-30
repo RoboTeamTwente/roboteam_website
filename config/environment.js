@@ -17,7 +17,7 @@ module.exports = function(environment) {
       messagingSenderId: "422324353918"
     },
     torii: {
-      sessionServiceName: 'torii'
+      sessionServiceName: 'session'
     },
     EmberENV: {
       FEATURES: {
