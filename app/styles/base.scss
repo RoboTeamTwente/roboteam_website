@@ -23,6 +23,15 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.roboto {
+  font-family: roboto;
+  text-decoration: none; /* no underline */
+}
+
+.thin {
+  font-weight: 100;
+}
+
 ul {
   list-style-type: none;
 }
@@ -81,6 +90,72 @@ img.contain {
   object-fit: contain;
 }
 
+img.cover {
+  .object-fit: cover 
+}  
+
+.no-pointer-events {
+  pointer-events: none;
+}
+
+.all-pointer-events {
+  pointer-events: all;
+}
+
 .text-centered {
   text-align: center;
 }
+
+
+.footer {
+  background-color: #111;
+}
+
+/* Style all font awesome icons */
+.fa {
+    padding: 13px;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+    opacity: 0.7;
+    color: white;
+    text-decoration: none;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-twitter {
+    background: #1da1f2;
+    color: white;
+}
+
+.fa-youtube { 
+    background: #bb0000;
+    color: white;
+}
+
+.fa-linkedin {
+    background: #007bb5;
+    color: white;
+}
+
+.fa-instagram {
+    background: #125688;
+    color: white;
+}
+
+.fa-github {
+    background: #333333;
+    color: white;
+}
+
