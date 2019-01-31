@@ -54,9 +54,11 @@
          {{pell-editor class="border border-radius-2" value=model.description onChange=(action (mut model.description)) pellOptions=options}}
         </div>
 
-        <div class="col-2"> 
-          <button type="submit" class="btn btn-danger mb-2 mt-2 w-100"> Add Event</button>
-          <button class="btn btn-default mb-2 mt-2 w-100"> Cancel</button>
+        <div class="col-12"> 
+          <button type="submit" class="btn btn-danger mb-2 mt-2 d-inline"> {{if model.isNew "Add event" "Update event"}} </button>
+          {{#link-to "admin.events"}}
+            <button class="btn btn-default mb-2 mt-2 d-inline"> Cancel </button>
+          {{/link-to}}
         </div>
       </div>
     </div>            
