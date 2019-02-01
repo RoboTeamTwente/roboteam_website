@@ -38,7 +38,11 @@ export default Controller.extend({
     this.headers = [
       {     
         id: 0,
-        imageSrc: "content/ai8.jpg",
+        imageSrc: "content/frontpage/presenting2.jpg",
+      },
+       {     
+        id: 1,
+        imageSrc: "content/frontpage/robots.jpg",
       }
     ];
 
