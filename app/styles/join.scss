@@ -1,0 +1,12 @@
+.offer-card {
+	&:hover {
+		color: #cc0000;
+		text-decoration: underline;
+		border-radius: 0;
+	}
+
+	.card-body {
+		padding: 0;
+		padding-top: 8px;
+	}
+}
