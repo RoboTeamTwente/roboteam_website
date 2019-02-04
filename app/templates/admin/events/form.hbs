@@ -50,7 +50,7 @@
             <label>
               <span class="text"> Description *</span>
             </label>
-            {{pell-editor class="border border-radius-2" value=model.description onChange=(action (mut model.description)) pellOptions=options}}
+            {{simple-mde class="border border-radius-2" value=model.description change=(action (mut model.description))}}
           </div>
 
           <div class="col-12"> 

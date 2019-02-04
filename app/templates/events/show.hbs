@@ -4,7 +4,7 @@
     <div class="row justify-content-center">
       <h2 class="mb-0"> {{moment-format event.startDate "MM/DD"}} - {{moment-format event.endDate "MM/DD"}} </h2>
       <div class="card col-8 event-description"> 
-        {{{model.description}}}
+        {{simple-mde-preview model.description}}
       </div>
     </div>
   </div>
