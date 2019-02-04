@@ -5,7 +5,7 @@ import { inject as service } from '@ember/service';
 export default Controller.extend({
 
   headerImageSrc: "content/wave.gif",
-  headerTitle: "The Artificial Intelligence student team of the University of Twente",
+  headerTitle: "The robot soccer team of the University of Twente",
   moment: service(),
   poll: service(),
   init() {
@@ -55,9 +55,13 @@ export default Controller.extend({
     ];
 
     this.headers = [
-      {     
+       {     
         id: 0,
-        imageSrc: "content/ai8.jpg",
+        imageSrc: "content/frontpage/robots.jpg",
+      },   
+      {     
+        id: 1,
+        imageSrc: "content/frontpage/presenting2.JPG",
       }
     ];
 
