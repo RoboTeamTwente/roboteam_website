@@ -17,11 +17,11 @@ export default Model.extend({
     return htmlSafe(this.get('content').replace(/\n/g, '<br>'));
   }),
   contentShortened: computed('content', function() {
-  	let content = this.get('content');
-  	const maxLength = 110; // max amount of characters
+    let content = this.get('content');
+    const maxLength = 110; // max amount of characters
 
-  	// cut off to the last space before maxlength
-  	if (content.length <= maxLength) return str;
-  	return content.substr(0, content.lastIndexOf(" ", maxLength)) + "...";
+    // cut off to the last space before maxlength
+    if (content.length <= maxLength) return content;
+    return content.substr(0, content.lastIndexOf(" ", maxLength)) + "...";
   })
 });

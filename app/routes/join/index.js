@@ -12,7 +12,7 @@ export default Route.extend({
                 halfTime: false,
                 partTime: false,
                 isBoard: true,
-                imageSrc: "/content/join/team-manager.jpg",
+                imageSrc: "content/join/team-manager.JPG",
                 content: `The team manager is responsible for the general structure and well-being of the team, as well as being the main representative of the RoboTeam Twente. This includes chairing the management team and team meetings and continuously being in discussion with all team members. You feel responsible for the progress of the team and are enthusiastic to create a good working environment for everyone.
                           Are you inclined to take up leadership, motivate people and push the RoboTeam Twente forward? Then team manager is the right function for you!`
               },
@@ -27,7 +27,7 @@ export default Route.extend({
                 halfTime: false,
                 partTime: false,
                 isBoard: true,
-                imageSrc: "/content/join/finance-logistics.jpg",
+                imageSrc: "content/join/finance-logistics.jpg",
                 content: `All parts of the RoboTeam Twente that deal with finances and logistics are the responsibility of the finance and logistics manager. 
                 This includes tasks like overseeing the finances of the team, handling internal communication and organising the team’s events 
                 as well as planning the trip to the next destination of the RoboCup. As Logistics manager you have to be able to work in a structured and organized way. 
@@ -44,7 +44,7 @@ export default Route.extend({
                   halfTime: false,
                   partTime: false,
                   isBoard: true,
-                  imageSrc: "content/join/communications-manager.jpg",
+                  imageSrc: "content/join/communications-manager.JPG",
                   content: `The function of communication manager consists of two parts: marketing and external relations. 
                   As head of marketing, you are responsible for all publicity of the RoboTeam Twente. This includes promotion in and around the region of Twente, as well as publicity on (social) media. 
                   The communication manager is responsible for maintaining all partnerships of the RoboTeam Twente, as well as acquiring new ones.
@@ -81,7 +81,7 @@ export default Route.extend({
                 halfTime: false,
                 partTime: false,
                 isBoard: false,
-                imageSrc: "content/join/lead-software.JPG",
+                imageSrc: "content/join/lead-software.jpg",
                 content: `The Lead Software is the main software developer in the software team. This person is experienced with software systems and programming, and has insight in how to set up and maintain a large software project. 
                 The software lead is not only capable of finding his own way through the large amounts of code, but is also able to assign tasks to other developers. 
                 The lead software will also be in close contact with the technical manager to discuss the team planning and technical feasibilities. 
@@ -101,7 +101,7 @@ export default Route.extend({
                 halfTime: true,
                 partTime: true,
                 isBoard: false,
-                imageSrc: "content/join/software-developer.JPG",
+                imageSrc: "/content/join/software-developer.JPG",
                 content: `The software team works on the software of the RoboTeam Twente, and can roughly be divided into two teams; 
                 artificial intelligence and control. The artificial intelligence team is busy with the high-level code of our robots; tactics and strategies, the right software structures to direct the robots. 
                 Added to this, the AI team expertiments with new methods to make our robots even smarter, like machine learning.
@@ -122,7 +122,7 @@ export default Route.extend({
                 halfTime: true,
                 partTime: true,
                 isBoard: false,
-                imageSrc: "content/join/electronics-team.jpg",
+                imageSrc: "content/join/electronics-team.JPG",
                 content: `The electronics teams job is to design the PCBs on the robot as well as the software that each robot runs. 
                 This encompases the circuitry around the main processor, like Motor drivers, kicking/chipping/power regulation and sensors. The software side handles the communication with the main computer and runs all the processes to control the individual circuitry. 
                 Your challenge in this team will be to place as much functionality on a small area while ensuring proper and reliable execution of the robot. Does working on this sound interesting? Consider applying for the electronics team!`

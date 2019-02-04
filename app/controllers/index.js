@@ -42,7 +42,7 @@ export default Controller.extend({
       },   
       {     
         id: 1,
-        imageSrc: "content/frontpage/presenting2.jpg",
+        imageSrc: "content/frontpage/presenting2.JPG",
       }
     ];
 
