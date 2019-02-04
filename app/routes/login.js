@@ -9,14 +9,14 @@ export default Route.extend({
     }
   },
   actions: {
-    signIn: function(mail,) {
+    signIn: function() {
       let self = this;
 
       this.get('session').open('firebase', { 
         provider: 'password',
         email: this.controller.get('email'),
         password: this.controller.get('password')}
-      ).then(function(data) {
+      ).then(function() {
 
         // if success, go to the admin panel
         self.transitionTo('admin'); 

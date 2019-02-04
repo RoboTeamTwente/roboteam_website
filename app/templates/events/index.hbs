@@ -4,8 +4,8 @@
 
     <div class="row justify-content-center">
       <ul class="list-group col-8">
-  	  {{#each model as |event|}}
-       {{#link-to "events.show" event tagName="li" class="list-group-item link"}}
+        {{#each model as |event|}}
+          {{#link-to "events.show" event tagName="li" class="list-group-item link"}}
             <div class="row"> 
               <div class="col-4">
                 <h2 class="mb-0"> {{moment-format event.startdate "MM/DD"}} - {{moment-format event.enddate "MM/DD"}} </h2>
@@ -14,7 +14,7 @@
                 <span> {{event.title}} </span> <br>
                 <span class="text-muted">  {{event.location}} </span>
                 {{#if event.link}}
-                  <a href="event.link" target="_blank"> Event website </a>
+                  <a href="event.link" target="_blank" rel="noopener"> Event website </a>
                 {{/if}}
               </div>
             </div>

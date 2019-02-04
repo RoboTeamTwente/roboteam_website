@@ -8,7 +8,6 @@ export default Controller.extend({
       const startDate = this.get('model.startdate');
       const endDate = this.get('model.enddate');
       const description = this.get('model.description');
-      const link = this.get('model.link');
 
       // chech the required variables
       if (title && startDate && endDate && location && description) {

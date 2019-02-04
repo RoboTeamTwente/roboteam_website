@@ -7,6 +7,7 @@ module.exports = {
     'attribute-indentation': false,
     'no-invalid-interactive': false,
     'no-mixed-spaces-and-tabs': false,
+    'no-partial': false,
     'quotes': false
   }
 };

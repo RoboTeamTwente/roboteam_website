@@ -10,6 +10,6 @@ export default Route.extend(rollBackModelOnRouteDeactivationMixin, {
     }
   },
   model() {
-  	return this.store.createRecord('event');
+    return this.store.createRecord('event');
   }
 });
