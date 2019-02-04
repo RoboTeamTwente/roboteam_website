@@ -9,4 +9,10 @@
 		padding: 0;
 		padding-top: 8px;
 	}
+
+	.card-img-top {
+		max-height: 228px;
+		border-radius: 0;
+		object-fit: cover;
+	}
 }
