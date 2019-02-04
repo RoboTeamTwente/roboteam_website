@@ -11,6 +11,10 @@ export default Component.extend({
           link: 'robocup'
         },
         {
+          name: 'Events',
+          link: 'events'
+        },
+        {
           name: 'Join us!',
           link: 'join'
         },

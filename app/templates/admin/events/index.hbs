@@ -20,7 +20,11 @@
       <tbody>
         {{#each model as |event|}}
           <tr>
-            <td>{{event.title}}</td>
+            <td> 
+              {{#link-to "events.show" event}}
+                {{event.title}}
+              {{/link-to}}
+            </td>
             <td>{{event.location}}</td>
             <td>{{moment-format event.startDate "DD-MM-YYYY hh:mm"}}</td>
             <td>{{moment-format event.endDate "DD-MM-YYYY hh:mm"}}</td>

@@ -121,11 +121,20 @@ label {
   }
 }
 
-.pell-actionbar {
-  sub {
-    bottom: 1.75em;
-    left: 0.8em;
+
+.editor-toolbar {
+  a {
+    box-sizing: content-box;
   }
+
+  &.fullscreen {
+    top: 56px;
+    height: 80px;
+  }
+}
+
+.CodeMirror-fullscreen {
+  top: 130px;
 }
 
 /* Style all font awesome icons */
