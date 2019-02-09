@@ -9,10 +9,9 @@ export default Model.extend({
   link: attr('string'),
   imageSrc: attr('string'),
   order: attr('number'),
-  width: attr('number'),
   package: attr('number'), // 0: byte 1: kilobyte 2: megabyte 3: gigabyte 4: demobyte
 
-  packageName: computed('package', function() {
-    return packageOptions[this.get('package')];
-  })
+  // packageName: computed('package', function() {
+  //   return packageOptions[this.get('package')];
+  // })
 });

@@ -17,8 +17,7 @@
               {{input type="text" class="form-control mb-2" placeholder="e.g. Nexperia" value=model.name}} 
             </label>
           </div>
-
-
+          
           <div class="col-6"> 
             <label>
               <span class="text"> package * </span> <br>
@@ -36,6 +35,15 @@
                 {{/each}}
               </select>
  --}}
+            </label>
+          </div>
+
+          <div class="col-6"> 
+
+            <label>
+              <span class="text"> Image * </span> <br>
+             {{x-file-input class="btn btn-danger" multiple=false name="false" action=(action "didSelectImage") accept="image/*" alt="Upload Image"}}
+             <img id="output" class="max-width img-sample" hidden={{shouldHideImage}}>
             </label>
           </div>
 
