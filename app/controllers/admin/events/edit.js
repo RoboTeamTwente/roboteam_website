@@ -5,25 +5,31 @@ export default Controller.extend({
   flashNotice: service('flash-notice'),
   actions: {
     addEvent: function() {
+      let self = this;
 
       const flashNotice = this.get('flashNotice');
       flashNotice.sendInfo("Adding event...");
 
-      const title = this.get('model.title').trim(); // trim to reduce whitespaces
-      const location = this.get('model.location').trim();
-      const startDate = this.get('model.startdate');
-      const endDate = this.get('model.enddate');
-      const description = this.get('model.description');
 
-      let self = this;
+
+      const requiredProperties = ['title', 'location', 'startdate', 'enddate', 'description'];
+      const invalidProperties = [];
+
+      requiredProperties.forEach(function(property) { 
+        if (!self.get("model." + property)) {
+          invalidProperties.push(property);
+        }
+      })
+
       // chech the required variables
-      if (title && startDate && endDate && location && description) {
+      if (invalidProperties.length === 0) {
         this.get('model').save().then(function() { 
           flashNotice.sendSuccess("Event Added!");
           self.transitionToRoute('events.show', self.get('model.id')); 
       });
       } else {
-        this.set('error', "not all fields where set properly");
+        flashNotice.sendError("Something went wrong");
+        this.set('error', "The following fields have incorrect values: " + invalidProperties);
       }
     }
   }

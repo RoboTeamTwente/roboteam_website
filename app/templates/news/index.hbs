@@ -6,14 +6,19 @@
   </div>
 	<div class="row">
     {{#each model as |article|}}
-    	<div class="col-12 col-md-6 col-lg-4">
+    	<div class="col-12">
         {{#link-to "news.show" article}}
-          <div class="card offer-card border-0 border-radius-0 link mb-5">
-            <img class="card-img-top" src={{article.imageSrc}} alt={{article.title}}>
-            <div class="card-body">
-              <h5 class="card-title"> {{article.title}} </h5> 
-              <p class="card-text mt-2"> content shortened </p>
+          <div class="border-0 border-radius-0 mb-5 text-dark">
+            <div class="row">
+              <div class="col-4">
+                <img class="max-width" src={{article.imageSrc}} alt={{article.title}}>
+              </div>
+              <div class="col">
+                <h5 class="card-title"> {{article.title}} </h5> 
+                <p class="card-text mt-2 d-none d-md-block"> {{remove-markdown article.contentShortened}} </p>
+              </div>
             </div>
+          
           </div>
         {{/link-to}}
       </div>

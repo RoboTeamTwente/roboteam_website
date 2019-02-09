@@ -29,7 +29,7 @@
             <td>{{moment-format event.startDate "DD-MM-YYYY hh:mm"}}</td>
             <td>{{moment-format event.endDate "DD-MM-YYYY hh:mm"}}</td>
             <td> 
-              <a class="link text-danger" {{action "removeEvent" event.id}}> Remove </a> / 
+              <a class="link text-danger" {{action "remove" event.id}}> Remove </a> / 
               {{#link-to "admin.events.edit" event.id}} <a class="link text-muted"> Edit </a> {{/link-to}}
             </td>
           </tr>

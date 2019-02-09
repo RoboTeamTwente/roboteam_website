@@ -64,6 +64,7 @@
     "liquid-fire": "^0.29.5",
     "loader.js": "^4.7.0",
     "qunit-dom": "^0.7.1",
+    "remove-markdown": "^0.3.0",
     "sass": "^1.14.0",
     "torii": "^0.10.1"
   },
