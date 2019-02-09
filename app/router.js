@@ -38,6 +38,11 @@ Router.map(function() {
       this.route('new');
     });
 
+   this.route('sponsors', function() {
+      this.route('edit',  { path: 'edit/:sponsor_id' });
+      this.route('new');
+    });
+
     this.route('news', function() {
       this.route('new');
     });
