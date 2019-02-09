@@ -43,7 +43,7 @@
             <label>
               <span class="text"> Image * </span> <br>
              {{x-file-input class="btn btn-danger" multiple=false name="false" action=(action "didSelectImage") accept="image/*" alt="Upload Image"}}
-             <img id="output" class="max-width img-sample" hidden={{shouldHideImage}}>
+             <img id="output" class="max-width img-sample" src={{model.imageSrc}} hidden={{shouldHideImage}}>
             </label>
           </div>
 
@@ -58,7 +58,7 @@
 
           <div class="col-12"> 
             <button type="submit" class="btn btn-danger mb-2 mt-2 d-inline"> {{if model.isNew "Add sponsor" "Update sponsor"}} </button>
-            {{#link-to "admin.events"}}
+            {{#link-to "admin.sponsors"}}
               <button class="btn btn-default mb-2 mt-2 d-inline"> Cancel </button>
             {{/link-to}}
           </div>

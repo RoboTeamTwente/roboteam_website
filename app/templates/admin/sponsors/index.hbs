@@ -1,8 +1,36 @@
-index
-
-{{#each model as |sponsor|}}
-
-{{sponsor.name}}
-
-<img src={{sponsor.imageSrc}} width=200 height=200>
-{{/each}}
+<div class="container">
+  <div class="row">
+    <h3 class="mt-5 col"> All listed sponsors </h3>
+    {{#link-to "admin.sponsors.new" class="col-4"}} 
+      <button class="btn btn-danger mt-5 float-right"> Create new sponsor </button>
+    {{/link-to}}
+  </div>
+  <div class="card">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col" class="border-0"> Sponsor </th>
+          <th scope="col" class="border-0"> Image </th>
+          <th scope="col" class="border-0"> Link </th>
+          <th scope="col" class="border-0"> Package </th>
+          <th scope="col" class="border-0"> Options </th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        {{#each model as |sponsor|}}
+          <tr>
+            <td>{{sponsor.name}} </td>
+            <td><img src={{sponsor.imageSrc}} width=50 height=50></td>
+            <td>{{sponsor.link}}</td>
+            <td>{{sponsor.package}}</td>
+            <td> 
+              <a class="link text-danger" {{action "removeSponsor" sponsor.id}}> Remove </a> / 
+              {{#link-to "admin.sponsors.edit" sponsor.id}} <a class="link text-muted"> Edit </a> {{/link-to}}
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
