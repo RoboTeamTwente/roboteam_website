@@ -1,1 +1,8 @@
 index
+
+{{#each model as |sponsor|}}
+
+{{sponsor.name}}
+
+<img src={{sponsor.imageSrc}} width=200 height=200>
+{{/each}}

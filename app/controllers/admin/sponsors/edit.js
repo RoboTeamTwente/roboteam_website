@@ -23,47 +23,47 @@ export default Controller.extend({
     },
 
     addSponsor: function() {
+      let self = this;
 
- // Create the file metadata
-      let metadata = {
-        contentType: 'image/png'
-      };
-      
-      var storageRef = this.get('firebaseApp').storage().ref();
-      var path = 'images/plans/' + this.get('model').get('id') + '.png';
- 
-      var uploadTask = storageRef.child(path).put(this.get('file'), metadata);
 
-      uploadTask.on('state_changed', function(snapshot){
-        var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        console.log('Upload is ' + progress + '% done');
-        console.log(snapshot.state);
-      }, function(error) {}, function() {
-         var downloadURL = uploadTask.snapshot.downloadURL;
-         newPlan.set('imageUrl', downloadURL);
-         newPlan.save().then(() => ctrl.transitionToRoute('index'));
-         ctrl.set('file', '');
-         ctrl.set('selectedCategory', '');
-         ctrl.set(document.getElementById('output').src, '');
-         ctrl.set('days', '');
-         ctrl.set('isDisabled', true);
-      });
+      const name = this.get('model.name').trim(); // trim to reduce whitespaces
+      const link = this.get('model.link').trim();
+      const order = this.get('model.order');
+      const pkg = this.get('model.package');
+      const file = this.get('file');
 
-      // const title = this.get('model.title').trim(); // trim to reduce whitespaces
-      // const location = this.get('model.location').trim();
-      // const startDate = this.get('model.startdate');
-      // const endDate = this.get('model.enddate');
-      // const description = this.get('model.description');
+      // chech the required variables
+      if (name && link && file) {
+        // Create the file metadata
+        let metadata = {
+          contentType: 'image/png'
+        };
+        
+        // get reference to firebase storage
+        var storageRef = this.get('firebaseApp').storage().ref();
+        var path = 'images/plans/' + this.get('model').get('id') + '.png';
+   
+        // create an upload task
+        var uploadTask = storageRef.child(path).put(this.get('file'), metadata);
 
-      // let self = this;
-      // // chech the required variables
-      // if (title && startDate && endDate && location && description) {
-      //   this.get('model').save().then(function() { 
-      //     self.transitionToRoute('events.show', self.get('model.id')); 
-      // });
-      // } else {
-      //   this.set('error', "not all fields where set properly");
-      // }
+        uploadTask.on('state_changed', function(snapshot){
+          var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log('Upload is ' + progress + '% done');
+          console.log(snapshot.state);
+        }, function(error) {}, function() {
+
+           // give the model the imageSrc when finished
+           var downloadURL = uploadTask.snapshot.downloadURL;
+           self.get('model').set('imageSrc', downloadURL);
+
+           // save the model
+           self.get('model').save().then(function() { 
+             self.transitionToRoute('admin.sponsors'); 
+           });
+        });
+      } else {
+        this.set('error', "not all fields where set properly");
+      }
     }
   }
 });

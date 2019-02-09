@@ -57,14 +57,7 @@
           </div>
 
           <div class="col-12"> 
-            <label>
-              <span class="text"> Description *</span>
-            </label>
-            {{simple-mde class="border border-radius-2 p-0" value=model.description change=(action (mut model.description))}}
-          </div>
-
-          <div class="col-12"> 
-            <button type="submit" class="btn btn-danger mb-2 mt-2 d-inline"> {{if model.isNew "Add event" "Update event"}} </button>
+            <button type="submit" class="btn btn-danger mb-2 mt-2 d-inline"> {{if model.isNew "Add sponsor" "Update sponsor"}} </button>
             {{#link-to "admin.events"}}
               <button class="btn btn-default mb-2 mt-2 d-inline"> Cancel </button>
             {{/link-to}}
