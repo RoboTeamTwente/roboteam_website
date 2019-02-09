@@ -32,7 +32,7 @@ export default Controller.extend({
       const file = this.get('file');
 
       // chech the required variables
-      if (name && link && file) {
+      if (name && link && (file || this.get('model.imageSrc'))) {
         // Create the file metadata
         let metadata = {
           contentType: 'image/png'

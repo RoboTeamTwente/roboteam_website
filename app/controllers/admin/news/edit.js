@@ -4,6 +4,7 @@ import { run } from '@ember/runloop';
 
 export default Controller.extend({
   firebaseApp: service(),
+  flashNotice: service('flash-notice'),
   storageRef: null,
   file: null,
   actions: {
@@ -23,6 +24,7 @@ export default Controller.extend({
     },
     addArticle: function() {
       let self = this;
+      const flashNotice = this.get('flashNotice');
 
       const title = this.get('model.title').trim(); // trim to reduce whitespaces
       const content = this.get('model.content');
@@ -30,6 +32,7 @@ export default Controller.extend({
 
       // chech the required variables
       if (title && content && file) {
+        flashNotice.sendInfo("Adding article...");
         // Create the file metadata
         let metadata = {
           contentType: 'image/png'
@@ -54,8 +57,10 @@ export default Controller.extend({
 
            // save the model
            self.get('model').save().then(function() { 
+             flashNotice.sendSuccess("Article added succesfully!");
              self.transitionToRoute('admin.sponsors'); 
            });
+
         });
       } else {
         this.set('error', "not all fields where set properly");

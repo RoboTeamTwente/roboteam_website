@@ -1,1 +1,22 @@
-news
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-12">
+      <h1> Articles </h1>
+    </div>
+  </div>
+	<div class="row">
+    {{#each model as |article|}}
+    	<div class="col-12 col-md-6 col-lg-4">
+        {{#link-to "news.show" article}}
+          <div class="card offer-card border-0 border-radius-0 link mb-5">
+            <img class="card-img-top" src={{article.imageSrc}} alt={{article.title}}>
+            <div class="card-body">
+              <h5 class="card-title"> {{article.title}} </h5> 
+              <p class="card-text mt-2"> content shortened </p>
+            </div>
+          </div>
+        {{/link-to}}
+      </div>
+    {{/each}}
+  </div>
+</div>

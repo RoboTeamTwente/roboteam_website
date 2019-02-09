@@ -155,6 +155,46 @@ label {
     border-radius: 50%;
 }
 
+.flash-notice {
+  position: fixed;
+  transition: all .3s ease-in-out;
+  z-index: 4;
+  margin-top: 4px;
+  border-radius: 0;
+  padding-top: -15px;
+  width: 100%;
+  transform: translateY(-56px);
+
+  &.hidden {
+    transform: translateY(-112px);
+  }
+
+  &.success {
+    background-color: #eee;
+    color: green;
+  }
+
+  &.info {
+    background-color: #eee;
+    color: blue;
+  }
+
+  &.warning {
+    background-color: #eee;
+    color: orange;
+  }
+
+  &.danger {
+    background-color: #eee;
+    color: red;
+  }
+
+  .flash-notice-content {
+    margin-bottom: 0;
+  }
+}
+
+
 /* Add a hover effect if you want */
 .fa:hover {
     opacity: 0.7;
