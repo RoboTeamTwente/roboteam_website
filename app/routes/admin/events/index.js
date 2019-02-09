@@ -1,14 +1,5 @@
-import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
+import IndexRoute from 'roboteam-website/routes/base/index';
 
-export default Route.extend({
-  session: service(),
-  beforeModel: function() {
-    if (!this.get('session.isAuthenticated')) {
-      this.transitionTo('login'); 
-    }
-  },
-  model: function() {
-    return this.store.findAll('event');
-  }
+export default IndexRoute.extend({
+  modelName: "event"
 });

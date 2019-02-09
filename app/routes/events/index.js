@@ -1,7 +1,5 @@
-import Route from '@ember/routing/route';
+import { IndexRouteUnauthenticated } from 'roboteam-website/routes/base/index';
 
-export default Route.extend({
-  model: function() {
-    return this.store.findAll('event');
-  }
+export default IndexRouteUnauthenticated.extend({
+  modelName: "event"
 });

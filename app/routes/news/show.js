@@ -1,7 +1,6 @@
-import Route from '@ember/routing/route';
+import { ShowRouteUnauthenticated } from 'roboteam-website/routes/base/show';
 
-export default Route.extend({
-  model(params) {
-    return this.store.findRecord('article', params.article_id);
-  }
+export default ShowRouteUnauthenticated.extend({
+  modelName: "event",
+  modelRouteParam: "article_id"
 });

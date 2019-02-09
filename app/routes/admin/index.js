@@ -1,11 +1,4 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
+import AuthenticatedRouteMixin from 'roboteam-website/mixins/authenticated-route';
 
-export default Route.extend({
-  session: service(),
-  beforeModel: function() {
-    if (!this.get('session.isAuthenticated')) {
-      this.transitionTo('login'); 
-    }
-  }
-});
+export default Route.extend(AuthenticatedRouteMixin);
