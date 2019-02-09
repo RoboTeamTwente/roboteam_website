@@ -1,1 +1,33 @@
-<h1> News articles </h1>
+
+<div class="container">
+  <div class="row">
+    <h3 class="mt-5 col"> All listed News articles </h3>
+    {{#link-to "admin.news.new" class="col-4"}} 
+      <button class="btn btn-danger mt-5 float-right"> Create new article </button>
+    {{/link-to}}
+  </div>
+  <div class="card">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col" class="border-0"> Article </th>
+          <th scope="col" class="border-0"> Image </th>
+          <th scope="col" class="border-0"> Options </th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        {{#each model as |article|}}
+          <tr>
+            <td>{{article.title}} </td>
+            <td><img src={{article.imageSrc}} width=50 height=50></td>
+            <td> 
+              <a class="link text-danger" {{action "removeArticle" article.id}}> Remove </a> / 
+              {{#link-to "admin.news.edit" article.id}} <a class="link text-muted"> Edit </a> {{/link-to}}
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

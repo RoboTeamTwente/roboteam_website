@@ -44,6 +44,7 @@ Router.map(function() {
     });
 
     this.route('news', function() {
+      this.route('edit',  { path: 'edit/:article_id' });
       this.route('new');
     });
   });

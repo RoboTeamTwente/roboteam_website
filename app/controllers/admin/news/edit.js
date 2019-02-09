@@ -18,21 +18,18 @@ export default Controller.extend({
         this.set('file', files[0]);
       });
 
-      // debugger;
+      // Debugger;
       reader.readAsDataURL(files[0]);
     },
-
-    addSponsor: function() {
+    addArticle: function() {
       let self = this;
 
-      const name = this.get('model.name').trim(); // trim to reduce whitespaces
-      const link = this.get('model.link').trim();
-      const order = this.get('model.order');
-      const pkg = this.get('model.package');
+      const title = this.get('model.title').trim(); // trim to reduce whitespaces
+      const content = this.get('model.content');
       const file = this.get('file');
 
       // chech the required variables
-      if (name && link && file) {
+      if (title && content && file) {
         // Create the file metadata
         let metadata = {
           contentType: 'image/png'
@@ -40,7 +37,7 @@ export default Controller.extend({
         
         // get reference to firebase storage
         var storageRef = this.get('firebaseApp').storage().ref();
-        var path = 'images/plans/' + this.get('model').get('id') + '.png';
+        var path = 'images/articles/' + this.get('model').get('title') + this.get('model').get('id') + '.png';
    
         // create an upload task
         var uploadTask = storageRef.child(path).put(this.get('file'), metadata);
