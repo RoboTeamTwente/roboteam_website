@@ -8,7 +8,6 @@ export default Model.extend({
   name: attr('string'),
   link: attr('string'),
   imageSrc: attr('string'),
-  order: attr('number'),
   package: attr('number'), // 0: byte 1: kilobyte 2: megabyte 3: gigabyte 4: demobyte
 
   // packageName: computed('package', function() {

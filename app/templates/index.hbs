@@ -27,20 +27,24 @@
 </div>
 
 {{!-- Articles --}}
-<div class="container">
+<div class="container mt-5">
   <h3> News </h3>
-  <div class="row mt-5">
-    {{#each articles as |article|}}
-      <div class="col-12 col-md-4 mb-5 mb-md-5">
-        {{#link-to article.link}}
+  <div class="row">
+    {{#each model.articles as |article|}}
+      <div class="col-12 col-md-4">
+        {{#link-to "news.show" article}}
           <img class="max-width cover" height="200" src={{article.imageSrc}} alt={{article.title}}>
           <h4 class="text-dark mt-2">
             {{article.title}}
           </h4>
-          <span class="text-dark"> {{article.subtitle}} </span>
         {{/link-to}}
       </div>
     {{/each}}
+    <div class="col-12">
+      {{#link-to "news"}} 
+      <button class="float-right btn btn-danger"> More news &raquo; </button>
+      {{/link-to}}
+    </div>
   </div>
 </div>
 

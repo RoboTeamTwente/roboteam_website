@@ -11,49 +11,6 @@ export default Controller.extend({
   init() {
     this._super(...arguments);
 
-
-    this.events = [
-    {
-      id: 0,
-      title: "Embedded World",
-      location: "Breda, NL",
-      startdate: new Date(2019, 3, 2, 8, 0, 0, 0),
-      enddate: new Date(2019, 3, 2, 18, 0, 0, 0) 
-
-    },
-     {
-      id: 1,
-      title: "Open dagen University of Twente",
-      location: "Enschede, NL",
-      startdate: new Date(2019, 3, 10, 10, 0, 0, 0), 
-      enddate: new Date(2019, 3, 3, 16, 0, 0, 0) 
-    }]
-
-
-    this.articles = [
-        {
-        id: 0,
-        title:    "View our publications",
-        subtitle: "All our work is open source!",
-        imageSrc: "images/ai.jpg",
-        link: "documentation"
-      },
-      {
-        id: 1,
-        title:    "Meet the team",
-        subtitle: "RoboTeam 3 (Sydney 2018/2019)",
-        imageSrc: "content/team.JPG",
-        link: "team"
-      },
-      {
-        id: 2,
-        title:    "RoboTeam Twente at your event?",
-        subtitle: "Let's become partners!",
-        imageSrc: "content/ic.JPG",
-        link: "partners"
-      }  
-    ];
-
     this.headers = [
        {     
         id: 0,
