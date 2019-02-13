@@ -1,12 +1,8 @@
 import Controller from '@ember/controller';
+import removeModelAction from 'roboteam-website/mixins/remove-model-action';
 
-export default Controller.extend({
-  actions: {
-    removeArticle: function(id) {
-      this.store.findRecord('article', id).then(function(event) {
-        event.destroyRecord();
-      });
-    }
-  }
+export default Controller.extend(removeModelAction, {
+  modelType: "article",
+  modelNameProperty: "title"
 });
 
