@@ -20,18 +20,19 @@ export default Mixin.create({
   // Returns true if model is valid
   // sets an error an returns false if not
   validateModel() {
-      const invalidProperties = [];
-      this.get('requiredProperties').forEach(function(property) { 
-        if (!self.get("model." + property)) {
-          invalidProperties.push(property);
-        }
-      })
-      if (invalidProperties.length === 0) {
-        return true;
-      } else {
-        this.get('flashNotice').sendError("Something went wrong");
-        this.set('error', "The following fields have incorrect values: " + invalidProperties);
+    let self = this;
+    const invalidProperties = [];
+    this.get('requiredProperties').forEach(function(property) { 
+      if (!self.get(self.get('modelName') + "." + property)) {
+        invalidProperties.push(property);
       }
+    })
+    if (invalidProperties.length === 0) {
+      return true;
+    } else {
+      this.get('flashNotice').sendError("Something went wrong");
+      this.set('error', "The following fields have incorrect values: " + invalidProperties);
+    }
     return false;
   },
 
