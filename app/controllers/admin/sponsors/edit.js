@@ -1,5 +1,7 @@
-import Controller from '@ember/controller';
+import Controller from '@ember/controller'
 import saveModelMixin from "roboteam-website/mixins/save-model"
+import { computed } from '@ember/object'
+import { packageOptions } from 'roboteam-website/constants'
 
 export default Controller.extend(saveModelMixin, {
   requiredProperties: ["name", "link"],
@@ -7,6 +9,14 @@ export default Controller.extend(saveModelMixin, {
   noticeAfterSave: "Sponsor updated!",
   modelName: "model",
   transitionAfterSuccess: "admin.sponsors.show",
-  imagePath: "images/sponsors"
+  imagePath: "images/sponsors", 
+
+  selectedPackage: computed('allPackages', () => {
+  	return packageOptions[0];
+  }),
+
+  allPackages: computed(() => {
+  	return packageOptions;
+  })
 });
 

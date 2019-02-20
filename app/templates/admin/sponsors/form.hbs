@@ -29,12 +29,12 @@
                 4: Demobyte)
                </span>
 
-             {{!--  <select onchange={{action (mut vehicle) value="target.value"}}>
-                {{#each vehicles as |vehicleChoice|}}
-                  <option value={{vehicleChoice}} selected={{eq vehicle vehicleChoice}}>{{vehicleChoice}}</option>
+               <select class="form-control" onchange={{action (mut model.package) value=model.package}}>
+                {{#each allPackages as |pkg|}}
+                  <option value={{pkg.title}} selected={{eq pkg.title selectedPackage}}>{{pkg.title}}</option>
                 {{/each}}
               </select>
- --}}
+
             </label>
           </div>
 
