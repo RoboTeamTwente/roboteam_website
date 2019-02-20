@@ -15,6 +15,7 @@ export default Mixin.create({
   noticeAfterSave: "Item updated!",
   modelName: "model",
   transitionAfterSuccess: "events.show",
+  transitionToIndexRoute: false,
   imagePath: "images/",
 
   // Returns true if model is valid
@@ -41,7 +42,12 @@ export default Mixin.create({
     const flashNotice = this.get('flashNotice');
     this.get(this.get('modelName')).save().then(function() { 
       flashNotice.sendSuccess(self.get('noticeAfterSave'));
-      self.transitionToRoute(self.get('transitionAfterSuccess'), self.get(self.get('modelName')).get('id')); 
+
+      if (self.get('transitionToIndexRoute')) {
+        self.transitionToRoute(self.get('transitionAfterSuccess')); 
+      } else {
+        self.transitionToRoute(self.get('transitionAfterSuccess'), self.get(self.get('modelName')).get('id')); 
+      }
     });
   },
 

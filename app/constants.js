@@ -1,10 +1,25 @@
 
 const packageOptions = [
-  {title: "Byte"}, 
-  {title: "KiloByte"}, 
-  {title: "MegaByte"}, 
-  {title: "GigaByte"}, 
-  {title: "DemoByte"} 
+  {
+    title: "Byte",
+    value: "BYTE"
+  }, 
+  {
+    title: "KiloByte",
+    value: "KILOBYTE"
+  }, 
+  {
+    title: "MegaByte",
+    value: "MEGABYTE"
+  }, 
+  {
+    title: "GigaByte",
+    value: "GIGABYTE"
+  }, 
+  {
+    title: "DemoByte",
+    value: "DEMOBYTE"
+  }
 ];
 
 export { packageOptions }
