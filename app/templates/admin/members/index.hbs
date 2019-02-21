@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <h3 class="mt-5 col"> All listed members </h3>
+    {{#link-to "admin.members.new" class="col-4"}} 
+      <button class="btn btn-danger mt-5 float-right"> Create new member </button>
+    {{/link-to}}
+  </div>
+  <div class="card">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col" class="border-0"> Name </th>
+          <th scope="col" class="border-0"> Image </th>
+          <th scope="col" class="border-0"> Study </th>
+          <th scope="col" class="border-0"> Role </th>
+          <th scope="col" class="border-0"> Mail </th>
+          <th scope="col" class="border-0"> Story </th>
+          <th scope="col" class="border-0"> Options </th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        {{#each model as |member|}}
+          <tr>
+            <td> 
+              {{#link-to "admin.members.edit" member.id}}
+                {{member.name}}
+              {{/link-to}}
+            </td>
+            <td><img src={{member.imageSrc}} width=50 height=50></td>
+            <td>{{member.study}}</td>
+            <td>{{member.role}}</td>
+            <td>{{member.mail}}</td>
+            <td>{{member.mail}}</td>
+            <td>{{member.story}}</td>
+            <td> 
+              <a class="link text-danger" {{action "remove" member.id}}> Remove </a> / 
+              {{#link-to "admin.members.edit" member.id}} <a class="link text-muted"> Edit </a> {{/link-to}}
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

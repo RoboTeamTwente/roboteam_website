@@ -47,6 +47,11 @@ Router.map(function() {
       this.route('edit',  { path: 'edit/:article_id' });
       this.route('new');
     });
+
+    this.route('members', function() {
+      this.route('edit',  { path: 'edit/:member_id' });
+      this.route('new');
+    });
   });
 
 });

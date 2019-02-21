@@ -1,0 +1,69 @@
+<div class="container">
+  <h3 class="mt-5"> {{if model.isNew "Add new member" "Edit member"}} </h3>
+  <div class="card">
+    <form {{action "saveModelWithImage" on="submit"}}>
+      <div class="form-group pl-4 pr-4 pt-3">
+        <div class="row">
+          <div class="col-12"> 
+            {{#if error}}
+              <div class="alert alert-danger"> 
+                <b> Oh oh... </b> <br> 
+                {{error}}
+              </div>
+            {{/if}}
+
+            <label>
+              <span class="text"> Name * </span>
+              {{input type="text" class="form-control mb-2" placeholder="e.g. Wall-E" value=model.name}} 
+            </label>
+          </div>
+
+          <div class="col-6"> 
+            <label>
+              <span class="text"> Role * </span>
+              {{input type="text" class="form-control mb-2" placeholder="e.g. Software Developer" value=model.role}} 
+            </label>
+          </div>
+
+          <div class="col-6"> 
+            <label>
+              <span class="text"> Study * </span>
+              {{input type="text" class="form-control mb-2" placeholder="e.g. Computer Science" value=model.study}} 
+            </label>
+          </div>
+
+          <div class="col-6"> 
+            <label>
+              <span class="text"> E-Mail * </span>
+              {{input type="mail" class="form-control mb-2" placeholder="e.g. wall-e@roboteamtwente.nl" value=model.mail}}
+            </label>
+          </div>
+
+
+            {{!-- Image upload --}}
+          <div class="col-6"> 
+            <label>
+              <span class="text"> Image * </span> <br>
+             {{x-file-input class="btn btn-danger" multiple=false name="false" action=(action "didSelectImage") accept="image/*" alt="Upload Image"}}
+             <img id="output" class="max-width img-sample" src={{model.imageSrc}} hidden={{shouldHideImage}}>
+            </label>
+          </div>
+
+          <div class="col-12"> 
+            <label>
+              <span class="text"> Story *</span>
+            </label>
+            {{simple-mde class="border border-radius-2 p-0" value=model.story change=(action (mut model.story))}}
+          </div>
+
+          <div class="col-12"> 
+            <button type="submit" class="btn btn-danger mb-2 mt-2 d-inline"> {{if model.isNew "Add member" "Update member"}} </button>
+            {{#link-to "admin.members"}}
+              <button class="btn btn-default mb-2 mt-2 d-inline"> Cancel </button>
+            {{/link-to}}
+          </div>
+        </div>
+      </div>            
+    </form>
+  </div>
+</div>
