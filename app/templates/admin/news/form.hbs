@@ -27,7 +27,7 @@
             <label>
               <span class="text"> Image * </span> <br>
               {{x-file-input class="btn btn-danger" multiple=false name="false" action=(action "didSelectImage") accept="image/*" alt="Upload Image"}}
-              <img id="output" class="max-width img-sample" alt="preview" src={{model.imageSrc}} hidden={{shouldHideImage}}>
+              <img id="output" class="img-sample" alt="preview" src={{model.imageSrc}} hidden={{shouldHideImage}}>
             </label>
           </div>
 

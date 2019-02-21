@@ -61,14 +61,14 @@ a {
   background-color: #eee;
 }
 
-
 .img-sample {
-  width: 100%;
-  min-height: 50px;
-  border-radius: 4px;
-  border: 5px solid #eee;
+  width: 46px;
+  height: 46px;
+  max-width: 46px;
+  max-height: 46px;
+  object-position: center;
+  object-fit: cover;
 }
-
 
 h1 {
   font-size: 1.8rem;
@@ -142,6 +142,16 @@ label {
 
 .CodeMirror-fullscreen {
   top: 130px;
+}
+
+img.cover {
+  object-position: center;
+  object-fit: cover;
+}
+
+img.contain {
+  object-position: center;
+  object-fit: contain;
 }
 
 /* Style all font awesome icons */

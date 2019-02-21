@@ -55,6 +55,7 @@
     "ember-resolver": "^5.0.1",
     "ember-router-scroll": "^1.0.0",
     "ember-simplemde": "^1.2.0",
+    "ember-sortable": "^1.12.5",
     "ember-source": "~3.4.0",
     "ember-truth-helpers": "^2.1.0",
     "ember-welcome-page": "^3.2.0",
