@@ -10,7 +10,11 @@ export default Model.extend({
   imageSrc: attr('string'),
   package: attr('string'),
 
-  packageName: computed('package', () => {
+  packageName: computed('package', function() {
     return packageOptions[0];
+  }),
+  displayWide: computed('package', function() {
+  	const pkg = this.get('package');
+  	return pkg === "MEGABYTE" || pkg === "GIGABYTE";
   })
 });
