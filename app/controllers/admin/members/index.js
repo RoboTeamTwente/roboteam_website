@@ -1,5 +1,4 @@
 import Controller from '@ember/controller';
-import { computed } from '@ember/object';
 import { sort } from '@ember/object/computed';
 import removeModelAction from 'roboteam-website/mixins/remove-model-action';
 import { inject as service } from '@ember/service';
