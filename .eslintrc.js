@@ -15,6 +15,7 @@ module.exports = {
     browser: true
   },
   rules: {
+    "no-mixed-spaces-and-tabs": "off"
   },
   overrides: [
     // node files

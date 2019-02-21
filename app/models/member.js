@@ -1,6 +1,5 @@
 import DS from 'ember-data';
 import { computed } from '@ember/object';
-import { htmlSafe } from '@ember/template';
 
 const { Model, attr } = DS;
 
