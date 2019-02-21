@@ -6,7 +6,6 @@ import removeModelAction from 'roboteam-website/mixins/remove-model-action';
 export default Controller.extend(removeModelAction, {
   modelType: "member",
   modelNameProperty: "name",
-
   memberSorting: ['order'],
   sortedModel: sort('model', 'memberSorting'),
   isChangingOrder: false,
@@ -22,9 +21,15 @@ export default Controller.extend(removeModelAction, {
       this.set('justDragged', draggedModel);
     },
     allowChangeOrder() {
+    	this.set('previousModel', this.get('model'));
     	this.set('isChangingOrder', true);
     },
     cancelChangeOrder() {
+    	// reload the model from the database to undo all mutations
+		this.get('sortedModel').forEach(function(item){
+        	item.rollbackAttributes();
+     	});
+
     	this.set('isChangingOrder', false);
     },
     saveChangedOrder() {

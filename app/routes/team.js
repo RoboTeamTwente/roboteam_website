@@ -2,6 +2,6 @@ import Route from '@ember/routing/route';
 
 export default Route.extend({
   model() {    
-    return this.store.findAll('member');
+    return this.store.findAll('member').then(members => members.sortBy('order'));
   }
 });
