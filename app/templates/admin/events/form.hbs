@@ -46,12 +46,12 @@
             </label>
           </div>
 
-            {{!-- Image upload --}}
+          {{!-- Image upload --}}
           <div class="col-6"> 
             <label>
               <span class="text"> Image * </span> <br>
-             {{x-file-input class="btn btn-danger" multiple=false name="false" action=(action "didSelectImage") accept="image/*" alt="Upload Image"}}
-             <img id="output" class="max-width img-sample" src={{model.imageSrc}} hidden={{shouldHideImage}}>
+              {{x-file-input class="btn btn-danger" multiple=false name="false" action=(action "didSelectImage") accept="image/*" alt="Upload Image"}}
+              <img id="output" class="max-width img-sample" alt="preview" src={{model.imageSrc}} hidden={{shouldHideImage}}>
             </label>
           </div>
 

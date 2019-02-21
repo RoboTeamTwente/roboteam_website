@@ -20,7 +20,7 @@
         {{#each model as |article|}}
           <tr>
             <td>{{article.title}} </td>
-            <td><img src={{article.imageSrc}} width=50 height=50></td>
+            <td><img src={{article.imageSrc}} alt="article" width='50' height='50'></td>
             <td> 
               <a class="link text-danger" {{action "remove" article.id}}> Remove </a> / 
               {{#link-to "admin.news.edit" article.id}} <a class="link text-muted"> Edit </a> {{/link-to}}

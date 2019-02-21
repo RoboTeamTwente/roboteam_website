@@ -4,9 +4,9 @@
       <h1> Articles </h1>
     </div>
   </div>
-	<div class="row">
+  <div class="row">
     {{#each model as |article|}}
-    	<div class="col-12">
+      <div class="col-12">
         {{#link-to "news.show" article}}
           <div class="border-0 border-radius-0 mb-5 text-dark">
             <div class="row">
@@ -18,7 +18,6 @@
                 <p class="card-text mt-2 d-none d-md-block"> {{remove-markdown article.contentShortened}} </p>
               </div>
             </div>
-          
           </div>
         {{/link-to}}
       </div>

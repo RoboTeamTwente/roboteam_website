@@ -84,7 +84,7 @@ export default Mixin.create({
         let storageRef = this.get('firebaseApp').storage().ref();
         let path = this.get('imagePath') + this.get(this.get('modelName')).get('id') + '.png';
         let uploadTask = storageRef.child(path).put(this.get('file'), metadata);
-        uploadTask.on('state_changed', function(snapshot){ }, function(error) {}, function() {
+        uploadTask.on('state_changed', function(){ }, function() {}, function() {
 
            // give the model the imageSrc when finished
            let downloadURL = uploadTask.snapshot.downloadURL;

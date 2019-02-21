@@ -21,7 +21,7 @@
           <div class="col-6"> 
             <label>
               <span class="text"> package * </span> <br>
-               <select class="form-control" onchange={{action (mut model.package) value="target.value"}}>
+              <select class="form-control" onchange={{action (mut model.package) value="target.value"}}>
                 <option value="" disabled selected>Select your option</option>
                 {{#each allPackages as |pkg|}}
                   <option value={{pkg.value}} selected={{eq pkg.value model.package}}>{{pkg.title}}</option>
@@ -31,11 +31,10 @@
           </div>
 
           <div class="col-6"> 
-
             <label>
               <span class="text"> Image * </span> <br>
-             {{x-file-input class="btn btn-danger" multiple=false name="false" action=(action "didSelectImage") accept="image/*" alt="Upload Image"}}
-             <img id="output" class="max-width img-sample" src={{model.imageSrc}} hidden={{shouldHideImage}}>
+              {{x-file-input class="btn btn-danger" multiple=false name="false" action=(action "didSelectImage") accept="image/*" alt="Upload Image"}}
+              <img id="output" class="max-width img-sample" alt="preview" src={{model.imageSrc}} hidden={{shouldHideImage}}>
             </label>
           </div>
 
@@ -43,7 +42,6 @@
             <label>
               <span class="text"> link * </span> <br>
               <span class="text text-muted"> 1 or 2. </span>
-
               {{input type="1" class="form-control mb-2" placeholder="e.g. roboteamtwente.nl" value=model.link}}
             </label>
           </div>
