@@ -1,45 +1,16 @@
 <div class="container">
   <div class="col-12 mt-5">
     <h1> Publications </h1>
-
-    <div class="row">
-      <div class="col-12 col-md-6 mt-5">
-        <p>
-          Apart from being competitive, the RoboCup also aims to advance the progress in robotics. To reach this goal, all teams share their technological improvements to aid other teams in their design choices. This page contains an overview of our designs.
-        </p>
-
-        <a href="documents/RoboTeamTwente_SSL_2017.pdf" download>Team description paper 2017</a> <br>
-        <a href="documents/RoboTeamTwente_SSL_2018.pdf" download>Team description paper 2018</a> <br>
-        <a href="https://ssl.robocup.org/wp-content/uploads/2019/01/2019_ETDP_RoboTeam_Twente.pdf" download>Team description paper 2019</a>
-
+    {{#each model as |innovation index|}}
+      <div class="row mt-5 mb-5">        
+          <div class="col-12 col-md-5 order-6">
+            <img class="max-width" alt={{innovation.title}} src={{innovation.imageSrc}}>
+          </div>
+          <div class="col-12 col-md-7 mt-5 {{if (is-even index) 'order-1' 'order-12'}}">
+            <h1> {{innovation.title}} </h1>
+            {{simple-mde-preview innovation.content}}
+          </div>
       </div>
-      <div class="col-12 col-md-6">
-        <img class="max-width" alt="Mechanical design" src="content/technology/robot_mechanical_design.png">
-      </div>
-    </div>
-
-    <div class="row mt-5 mb-5">
-      <div class="col-12 col-md-5">
-        <img class="max-width" alt="Kicker topview" src="content/technology/kicker_topview.png">
-      </div>
-      <div class="col-12 col-md-7 mt-5">
-        <h1> Geneva Drive </h1>
-        <p>
-          The Geneva drive is placed in the back of the robot. A gear connected to a motor drives a second gear, which on its turn drives the rotating plane. The motor has encoders installed. This allows the system to move from one locked position to the next one. This is important, since the kicker should be locked during shooting. While the encoders provide the relative location of the system, the absolute position is unknown after starting the robot. To calibrate the drive, it is rotated in one direction until a proximity sensor on the chassis measures the proximity of the drive. This is the absolute starting angle of the drive, to which the relative angle, measured by the encoders, can be added.
-        </p>
-      </div>
-    </div>
-
-    <div class="row mt-5">
-      <div class="col-12 col-md-7 mt-5">
-        <h1> Latency reduction </h1>
-        <p>
-          To overcome the high latency of the camera system an accelerometer and gy- roscope will be added to the robot. This will update the robot on current ac- celeration, angle and angular velocity every one hundredth of a second. This allows the robot to respond much faster to inaccuracies in the movement. The MTi-3 device by Xsens has a gyroscope/accelerometer MEMS, a magnetometer and a microchip which reads and combines their data to provide accurate move- ment and acceleration information. The device will communicate with the main microcontroller over a UART interface.
-        </p>
-      </div>
-      <div class="col-12 col-md-5 mt-5">
-        <img class="max-width" alt="Latency reduction" src="content/technology/control.png">
-      </div>
-    </div>
+    {{/each}}
   </div>
 </div>

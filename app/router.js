@@ -52,6 +52,11 @@ Router.map(function() {
       this.route('edit',  { path: 'edit/:member_id' });
       this.route('new');
     });
+
+    this.route('documentation', function() {
+      this.route('edit',  { path: 'edit/:innovation_id' });
+      this.route('new');
+    });
   });
 
 });
