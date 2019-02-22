@@ -5,5 +5,6 @@ const { attr, Model } = DS;
 export default Model.extend({
   title: attr('string'),
   content: attr('string'),
-  imageSrc: attr('string')
+  imageSrc: attr('string'),
+  order: attr('number')
 });
