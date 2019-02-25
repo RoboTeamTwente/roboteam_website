@@ -6,5 +6,6 @@ const { attr, Model } = DS;
 export default Model.extend({
   name: attr('string'),
   imageSrc: attr('string'),
-  content: attr('string')
+  content: attr('string'),
+  yearOfStart: attr('string')
 });

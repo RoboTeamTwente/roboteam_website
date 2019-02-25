@@ -57,6 +57,11 @@ Router.map(function() {
       this.route('edit',  { path: 'edit/:innovation_id' });
       this.route('new');
     });
+
+    this.route('previousteams', function() {
+      this.route('edit',  { path: 'edit/:previousteam_id' });
+      this.route('new');
+    });
   });
 
 });

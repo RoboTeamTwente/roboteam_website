@@ -1,62 +1,16 @@
 <div class="container">
-  <div class="row mt-5 mb-5">
-    <div class="col-12 col-md-6">
-      <h2> RoboTeam 2017-2018</h2>
-      <p> RoboTeam #2 showed a significant improvement on the robots. In the roboCup they reached 7th place overall, and where 3th for most innovative team! </p>
-      <div class="row">
-        <ul class="col-6">
-          <li> Emiel Steerneman </li>
-          <li> Jelle Zult </li>
-          <li> Jeroen Weener </li>
-          <li> Nahuel Manterola </li>
-          <li> Anouk Leunissen </li>
-          <li> Cas Doornkamp </li>
-          <li> Luka Sculac </li>
-          <li> Stefan Tersteeg </li>
-        </ul>
-        <ul class="col-6">
-          <li> Wouter van Veelen </li>
-          <li> Zahra van Egdom </li>
-          <li> Christophe van der Walt </li>
-          <li> Gaël Humblot-Renaux </li>
-          <li> Haichuan Wang </li>
-          <li> Sebastian Schipper </li>
-          <li> Leon Klute </li>
-        </ul>
+  <div class="col-12 mt-5">
+    <h1> Previous Teams </h1>
+    {{#each model as |previousteam index|}}
+      <div class="row mb-5">        
+          <div class="col-12 col-md-6 order-6">
+            <img class="max-width" alt={{previousteam.name}} src={{previousteam.imageSrc}}>
+          </div>
+          <div class="col-12 col-md-6 previousteam-text {{if (is-even index) 'order-1' 'order-12'}}">
+            <h3> {{previousteam.name}} </h3>
+            {{simple-mde-preview previousteam.content}}
+          </div>
       </div>
-    </div>
-    <div class="col-12 col-md-6">
-      <img class="max-width contain" src="content/previousteams/1718.jpg" alt="team 2017-2018">
-    </div>
-  </div>
-
-  <div class="row mt-5 mb-5">
-    <div class="col-12 col-md-6">
-      <img class="max-width contain" src="content/previousteams/1617.jpg" alt="team 2016-2017">
-    </div>
-
-    <div class="col-12 col-md-6">
-      <h2> RoboTeam 2016-2017</h2>
-      <p> RoboTeam #1 is the first RoboTeam! Besides starting the team they immediately managed to reach the 14th place in the RoboCup! </p>
-      <div class="row"> 
-        <ul class="col-6">
-          <li> Ewoud Croll </li>
-          <li> Bob Rubbens </li>
-          <li> Stefan Tolboom </li>
-          <li> Wybe Westra </li>
-          <li> Roel Plompen </li>
-          <li> Boi Okken </li>
-          <li> Dennis de Weerdt </li>
-        </ul>
-        <ul class="col-6">
-          <li> Hans Van Der Heijde </li>
-          <li> Iris Weijers </li>
-          <li> Jim Hoekstra </li>
-          <li> Klaas De Haan </li>
-          <li> Rick Timmer </li>
-          <li> Rik Freije </li>
-        </ul>
-      </div>
-    </div>
+    {{/each}}
   </div>
 </div>
