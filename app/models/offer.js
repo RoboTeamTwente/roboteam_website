@@ -8,11 +8,18 @@ export default Model.extend({
   title: attr('string'),
   content: attr('string'),
   imageSrc: attr('string'),
-  fullTime: attr('bool'),
-  halfTime: attr('bool'),
-  partTime: attr('bool'),
-  isBoard: attr('bool'),
+  fullTime: attr('boolean'),
+  halfTime: attr('boolean'),
+  partTime: attr('boolean'),
+  isBoard: attr('boolean'),
 
+  hoursFormatted: computed('fullTime', 'halfTime', 'partTime', function() {
+    let text = "";
+    if (this.get('fullTime')) text+= " fulltime /";
+    if (this.get('halfTime')) text+= " halftime /";
+    if (this.get('partTime')) text+= " parttime /";
+    return text.substr(0, text.length -1); // remove that last /
+  }),
   contentFormatted: computed('content', function(){
     return htmlSafe(this.get('content').replace(/\n/g, '<br>'));
   }),

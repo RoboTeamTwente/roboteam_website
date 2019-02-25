@@ -62,6 +62,11 @@ Router.map(function() {
       this.route('edit',  { path: 'edit/:previousteam_id' });
       this.route('new');
     });
+
+    this.route('offers', function() {
+      this.route('edit',  { path: 'edit/:offer_id' });
+      this.route('new');
+    });
   });
 
 });
