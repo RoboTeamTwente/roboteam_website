@@ -6,7 +6,9 @@ export default Route.extend({
     return hash({
    	  sponsors: this.store.findAll('sponsor'),
       crowdfunders: this.store.findAll('crowdfunder'),
-      articles: this.store.query('article',  { orderBy: 'createdAt', limitToLast: 3 }),
+      articles: this.store.query('article',  { orderBy: 'createdAt', limitToLast: 3 }).then(function(articles) {
+      	return articles.toArray().reverse();
+      })
     });
   }
 });

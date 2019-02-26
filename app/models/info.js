@@ -4,6 +4,8 @@ import { computed } from '@ember/object';
 const { attr, Model } = DS;
 
 export default Model.extend({
+  createdAt: attr('date'),
+  updatedAt: attr('date'),
   contactName: attr('string'),
   contactEmail: attr('string'),
   contactPhone: attr('string'),

@@ -40,6 +40,14 @@ export default Mixin.create({
   _save() {
     let self = this;
     const flashNotice = this.get('flashNotice');
+
+    // add time to the model. easy for sorting
+    let timestamp = new Date().getTime();
+    if (this.get(this.get('modelName')).get('isNew')) {
+      this.get(this.get('modelName')).set('createdAt', timestamp);
+    } 
+    this.get(this.get('modelName')).set('updatedAt', timestamp);
+
     this.get(this.get('modelName')).save().then(function() { 
       flashNotice.sendSuccess(self.get('noticeAfterSave'));
 

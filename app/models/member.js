@@ -12,6 +12,9 @@ export default Model.extend({
   story: attr('string'),
   order: attr('number'),
 
+  createdAt: attr('date'),
+  updatedAt: attr('date'),
+
   storyShortened: computed('story', function() {
     let content = this.get('story');
     const maxLength = 100; // max amount of characters

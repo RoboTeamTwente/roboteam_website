@@ -9,5 +9,7 @@ export default Model.extend({
   enddate: attr('date'),
   description: attr('string'),
   link: attr('string'),
-  imageSrc: attr('string')
+  imageSrc: attr('string'),
+  createdAt: attr('date'),
+  updatedAt: attr('date')
 });

@@ -1,0 +1,22 @@
+.pagination {
+    margin-top: 12px;
+
+    .page-item {
+        z-index: 3;
+        color: #cc0000;
+        background-color: #eee;
+        border-color: #ddd;
+
+        .page-link {
+            color: #cc0000;
+        }
+
+        &.active {
+        	.page-link {
+                color: white;
+        	 	background-color: #cc0000;
+        	 	border-color: #cc0000;
+        	}
+        }
+    }
+}

@@ -12,6 +12,9 @@ export default Model.extend({
   halfTime: attr('boolean'),
   partTime: attr('boolean'),
   isBoard: attr('boolean'),
+  
+  createdAt: attr('date'),
+  updatedAt: attr('date'),
 
   hoursFormatted: computed('fullTime', 'halfTime', 'partTime', function() {
     let text = "";
