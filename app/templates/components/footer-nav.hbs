@@ -2,18 +2,14 @@
   <div class="container">
     <div class="row">
       <div class="col-12 col-md-3">
-        <h3 class="text-light mb-0"> Roboteam Twente </h3> <br>
-        <span class="text-light"> De Hems 10 </span> <br>
-        <span class="text-light"> 7522NL </span> <br>
-        <span class="text-light"> Enschede </span> <br>
-        <span class="text-light"> Bastile Room 204A </span><br>
+        {{simple-mde-preview settings.settings.location_info class="text-light"}}
       </div>
 
       <div class="col-12 col-md-3 pt-5 pt-md-0">
         <h3 class="text-light mb-0"> Contact </h3> <br>
-        <span>  <a class="text-light" href="mailto:info@roboteamtwente.nl">info@roboteamtwente.nl</a></span> <br>
+        <span>  <a class="text-light" href="mailto:{{settings.settings.info_email}}">{{settings.settings.info_email}}</a></span> <br>
         {{!--Koen's phone number--}}
-        <span>  <a class="text-light" href="tell:+31624411725"> +31 6 24411725</a> </span> <br>
+        <span>  <a class="text-light" href="tel:{{settings.settings.info_phone_number}}"> {{settings.settings.info_phone_number}} </a> </span> <br>
       </div>
 
       <div class="col-12 col-md-6">

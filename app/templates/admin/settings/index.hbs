@@ -5,7 +5,7 @@
       <div class="row">
         <strong class="col"> Settings </strong>
         {{#link-to "admin.settings.new" }} 
-          <a class="text-danger mr-2 float-right"> Create new setting</a>
+          <a class="text-danger mr-3 float-right"> Create new setting</a>
         {{/link-to}}
       </div>
     </div>
@@ -27,7 +27,7 @@
           <tr>
             <td>{{setting.title}} </td>
             <td>{{setting.type}} </td>
-            <td>{{setting.value}}</td>
+            <td>{{setting.valueShortened}}</td>
             <td> 
               <a class="link text-danger" {{action "remove" setting.id}}> Remove </a> / 
               {{#link-to "admin.settings.edit" setting.id}} <a class="link text-muted"> Edit </a> {{/link-to}}
