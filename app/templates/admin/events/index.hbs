@@ -18,7 +18,7 @@
       </thead>
       
       <tbody>
-        {{#each model as |event|}}
+        {{#each pagedContent as |event|}}
           <tr>
             <td> 
               {{#link-to "events.show" event}}
@@ -37,4 +37,5 @@
       </tbody>
     </table>
   </div>
+  {{page-numbers content=pagedContent}}
 </div>
