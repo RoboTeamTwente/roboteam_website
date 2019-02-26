@@ -1,11 +1,13 @@
 <div class="container">
-  <div class="row">
-    <h3 class="mt-5 col"> All listed sponsors </h3>
-    {{#link-to "admin.sponsors.new" class="col-4"}} 
-      <button class="btn btn-danger mt-5 float-right"> Create new sponsor </button>
-    {{/link-to}}
-  </div>
-  <div class="card">
+  <div class="card mt-5">
+    <div class="card-header">
+      <div class="row">
+        <strong class="col"> All listed sponsors </strong>
+        {{#link-to "admin.sponsors.new"}} 
+          <a class="text-danger mr-3 float-right link"> Create new sponsor </a>
+        {{/link-to}}
+      </div>
+    </div>
     <table class="table table-striped">
       <thead>
         <tr>

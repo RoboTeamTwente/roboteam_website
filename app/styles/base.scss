@@ -78,13 +78,20 @@ a {
 }
 
 .img-sample {
-  width: 46px;
-  height: 46px;
-  max-width: 46px;
-  max-height: 46px;
+  width: 39px;
+  height: 39px;
+  max-width: 39px;
+  max-height: 39px;
   object-position: center;
   object-fit: cover;
+  border-radius: 4px;
 }
+
+.x-file-input {
+  height: 39px;
+  max-height: 39px;
+}
+
 
 h1 {
   font-size: 1.8rem;

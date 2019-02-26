@@ -1,6 +1,8 @@
 <div class="container">
-  <h3 class="mt-5"> {{if model.isNew "Add new sponsor" "Edit sponsor"}} </h3>
-  <div class="card">
+  <div class="card mt-5">
+    <div class="card-header">
+      <strong> {{if model.isNew "Add new sponsor" "Edit sponsor"}} </strong>
+    </div>
     <form {{action "saveModelWithImage" on="submit"}}>
       <div class="form-group pl-4 pr-4 pt-3">
         <div class="row">

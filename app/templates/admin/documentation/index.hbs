@@ -1,20 +1,20 @@
 
 <div class="container">
-  <div class="row">
-    <h3 class="mt-5 col"> All listed innovations </h3>
-
-    {{#if isChangingOrder}}
-      <button class="btn btn-danger mt-5 ml-2 float-right" {{action 'saveChangedOrder'}}> Save new order! </button>
-      <button class="btn btn-default mt-5 ml-2 border float-right" {{action 'cancelChangeOrder'}}> Cancel changing order </button>
-    {{else}}
-      {{#link-to "admin.documentation.new" }} 
-        <button class="btn btn-danger mt-5 ml-2 float-right"> Create new innovation </button>
-      {{/link-to}}
-      <button class="btn btn-danger mt-5 ml-2 float-right" {{action 'allowChangeOrder'}}> Change order </button>
-    {{/if}}
-
-  </div>
-  <div class="card">
+  <div class="card mt-5">
+    <div class="card-header">
+      <div class="row">
+        <strong class="col"> All listed innovations </strong>
+        {{#if isChangingOrder}}
+          <a class="text-default mr-3 float-right link" {{action 'cancelChangeOrder'}}> Cancel changing order </a>
+          <a class="text-success mr-3 float-right link" {{action 'saveChangedOrder'}}> Save new order! </a>
+        {{else}}
+          <a class="text-default mr-3 float-right link" {{action 'allowChangeOrder'}}> Change order </a>
+          {{#link-to "admin.documentation.new" }} 
+            <a class="text-danger mr-3 float-right link"> Create new innovation </a>
+          {{/link-to}}
+        {{/if}}
+      </div>
+    </div>
     <table class="table {{if (not isChangingOrder) 'table-striped'}}">
       <thead>
         <tr>

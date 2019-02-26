@@ -1,12 +1,13 @@
-
 <div class="container">
-  <div class="row">
-    <h3 class="mt-5 col"> All listed News articles </h3>
-    {{#link-to "admin.news.new" class="col-4"}} 
-      <button class="btn btn-danger mt-5 float-right"> Create new article </button>
-    {{/link-to}}
-  </div>
-  <div class="card">
+  <div class="card mt-5">
+    <div class="card-header">
+      <div class="row">
+        <strong class="col"> All listed News articles </strong>
+        {{#link-to "admin.news.new" class="col-4"}} 
+          <a class="text-danger link mr-3 float-right"> Create new article </a>
+        {{/link-to}}
+      </div>
+    </div>
     <table class="table table-striped">
       <thead>
         <tr>

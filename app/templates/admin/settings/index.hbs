@@ -1,0 +1,40 @@
+
+<div class="container">
+  <div class="card mt-5">
+    <div class="card-header">
+      <div class="row">
+        <strong class="col"> Settings </strong>
+        {{#link-to "admin.settings.new" }} 
+          <a class="text-danger mr-2 float-right"> Create new setting</a>
+        {{/link-to}}
+      </div>
+    </div>
+    <div class="alert alert-danger"> 
+      <strong> Caution! </strong>  Changing the titles of the settings may cause irrevertible breaking changes to the site. Only change titles when you know what you are doing. 
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col" class="border-0"> Title </th>
+          <th scope="col" class="border-0"> Type </th>
+          <th scope="col" class="border-0"> Value </th>
+          <th scope="col" class="border-0"> Options </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each model as |setting|}}
+          <tr>
+            <td>{{setting.title}} </td>
+            <td>{{setting.type}} </td>
+            <td>{{setting.value}}</td>
+            <td> 
+              <a class="link text-danger" {{action "remove" setting.id}}> Remove </a> / 
+              {{#link-to "admin.settings.edit" setting.id}} <a class="link text-muted"> Edit </a> {{/link-to}}
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
