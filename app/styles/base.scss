@@ -65,6 +65,14 @@ a {
   cursor: pointer;
 }
 
+.list-group-item > a {
+  color: gray;
+}
+
+.list-group-item > a.active {
+  color: #cc0000;
+}
+
 .bg-gray {
   background-color: #eee;
 }
