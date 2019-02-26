@@ -37,7 +37,7 @@
             {{#dd.menu as |ddm|}}
               {{#ddm.item}}{{#ddm.link-to "admin"}}Admin panel{{/ddm.link-to}}{{/ddm.item}}
               {{#ddm.item}}
-                <a href onclick={{action dd.closeDropdown}} class="dropdown-item"> Analytics </a>
+                <a href="https://analytics.google.com/analytics/web/" target="_blank" rel="noopener" onclick={{action dd.closeDropdown}} class="dropdown-item"> Analytics </a>
               {{/ddm.item}}
               {{ddm.divider}}
               {{#ddm.item}}
