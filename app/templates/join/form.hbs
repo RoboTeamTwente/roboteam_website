@@ -1,7 +1,14 @@
-<div class="container mt-5">
-  <div class="col-12 mt-5">
-    <div class="row mt-5 justify-content-center">
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd5261s6yjevkYiCc_GbeGIq-vcPpjSb-L-4fXhqLuN09S21A/viewform?embedded=true" width="640" height="1336" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+{{#if settings.settings.can_join}}
+  <div class="container mt-5">
+    <div class="col-12 mt-5">
+      <div class="row mt-5 justify-content-center">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd5261s6yjevkYiCc_GbeGIq-vcPpjSb-L-4fXhqLuN09S21A/viewform?embedded=true" width="640" height="1336" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+      </div>
     </div>
   </div>
-</div>
+{{else}}
+  {{simple-mde-preview settings.settings.can_not_join_text}}
+  {{#link-to 'index'}}
+    <button class="btn btn-danger"> Back </button>
+  {{/link-to}}
+{{/if}}

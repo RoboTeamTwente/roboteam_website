@@ -1,5 +1,4 @@
 <div class="container mt-5">
-
   {{#if settings.settings.can_join}}
     <div class="col-12 mt-5">
       <div class="row mt-5">
@@ -50,9 +49,10 @@
       </div>
     </div>
     {{else}}
-      <div class="alert alert-danger"> 
-        Unfortunately we are not looking for new team members right now. 
-      </div>
+      {{simple-mde-preview settings.settings.can_not_join_text}}
+      {{#link-to 'index'}}
+        <button class="btn btn-danger"> Back </button>
+      {{/link-to}}
     {{/if}}
 </div>
 

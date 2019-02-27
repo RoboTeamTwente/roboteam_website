@@ -1,8 +1,6 @@
 import Mixin from '@ember/object/mixin';
 import { sort } from '@ember/object/computed';
-import removeModelAction from 'roboteam-website/mixins/remove-model-action';
 import { inject as service } from '@ember/service';
-
 
 export default Mixin.create({
   flashNotice: service('flash-notice'),

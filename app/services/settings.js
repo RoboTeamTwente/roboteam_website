@@ -1,5 +1,5 @@
 import Service, {inject as service} from '@ember/service';
-import EmberObject, { computed } from '@ember/object';
+import EmberObject from '@ember/object';
 
 export default Service.extend({
   store: service(),

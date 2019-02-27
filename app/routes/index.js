@@ -10,7 +10,7 @@ export default Route.extend({
       	return articles.toArray().reverse();
       }), 
       headers: this.store.findAll('header', { orderBy: 'order' }),
-      events: this.store.query('event',  { orderBy: 'createdAt', limitToLast: 5 })
+      events: this.store.query('event',  { orderBy: 'startdate', limitToLast: 5 })
     });
   }
 });

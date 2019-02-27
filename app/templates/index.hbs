@@ -7,7 +7,6 @@
   <img class="header-image {{if (eq header.id selectedHeader.id) 'visible'}}" src={{header.imageSrc}} alt={{header.title}}>
 {{/each}}
 
-
 {{!-- Title and subtitle --}}
 <div class="container frontpage-header">
   <div class="row justify-content-center frontpage-header-row">
@@ -20,9 +19,9 @@
       </h1>
 
       {{#if selectedHeader.subtitleLink}}
-      {{#link-to selectedHeader.subtitleLink}}
-        <span class="header-image-title subtitle"> {{selectedHeader.subtitle}} &raquo; </span>
-      {{/link-to}}
+        {{#link-to selectedHeader.subtitleLink}}
+          <span class="header-image-title subtitle"> {{selectedHeader.subtitle}} &raquo; </span>
+        {{/link-to}}
       {{else}}
         <span class="header-image-title subtitle"> {{selectedHeader.subtitle}} &raquo; </span>
       {{/if}}
@@ -55,13 +54,11 @@
 {{!-- Content --}}
 <div class="container">
   <div class="row mt-2 mt-md-5">
-    
     <div class="col-12 col-md-6 mt-3 mt-md-6">
       {{simple-mde-preview settings.settings.frontpage_about_us_text}}
     </div>
-
-  <div class="col-12 col-md-6 mt-md-3 mt-5">
-    <h1> Upcoming events </h1>
+    <div class="col-12 col-md-6 mt-md-3 mt-5">
+      <h1> Upcoming events </h1>
       <ul class="list-group">
         {{#each model.events as |event|}}
           {{#link-to "events.show" event tagName="li" class="list-group-item link"}}
