@@ -4,6 +4,7 @@ import { inject as service } from '@ember/service';
 
 export default Controller.extend({
   moment: service(),
+  settings: service(),
   poll: service(),
   init() {
     this._super(...arguments);

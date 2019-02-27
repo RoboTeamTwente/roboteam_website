@@ -10,7 +10,7 @@
 
 {{!-- Title and subtitle --}}
 <div class="container frontpage-header">
-  <div class="row justify-content-center">
+  <div class="row justify-content-center frontpage-header-row">
     <img class="header-rtt-logo col-12 pt-0 pt-md-5" alt="RoboTeam Twente" src="images/rtt_logo_medium.png">
   </div>
   <div class="row">
@@ -56,33 +56,30 @@
 <div class="container">
   <div class="row mt-2 mt-md-5">
     
-    <div class="col-12 col-md-7 mt-3 mt-md-6">
-      <h1> About us </h1>
-      <p>
-        RoboTeam Twente is a multidisciplinary team of students from the University of Twente.
-        We aspire to innovate in both robotics and artificial intelligence.
-        Next, we want to inspire everyone for these two sectors and show the world what can be achieved with them.
-        We believe robotics and artificial intelligence can make the world a better place if used correctly.
-      </p>
+    <div class="col-12 col-md-6 mt-3 mt-md-6">
+      {{simple-mde-preview settings.settings.frontpage_about_us_text}}
     </div>
 
-    <div class="col-12 col-md-5 mt-md-3">
-      <h2 class="roboto font-weight-light font-italic mt-3 mt-md-5 pt-2 text-md-right mb-4 mb-md-0" > We use Robotics and Artificial intelligence to create the best robot soccer team in the world </h2>
-    </div>
-
-    <div class="col-12 mb-5">
-      <p>
-        Our medium to achieve these goals is the RoboCup, this year in Sydney.
-        The RoboCup hosts multiple competitions for soccer and rescue robots as well as robots that can help at home or on the work floor.
-        We will compete at the world championship of robot soccer in which two teams of eight small robots will compete with each other.
-
-        This is the third year the team participates in the RoboCup. The team consists of students from different backgrounds,
-        such as Mechanical Engineering, Electrical Engineering, Biomedical Engineering, Computer Science, Advanced Technology and ATLAS University College.
-
-        In the DesignLab of the University of Twente we have a special soccer field,
-         on which we will frequently test our robots and in the near future play practice matches.
-        If you don’t want to miss anything of our progress and if you want to be notified when we are going to practice, follow us on Facebook or Linkedin!
-      </p>
+  <div class="col-12 col-md-6 mt-md-3 mt-5">
+    <h1> Upcoming events </h1>
+      <ul class="list-group">
+        {{#each model.events as |event|}}
+          {{#link-to "events.show" event tagName="li" class="list-group-item link"}}
+            <div class="row"> 
+              <div class="col-4">
+                <h4 class="mb-0"> {{moment-format event.startdate "MM/DD"}} - {{moment-format event.enddate "MM/DD"}} </h4>
+              </div>
+              <div class="col-8">
+                <span> {{event.title}} </span> <br>
+                <span class="text-muted">  {{event.location}} </span>
+                {{#if event.link}}
+                  <a href="event.link" target="_blank" rel="noopener"> Event website </a>
+                {{/if}}
+              </div>
+            </div>
+          {{/link-to}}
+        {{/each}}
+      </ul>
     </div>
   </div>
 </div>
