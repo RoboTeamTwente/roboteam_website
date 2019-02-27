@@ -1,5 +1,7 @@
 import { IndexRouteUnauthenticated } from 'roboteam-website/routes/base/index';
 
 export default IndexRouteUnauthenticated.extend({
-  modelName: "event"
+  model() {
+  	return this.store.findAll('event').then(events => events.sortBy('startdate'));
+  }
 });
