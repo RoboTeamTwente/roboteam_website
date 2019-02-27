@@ -7,6 +7,7 @@ export default Model.extend({
   subtitle: attr('string'),
   subtitleLink: attr('string'),
   imageSrc: attr('string'),
+  order: attr('number'),
   createdAt: attr('date'),
   updatedAt: attr('date')
 });

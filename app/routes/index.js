@@ -8,7 +8,9 @@ export default Route.extend({
       crowdfunders: this.store.findAll('crowdfunder'),
       articles: this.store.query('article',  { orderBy: 'createdAt', limitToLast: 3 }).then(function(articles) {
       	return articles.toArray().reverse();
-      })
+      }), 
+      headers: this.store.findAll('header', { orderBy: 'order' }),
+      events: this.store.query('event',  { orderBy: 'createdAt', limitToLast: 5 })
     });
   }
 });

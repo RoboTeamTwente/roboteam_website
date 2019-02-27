@@ -3,7 +3,7 @@
 {{!-- {{voronoi-map class="voronoi-map-holder" height=560}}
  --}}
 {{!-- preload all header backgrounds --}}
-{{#each headers as |header|}}
+{{#each model.headers as |header|}}
   <img class="header-image {{if (eq header.id selectedHeader.id) 'visible'}}" src={{header.imageSrc}} alt={{header.title}}>
 {{/each}}
 
@@ -16,12 +16,16 @@
   <div class="row">
     <div class="col-12">
       <h1 class="header-image-title text-white mt-5 pt-5">
-        {{headerTitle}} <br>
+        {{selectedHeader.title}} <br>
       </h1>
 
-      {{#link-to "join"}}
-        <span class="header-image-title subtitle"> Want to join RoboTeam 2019-2020? We are looking for new members! &raquo; </span>
+      {{#if selectedHeader.subtitleLink}}
+      {{#link-to selectedHeader.subtitleLink}}
+        <span class="header-image-title subtitle"> {{selectedHeader.subtitle}} &raquo; </span>
       {{/link-to}}
+      {{else}}
+        <span class="header-image-title subtitle"> {{selectedHeader.subtitle}} &raquo; </span>
+      {{/if}}
     </div>
   </div>
 </div>

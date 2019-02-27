@@ -11,6 +11,8 @@ export default Model.extend({
   numberValue: attr('number'),
   dateValue: attr('date'),
 
+  order: attr('number'),
+
   type: attr('string'),
 
   value: computed('type', 'stringValue', 'booleanValue', 'numberValue', 'dateValue', function() {

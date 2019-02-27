@@ -72,6 +72,11 @@ Router.map(function() {
       this.route('edit',  { path: 'edit/:setting_id' });
       this.route('new');
     });
+
+    this.route('headers', function() {
+      this.route('edit',  { path: 'edit/:header_id' });
+      this.route('new');
+    });
   });
 
 });
