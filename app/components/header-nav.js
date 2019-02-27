@@ -1,8 +1,10 @@
 import Component from '@ember/component';
+import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default Component.extend({
     session: service(),
+    settings: service(),
     init() {
       this._super(...arguments);
       this.menuItems = [
@@ -40,6 +42,17 @@ export default Component.extend({
         }
     ];
   },
+  getMenuItems: computed('menuItems', 'settings.settings', function() {
+    let items = [];
+    if (!this.get('settings.settings.can_join')) {
+      this.menuItems.forEach(item => {
+        if (item.link !== 'join') {
+          items.push(item);
+        }
+      })
+    }
+    return items; 
+  }),
   showMobileMenu: false,
   actions: {
     toggleMobileMenu() {

@@ -19,7 +19,7 @@
     {{!-- Navbar for non-mobile devices --}}
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav">
-        {{#each menuItems as |item|}}
+        {{#each getMenuItems as |item|}}
           <li class="nav-item">
             {{#link-to item.link}}
               <a class="nav-link" href="#"> {{item.name}} </a>
@@ -63,7 +63,7 @@
     {{#link-to "index"}}
       <h4 class="p-3 text-dark" href="#">Home</h4>
     {{/link-to}}
-    {{#each menuItems as |item|}}
+    {{#each getMenuItems as |item|}}
       {{#link-to item.link}}
         <h4 class="p-3 text-dark" href="#">{{item.name}}</h4>
       {{/link-to}}
