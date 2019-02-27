@@ -15,7 +15,11 @@
               </div>
               <div class="col">
                 <h5 class="card-title"> {{article.title}} </h5> 
+                <span class="text-muted"> {{moment-format article.createdAt "DD MMM YYYY"}} </span>
                 <p class="card-text mt-2 d-none d-md-block"> {{remove-markdown article.contentShortened}} </p>
+                {{#link-to "news.show" article}}
+                  <button class="btn btn-danger float-right"> Read more » </button>
+                {{/link-to}}  
               </div>
             </div>
           </div>

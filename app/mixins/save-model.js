@@ -28,6 +28,7 @@ export default Mixin.create({
         invalidProperties.push(property);
       }
     })
+
     if (invalidProperties.length === 0) {
       return true;
     } else {
@@ -42,7 +43,7 @@ export default Mixin.create({
     const flashNotice = this.get('flashNotice');
 
     // add time to the model. easy for sorting
-    let timestamp = new Date().getTime();
+    const timestamp = new Date();
     if (this.get(this.get('modelName')).get('isNew')) {
       this.get(this.get('modelName')).set('createdAt', timestamp);
     } 

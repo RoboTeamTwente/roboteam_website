@@ -65,9 +65,9 @@
             <div class="row"> 
               <div class="col-4">
                 {{#if (is-same event.startdate event.enddate precision='days')}}
-                  <h4 class="mb-0"> {{moment-format event.startdate "MM/DD"}} </h4>
+                  <h2 class="mb-0 text-centered mt-1"> {{moment-format event.startdate "MM/DD"}} </h2>
                 {{else}}
-                  <h4 class="mb-0"> {{moment-format event.startdate "MM/DD"}} - {{moment-format event.enddate "MM/DD"}} </h4>
+                  <h4 class="mb-0 text-centered mt-2"> {{moment-format event.startdate "MM/DD"}} - {{moment-format event.enddate "MM/DD"}} </h4>
                 {{/if}}
               </div>
               <div class="col-8">
@@ -105,20 +105,11 @@
 <div class="container mt-5">
   {{!-- inspiration and innovation content block --}}
   <div class="row pt-2 pt-md-5 justify-content-center">
-    <div class="col-12 col-md-6">
-      <h1> Inspiration </h1>
-      <p>
-        Besides our effort to win the RoboCup, we also aim to inspire and educate people about Artificial intelligence and robotics.
-        We do this by attending events from companies and by visiting high schools. RoboTeam Twente offers live demonstrations of our football robots, but also inspiring talks about Artificial Intelligence,
-        interesting workshops where everybody can create tactics using a special-built graphical interface.
-      </p>
+    <div class="col-12 col-md-6 mt-3 mt-md-0">
+      {{simple-mde-preview settings.settings.inspiration_text}}
     </div>
-    <div class="col-12 col-md-6">
-      <h1 class="mt-3 mt-md-0"> Innovation </h1>
-      <p>
-        Within the roboteam a lot of time is spent on innovation. Last year one of the main innovations of RoboTeam Twente was the Geneva Drive.
-        You can read all about our innovations in our team description papers in the {{#link-to 'documentation'}} documentation {{/link-to}} part of our website.
-      </p>
+    <div class="col-12 col-md-6 mt-3 mt-md-0">
+      {{simple-mde-preview settings.settings.innovation_text}}
     </div>
     <div class="col-6 mt-5 mb-5">
       {{counter-text class="text-center"}}

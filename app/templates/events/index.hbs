@@ -7,13 +7,17 @@
           {{#link-to "events.show" event tagName="li" class="list-group-item link"}}
             <div class="row"> 
               <div class="col-4">
-                <h2 class="mb-0"> {{moment-format event.startdate "MM/DD"}} - {{moment-format event.enddate "MM/DD"}} </h2>
+                {{#if (is-same event.startdate event.enddate precision='days')}}
+                  <h2 class="mb-0 text-centered mt-1"> {{moment-format event.startdate "MM/DD"}} </h2>
+                {{else}}
+                  <h4 class="mb-0 text-centered mt-2"> {{moment-format event.startdate "MM/DD"}} - {{moment-format event.enddate "MM/DD"}} </h4>
+                {{/if}}
               </div>
               <div class="col-8">
                 <span> {{event.title}} </span> <br>
                 <span class="text-muted">  {{event.location}} </span>
                 {{#if event.link}}
-                  <a href="event.link" target="_blank" rel="noopener"> Event website </a>
+                  <a class="float-right" href="event.link" target="_blank" rel="noopener"> Event website </a>
                 {{/if}}
               </div>
             </div>
