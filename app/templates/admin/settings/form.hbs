@@ -15,10 +15,19 @@
               </div>
             {{/if}}
 
+            {{#if settings.settings.development_mode}}
             <label>
               <span class="text"> Title * </span>
               {{input type="text" class="form-control mb-2" placeholder="e.g. LinkedInLink" value=model.title}} 
             </label>
+
+            {{else }}
+
+            <label>
+              <span class="text"> Title * </span>
+                {{input type="text" class="form-control mb-2" disabled=true placeholder="e.g. LinkedInLink" value=model.title}} 
+            </label>
+            {{/if}}
           </div>
 
           <div class="col-12"> 

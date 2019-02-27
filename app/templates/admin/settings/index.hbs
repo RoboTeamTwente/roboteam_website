@@ -4,17 +4,30 @@
     <div class="card-header">
       <div class="row">
         <strong class="col"> Settings </strong>
-        {{#link-to "admin.settings.new" }} 
-          <a class="text-danger mr-3 float-right"> Create new setting</a>
-        {{/link-to}}
+        {{#if isChangingOrder}}
+          <a class="text-default mr-3 float-right link" {{action 'cancelChangeOrder'}}> Cancel changing order </a>
+          <a class="text-success mr-3 float-right link" {{action 'saveChangedOrder'}}> Save new order! </a>
+        {{else}}
+          <a class="text-default mr-3 float-right link" {{action 'allowChangeOrder'}}> Change order </a>
+          {{#if settings.settings.development_mode}}
+            {{#link-to "admin.settings.new" }} 
+              <a class="text-danger mr-3 float-right link"> Create new setting </a>
+            {{/link-to}}
+          {{/if}}
+        {{/if}}
       </div>
     </div>
-    <div class="alert alert-danger"> 
-      <strong> Caution! </strong>  Changing the titles of the settings may cause irrevertible breaking changes to the site. Only change titles when you know what you are doing. 
-    </div>
+    {{#if settings.settings.development_mode}}
+      <div class="alert alert-danger"> 
+        <strong> Caution! You are in development mode </strong>  Changing the titles of the settings may cause irrevertible breaking changes to the site. Only change titles when you know what you are doing. 
+      </div>
+    {{/if}}
     <table class="table table-striped">
       <thead>
         <tr>
+          {{#if isChangingOrder}}
+            <th> # </th>
+          {{/if}}
           <th scope="col" class="border-0"> Title </th>
           <th scope="col" class="border-0"> Type </th>
           <th scope="col" class="border-0"> Value </th>
@@ -22,19 +35,24 @@
         </tr>
       </thead>
 
-      <tbody>
-        {{#each model as |setting|}}
-          <tr>
-            <td>{{setting.title}} </td>
-            <td>{{setting.type}} </td>
+     {{#sortable-group tagName="tbody" onChange=(action "reorderItems") as |group|}}
+        {{#each sortedModel as |setting|}}
+          {{#sortable-item tagName="tr" isAnimated=false model=setting group=group handle=".handle"}}
+            {{#if isChangingOrder}}
+              <td> <span class="handle"><small><i class="fa fa-bars text-small" aria-hidden="true"></i> </small></span> </td>
+            {{/if}}
+            <td> {{setting.title}} </td>
+            <td>{{setting.type}}</td>
             <td>{{setting.valueShortened}}</td>
             <td> 
-              <a class="link text-danger" {{action "remove" setting.id}}> Remove </a> / 
+              {{#if settings.settings.development_mode}}
+                <a class="link text-danger" {{action "remove" setting.id}}> Remove </a> / 
+              {{/if}}
               {{#link-to "admin.settings.edit" setting.id}} <a class="link text-muted"> Edit </a> {{/link-to}}
             </td>
-          </tr>
+          {{/sortable-item}}
         {{/each}}
-      </tbody>
+      {{/sortable-group}}
     </table>
   </div>
 </div>

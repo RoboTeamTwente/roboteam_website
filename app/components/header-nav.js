@@ -42,7 +42,7 @@ export default Component.extend({
         }
     ];
   },
-  getMenuItems: computed('menuItems', 'settings.settings', function() {
+  getMenuItems: computed('menuItems', 'settings.settings.can_join', function() {
     let items = [];
     if (!this.get('settings.settings.can_join')) {
       this.menuItems.forEach(item => {
@@ -50,8 +50,9 @@ export default Component.extend({
           items.push(item);
         }
       })
+      return items; 
     }
-    return items; 
+    return this.menuItems;
   }),
   showMobileMenu: false,
   actions: {
