@@ -1,6 +1,10 @@
 .sponsor {
-  object-fit: contain;
-  max-height: 200px;
+	max-height: 200px;
+	height: 200px;
+	width: 100%;
+	object-position: center;
+	object-fit: scale-down;
+	max-width: 100%;
 }
 
 @include media-breakpoint-down(md) {

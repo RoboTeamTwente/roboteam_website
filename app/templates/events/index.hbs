@@ -2,7 +2,7 @@
   <div class="col-12 mt-5">
     <h1 class="text-centered mb-4"> Upcoming events </h1>
     <div class="row justify-content-center">
-      <ul class="list-group col-8">
+      <ul class="list-group col-12 col-md-8">
         {{#each pagedContent as |event|}}
           {{#link-to "events.show" event tagName="li" class="list-group-item link"}}
             <div class="row"> 
