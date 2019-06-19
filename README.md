@@ -2,18 +2,7 @@
 
 [![Build Status](https://travis-ci.com/RoboTeamTwente/roboteam_website.svg?branch=master)](https://travis-ci.com/RoboTeamTwente/roboteam_website)
 
-This repository holds the website for RoboTeam Twente.
-It is a frontend-only website build with Ember. It is designed to be easily extended by a backend if that would be a desired feature later on.
-
-
-# Roadmap
-Currently the website, which is on version 1, runs on pure Ember.js with it's contents hardcoded as JSON strings. Version 2 will be more advanced and use a small custom-made backend to add and edit content. FireBase with the EmberFire plugin will provide for this features.
-
-## Upcoming in V2
-- Administration page
-- Events page
-- News 
-- Probably much more...
+This repository holds the website for RoboTeam Twente. The site has been build using Ember for the frontend and Firebase as backend. 
 
 # installation
 
