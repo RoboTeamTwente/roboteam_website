@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="col-12 mt-4">
+    <div class="row">
+      <div class="col">
+        {{#link-to "news"}} &laquo; News {{/link-to}}
+        <span> 
+          <h1> {{model.title}} </h1>
+        </span>
+      </div>
+    </div>
+    <hr>
+    <div class="row justify-content-center">
+      <div class="col-12"> 
+        {{img-banner
+          class=""
+          title=""
+          subtitle=""
+          link=""
+          imageSrc=model.imageSrc
+        }}
+      </div>
+      <div class="col-12 col-lg-10 mt-3"> 
+        {{simple-mde-preview model.content}}
+      </div>
+    </div>
+  </div>
+</div>
+

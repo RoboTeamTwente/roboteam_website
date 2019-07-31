@@ -1,0 +1,27 @@
+<nav>
+  <ul class="pagination justify-content-center">
+    <li class="page-item {{unless canStepBackward 'disabled'}}">
+      <a class="page-link" href="#" tabindex="-1" {{action "incrementPage" -1}} >&laquo;</a>
+    </li> 
+
+    {{#each pageItems as |item|}}
+      {{#if item.dots}}
+        <li class="dots disabled">
+          <span class="page-link">...</span>
+        </li>
+      {{/if}}
+      {{#if item.current}}
+        <li class="active page-item">
+          <a class="page-link">{{item.page}}</a>
+        </li>
+      {{else}}
+        <li class="page-item">
+          <a href="#" class="page-link" {{action "pageClicked" item.page}}>{{item.page}}</a>
+        </li>
+      {{/if}}
+    {{/each}}
+    <li class="page-item {{unless canStepForward 'disabled'}}">
+      <a class="page-link" href="#" tabindex="-1" {{action "incrementPage" 1}} >&raquo;</a>
+    </li>    
+  </ul>
+</nav>

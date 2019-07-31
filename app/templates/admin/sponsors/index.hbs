@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="card mt-5">
+    <div class="card-header">
+      <div class="row">
+        <strong class="col"> All listed sponsors </strong>
+        {{#link-to "admin.sponsors.new"}} 
+          <a class="text-danger mr-3 float-right link"> Create new sponsor </a>
+        {{/link-to}}
+      </div>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col" class="border-0"> Sponsor </th>
+          <th scope="col" class="border-0"> Image </th>
+          <th scope="col" class="border-0"> Link </th>
+          <th scope="col" class="border-0"> Package </th>
+          <th scope="col" class="border-0"> Options </th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        {{#each model as |sponsor|}}
+          <tr>
+            <td>{{sponsor.name}} </td>
+            <td><img src={{sponsor.imageSrc}} alt="sponsor" width='50' height='50'></td>
+            <td><a href={{sponsor.link}} target="_blank" rel="noopener"> {{sponsor.link}} </a></td>
+            <td>{{sponsor.package}}</td>
+            <td> 
+              <a class="link text-danger" {{action "remove" sponsor.id}}> Remove </a> / 
+              {{#link-to "admin.sponsors.edit" sponsor.id}} <a class="link text-muted"> Edit </a> {{/link-to}}
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

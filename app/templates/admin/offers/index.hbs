@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="card mt-5">
+    <div class="card-header">
+      <div class="row">
+        <strong class="col"> All listed offers </strong>
+        {{#if isChangingOrder}}
+          <a class="text-default mr-3 float-right link" {{action 'cancelChangeOrder'}}> Cancel changing order </a>
+          <a class="text-success mr-3 float-right link" {{action 'saveChangedOrder'}}> Save new order! </a>
+        {{else}}
+          <a class="text-default mr-3 float-right link" {{action 'allowChangeOrder'}}> Change order </a>
+          {{#link-to "admin.offers.new" }} 
+            <a class="text-danger mr-3 float-right link"> Create new offer </a>
+          {{/link-to}}
+        {{/if}}
+      </div>
+    </div>
+    <table class="table {{if (not isChangingOrder) 'table-striped'}}">
+      <thead>
+        <tr>
+          {{#if isChangingOrder}}
+            <th> # </th>
+          {{/if}}
+          <th scope="col" class="border-0"> Offer </th>
+          <th scope="col" class="border-0"> Image </th>
+          <th scope="col" class="border-0"> Board position? </th>
+          <th scope="col" class="border-0"> Hours </th>
+          <th scope="col" class="border-0"> Options </th>
+        </tr>
+      </thead>
+
+      {{#sortable-group tagName="tbody" onChange=(action "reorderItems") as |group|}}
+        {{#each sortedModel as |offer|}}
+          {{#sortable-item tagName="tr" isAnimated=false model=offer group=group handle=".handle"}}
+            {{#if isChangingOrder}}
+              <td> <span class="handle"><small><i class="fa fa-bars text-small" aria-hidden="true"></i> </small></span> </td>
+            {{/if}}
+            <td>{{offer.title}} </td>
+            <td><img src={{offer.imageSrc}} alt="innovation" width='50' height='50'></td>
+            <td>{{offer.isBoard}} </td>
+            <td>{{offer.hoursFormatted}} </td>
+            <td> 
+              <a class="link text-danger" {{action "remove" offer.id}}> Remove </a> / 
+              {{#link-to "admin.offers.edit" offer.id}} <a class="link text-muted"> Edit </a> {{/link-to}}
+            </td>
+          {{/sortable-item}}
+        {{/each}}
+      {{/sortable-group}}
+    </table>
+  </div>
+</div>

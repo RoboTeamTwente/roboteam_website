@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="card mt-5">
+    <div class="card-header">
+      <div class="row">
+        <strong class="col"> All listed previous teams </strong>
+        {{#link-to "admin.previousteams.new"}} 
+          <a class="text-danger mr-3 float-right link"> Create new previous team </a>
+        {{/link-to}}
+      </div>
+    </div>
+    <table class="table {{if (not isChangingOrder) 'table-striped'}}">
+      <thead>
+        <tr>
+          {{#if isChangingOrder}}
+            <th> # </th>
+          {{/if}}
+          <th scope="col" class="border-0"> Title </th>
+          <th scope="col" class="border-0"> Image </th>
+          <th scope="col" class="border-0"> Start year </th>
+          <th scope="col" class="border-0"> Options </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each model as |previousteam|}}
+          <tr>
+            <td>{{previousteam.name}} </td>
+            <td><img src={{previousteam.imageSrc}} alt="previousteam" width='50' height='50'></td>
+            <td>{{previousteam.yearOfStart}} </td>
+            <td> 
+              <a class="link text-danger" {{action "remove" previousteam.id}}> Remove </a> / 
+              {{#link-to "admin.previousteams.edit" previousteam.id}} <a class="link text-muted"> Edit </a> {{/link-to}}
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

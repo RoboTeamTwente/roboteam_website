@@ -3,76 +3,87 @@
 {{!-- {{voronoi-map class="voronoi-map-holder" height=560}}
  --}}
 {{!-- preload all header backgrounds --}}
-{{#each headers as |header|}}
+{{#each model.headers as |header|}}
   <img class="header-image {{if (eq header.id selectedHeader.id) 'visible'}}" src={{header.imageSrc}} alt={{header.title}}>
 {{/each}}
 
-
 {{!-- Title and subtitle --}}
 <div class="container frontpage-header">
-  <div class="row justify-content-center">
+  <div class="row justify-content-center frontpage-header-row">
     <img class="header-rtt-logo col-12 pt-0 pt-md-5" alt="RoboTeam Twente" src="images/rtt_logo_medium.png">
   </div>
   <div class="row">
     <div class="col-12">
       <h1 class="header-image-title text-white mt-5 pt-5">
-        {{headerTitle}} <br>
+        {{selectedHeader.title}} <br>
       </h1>
 
-      {{#link-to "join"}}
-        <span class="header-image-title subtitle"> Want to join RoboTeam 2019-2020? We are looking for new members! &raquo; </span>
-      {{/link-to}}
+      {{#if selectedHeader.subtitleLink}}
+        {{#link-to selectedHeader.subtitleLink}}
+          <span class="header-image-title subtitle"> {{selectedHeader.subtitle}} &raquo; </span>
+        {{/link-to}}
+      {{else}}
+        <span class="header-image-title subtitle"> {{selectedHeader.subtitle}} &raquo; </span>
+      {{/if}}
     </div>
   </div>
 </div>
 
 {{!-- Articles --}}
-<div class="container">
-  <div class="row mt-5">
-    {{#each articles as |article|}}
-      <div class="col-12 col-md-4 mb-5 mb-md-5">
-        {{#link-to article.link}}
+<div class="container mt-5">
+  <h3> News </h3>
+  <div class="row">
+    {{#each model.articles as |article|}}
+      <div class="col-12 col-md-4">
+        {{#link-to "news.show" article}}
           <img class="max-width cover" height="200" src={{article.imageSrc}} alt={{article.title}}>
           <h4 class="text-dark mt-2">
             {{article.title}}
           </h4>
-          <span class="text-dark"> {{article.subtitle}} </span>
         {{/link-to}}
       </div>
     {{/each}}
+    <div class="col-12">
+      {{#link-to "news"}} 
+        <button class="float-right btn btn-danger mb-5 mb-md-0"> More news &raquo; </button>
+      {{/link-to}}
+    </div>
   </div>
 </div>
 
 {{!-- Content --}}
 <div class="container">
   <div class="row mt-2 mt-md-5">
-    <div class="col-12 col-md-7 mt-3 mt-md-6">
-      <h1> About us </h1>
-      <p>
-        RoboTeam Twente is a multidisciplinary team of students from the University of Twente.
-        We aspire to innovate in both robotics and artificial intelligence.
-        Next, we want to inspire everyone for these two sectors and show the world what can be achieved with them.
-        We believe robotics and artificial intelligence can make the world a better place if used correctly.
-      </p>
+    <div class="col-12 col-md-6 mt-3 mt-md-6">
+      {{simple-mde-preview settings.settings.frontpage_about_us_text}}
     </div>
-
-    <div class="col-12 col-md-5 mt-md-3">
-      <h2 class="roboto font-weight-light font-italic mt-3 mt-md-5 pt-2 text-md-right mb-4 mb-md-0" > We use Robotics and Artificial intelligence to create the best robot soccer team in the world </h2>
-    </div>
-
-    <div class="col-12 mb-5">
-      <p>
-        Our medium to achieve these goals is the RoboCup, this year in Sydney.
-        The RoboCup hosts multiple competitions for soccer and rescue robots as well as robots that can help at home or on the work floor.
-        We will compete at the world championship of robot soccer in which two teams of eight small robots will compete with each other.
-
-        This is the third year the team participates in the RoboCup. The team consists of students from different backgrounds,
-        such as Mechanical Engineering, Electrical Engineering, Biomedical Engineering, Computer Science, Advanced Technology and ATLAS University College.
-
-        In the DesignLab of the University of Twente we have a special soccer field,
-         on which we will frequently test our robots and in the near future play practice matches.
-        If you don’t want to miss anything of our progress and if you want to be notified when we are going to practice, follow us on Facebook or Linkedin!
-      </p>
+    <div class="col-12 col-md-6 mt-md-3 mt-5">
+      <h1> Upcoming events </h1>
+      <ul class="list-group">
+        {{#each model.events as |event|}}
+          {{#link-to "events.show" event tagName="li" class="list-group-item link"}}
+            <div class="row"> 
+              <div class="col-4">
+                {{#if (is-same event.startdate event.enddate precision='days')}}
+                  <h2 class="mb-0 text-centered mt-1"> {{moment-format event.startdate "MM/DD"}} </h2>
+                {{else}}
+                  <h4 class="mb-0 text-centered mt-2"> {{moment-format event.startdate "MM/DD"}} - {{moment-format event.enddate "MM/DD"}} </h4>
+                {{/if}}
+              </div>
+              <div class="col-8">
+                <span> {{event.title}} </span> <br>
+                <span class="text-muted">  {{event.location}} </span>
+                {{#if event.link}}
+                  <a href="event.link" target="_blank" rel="noopener"> Event website </a>
+                {{/if}}
+              </div>
+            </div>
+          {{/link-to}}
+        {{/each}}
+      </ul>
+      {{#link-to 'events'}}
+        <button class="btn btn-danger mt-2 float-right mb-5 mb-md-0"> More events » </button>
+      {{/link-to}}
     </div>
   </div>
 </div>
@@ -94,22 +105,13 @@
 <div class="container mt-5">
   {{!-- inspiration and innovation content block --}}
   <div class="row pt-2 pt-md-5 justify-content-center">
-    <div class="col-12 col-md-6">
-      <h1> Inspiration </h1>
-      <p>
-        Besides our effort to win the RoboCup, we also aim to inspire and educate people about Artificial intelligence and robotics.
-        We do this by attending events from companies and by visiting high schools. RoboTeam Twente offers live demonstrations of our football robots, but also inspiring talks about Artificial Intelligence,
-        interesting workshops where everybody can create tactics using a special-built graphical interface.
-      </p>
+    <div class="col-12 col-md-6 mt-3 mt-md-0">
+      {{simple-mde-preview settings.settings.inspiration_text}}
     </div>
-    <div class="col-12 col-md-6">
-      <h1 class="mt-3 mt-md-0"> Innovation </h1>
-      <p>
-        Within the roboteam a lot of time is spent on innovation. Last year one of the main innovations of RoboTeam Twente was the Geneva Drive.
-        You can read all about our innovations in our team description papers in the {{#link-to 'documentation'}} documentation {{/link-to}} part of our website.
-      </p>
+    <div class="col-12 col-md-6 mt-3 mt-md-0">
+      {{simple-mde-preview settings.settings.innovation_text}}
     </div>
-    <div class="col-6 mt-5 mb-5">
+    <div class="col-10 col-md-6 mt-5 mb-5">
       {{counter-text class="text-center"}}
     </div>
   </div>
@@ -128,33 +130,11 @@
 <div class="container-fluid p-5">
   <div class="row justify-content-center">
     <h1 class="col-12 mt-5 pt-5 text-centered"> Our partners </h1>
-
-    <img class="sponsor col-4 col-md-2" alt="Nexperia" src="content/partners/gigabyte/nexperia.png">
-    <img class="sponsor col-4 col-md-2" alt="University of Twente" src="content/partners/gigabyte/utwente.jpg">
-    <img class="sponsor col-4 col-md-2" alt="XSens" src="content/partners/gigabyte/xsens.jpg">
-    <img class="sponsor col-4 col-md-2" alt="Novel-T" src="content/partners/gigabyte/novelt.png">
-    <img class="sponsor col-4 col-md-2" alt="Maxon" src="content/partners/gigabyte/maxon.jpg">
-    <img class="sponsor col-4 col-md-2" alt="Q8" src="content/partners/gigabyte/q8.png">
-
-    <img class="sponsor col-4 col-md-2" alt="Hemabo" src="content/partners/gigabyte/hemabo.jpg">
-    <img class="sponsor col-4 col-md-2" alt="Altium" src="content/partners/megabyte/altium.jpg">
-    <img class="sponsor col-4 col-md-2" alt="Basler" src="content/partners/megabyte/basler.png">
-    <img class="sponsor col-4 col-md-2" alt="Better Be" src="content/partners/megabyte/betterbe.png">
-    <img class="sponsor col-4 col-md-2" alt="Demcon" src="content/partners/megabyte/demcon.jpg">
-    <img class="sponsor col-4 col-md-2" alt="Designlab" src="content/partners/megabyte/designlab.jpg">
-
-    <img class="sponsor col-4 col-md-1" alt="Kiwi Electronics" src="content/partners/kilobyte/kiwi.png">
-    <img class="sponsor col-4 col-md-2" alt="Nuclino" src="content/partners/kilobyte/nuclino.png">
-    <img class="sponsor col-4 col-md-1" alt="Eurocircuits" src="content/partners/megabyte/eurocircuits.png">
-    <img class="sponsor col-4 col-md-1" alt="ovSoftware" src="content/partners/megabyte/ovsoftware.png">
-    <img class="sponsor col-4 col-md-1" alt="RS" src="content/partners/megabyte/rs.png">
-    <img class="sponsor col-4 col-md-1" alt="Smans" src="content/partners/megabyte/smans.jpg">
-    <img class="sponsor col-4 col-md-1" alt="X#" src="content/partners/kilobyte/xsharp.png">
-    <img class="sponsor col-4 col-md-2" alt="NeoNode" src="content/partners/kilobyte/neonode.png">
-    <img class="sponsor col-4 col-md-1" alt="Egberts" src="content/partners/byte/egberts.jpg">
-    <img class="sponsor col-4 col-md-2" alt="Farnel" src="content/partners/byte/farnel.png">
-    <img class="sponsor col-4 col-md-2" alt="Kramp" src="content/partners/byte/kramp.png">
-    <img class="sponsor col-4 col-md-2" alt="Vink" src="content/partners/byte/vink.png">
+    {{#each model.sponsors as |sponsor|}}
+      <a class="col-4 {{if sponsor.displayWide 'col-md-2' 'col-md-1'}}" href={{sponsor.link}}>
+        <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
+      </a>
+    {{/each}}
   </div>
 </div>
 
@@ -163,77 +143,13 @@
     <div class="col-12">
       <h1> Our crowdfunders! </h1>
     </div>
-    <ul class="col-6">
-      <li> Wouter Lensing </li>
-      <li> Peter Hoekstra </li>
-      <li> Erna Brus </li>
-      <li> Dirk Hoekstra </li>
-      <li> Trix Rubbens-van Iersel </li>
-      <li> Trees van Braak </li>
-      <li> Elektrotechniek Ruurd Westra </li>
-      <li> Wouter van Veelen </li>
-      <li> Familie Wijers </li>
-      <li> R.C.H. Croll </li>
-      <li> Winnifred Blokland </li>
-      <li> Autoservice Timmer </li>
-      <li> Ornée & Vermeer Tekstbureau </li>
-      <li> Corry & Peter van der Wal </li>
-      <li> Marc van Wessel </li>
-      <li> HKJ Hardnekkig </li>
-      <li> Bert Jan Offrein </li>
-      <li> Gerard de Groot </li>
-      <li> Familie Te Poele </li>
-      <li> Ewoud </li>
-      <li> Dioni </li>
-      <li> DJC BLUF </li>
-      <li> Directus Calvatus </li>
-      <li> Anja en Jacco ten Berk de Boer </li>
-      <li> Familie Bijlsma </li>
-      <li> P.A.M. van Iersel </li>
-      <li> Han Wopereis </li>
-      <li> Frank van Iersel & Lotty van Minnen </li>
-      <li> Nahuel Manterola </li>
-      <li> Koen Hertenberg </li>
-      <li> Rob Verbeek </li>
-      <li> Jelle Zult </li>
-      <li> Simen Bootsma </li>
-    </ul>
-    <ul class="col-6">
-      <li> Renate Schouten </li>
-      <li> Ewoud Croll </li>
-      <li> Tante Petra Schouten </li>
-      <li> Iris Weijers </li>
-      <li> Michiel Bootsma </li>
-      <li> Jim Hoekstra </li>
-      <li> Pake Luik </li>
-      <li> Tine Bootsma-Cnossen </li>
-      <li> Michiel Overeem </li>
-      <li> Bob Rubbens </li>
-      <li> Alfred Stobbelaar  </li>
-      <li> Martijndoetdingen </li>
-      <li> Paul en Silvia  Luttikhuis  </li>
-      <li> E. Steerneman  </li>
-      <li> Yvonne Grobbink  </li>
-      <li> Françoise Petry </li>
-      <li> Locamation B.V. </li>
-      <li> Inkeri Kollmann  </li>
-      <li> Veris Bouwmaterialengroep BV </li>
-      <li> Coen en Silvia  Zwerver </li>
-      <li> Laurens van der Velde </li>
-      <li> Marc Dommers </li>
-      <li> Ton Zijlstra h.o.d.n. MakerHouse </li>
-      <li> Remco Sikkema </li>
-      <li> Elina Kollmann </li>
-      <li> Peter & Henny Bos </li>
-      <li> Raymond Jeene </li>
-      <li> Diana Dalenoord </li>
-      <li> Baris Imre </li>
-      <li> Thijs Luttikhuis </li>
-      <li> Eddo & Emiel HobertMan </li>
-      <li> Lukas Bos </li>
-      <li> Folkert de Vries </li>
-      <li> Benny Herbert </li>
-      <li> Jelmer de Vries </li>
-    </ul>
+
+    <div class="row">
+      {{#each model.crowdfunders as |crowdfunder|}}
+        <div class="col-6"> 
+          <span class="text-centered"> {{crowdfunder.name}} </span>
+        </div>
+      {{/each}}
+    </div>
   </div>
 </div>

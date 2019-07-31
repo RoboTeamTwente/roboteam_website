@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="card mt-5">
+    <div class="card-header">
+      <div class="row">
+        <strong class="col"> All listed members </strong>
+        {{#if isChangingOrder}}
+          <a class="text-default mr-3 float-right link" {{action 'cancelChangeOrder'}}> Cancel changing order </a>
+          <a class="text-success mr-3 float-right link" {{action 'saveChangedOrder'}}> Save new order! </a>
+        {{else}}
+          <a class="text-default mr-3 float-right link" {{action 'allowChangeOrder'}}> Change order </a>
+          {{#link-to "admin.members.new" }} 
+            <a class="text-danger mr-3 float-right link"> Create new member </a>
+          {{/link-to}}
+        {{/if}}
+      </div>
+    </div>
+    <table class="table {{if (not isChangingOrder) 'table-striped'}}">
+      <thead>
+        <tr>
+          {{#if isChangingOrder}}
+            <th> # </th>
+          {{/if}}
+          <th scope="col" class="border-0"> Name </th>
+          <th scope="col" class="border-0"> Image </th>
+          <th scope="col" class="border-0"> Study </th>
+          <th scope="col" class="border-0"> Role </th>
+          <th scope="col" class="border-0"> Mail </th>
+          <th scope="col" class="border-0"> Options </th>
+        </tr>
+      </thead>
+      
+      {{#sortable-group tagName="tbody" onChange=(action "reorderItems") as |group|}}
+        {{#each sortedModel as |member|}}
+          {{#sortable-item tagName="tr" isAnimated=false model=member group=group handle=".handle"}}
+            {{#if isChangingOrder}}
+              <td> <span class="handle"><small><i class="fa fa-bars text-small" aria-hidden="true"></i> </small></span> </td>
+            {{/if}}
+            <td> 
+              {{#link-to "admin.members.edit" member.id}}
+                {{member.name}}
+              {{/link-to}}
+            </td>
+            <td><img src={{member.imageSrc}} class="cover" alt="member" width='50' height='50'></td>
+            <td>{{member.study}}</td>
+            <td>{{member.role}}</td>
+            <td>{{member.mail}}</td>
+            <td> 
+              <a class="link text-danger" {{action "remove" member.id}}> Remove </a> / 
+              {{#link-to "admin.members.edit" member.id}} <a class="link text-muted"> Edit </a> {{/link-to}}
+            </td>
+          {{/sortable-item}}
+        {{/each}}
+      {{/sortable-group}}
+    </table>
+  </div>
+</div>

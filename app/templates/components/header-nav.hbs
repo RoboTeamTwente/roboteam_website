@@ -19,13 +19,39 @@
     {{!-- Navbar for non-mobile devices --}}
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav">
-        {{#each menuItems as |item|}}
+        {{#each getMenuItems as |item|}}
           <li class="nav-item">
             {{#link-to item.link}}
               <a class="nav-link" href="#"> {{item.name}} </a>
             {{/link-to}}
           </li>
         {{/each}}
+      </ul>
+    </div>
+   
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        {{#if session.isAuthenticated}}
+          {{#bs-dropdown as |dd|}}
+            {{#dd.button class="btn-secondary"}} {{session.currentUser.email}} <span class="caret"></span>{{/dd.button}}
+            {{#dd.menu as |ddm|}}
+              {{#ddm.item}}{{#ddm.link-to "admin"}}Admin panel{{/ddm.link-to}}{{/ddm.item}}
+              {{#ddm.item}}
+                <a href="https://analytics.google.com/analytics/web/" target="_blank" rel="noopener" onclick={{action dd.closeDropdown}} class="dropdown-item"> Analytics </a>
+              {{/ddm.item}}
+              {{ddm.divider}}
+              {{#ddm.item}}
+                <a href onclick={{action "signOut" dd.closeDropdown}} class="dropdown-item"> Sign out </a>
+              {{/ddm.item}}
+            {{/dd.menu}}
+          {{/bs-dropdown}}
+        {{else}}
+          <li class="nav-item">
+            {{#link-to "login"}}
+              <a class="nav-link" href="login"> Login </a>
+            {{/link-to}}
+          </li>
+        {{/if}}  
       </ul>
     </div>
   </div>
@@ -35,11 +61,11 @@
 <div class="mobile-menu {{if showMobileMenu 'visible'}} d-block d-lg-none pl-4" {{action "closeMobileMenu"}}>
   <div class="container">
     {{#link-to "index"}}
-      <h4 class="p-3 text-dark" href="#">Home</h4>
+      <h5 class="p-2 text-dark" href="#">Home</h5>
     {{/link-to}}
-    {{#each menuItems as |item|}}
+    {{#each getMenuItems as |item|}}
       {{#link-to item.link}}
-        <h4 class="p-3 text-dark" href="#">{{item.name}}</h4>
+        <h5 class="p-2 text-dark" href="#">{{item.name}}</h5>
       {{/link-to}}
     {{/each}}
   </div>

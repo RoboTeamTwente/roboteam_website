@@ -23,9 +23,23 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+p > img {
+  max-width: 100%;
+}
+
 .roboto {
   font-family: roboto;
   text-decoration: none; /* no underline */
+}
+
+blockquote {
+  background-color: #f6f6f6;
+  font-size: 1.3rem;
+  font-style: italic;
+  padding-bottom: 8px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 24px;
 }
 
 .thin {
@@ -53,14 +67,44 @@ a {
   }
 }
 
+.btn-danger {
+  background-color: #cc0000;
+}
+
+.text-danger {
+  color: #cc0000;
+}
+
 .link {
   cursor: pointer;
+}
+
+.list-group-item > a {
+  color: gray;
+}
+
+.list-group-item > a.active {
+  color: #cc0000;
 }
 
 .bg-gray {
   background-color: #eee;
 }
 
+.img-sample {
+  width: 39px;
+  height: 39px;
+  max-width: 39px;
+  max-height: 39px;
+  object-position: center;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.x-file-input {
+  height: 39px;
+  max-height: 39px;
+}
 
 
 h1 {
@@ -111,6 +155,42 @@ img.cover {
   background-color: #111;
 }
 
+label {
+  width: inherit;
+  
+  .text {
+    color: #cc0000;
+    padding-top: 4px;
+    font-family: "roboto condensed";
+  }
+}
+
+
+.editor-toolbar {
+  a {
+    box-sizing: content-box;
+  }
+
+  &.fullscreen {
+    top: 56px;
+    height: 80px;
+  }
+}
+
+.CodeMirror-fullscreen {
+  top: 130px;
+}
+
+img.cover {
+  object-position: center;
+  object-fit: cover;
+}
+
+img.contain {
+  object-position: center;
+  object-fit: contain;
+}
+
 /* Style all font awesome icons */
 .fa {
     padding: 13px;
@@ -121,6 +201,50 @@ img.cover {
     text-decoration: none;
     border-radius: 50%;
 }
+
+.flash-notice {
+  position: fixed;
+  transition: all .3s ease-in-out;
+  z-index: 40;
+  margin-top: 0px;
+  border-radius: 0;
+  padding-top: -15px;
+  width: 100%;
+  height: 56px;
+  transform: translateY(0px);
+    top: 56px;
+
+
+  &.hidden {
+    transform: translateY(-56px);
+      top: 0;
+  }
+
+  &.success {
+    background-color: #eee;
+    color: green;
+  }
+
+  &.info {
+    background-color: #eee;
+    color: blue;
+  }
+
+  &.warning {
+    background-color: #eee;
+    color: #cc0000;
+  }
+
+  &.danger {
+    background-color: #eee;
+    color: #cc0000;
+  }
+
+  .flash-notice-content {
+    margin-bottom: 0;
+  }
+}
+
 
 /* Add a hover effect if you want */
 .fa:hover {

@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="col-12 mt-5">
+    <h1 class="text-centered mb-4"> Upcoming events </h1>
+    <div class="row justify-content-center">
+      <ul class="list-group col-12 col-md-8">
+        {{#each pagedContent as |event|}}
+          {{#link-to "events.show" event tagName="li" class="list-group-item link"}}
+            <div class="row"> 
+              <div class="col-4">
+                {{#if (is-same event.startdate event.enddate precision='days')}}
+                  <h2 class="mb-0 text-centered mt-1"> {{moment-format event.startdate "MM/DD"}} </h2>
+                {{else}}
+                  <h4 class="mb-0 text-centered mt-2"> {{moment-format event.startdate "MM/DD"}} - {{moment-format event.enddate "MM/DD"}} </h4>
+                {{/if}}
+              </div>
+              <div class="col-8">
+                <span> {{event.title}} </span> <br>
+                <span class="text-muted">  {{event.location}} </span>
+                {{#if event.link}}
+                  <a class="float-right" href="event.link" target="_blank" rel="noopener"> Event website </a>
+                {{/if}}
+              </div>
+            </div>
+          {{/link-to}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+  <div class="col-12">
+    {{page-numbers content=pagedContent}}
+  </div>
+</div>
+

@@ -6,10 +6,6 @@
         <span class="link"> View previous teams </span>
       {{/link-to}}
     </p>
-    {{img-banner
-      class="mt-5"
-      imageSrc="content/team.JPG"
-    }}
  
     <div class="row mb-5 pb-5">
       {{#each model as |member|}}
@@ -41,7 +37,7 @@
         </div>
       </div>
       <div class="col-12 pl-5 pr-5 pt-2 pb-5">
-        <span> {{selectedMember.storyFormatted}} </span>
+        <span> {{simple-mde-preview selectedMember.story}} </span>
       </div>
     </div>
   </div>

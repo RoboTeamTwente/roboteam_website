@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="card mt-5">
+    <div class="card-header">
+      <a class="mt-5"> {{if model.isNew "Add new offer" "Edit offer"}} </a>
+    </div>
+    <form {{action "saveModelWithImage" on="submit"}}>
+      <div class="form-group pl-4 pr-4 pt-3">
+        <div class="row">
+
+          {{!-- Show error message if something went wrong --}}
+          {{#if error}}
+            <div class="alert alert-danger"> 
+              <b> Oh oh... </b> <br> 
+              {{error}}
+            </div>
+          {{/if}}
+
+          {{!-- Article title --}}
+          <div class="col-12"> 
+            <label>
+              <span class="text"> Offer title * </span>
+              {{input type="text" class="form-control mb-2" placeholder="e.g. Team Manager!!" value=model.title}} 
+            </label>
+          </div>
+
+          {{!-- checkboxes --}}
+          <div class="col-12"> 
+            <label>
+              {{input type="checkbox" name="isBoard" checked=model.isBoard}}
+              <span class="text"> Is Board? </span>
+            </label>
+      
+            <label>
+              {{input type="checkbox" name="fullTime" checked=model.fullTime}}
+              <span class="text"> Is fulltime? </span>
+            </label>
+
+            <label>
+              {{input type="checkbox" name="halfTime" checked=model.halfTime}}
+              <span class="text"> Is halftime? </span>
+            </label>       
+
+            <label>
+              {{input type="checkbox" name="partTime" checked=model.partTime}}
+              <span class="text"> Is parttime? </span>
+            </label>
+          </div>
+    
+          {{!-- Image upload --}}
+          <div class="col-6"> 
+            <label>
+              <span class="text"> Image * </span> <br>
+              {{x-file-input class="btn btn-danger" multiple=false name="false" action=(action "didSelectImage") accept="image/*" alt="Upload Image"}}
+              <img id="output" class="img-sample" alt="preview" src={{model.imageSrc}} hidden={{shouldHideImage}}>
+            </label>
+          </div>
+
+          <div class="col-12"> 
+            <label>
+              <span class="text"> Content *</span>
+            </label>
+            {{simple-mde class="border border-radius-2 p-0" value=model.content change=(action (mut model.content))}}
+          </div>
+
+          <div class="col-12"> 
+            <button type="submit" class="btn btn-danger mb-2 mt-2 d-inline"> {{if model.isNew "Add offer" "Update offer"}} </button>
+            {{#link-to "admin.offers.index"}}
+              <button class="btn btn-default mb-2 mt-2 d-inline"> Cancel </button>
+            {{/link-to}}
+          </div>
+        </div>
+      </div>            
+    </form>
+  </div>
+</div>

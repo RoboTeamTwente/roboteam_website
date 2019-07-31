@@ -1,12 +1,24 @@
 import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 export default Component.extend({
+    session: service(),
+    settings: service(),
     init() {
       this._super(...arguments);
       this.menuItems = [
         {
           name: 'RoboCup',
           link: 'robocup'
+        },
+        {
+          name: 'News',
+          link: 'news'
+        },
+        {
+          name: 'Events',
+          link: 'events'
         },
         {
           name: 'Join us!',
@@ -30,6 +42,18 @@ export default Component.extend({
         }
     ];
   },
+  getMenuItems: computed('menuItems', 'settings.settings.can_join', function() {
+    let items = [];
+    if (!this.get('settings.settings.can_join')) {
+      this.menuItems.forEach(item => {
+        if (item.link !== 'join') {
+          items.push(item);
+        }
+      })
+      return items; 
+    }
+    return this.menuItems;
+  }),
   showMobileMenu: false,
   actions: {
     toggleMobileMenu() {
@@ -37,6 +61,9 @@ export default Component.extend({
     },
     closeMobileMenu() {
       this.set('showMobileMenu', false);
+    },
+    signOut: function() {
+      this.get('session').close();
     }
   }
 });

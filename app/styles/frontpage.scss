@@ -26,10 +26,19 @@
   }
 }
 
+.frontpage-header-row {
+  height: 350px;
+}
+
 @include media-breakpoint-down(md) {
   .header-image {
     height: 300px; 
   }
+
+  .frontpage-header-row {
+    height: auto;
+  }
+
   .gradient {
     height: 100px; 
     margin-top: 200px;
