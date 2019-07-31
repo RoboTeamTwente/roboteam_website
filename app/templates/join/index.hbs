@@ -48,12 +48,12 @@
         {{/each}}
       </div>
     </div>
-    {{else}}
-      {{simple-mde-preview settings.settings.can_not_join_text}}
-      {{#link-to 'index'}}
-        <button class="btn btn-danger"> Back </button>
-      {{/link-to}}
-    {{/if}}
+  {{else}}
+    {{simple-mde-preview settings.settings.can_not_join_text}}
+    {{#link-to 'index'}}
+      <button class="btn btn-danger"> Back </button>
+    {{/link-to}}
+  {{/if}}
 </div>
 
 <div class="backdrop {{if sideBarOpen 'visible'}}" {{action 'deselectOffer'}}> </div>

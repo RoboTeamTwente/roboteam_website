@@ -34,7 +34,7 @@
         </tr>
       </thead>
 
-     {{#sortable-group tagName="tbody" onChange=(action "reorderItems") as |group|}}
+      {{#sortable-group tagName="tbody" onChange=(action "reorderItems") as |group|}}
         {{#each sortedModel as |setting|}}
           {{#sortable-item tagName="tr" isAnimated=false model=setting group=group handle=".handle"}}
             {{#if isChangingOrder}}
