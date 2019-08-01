@@ -7,7 +7,7 @@ export default Controller.extend(saveModelMixin, {
   settings: service(),
   init() {
     this._super(...arguments);
-    this.requiredProperties = ["title"];
+    this.requiredProperties = ["title", "explanation"];
     this.types = ["boolean", "string", "number", "date"]
   },
   noticeDuringSave: "Updating setting...",

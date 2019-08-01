@@ -5,14 +5,14 @@ const { attr, Model } = DS;
 
 export default Model.extend({
   title: attr('string'),
-  
+  explanation: attr('string'),
+
   stringValue: attr('string'),
   booleanValue: attr('boolean'),
   numberValue: attr('number'),
   dateValue: attr('date'),
 
   order: attr('number'),
-
   type: attr('string'),
 
   value: computed('type', 'stringValue', 'booleanValue', 'numberValue', 'dateValue', function() {

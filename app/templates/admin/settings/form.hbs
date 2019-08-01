@@ -19,10 +19,18 @@
                 <span class="text"> Title * </span>
                 {{input type="text" class="form-control mb-2" placeholder="e.g. LinkedInLink" value=model.title}} 
               </label>
+              <label>
+                <span class="text"> Explanation * </span>
+                {{input type="text" class="form-control mb-2" placeholder="e.g. description at join page" value=model.explanation}} 
+              </label>
             {{else }}
               <label>
                 <span class="text"> Title * </span>
                 {{input type="text" class="form-control mb-2" disabled=true placeholder="e.g. LinkedInLink" value=model.title}} 
+              </label>
+              <label>
+                <span class="text"> Explanation * </span>
+                {{input type="text" class="form-control mb-2" disabled=true placeholder="e.g. description at join page" value=model.explanation}} 
               </label>
             {{/if}}
           </div>
