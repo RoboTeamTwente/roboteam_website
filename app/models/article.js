@@ -9,6 +9,8 @@ export default Model.extend({
   imageSrc: attr('string'),
   createdAt: attr('date'),
   updatedAt: attr('date'),
+  order: attr('number'),
+
   contentShortened: computed('content', function() {
     let content = this.get('content');
     const maxLength = 400; // max amount of characters
