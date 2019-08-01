@@ -2,25 +2,24 @@
   <div class="col-12 mt-5">
     <h1 class="text-centered mb-4"> Upcoming events </h1>
     <div class="row justify-content-center">
-      <ul class="list-group col-12 col-md-8">
+      <div class="col-12 col-md-8">
         {{#each pagedContent as |event|}}
-          {{#link-to "events.show" event tagName="li" class="list-group-item link"}}
-            <div class="row"> 
-              <div class="col-4">
-                {{#if (is-same event.startdate event.enddate precision='days')}}
-                  <h2 class="mb-0 text-centered mt-1"> {{moment-format event.startdate "MM/DD"}} </h2>
-                {{else}}
-                  <h4 class="mb-0 text-centered mt-2"> {{moment-format event.startdate "MM/DD"}} - {{moment-format event.enddate "MM/DD"}} </h4>
-                {{/if}}
-              </div>
-              <div class="col-8">
-                <span> {{event.title}} </span> <br>
-                <span class="text-muted">  {{event.location}} </span>
-              </div>
+          {{#link-to "events.show" event tagName="div" class="card mb-3 link event-card"}}
+            {{#if event.imageSrc}}
+              <img class="card-img" src={{event.imageSrc}} alt={{event.title}}>
+            {{/if}}
+            <div class="card-img-overlay {{unless event.imageSrc 'bg-primary'}}">
+              <h1 class="card-title header-image-title text-white"> {{event.title}} </h1>
+              {{#if (is-same event.startdate event.enddate precision='days')}}
+                <h3 class="header-image-title text-white"> {{moment-format event.startdate "MM/DD"}} </h3>
+              {{else}}
+                <h4 class="header-image-title text-white"> {{moment-format event.startdate "MM/DD"}} - {{moment-format event.enddate "MM/DD"}} </h4>
+              {{/if}}
+              <span class="card-text header-image-title text-white"> {{event.location}} </span>
             </div>
           {{/link-to}}
         {{/each}}
-      </ul>
+      </div>
     </div>
   </div>
   <div class="col-12">

@@ -17,13 +17,15 @@
     <hr>
     <div class="row justify-content-center">
       <div class="col-12"> 
-        {{img-banner
-          class=""
-          title=""
-          subtitle=""
-          link=""
-          imageSrc=model.imageSrc
-        }}
+        {{#if model.imageSrc}}
+          {{img-banner
+            class=""
+            title=""
+            subtitle=""
+            link=""
+            imageSrc=model.imageSrc
+          }}
+        {{/if}}
       </div>
       <div class="col-12 col-lg-10">
         <div class="event-description mt-4">
