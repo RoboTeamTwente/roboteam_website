@@ -8,5 +8,5 @@ export default Model.extend({
   name: attr('string'),
   imageSrc: attr('string'),
   content: attr('string'),
-  yearOfStart: attr('string')
+  yearOfStart: attr('number')
 });
