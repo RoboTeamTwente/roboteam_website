@@ -7,7 +7,7 @@
       <h3 class="mt-5"> Gigabyte </h3>
       <div class="row">
         {{#each gigaByteSponsors as |sponsor|}}
-          <a class="col-4 col-md-3" href={{sponsor.link}}>
+          <a class="col-4 col-md-2" href={{sponsor.link}}>
             <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
           </a>
         {{/each}}
@@ -53,6 +53,17 @@
       <h3 class="mt-5"> Byte </h3>
       <div class="row">
         {{#each demoByteSponsors as |sponsor|}}
+          <a class="col-4 {{if sponsor.displayWide 'col-md-2' 'col-md-2'}}" href={{sponsor.link}}>
+            <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
+          </a>
+        {{/each}}
+      </div>
+    {{/if}}
+
+    {{#if collaborationSponsors}}
+      <h3 class="mt-5"> Collaborations </h3>
+      <div class="row">
+        {{#each collaborationSponsors as |sponsor|}}
           <a class="col-4 {{if sponsor.displayWide 'col-md-2' 'col-md-2'}}" href={{sponsor.link}}>
             <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
           </a>
