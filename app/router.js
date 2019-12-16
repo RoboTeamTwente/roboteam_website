@@ -79,6 +79,7 @@ Router.map(function() {
     });
   });
 
+  this.route('designpresentation');
 });
 
 export default Router;
