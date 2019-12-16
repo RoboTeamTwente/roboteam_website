@@ -125,13 +125,29 @@
 <div class="container-fluid p-5">
   <div class="row justify-content-center">
     <h1 class="col-12 mt-5 pt-5 text-centered"> Our partners </h1>
-    {{#each model.sponsors as |sponsor|}}
-      <a class="col-4 {{if sponsor.displayWide 'col-md-2' 'col-md-1'}}" href={{sponsor.link}}>
-        <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
-      </a>
-    {{/each}}
+    {{#unless collaborationSponsor}}
+      {{#each model.sponsors as |sponsor|}}
+        <a class="col-4 {{if sponsor.displayWide 'col-md-2' 'col-md-1'}}" href={{sponsor.link}}>
+          <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
+        </a>
+      {{/each}}
+    {{/unless}}
   </div>
 </div>
+
+<div class="container-fluid p-5">
+  <div class="row justify-content-center">
+    <h1 class="col-12 mt-5 pt-5 text-centered"> Collaborations </h1>
+    {{#if collaborationSponsor}}
+      {{#each model.sponsors as |sponsor|}}
+        <a class="col-4 {{if sponsor.displayWide 'col-md-2' 'col-md-1'}}" href={{sponsor.link}}>
+          <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
+        </a>
+      {{/each}}
+    {{/if}}
+  </div>
+</div>
+
 
 <div class="container"> 
   <div class="row">
