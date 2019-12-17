@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
+import { filterBy } from '@ember/object/computed';
 
 export default Controller.extend({
   moment: service(),
@@ -15,6 +16,14 @@ export default Controller.extend({
   selectedHeader: computed('model.headers', 'index', function() {
     return this.get('model.headers').objectAt(this.get('index'));
   }),
+
+   collaborators : filterBy('model.sponsors', 'package', "COLLABORATION"),
+
+   sponsors: computed('model.sponsors', function() {
+       return this.get('model.sponsors').filter(function(sponsor) {
+           return sponsor.get("package") !== "COLLABORATION";
+       });
+   }),
 
   // Make a poll request to change the header automatically
   createPollingRequest() {

@@ -123,31 +123,30 @@
 
 {{!-- partners content block (full width) --}}
 <div class="container-fluid p-5">
-  <div class="row justify-content-center">
-    <h1 class="col-12 mt-5 pt-5 text-centered"> Our partners </h1>
-    {{#unless collaborationSponsor}}
-      {{#each model.sponsors as |sponsor|}}
+  {{#if sponsors}}
+    <div class="row justify-content-center">
+      <h1 class="col-12 mt-5 pt-5 text-centered"> Partners </h1>
+      {{#each sponsors as |sponsor|}}
         <a class="col-4 {{if sponsor.displayWide 'col-md-2' 'col-md-1'}}" href={{sponsor.link}}>
           <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
         </a>
       {{/each}}
-    {{/unless}}
-  </div>
+    </div>
+  {{/if}}
 </div>
 
 <div class="container-fluid p-5">
-  <div class="row justify-content-center">
-    <h1 class="col-12 mt-5 pt-5 text-centered"> Collaborations </h1>
-    {{#if collaborationSponsor}}
-      {{#each model.sponsors as |sponsor|}}
-        <a class="col-4 {{if sponsor.displayWide 'col-md-2' 'col-md-1'}}" href={{sponsor.link}}>
-          <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
+  {{#if collaborators}}
+    <div class="row justify-content-center">
+      <h1 class="col-12 mt-5 pt-5 text-centered"> Collaborations </h1>
+      {{#each collaborators as |collaborator|}}
+        <a class="col-4 {{if collaborator.displayWide 'col-md-2' 'col-md-1'}}" href={{collaborator.link}}>
+          <img class="sponsor" alt={{collaborator.name}} src={{collaborator.imageSrc}}>
         </a>
       {{/each}}
-    {{/if}}
-  </div>
+    </div>
+  {{/if}}
 </div>
-
 
 <div class="container"> 
   <div class="row">
