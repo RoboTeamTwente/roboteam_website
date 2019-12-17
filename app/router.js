@@ -80,6 +80,7 @@ Router.map(function() {
   });
 
   this.route('designpresentation');
+  this.route('newsletter');
 });
 
 export default Router;
