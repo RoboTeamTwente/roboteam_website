@@ -28,5 +28,10 @@ export default Controller.extend({
 		return this.get('model.sponsors').filter(function(sponsor) {
 			return sponsor.get('package') === "DEMOBYTE";
 		});
+	}),
+	collaborationSponsors: computed('model.sponsors', function() {
+		return this.get('model.sponsors').filter(function(sponsor) {
+			return sponsor.get('package') === "COLLABORATION";
+		});
 	})
 });

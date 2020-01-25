@@ -88,6 +88,15 @@
   </div>
 </div>
 
+<div class="container-fluid pb-5 m-3">
+  <h1 class="text-centered"> Subscribe to our newsletter! </h1>
+  <div class="row justify-content-center">
+    {{#link-to 'newsletter'}}
+      <button class="btn btn-danger mt-2 mb-5 mb-md-0"> Subscribe! » </button>
+    {{/link-to}}
+  </div>
+</div>
+
 <div class="container">
   <div class="row justify-content-center">
     <iframe width="720" height="408" src="https://www.youtube.com/embed/VPLGauAXSes" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -123,14 +132,29 @@
 
 {{!-- partners content block (full width) --}}
 <div class="container-fluid p-5">
-  <div class="row justify-content-center">
-    <h1 class="col-12 mt-5 pt-5 text-centered"> Our partners </h1>
-    {{#each model.sponsors as |sponsor|}}
-      <a class="col-4 {{if sponsor.displayWide 'col-md-2' 'col-md-1'}}" href={{sponsor.link}}>
-        <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
-      </a>
-    {{/each}}
-  </div>
+  {{#if sponsors}}
+    <div class="row justify-content-center">
+      <h1 class="col-12 mt-5 pt-5 text-centered"> Partners </h1>
+      {{#each sponsors as |sponsor|}}
+        <a class="col-4 {{if sponsor.displayWide 'col-md-2' 'col-md-1'}}" href={{sponsor.link}}>
+          <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
+        </a>
+      {{/each}}
+    </div>
+  {{/if}}
+</div>
+
+<div class="container-fluid p-5">
+  {{#if collaborators}}
+    <div class="row justify-content-center">
+      <h1 class="col-12 mt-5 pt-5 text-centered"> Collaborations </h1>
+      {{#each collaborators as |collaborator|}}
+        <a class="col-4 {{if collaborator.displayWide 'col-md-2' 'col-md-1'}}" href={{collaborator.link}}>
+          <img class="sponsor" alt={{collaborator.name}} src={{collaborator.imageSrc}}>
+        </a>
+      {{/each}}
+    </div>
+  {{/if}}
 </div>
 
 <div class="container"> 

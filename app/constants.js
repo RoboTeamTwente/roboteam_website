@@ -19,6 +19,10 @@ const packageOptions = [
   {
     title: "DemoByte",
     value: "DEMOBYTE"
+  },
+  {
+    title: "Collaboration",
+    value: "COLLABORATION"
   }
 ];
 
