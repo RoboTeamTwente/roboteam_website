@@ -12,7 +12,7 @@ export default Model.extend({
   halfTime: attr('boolean'),
   partTime: attr('boolean'),
   isBoard: attr('boolean'),
-  
+  order: attr('number'),
   createdAt: attr('date'),
   updatedAt: attr('date'),
 
