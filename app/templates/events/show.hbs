@@ -5,7 +5,11 @@
         {{#link-to "events"}} &laquo; Events {{/link-to}}
         <span> 
           <h1> {{model.title}} </h1>
-          <h4 class="mb-0 text-muted"> ({{moment-format event.startDate "MMM/DD"}} - {{moment-format event.endDate "MMM/DD"}}) </h4> 
+          {{#if (is-same model.startdate model.enddate precision='days')}}
+            <h4 class="mb-0 text-muted"> {{moment-format model.startdate "MM/DD"}} </h4>
+          {{else}}
+            <h4 class="mb-0 text-muted"> {{moment-format model.startdate "MM/DD"}} - {{moment-format model.enddate "MM/DD"}} </h4>
+          {{/if}}
         </span>
       </div>
       {{#if model.link}}
