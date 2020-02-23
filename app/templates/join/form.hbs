@@ -2,13 +2,31 @@
   <div class="container mt-5">
     <div class="col-12 mt-5">
       <div class="row mt-5 justify-content-center">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd5261s6yjevkYiCc_GbeGIq-vcPpjSb-L-4fXhqLuN09S21A/viewform?embedded=true" width="640" height="1336" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScN0FTrgcF9qcUi_uBMJqZ1aNnGm1Mdzcnq_ZSIi-aKjBk9fg/viewform?embedded=true" width="1000" height="1354" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
       </div>
     </div>
   </div>
 {{else}}
-  {{simple-mde-preview settings.settings.can_not_join_text}}
-  {{#link-to 'index'}}
-    <button class="btn btn-danger"> Back </button>
-  {{/link-to}}
+  <div class="container mt-5">
+    <div class="col-12 mt-5">
+      <div class="row mt-5">
+        <div class="col-12">
+          {{simple-mde-preview settings.settings.can_not_join_text}}
+
+          <a class="btn btn-lg btn-danger mt-2"
+             href="mailto:info@roboteamtwente.nl?SUBJECT=Application%20RoboTeam %20Twente&BODY=- Name%3A%0D%0A- Preferred%20position%3A%0D%0A- Motivation%3A%0D%0A- Resume%3A%0D%0A">
+            <h5> Apply now! </h5>
+          </a>
+
+          <a class="btn btn-lg btn-light mt-2" href="mailto:info@roboteamtwente.nl?SUBJECT=I have a question about ...">
+            <h5 class="link"> I have a question! </h5>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
 {{/if}}
+
+
+
