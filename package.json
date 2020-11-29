@@ -76,6 +76,7 @@
   "dependencies": {
     "d3": "^5.16.0",
     "d3-timer": "^1.0.10",
+    "ember-storage": "^2.0.0",
     "instafeed.js": "^1.4.1"
   }
 }

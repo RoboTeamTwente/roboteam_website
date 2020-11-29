@@ -4,6 +4,7 @@ import { inject as service } from '@ember/service';
 
 export default Object.extend({
     firebaseApp: service(),    
+
     open: function(options) {
         const { email, password } = options;
 
@@ -17,5 +18,7 @@ export default Object.extend({
                 reject(error)
             });
         });
-    }
+    },
+
+    
   });
