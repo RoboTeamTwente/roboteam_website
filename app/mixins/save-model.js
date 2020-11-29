@@ -90,16 +90,14 @@ export default Mixin.create({
         this.get('firebaseApp').storage().then(storage => {
           const storageRef = storage.ref();
           const path = this.get('imagePath') + this.get(this.get('modelName')).get('id') + '.png';
-          storageRef.child(path).put(this.get('file'), metadata).then(snapshot => {
+          storageRef.child(path).put(this.get('file'), metadata).then(async snapshot => {
             // give the model the imageSrc when finished
-            const downloadURL = snapshot.downloadURL;
+            const downloadURL = await snapshot.ref.getDownloadURL();
             this.get(this.get('modelName')).set('imageSrc', downloadURL);
             this._save();
-          }).catch(error => {
-            console.error(error)
+          }).catch(() => {
           });
-        }).catch(error => {
-          console.error(error)
+        }).catch(() => {
         });
 
         // else if there was already an image and it didnt change
