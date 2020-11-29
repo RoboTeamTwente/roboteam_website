@@ -1,5 +1,5 @@
 import Helper from '@ember/component/helper';
-import removeMd from 'npm:remove-markdown';
+import removeMd from 'remove-markdown';
 
 export function removeMarkdown([text]) {
   return removeMd(text);
