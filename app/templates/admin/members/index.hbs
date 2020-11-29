@@ -30,7 +30,7 @@
       </thead>
       
       {{#sortable-group model=sortedModel tagName="tbody" onChange=(action "reorderItems") as |group|}}
-        {{#each model.group as |member|}}
+        {{#each group.model as |member|}}
           {{#group.item tagName="tr" model=member as |item|}}
             {{#if isChangingOrder}}
               <td>  

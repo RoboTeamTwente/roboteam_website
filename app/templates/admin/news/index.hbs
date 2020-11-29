@@ -25,9 +25,16 @@
           <th scope="col" class="border-0"> Options </th>
         </tr>
       </thead>
-  
-      {{#sortable-group model=sortedModel tagName="tbody" onChange=(action "reorderItems") as |group|}}
-        {{#each model.group as |article|}}
+
+
+  {{!-- {{#sortable-group model=sortedModel tagName="tbody" onChange=(action "reorderItems") as |group|}}
+        {{#each model.group as |member|}}
+          {{#group.item tagName="tr" model=member as |item|}}
+            {{#if isChangingOrder}} --}}
+
+
+        {{#sortable-group model=sortedModel tagName="tbody" onChange=(action "reorderItems") as |group|}}
+        {{#each group.model as |article|}}
           {{#group.item tagName="tr" model=article as |item|}}
             {{#if isChangingOrder}}
               <td>  
