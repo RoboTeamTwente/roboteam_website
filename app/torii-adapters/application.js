@@ -1,11 +1,11 @@
 import Object from '@ember/object';
 import { inject as service } from '@ember/service';
-import { isEmpty } from '@ember/utils';
-import { resolve } from 'rsvp'
+import { Promise, resolve, reject } from 'rsvp'
 
 export default Object.extend({
     store: service(), // inject the ember-data store
     storage: service(),
+    firebaseApp: service(),
 
     // The authorization argument passed in to `session.open` here is
     // the result of the `torii.open(providerName)` promise
@@ -13,21 +13,32 @@ export default Object.extend({
         const user = {
             currentUser: authorization.user
         }
-        this.set('storage.token', user)
         return user;
     },
 
-    fetch() {
-        let token = this.get('storage.token');
-        if (isEmpty(token)) {
-          throw new Error('No token in storage');
-        }
-        return resolve(token);
+    fetch: function() {
+        return new Promise((resolve, reject) => {
+            this.get('firebaseApp').auth().then(auth => {
+
+                auth.onAuthStateChanged(currentUser =>{
+                    console.log("almost");
+    
+                    if (currentUser) {
+                        return resolve({ currentUser });
+                    } else {
+                        return reject("not logged in");
+                    }
+                });
+            }).catch(err => {
+                throw new Error('No auth', err);
+            })
+        });
+      
     },
 
-    close() {
-        this.set('storage.token', null);
-        return resolve();
+    close: function() {
+        return this.get('firebaseApp').auth().then(auth => {
+            return auth.signOut();
+        })
     }
-
 });

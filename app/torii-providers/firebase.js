@@ -10,12 +10,13 @@ export default Object.extend({
 
         return new Promise((resolve, reject) => {
             this.get('firebaseApp').auth().then(auth => {
-                return auth.signInWithEmailAndPassword(email, password)
-            }).then((user) => {
-                resolve(user);
+                auth.setPersistence('local');
+                return auth.signInWithEmailAndPassword(email, password);
+            }).then(user => {
+                return resolve(user);
             })
-            .catch((error) => {
-                reject(error)
+            .catch(error => {
+                return reject(error)
             });
         });
     },
