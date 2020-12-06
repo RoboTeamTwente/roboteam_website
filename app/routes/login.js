@@ -13,7 +13,6 @@ export default Route.extend({
       let self = this;
 
       this.get('session').open('firebase', { 
-        provider: 'password',
         email: this.controller.get('email'),
         password: this.controller.get('password')}
       ).then(function() {
