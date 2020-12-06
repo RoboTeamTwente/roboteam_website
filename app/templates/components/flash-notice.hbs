@@ -1,10 +1,14 @@
-<div class="alert flash-notice {{flashNoticeStatus}} {{if flashNoticeVisibility 'visible' 'hidden'}}">
-  <div class="container">
-    <div class="row">
-      <h5 class="flash-notice-content col-xs"> {{flashNoticeContent}} </h5>
+<div class="toast {{if flashNoticeVisibility 'visible' 'hidden'}}" role="alert" aria-live="assertive" aria-atomic="true" data-autohide={{not flashNoticeIsPermanent}}>
+  <div class="toast-header bg-{{flashNoticeStatus}}">
+    <strong class="mr-auto text-white">{{flashNoticeStatus}}!</strong>
+    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
       {{#if flashNoticeIsPermanent}}
-        <i class="fa fa-times" aria-hidden="true" {{action "dismissFlashNotice"}}></i>
+        <span aria-hidden="true">&times;</span>
+        <i class="fa fa-times" aria-hidden="true" {{action "1"}}></i>
       {{/if}}
-    </div>
+    </button>
+  </div>
+  <div class="toast-body">
+    {{flashNoticeContent}}
   </div>
 </div>
