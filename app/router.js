@@ -81,7 +81,7 @@ Router.map(function() {
     });
   });
 
-  this.route('designpresentation');
+  // this.route('designpresentation');
   this.route('newsletter');
 });
 
