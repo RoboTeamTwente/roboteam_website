@@ -62,7 +62,7 @@
     "ember-welcome-page": "^3.2.0",
     "emberfire": "^3.0.0-rc.6",
     "emberx-file-input": "^1.2.1",
-    "eslint-plugin-ember": "^5.2.0",
+    "eslint-plugin-ember": "^5.4.0",
     "firebase": "^7.24.0",
     "loader.js": "^4.7.0",
     "qunit-dom": "^0.7.1",
