@@ -27,7 +27,7 @@
       </thead>
       {{#sortable-group model=sortedModel tagName="tbody" onChange=(action "reorderItems") as |group|}}
         {{#each group.model as |article|}}
-          {{#group.item tagName="tr" model=article as |item|}}
+          {{#group.item tagName="tr" isDraggingDisabled=(not isChangingOrder) model=article as |item|}}
             {{#if isChangingOrder}}
               <td>  
                 {{#item.handle}}

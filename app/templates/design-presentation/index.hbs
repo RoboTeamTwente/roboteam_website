@@ -1,15 +1,26 @@
 <div class="container mt-5">
   <div class="col-12 mt-5">
     <div class="row mt-5 justify-content-center">
-      <h1> Electronics </h1>
-      {{#each model.articles as |article|}}
+      {{#each model as |designitemcontainer|}}
+
+        <h1> {{designitemcontainer.subteam}} </h1>
+
+        <div class="col-12 row mb-5 designitem"> 
+          
+        {{#each designitemcontainer.items as |designitem|}}
         <div class="col-12 col-md-4">
-          {{#link-to "news.show" article}}
-            <img class="max-width cover" height="200" src={{article.imageSrc}} alt={{article.title}}>
+          {{#link-to "news.show" designitem}}
+            <img class="max-width cover" height="200" src={{designitem.imageSrc}} alt={{designitem.title}}>
             <h4 class="text-dark mt-2">
-              {{article.title}}
+              {{designitem.title}}
             </h4>
           {{/link-to}}
+          <span> 
+            {{designitem.contentShortened}}
+          </span>
+        </div>
+              {{/each}}
+
         </div>
       {{/each}}
     </div>
