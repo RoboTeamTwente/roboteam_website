@@ -31,6 +31,10 @@ Router.map(function() {
     this.route('show', { path: '/:event_id' });
   });
 
+  this.route('design-presentation', function() {
+    this.route('show',  { path: '/:subteam_id' });
+  });
+
   // maintenance routes
   this.route('admin', function() {
     this.route('crowdfunders');
@@ -81,7 +85,6 @@ Router.map(function() {
     });
   });
 
-  // this.route('designpresentation');
   this.route('newsletter');
 });
 

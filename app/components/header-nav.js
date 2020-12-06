@@ -29,6 +29,10 @@ export default Component.extend({
           link: 'team'
         },
         {
+          name: 'Design Presentation',
+          link: 'design-presentation'
+        },
+        {
           name: 'Technology',
           link: 'documentation'
         },
