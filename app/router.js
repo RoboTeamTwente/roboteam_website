@@ -83,6 +83,11 @@ Router.map(function() {
       this.route('edit',  { path: 'edit/:header_id' });
       this.route('new');
     });
+
+    this.route('design-presentation', function() {
+      this.route('edit',  { path: 'edit/:designitem_id' });
+      this.route('new');
+    });
   });
 
   this.route('newsletter');
