@@ -4,6 +4,6 @@ import changeOrder from 'roboteam-website/mixins/change-order';
 
 export default Controller.extend(removeModelAction, changeOrder, {
   modelType: "designitem",
-  modelNameProperty: "title"
+  modelNameProperty: "title",
 });
 

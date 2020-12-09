@@ -32,7 +32,7 @@ Router.map(function() {
   });
 
   this.route('design-presentation', function() {
-    this.route('show',  { path: '/:subteam_id' });
+    this.route('subteam',  { path: '/subteam' });
   });
 
   // maintenance routes

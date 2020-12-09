@@ -1,26 +1,46 @@
+<div class="gradient"> </div>
+
+{{!-- preload all header backgrounds --}}
+{{#each model.headers as |header|}}
+  <img class="header-image {{if (eq header.id selectedHeader.id) 'visible'}}" src={{header.imageSrc}} alt={{header.title}}>
+{{/each}}
+
+{{!-- Title and subtitle --}}
+<div class="container frontpage-header">
+  <div class="row justify-content-center frontpage-header-row">
+    <img class="header-rtt-logo col-12 pt-0 pt-md-5" alt="RoboTeam Twente" src="images/rtt_logo_medium.png">
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h1 class="header-image-title text-white mt-5 pt-5">
+        Design Presentation Roboteam 2020/2021 <br>
+      </h1>
+      <span class="header-image-title subtitle"> Watch the livestream &raquo; </span>
+    </div>
+  </div>
+</div>
+
 <div class="container mt-5">
   <div class="col-12 mt-5">
     <div class="row mt-5 justify-content-center">
       {{#each model as |designitemcontainer|}}
-
-        <h1> {{designitemcontainer.subteam}} </h1>
-
+        <h1 class="col-12 pl-5 pt-5"> {{designitemcontainer.subteam.title}} </h1> <br>
+        <span class="col-12 pl-5 pb-5"> [description] </span>
         <div class="col-12 row mb-5 designitem"> 
-          
-        {{#each designitemcontainer.items as |designitem|}}
-        <div class="col-12 col-md-4">
-          {{#link-to "news.show" designitem}}
-            <img class="max-width cover" height="200" src={{designitem.imageSrc}} alt={{designitem.title}}>
-            <h4 class="text-dark mt-2">
-              {{designitem.title}}
-            </h4>
-          {{/link-to}}
-          <span> 
-            {{designitem.contentShortened}}
-          </span>
-        </div>
-              {{/each}}
-
+          {{#each designitemcontainer.items as |designitem|}}
+            <div class="col-12 col-md-4">
+              <LinkTo @route="design-presentation.subteam" @query={{hash subteam=designitemcontainer.subteam.value}}>
+                <img class="max-width cover" height="200" src={{designitem.imageSrc}} alt={{designitem.title}}>
+                <h4 class="text-dark mt-2">
+                  {{designitem.title}}
+                </h4>
+              </LinkTo>
+              <div class="d-flex flex-column"> 
+                {{designitem.contentShortened}} <br>
+                <div class="d-flex flex-end text-danger justify-content-end"> Learn more </div> 
+              </div>
+            </div>
+          {{/each}}
         </div>
       {{/each}}
     </div>

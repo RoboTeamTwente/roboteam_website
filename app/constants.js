@@ -46,7 +46,7 @@ const subteams = [
   }, 
   {
     title: "Management",
-    value: "management"
+    value: "MANAGEMENT"
   },
   {
     title: "Technical challenge",
