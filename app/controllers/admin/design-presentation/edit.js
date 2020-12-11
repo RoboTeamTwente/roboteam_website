@@ -9,7 +9,7 @@ export default Controller.extend(saveModelMixin, {
     this.requiredProperties = ["title", "content", "imageOrVideoContent", "subteam"];
   },
   noticeDuringSave: "Updating design presentation item...",
-  noticeAfterSave: "design presentation item updated!",
+  noticeAfterSave: "Design presentation item updated!",
   modelName: "model",
   transitionAfterSuccess: "admin.design-presentation",
   transitionToIndexRoute: true,

@@ -88,6 +88,11 @@ Router.map(function() {
       this.route('edit',  { path: 'edit/:designitem_id' });
       this.route('new');
     });
+
+    this.route('subteams', function() {
+      this.route('edit',  { path: 'edit/:subteam_id' });
+      this.route('new');
+    });
   });
 
   this.route('newsletter');
