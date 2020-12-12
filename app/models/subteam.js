@@ -7,5 +7,6 @@ export default Model.extend({
   updatedAt: attr('date'),
   name: attr('string'),
   imageSrc: attr('string'),
-  description: attr('string'),
+  description: attr('string'),  
+  descriptionShort: attr('string'),
 });

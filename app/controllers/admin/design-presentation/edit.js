@@ -1,6 +1,5 @@
 import Controller from '@ember/controller';
 import saveModelMixin from "roboteam-website/mixins/save-model"
-import { subteams } from 'roboteam-website/constants'
 import { computed } from '@ember/object'
 
 export default Controller.extend(saveModelMixin, {
@@ -9,13 +8,13 @@ export default Controller.extend(saveModelMixin, {
     this.requiredProperties = ["title", "content", "imageOrVideoContent", "subteam"];
   },
   noticeDuringSave: "Updating design presentation item...",
-  noticeAfterSave: "Design presentation item updated!",
+  noticeAfterSave: "design presentation item updated!",
   modelName: "model",
   transitionAfterSuccess: "admin.design-presentation",
   transitionToIndexRoute: true,
   imagePath: "images/design-presentation-items",
-  allSubteams: computed(() => {
-    return subteams;
+  allSubteams: computed(function() {
+    return this.store.findAll('subteam');
   }),
   actions: {
     setTypeToVideo: function() {

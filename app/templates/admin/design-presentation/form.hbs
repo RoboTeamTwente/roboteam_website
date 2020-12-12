@@ -30,7 +30,7 @@
               <select class="form-control" onchange={{action (mut model.subteam) value="target.value"}}>
                 <option value="" disabled selected>Select your option</option>
                 {{#each allSubteams as |team|}}
-                  <option value={{team.value}} selected={{eq team.value model.subteam}}>{{team.title}}</option>
+                  <option value={{team.id}} selected={{eq team.id model.subteam}}>{{team.name}}</option>
                 {{/each}}
               </select>
             </label>

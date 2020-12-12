@@ -24,5 +24,9 @@ export default Model.extend({
     // cut off to the last space before maxlength
     if (content.length <= maxLength) return content;
     return content.substr(0, content.lastIndexOf(" ", maxLength)) + "...";
+  }),
+
+  subteamObject: computed('subteam', function() {
+    return this.store.findRecord('subteam', this.get('subteam'));
   })
 });

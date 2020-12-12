@@ -40,6 +40,13 @@
           </div>
 
           <div class="col-12"> 
+            <label>
+              <span class="text"> Short description *</span>
+            </label>
+            {{simple-mde class="border border-radius-2 p-0" value=model.descriptionShort change=(action (mut model.descriptionShort))}}
+          </div>
+
+          <div class="col-12"> 
             <button type="submit" class="btn btn-danger mb-2 mt-2 d-inline"> {{if model.isNew "Add subteam" "Update subteam"}} </button>
             {{#link-to "admin.subteams"}}
               <button class="btn btn-default mb-2 mt-2 d-inline"> Cancel </button>
