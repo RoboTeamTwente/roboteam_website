@@ -53,19 +53,16 @@
               {{!-- <div class="alert alert-info"> 
             <strong> Note: </strong> You need at least one image or one video Url
             </div> --}}
-            {{#if model.hasVideo}}
-              {{input type="text" class="form-control mb-2" placeholder="e.g. Geneva drive!" value=model.videoSrc}} 
-            {{else}}
-              {{!-- Image upload --}}
-              {{x-file-input class="btn btn-danger" multiple=false name="false" action=(action "didSelectImage") accept="image/*" alt="Upload Image"}}
-              <img id="output" class="img-sample" alt="preview" src={{model.imageSrc}} hidden={{shouldHideImage}}>
-            {{/if}}
+              {{#if model.hasVideo}}
+                {{input type="text" class="form-control mb-2" placeholder="e.g. Geneva drive!" value=model.videoSrc}} 
+              {{else}}
+                {{!-- Image upload --}}
+                {{x-file-input class="btn btn-danger" multiple=false name="false" action=(action "didSelectImage") accept="image/*" alt="Upload Image"}}
+                <img id="output" class="img-sample" alt="preview" src={{model.imageSrc}} hidden={{shouldHideImage}}>
+              {{/if}}
             </div>
           </div>
 
-
-
-        
           <div class="col-12 mt-5"> 
             <label>
               <span class="text"> Content *</span>

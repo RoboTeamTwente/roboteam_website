@@ -32,19 +32,19 @@
     {{/each}}
   </div>
 
-<hr>
+  <hr>
 
   <h2 class="mt-5 mb-5 text-center"> Watch the other subteams as well! </h2>
-      <div class="col-12 row mb-5"> 
-          {{#each model.otherSubteams as |subteam|}}
-            <div class="col-12 col-md-4">
-              <LinkTo @route="design-presentation.subteam" @query={{hash subteam=subteam.id}}>
-                <img class="max-width cover" height="200" src={{subteam.imageSrc}} alt={{subteam.title}}>
-                <h4 class="text-dark mt-2">
-                  {{subteam.name}}
-                </h4>
-              </LinkTo>
-            </div>
-          {{/each}}
-        </div>
+  <div class="col-12 row mb-5"> 
+    {{#each model.otherSubteams as |subteam|}}
+      <div class="col-12 col-md-4">
+        <LinkTo @route="design-presentation.subteam" @query={{hash subteam=subteam.id}}>
+          <img class="max-width cover" height="200" src={{subteam.imageSrc}} alt={{subteam.title}}>
+          <h4 class="text-dark mt-2">
+            {{subteam.name}}
+          </h4>
+        </LinkTo>
+      </div>
+    {{/each}}
+  </div>
 </div>

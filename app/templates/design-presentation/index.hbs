@@ -25,7 +25,7 @@
     <div class="row mt-5 justify-content-center">
       {{#each model as |designitemcontainer|}}
         <h1 class="col-12 pl-5 pt-5"> {{designitemcontainer.subteam.name}} </h1> <br>
-        <span class="col-12 pl-5 pb-5"> {{designitemcontainer.subteam.descriptionShort}} </span>
+        <span class="col-12 pl-5 pb-5"> {{simple-mde-preview designitemcontainer.subteam.descriptionShort}} </span>
         <div class="col-12 row mb-5 designitem"> 
           {{#each designitemcontainer.items as |designitem|}}
             <div class="col-12 col-md-4">
