@@ -3,6 +3,25 @@ import { inject as service } from '@ember/service';
 
 export default Route.extend({
   settings: service(),
+  flashNotice: service('flash-notice'),
+  beforeModel: function() {
+    const enabled = this.get('settings.settings.design_presentation_pages_enabled');
+    /*
+    * The page is only visible when authenticated
+    */ 
+    if (this.get('session.isAuthenticated')) {
+      const flashNotice = this.get('flashNotice');
+      if (enabled) {
+        flashNotice.sendInfo("This page is visible for everyone");
+      } else {
+        flashNotice.sendInfo("This page is not visible for outsiders. Change the 'design_presentation_pages_enabled' setting to enable.");
+      }
+    } else {
+      if (!enabled) {
+        this.transitionTo('index'); 
+      }
+    }
+  },
   model() {    
     const subteams = this.store.findAll('subteam');
     return this.store.findAll('designitem').then(designitems => {

@@ -1,9 +1,6 @@
 <div class="gradient"> </div>
 
-{{!-- preload all header backgrounds --}}
-{{#each model.headers as |header|}}
-  <img class="header-image {{if (eq header.id selectedHeader.id) 'visible'}}" src={{header.imageSrc}} alt={{header.title}}>
-{{/each}}
+<img class="header-image {{if (eq header.id selectedHeader.id) 'visible'}}" src={{settings.settings.design_presentation_header_image}} alt={{header.title}}>
 
 {{!-- Title and subtitle --}}
 <div class="container frontpage-header">
@@ -13,9 +10,9 @@
   <div class="row">
     <div class="col-12">
       <h1 class="header-image-title text-white mt-5 pt-5">
-        Design Presentation Roboteam 2020/2021 <br>
+        {{settings.settings.design_presentation_title}} <br>
       </h1>
-      <span class="header-image-title subtitle"> Watch the livestream &raquo; </span>
+      <span class="header-image-title subtitle text-white"> {{simple-mde-preview settings.settings.design_presentation_subtitle}} </span>
     </div>
   </div>
 </div>

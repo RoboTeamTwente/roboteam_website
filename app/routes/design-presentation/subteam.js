@@ -3,10 +3,30 @@ import { inject as service } from '@ember/service';
 import { hash } from 'rsvp';
 
 export default IndexRouteUnauthenticated.extend({
+  flashNotice: service('flash-notice'),
   settings: service(),
   queryParams: {
     subteam: {
       refreshModel: true
+    }
+  },
+
+  beforeModel: function() {
+    const enabled = this.get('settings.settings.design_presentation_pages_enabled');
+    /*
+    * The page is only visible when authenticated
+    */ 
+    if (this.get('session.isAuthenticated')) {
+      const flashNotice = this.get('flashNotice');
+      if (enabled) {
+        flashNotice.sendInfo("This page is visible for everyone");
+      } else {
+        flashNotice.sendInfo("This page is not visible for outsiders. Change the 'design_presentation_pages_enabled' setting to enable.");
+      }
+    } else {
+      if (!enabled) {
+        this.transitionTo('index'); 
+      }
     }
   },
 
