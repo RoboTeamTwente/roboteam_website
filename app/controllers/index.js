@@ -38,7 +38,7 @@ export default Controller.extend({
   },
 
   actions: {
-    willTransition() {
+    routeWillChange() {
       this.get('poll').stopPoll(this.get('pollingRequest'));
     }
   }

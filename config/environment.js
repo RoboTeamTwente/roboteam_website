@@ -8,7 +8,7 @@ module.exports = function(environment) {
     modulePrefix: 'roboteam-website',
     environment,
     rootURL: '/',
-    locationType: 'router-scroll',
+    locationType: 'auto',
     historySupportMiddleware: true,
     torii: {
       sessionServiceName: 'session'
