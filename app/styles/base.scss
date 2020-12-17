@@ -316,20 +316,3 @@ img.contain {
 .responsedisplay{
   display: none;
 }
-
-
-.list-group {
-  display: flex; 
-  width: 100%;
-  background-color: transparent;
-  height: 100%;
-  border: none;
-
-.list-group-item {
-  background-color: transparent;
-  width: 100%;
-  text-align: right;
-  border: none; 
-  // border-bottom: 1px solid #dedede;
-  }
-}

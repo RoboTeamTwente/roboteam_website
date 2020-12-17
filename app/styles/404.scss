@@ -1,0 +1,15 @@
+
+.not-found-404-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 48px;
+  align-items: center;
+  text-align: center;
+
+  .title-not-found-404 {
+    font-size: 5em;
+    font-weight: 400;
+  }
+}

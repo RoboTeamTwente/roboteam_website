@@ -4,8 +4,17 @@ import { inject as service } from '@ember/service';
 export default Route.extend({
   settings: service(),
   flashNotice: service('flash-notice'),
-  beforeModel: function() {
-    const enabled = this.get('settings.settings.design_presentation_pages_enabled');
+  beforeModel: async function() {
+
+    let enabled = false; 
+    await this.get('store').findAll('setting').then(function(settings) {
+      settings.forEach((setting) => {
+        if (setting.title === 'design_presentation_pages_enabled') {
+          enabled = setting.value;
+        }
+      });
+    });
+
     /*
     * The page is only visible when authenticated
     */ 

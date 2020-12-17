@@ -1,12 +1,9 @@
 import EmberRouterScroll from 'ember-router-scroll';
 import config from './config/environment';
 
-class Router extends EmberRouterScroll {
-  constructor(...args) {
-    super(...args);
-    this.location = config.locationType;
-    this.rootURL = config.rootURL;
-  }
+export default class Router extends EmberRouterScroll {
+  location = config.locationType;
+  rootURL = config.rootURL;
 }
 
 Router.map(function() {
@@ -96,6 +93,6 @@ Router.map(function() {
   });
 
   this.route('newsletter');
-});
 
-export default Router;
+  this.route('404', { path: '/*path' });
+});

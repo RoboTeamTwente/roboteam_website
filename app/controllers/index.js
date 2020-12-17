@@ -7,10 +7,6 @@ export default Controller.extend({
   moment: service(),
   settings: service(),
   poll: service(),
-  init() {
-    this._super(...arguments);
-    this.createPollingRequest();
-  },
   index: 0,
   // Return the selected header
   selectedHeader: computed('model.headers', 'index', function() {
@@ -35,11 +31,5 @@ export default Controller.extend({
         callback: autoChangeHeader
       });
       this.set('pollingRequest', pollingRequest);
-  },
-
-  actions: {
-    routeWillChange() {
-      this.get('poll').stopPoll(this.get('pollingRequest'));
-    }
   }
 });
