@@ -28,5 +28,10 @@ export default Model.extend({
 
   subteamObject: computed('subteam', function() {
     return this.store.findRecord('subteam', this.get('subteam'));
+  }),
+
+  vimeoId: computed('videoSrc', function() { 
+    // https://vimeo.com/112836958
+    return this.get('videoSrc').replace('https://vimeo.com/', '');
   })
 });
