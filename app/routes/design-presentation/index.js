@@ -45,7 +45,9 @@ export default Route.extend({
           }
         }
       });
-      return result.filter(item => item);
+      return result.filter(item => item).sort((a,b) => {
+        return a.subteam.order - b.subteam.order;
+      });
     });
   }
 });

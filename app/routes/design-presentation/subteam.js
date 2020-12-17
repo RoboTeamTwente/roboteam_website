@@ -35,7 +35,7 @@ export default IndexRouteUnauthenticated.extend({
     const subteam = this.store.findRecord('subteam', params.subteam);
     if (!subteam) this.transitionToRoute('design-presentation');
 
-    const designitems = this.store.findAll('designitem').then(items => {
+    const designitems = this.store.query('designitem', { orderBy: 'order', reload: true }).then(items => {
       return items.filter(item => {
         return item.subteam === params.subteam;
       })
