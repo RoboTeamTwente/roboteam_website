@@ -24,6 +24,7 @@
           <th scope="col" class="border-0"> Item </th>
           <th scope="col" class="border-0"> Subteam </th>
           <th scope="col" class="border-0"> Image </th>
+          <th scope="col" class="border-0"> Vimeo ID </th>
           <th scope="col" class="border-0"> Options </th>
         </tr>
       </thead>
@@ -41,6 +42,7 @@
             <td>{{designitem.title}} </td>
             <td>{{designitem.subteamObject.name}} </td>
             <td><img src={{designitem.imageSrc}} alt="innovation" width='50' height='50'></td>
+            <td>{{designitem.vimeoId}} </td>
             <td> 
               <a class="link text-danger" {{action "remove" designitem.id}}> Remove </a> / 
               {{#link-to "admin.design-presentation.edit" designitem.id}} <a class="link text-muted"> Edit </a> {{/link-to}}

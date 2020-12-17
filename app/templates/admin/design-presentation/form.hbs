@@ -35,35 +35,29 @@
               </select>
             </label>
           </div>
-          
-          <div class="col-12 mt-5"> 
-            <ul class="nav nav-tabs">
-              <li class="nav-item">
-                <span class="text nav-link disabled" disabled> Video/image * </span>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link {{if (not model.hasVideo) 'active'}}" href="#" {{action 'setTypeToImage'}}>Image</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link {{if model.hasVideo 'active'}}" href="#"  {{action 'setTypeToVideo'}}>Video</a>
-              </li>
-            </ul>
 
-            <div class="border border-top-0 p-4"> 
-              {{!-- <div class="alert alert-info"> 
-            <strong> Note: </strong> You need at least one image or one video Url
-            </div> --}}
-              {{#if model.hasVideo}}
-                {{input type="text" class="form-control mb-2" placeholder="e.g. Geneva drive!" value=model.videoSrc}} 
-              {{else}}
-                {{!-- Image upload --}}
-                {{x-file-input class="btn btn-danger" multiple=false name="false" action=(action "didSelectImage") accept="image/*" alt="Upload Image"}}
-                <img id="output" class="img-sample" alt="preview" src={{model.imageSrc}} hidden={{shouldHideImage}}>
-              {{/if}}
+          {{!-- Vimeo source --}}
+          <div class="col-12 mt-2 mb-2"> 
+            <label>
+              <span class="text"> Vimeo source </span>
+            </label>
+            {{input type="text" class="form-control mb-2" placeholder="https://vimeo.com/148751763" value=model.videoSrc}} 
+             <div class="alert alert-warning"> 
+              <strong> NOTE: </strong> If you don't specify a video then the article will be shown as an image with white text in the front.
             </div>
           </div>
 
-          <div class="col-12 mt-5"> 
+          
+          {{!-- Image upload --}}
+          <div class="col-12"> 
+            <label>
+              <span class="text"> Image * </span>
+            </label>
+{{x-file-input class="btn btn-danger" multiple=false name="false" action=(action "didSelectImage") accept="image/*" alt="Upload Image"}}
+          <img id="output" class="img-sample" alt="preview" src={{model.imageSrc}} hidden={{shouldHideImage}}>          </div>
+          
+          
+          <div class="col-12"> 
             <label>
               <span class="text"> Content *</span>
             </label>

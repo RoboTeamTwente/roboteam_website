@@ -12,11 +12,7 @@ export default Model.extend({
   order: attr('number'),
   createdAt: attr('date'),
   updatedAt: attr('date'),
-  hasVideo: attr('boolean'),
 
-  imageOrVideoContent: computed('imageSrc', 'videoSrc', function()  {
-    return this.get('hasVideo') ? this.get('videoSrc') : "x";
-  }),
   contentShortened: computed('content', function() {
     let content = this.get('content');
     const maxLength = 100; // max amount of characters
@@ -32,6 +28,11 @@ export default Model.extend({
 
   vimeoId: computed('videoSrc', function() { 
     // https://vimeo.com/112836958
+    if (!this.get('videoSrc').startsWith('https://vimeo.com/')) return '';
     return this.get('videoSrc').replace('https://vimeo.com/', '');
+  }),
+
+  showVideo: computed('vimeoId', function() {
+    return this.get('vimeoId') && this.get('vimeoId') !== "";
   })
 });

@@ -5,7 +5,7 @@ import { computed } from '@ember/object'
 export default Controller.extend(saveModelMixin, {
   init() {
     this._super(...arguments);
-    this.requiredProperties = ["title", "content", "imageOrVideoContent", "subteam"];
+    this.requiredProperties = ["title", "content", "subteam"];
   },
   noticeDuringSave: "Updating design presentation item...",
   noticeAfterSave: "design presentation item updated!",

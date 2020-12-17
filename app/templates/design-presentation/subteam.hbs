@@ -20,6 +20,7 @@
 <div class="container">
   <div class="col-12 mt-5">
     {{#each model.designitems as |designitem index|}}
+    {{#if designitem.showVideo}}
       <div class="row mt-5 mb-5">        
         <div class="col-12 col-md-6 order-6 align-self-center">
           <div style="padding:56.25% 0 0 0;position:relative;">
@@ -32,6 +33,17 @@
           {{simple-mde-preview designitem.content}}
         </div>
       </div>
+      {{else}}
+        <div class="row p-5 mt-5" style="position: relative; overflow: hidden;"> 
+          <img class="designitem-img-banner" alt="title" src={{designitem.imageSrc}}>
+          <div class="designitem-img-banner-overlay"></div>
+          <div class="col-9 col-md-12">
+            <h1 class="text-light designitem-img-title"> {{designitem.title}} </h1>
+            <span class="text-light designitem-img-text"> {{simple-mde-preview designitem.content}} </span>
+          </div>
+        </div>
+      {{/if}}
+
     {{/each}}
   </div>
 
