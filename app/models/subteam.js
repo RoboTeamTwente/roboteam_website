@@ -9,4 +9,5 @@ export default Model.extend({
   imageSrc: attr('string'),
   description: attr('string'),  
   descriptionShort: attr('string'),
+  order: attr('number'),
 });

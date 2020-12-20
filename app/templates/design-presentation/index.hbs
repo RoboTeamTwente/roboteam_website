@@ -33,8 +33,9 @@
                 </h4>
               </LinkTo>
               <div class="d-flex flex-column"> 
-                {{designitem.contentShortened}} <br>
-                <div class="d-flex flex-end text-danger justify-content-end"> Learn more </div> 
+                {{remove-markdown designitem.contentShortened}} 
+                {{!-- <br> --}}
+                {{!-- <div class="d-flex flex-end text-danger justify-content-end"> Learn more </div>  --}}
               </div>
             </div>
           {{/each}}

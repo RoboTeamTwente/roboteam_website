@@ -1,13 +1,13 @@
-<div class="gradient"> </div>
+<div class="design-presentation-subteam-gradient"> </div>
 
 {{!-- preload all header backgrounds --}}
-  <img class="header-image {{if (eq header.id selectedHeader.id) 'visible'}}" src={{model.subteam.imageSrc}} alt={{model.subteam.name}}>
+  <img class="design-presentation-header-image" src={{model.subteam.imageSrc}} alt={{model.subteam.name}}>
 
 {{!-- Title and subtitle --}}
-<div class="container frontpage-header">
+<div class="container design-presentation-header">
   <div class="row">
-    <div class="col-12">
-      <h1 class="header-image-title text-white mt-5 pt-5">
+    <div class="col-12 p-5">
+      <h1 class="header-image-title text-white mt-5 pt-5 text-huge">
         {{model.subteam.name}} <br>
       </h1>
       <span class="header-image-title subtitle text-white"> 
@@ -20,30 +20,24 @@
 <div class="container">
   <div class="col-12 mt-5">
     {{#each model.designitems as |designitem index|}}
-    {{#if designitem.showVideo}}
-      <div class="row mt-5 mb-5">        
-        <div class="col-12 col-md-6 order-6 align-self-center">
-          <div style="padding:56.25% 0 0 0;position:relative;">
-            <iframe src="https://player.vimeo.com/video/{{designitem.vimeoId}}?loop=1&color=cc0000&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
-            </iframe>
+      <div class="row mt-5 mb-5">     
+        {{#if designitem.showVideo}}
+          <div class="col-12 col-md-6 order-6 align-self-center">
+            <div style="padding:56.25% 0 0 0;position:relative;">
+              <iframe src="https://player.vimeo.com/video/{{designitem.vimeoId}}?loop=1&color=cc0000&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
+              </iframe>
+            </div>
           </div>
-        </div>
+        {{else}}
+          <div class="col-12 col-md-6 mt-2 order-6 align-self-center">
+            <img class="max-width" src={{designitem.imageSrc}} alt={{designitem.title}}/> 
+          </div>
+        {{/if}}         
         <div class="col-12 col-md-6 mt-2 {{if (is-even index) 'order-1' 'order-12'}}">
           <h3> {{designitem.title}} </h3>
           {{simple-mde-preview designitem.content}}
         </div>
       </div>
-      {{else}}
-        <div class="row p-5 mt-5" style="position: relative; overflow: hidden;"> 
-          <img class="designitem-img-banner" alt="title" src={{designitem.imageSrc}}>
-          <div class="designitem-img-banner-overlay"></div>
-          <div class="col-9 col-md-12">
-            <h1 class="text-light designitem-img-title"> {{designitem.title}} </h1>
-            <span class="text-light designitem-img-text"> {{simple-mde-preview designitem.content}} </span>
-          </div>
-        </div>
-      {{/if}}
-
     {{/each}}
   </div>
 
