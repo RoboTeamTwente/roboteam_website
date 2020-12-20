@@ -20,6 +20,10 @@
             <label>
               <span class="text"> Subteam name * </span>
               {{input type="text" class="form-control mb-2" placeholder="e.g. Electronics" value=model.name}} 
+              {{#if model.namedId}}
+                <span> The used </span> <code>namedId</code> <span> for this class will be: </span> <code>{{model.namedId}}</code>.
+                <span> This will be used in the URL. </span>
+              {{/if}}
             </label>
           </div>
 

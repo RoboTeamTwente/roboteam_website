@@ -26,10 +26,21 @@ export default Model.extend({
     return this.store.findRecord('subteam', this.get('subteam'));
   }),
 
-  vimeoId: computed('videoSrc', function() { 
-    // https://vimeo.com/112836958
-    if (!this.get('videoSrc').startsWith('https://vimeo.com/')) return '';
-    return this.get('videoSrc').replace('https://vimeo.com/', '');
+  vimeoId: computed('videoSrc', function() {
+    const src = this.get('videoSrc');
+    if (src.startsWith('https://vimeo.com/')) {
+      return src.replace('https://vimeo.com/', '');
+    }
+
+    if (src.startsWith('http://vimeo.com/')) {
+      return src.replace('http://vimeo.com/', '');
+    }
+
+    if (src.startsWith('vimeo.com/')) {
+      return src.replace('vimeo.com/', '');
+    }
+
+    return src.replace(/\D/g, '');  
   }),
 
   showVideo: computed('vimeoId', function() {

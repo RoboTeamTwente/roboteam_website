@@ -30,7 +30,7 @@
               <select class="form-control" onchange={{action (mut model.subteam) value="target.value"}}>
                 <option value="" disabled selected>Select your option</option>
                 {{#each allSubteams as |team|}}
-                  <option value={{team.id}} selected={{eq team.id model.subteam}}>{{team.name}}</option>
+                  <option value={{team.namedId}} selected={{eq team.namedId model.subteam}}>{{team.name}}</option>
                 {{/each}}
               </select>
             </label>
@@ -42,12 +42,15 @@
               <span class="text"> Vimeo source </span>
             </label>
             {{input type="text" class="form-control mb-2" placeholder="https://vimeo.com/148751763" value=model.videoSrc}} 
-             <div class="alert alert-warning"> 
-              <strong> NOTE: </strong> If you don't specify a video then the article will be shown as an image with white text in the front.
-            </div>
+            {{#if model.vimeoId}}
+              <span> Detected Vimeo ID: </span> <code> {{model.vimeoId}} </code>
+            {{else}}
+              <div class="alert alert-warning"> 
+                <strong> NOTE: </strong> If you don't specify a video then the image will be shown instead.
+              </div>
+            {{/if}}
           </div>
 
-          
           {{!-- Image upload --}}
           <div class="col-12"> 
             <label>
