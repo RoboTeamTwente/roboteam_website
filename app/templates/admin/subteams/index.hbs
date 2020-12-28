@@ -22,6 +22,7 @@
             <th> # </th>
           {{/if}}
           <th scope="col" class="border-0"> Item </th>
+          <th scope="col" class="border-0"> Named ID </th>
           <th scope="col" class="border-0"> Image </th>
           <th scope="col" class="border-0"> Options </th>
         </tr>
@@ -38,6 +39,7 @@
               </td>
             {{/if}}
             <td>{{subteam.name}} </td>
+            <td> <code> {{subteam.namedId}} </code> </td>
             <td><img src={{subteam.imageSrc}} alt="subteam" width='50' height='50'></td>
             <td> 
               <a class="link text-danger" {{action "remove" subteam.id}}> Remove </a> / 

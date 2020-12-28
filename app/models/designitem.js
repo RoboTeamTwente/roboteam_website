@@ -22,12 +22,9 @@ export default Model.extend({
     return content.substr(0, content.lastIndexOf(" ", maxLength)) + "...";
   }),
 
-  subteamObject: computed('subteam', function() {
-    return this.store.findRecord('subteam', this.get('subteam'));
-  }),
-
   vimeoId: computed('videoSrc', function() {
     const src = this.get('videoSrc');
+    if (!src) return src;
     if (src.startsWith('https://vimeo.com/')) {
       return src.replace('https://vimeo.com/', '');
     }

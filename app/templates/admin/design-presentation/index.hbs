@@ -40,9 +40,9 @@
               </td>
             {{/if}}
             <td>{{designitem.title}} </td>
-            <td>{{designitem.subteamObject.name}} </td>
+            <td> <code> {{designitem.subteam}} </code> </td>
             <td><img src={{designitem.imageSrc}} alt="innovation" width='50' height='50'></td>
-            <td>{{designitem.vimeoId}} </td>
+            <td> <code> {{designitem.vimeoId}} </code> </td>
             <td> 
               <a class="link text-danger" {{action "remove" designitem.id}}> Remove </a> / 
               {{#link-to "admin.design-presentation.edit" designitem.id}} <a class="link text-muted"> Edit </a> {{/link-to}}
