@@ -95,6 +95,7 @@ export default Mixin.create({
             const downloadURL = await snapshot.ref.getDownloadURL();
             this.get(this.get('modelName')).set('imageSrc', downloadURL);
             this._save();
+            this.set('file', null);
           }).catch(() => {
           });
         }).catch(() => {
