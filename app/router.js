@@ -2,8 +2,11 @@ import EmberRouterScroll from 'ember-router-scroll';
 import config from './config/environment';
 
 export default class Router extends EmberRouterScroll {
-  location = config.locationType;
-  rootURL = config.rootURL;
+  constructor() {
+    super();
+    this.location = config.locationType;
+    this.rootURL = config.rootURL;
+  }
 }
 
 Router.map(function() {
