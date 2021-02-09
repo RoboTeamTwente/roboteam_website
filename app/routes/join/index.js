@@ -2,9 +2,17 @@ import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 
 export default Route.extend({
+  settings: service(),
   flashNotice: service('flash-notice'),
-  beforeModel: function() {
-    const enabled = this.get('settings.settings.can_join');
+  beforeModel: async function() {
+    let enabled = false; 
+    await this.get('store').findAll('setting').then(function(settings) {
+      settings.forEach((setting) => {
+        if (setting.title === 'can_join') {
+          enabled = setting.value;
+        }
+      });
+    });
     /*
     * The page is only visible when authenticated
     */ 
