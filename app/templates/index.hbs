@@ -1,7 +1,5 @@
 <div class="gradient"> </div>
 
-{{!-- {{voronoi-map class="voronoi-map-holder" height=560}}
- --}}
 {{!-- preload all header backgrounds --}}
 {{#each model.headers as |header|}}
   <img class="header-image {{if (eq header.id selectedHeader.id) 'visible'}}" src={{header.imageSrc}} alt={{header.title}}>

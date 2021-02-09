@@ -15,5 +15,10 @@ export default Mixin.create({
       // https://guides.emberjs.com/v2.6.0/models/creating-updating-and-deleting-records/#toc_persisting-records
       model.rollbackAttributes();
     }
+
+    // remove uploaded files after route changes
+    if (this.get('controller.file')) {
+      this.set('controller.file', null);
+    }
   }
 });

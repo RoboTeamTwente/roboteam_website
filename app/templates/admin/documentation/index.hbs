@@ -27,11 +27,15 @@
         </tr>
       </thead>
 
-      {{#sortable-group tagName="tbody" onChange=(action "reorderItems") as |group|}}
-        {{#each sortedModel as |innovation|}}
-          {{#sortable-item tagName="tr" isAnimated=false model=innovation group=group handle=".handle"}}
+      {{#sortable-group model=sortedModel tagName="tbody" onChange=(action "reorderItems") as |group|}}
+        {{#each group.model as |innovation|}}
+          {{#group.item tagName="tr" isDraggingDisabled=(not isChangingOrder) model=innovation as |item|}}
             {{#if isChangingOrder}}
-              <td> <span class="handle"><small><i class="fa fa-bars text-small" aria-hidden="true"></i> </small></span> </td>
+              <td>  
+                {{#item.handle}}
+                  <span class="handle">&varr;</span>
+                {{/item.handle}}
+              </td>
             {{/if}}
             <td>{{innovation.title}} </td>
             <td><img src={{innovation.imageSrc}} alt="innovation" width='50' height='50'></td>
@@ -39,7 +43,7 @@
               <a class="link text-danger" {{action "remove" innovation.id}}> Remove </a> / 
               {{#link-to "admin.documentation.edit" innovation.id}} <a class="link text-muted"> Edit </a> {{/link-to}}
             </td>
-          {{/sortable-item}}
+          {{/group.item}}
         {{/each}}
       {{/sortable-group}}
     </table>

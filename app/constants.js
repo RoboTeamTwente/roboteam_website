@@ -26,4 +26,34 @@ const packageOptions = [
   }
 ];
 
-export { packageOptions }
+
+const subteams = [
+  {
+    title: "Control",
+    value: "CONTROL"
+  }, 
+  {
+    title: "Electronics",
+    value: "ELECTRONICS"
+  }, 
+  {
+    title: "Artificial Intelligence",
+    value: "AI"
+  }, 
+  {
+    title: "Education",
+    value: "EDUCATION"
+  }, 
+  {
+    title: "Management",
+    value: "MANAGEMENT"
+  },
+  {
+    title: "Technical challenge",
+    value: "TECHNICAL_CHALLENGE"
+  }
+];
+
+
+
+export { packageOptions, subteams }

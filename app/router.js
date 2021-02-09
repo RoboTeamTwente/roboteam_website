@@ -1,11 +1,10 @@
-import RouterScroll from 'ember-router-scroll';
-import EmberRouter from '@ember/routing/router';
+import EmberRouterScroll from 'ember-router-scroll';
 import config from './config/environment';
 
-const Router = EmberRouter.extend(RouterScroll, {
-  location: config.locationType,
-  rootURL: config.rootURL
-});
+export default class Router extends EmberRouterScroll {
+  location = config.locationType;
+  rootURL = config.rootURL;
+}
 
 Router.map(function() {
   this.route('news')
@@ -27,6 +26,10 @@ Router.map(function() {
 
   this.route('events', function() {
     this.route('show', { path: '/:event_id' });
+  });
+
+  this.route('design-presentation', function() {
+    this.route('subteam',  { path: '/subteam' });
   });
 
   // maintenance routes
@@ -77,10 +80,19 @@ Router.map(function() {
       this.route('edit',  { path: 'edit/:header_id' });
       this.route('new');
     });
+
+    this.route('design-presentation', function() {
+      this.route('edit',  { path: 'edit/:designitem_id' });
+      this.route('new');
+    });
+
+    this.route('subteams', function() {
+      this.route('edit',  { path: 'edit/:subteam_id' });
+      this.route('new');
+    });
   });
 
-  this.route('designpresentation');
   this.route('newsletter');
-});
 
-export default Router;
+  this.route('404', { path: '/*path' });
+});

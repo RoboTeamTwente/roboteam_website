@@ -29,6 +29,10 @@ export default Component.extend({
           link: 'team'
         },
         {
+          name: 'Design Presentation',
+          link: 'design-presentation'
+        },
+        {
           name: 'Technology',
           link: 'documentation'
         },
@@ -42,17 +46,29 @@ export default Component.extend({
         }
     ];
   },
-  getMenuItems: computed('menuItems', 'settings.settings.can_join', function() {
-    let items = [];
-    if (!this.get('settings.settings.can_join')) {
-      this.menuItems.forEach(item => {
-        if (item.link !== 'join') {
-          items.push(item);
-        }
-      })
-      return items; 
+  getMenuItems: computed('menuItems', 'settings.settings.can_join', 'settings.settings.design_presentation_pages_enabled', function() {
+
+    // const enabled = this.get('settings.settings.design_presentation_pages_enabled');
+    // /*
+    // * The page is only visible when authenticated
+    // */ 
+    // if (this.get('session.isAuthenticated')) {
+    //   // 
+
+    // all routes are visible when logged in
+    if (this.get('session.isAuthenticated')) {
+      return this.menuItems;
     }
-    return this.menuItems;
+
+    // Filter join and design presentation pages if needed.
+    let items = this.menuItems;
+    if (!this.get('settings.settings.can_join')) {
+      items = items.filter(item => item.link !== 'join');
+    }
+    if (!this.get('settings.settings.design_presentation_pages_enabled')) {
+      items = items.filter(item => item.link !== 'design-presentation');
+    }
+    return items;
   }),
   showMobileMenu: false,
   actions: {

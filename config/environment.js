@@ -1,3 +1,5 @@
+/*global module*/
+
 'use strict';
 
 module.exports = function(environment) {
@@ -5,8 +7,8 @@ module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'roboteam-website',
     environment,
-    rootURL: '/',
-    locationType: 'router-scroll',
+    rootURL: '/test/',
+    locationType: 'auto',
     historySupportMiddleware: true,
     torii: {
       sessionServiceName: 'session'
@@ -29,11 +31,11 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-    ENV.APP.LOG_RESOLVER = true;
-    ENV.APP.LOG_ACTIVE_GENERATION = true;
-    ENV.APP.LOG_TRANSITIONS = true;
-    ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.LOG_RESOLVER = false;
+    ENV.APP.LOG_ACTIVE_GENERATION = false;
+    ENV.APP.LOG_TRANSITIONS = false;
+    ENV.APP.LOG_TRANSITIONS_INTERNAL = false;
+    ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     // set up the development database
     ENV.firebase = {
