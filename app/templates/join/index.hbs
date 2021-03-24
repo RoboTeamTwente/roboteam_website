@@ -24,7 +24,7 @@
       <div class="row">
         <div class="col-12 mb-5">
           <h1> Available positions </h1>
-          <i class="text-muted"> All positions start at 31-08-2020 </i>
+          <i class="text-muted"> All positions start at 06-09-2021 </i>
         </div>
         {{#each model as |offer|}}
           <div class="col-12 col-md-6 col-lg-4" {{action 'selectOffer' offer.id}}>
@@ -79,14 +79,14 @@
           </div>
           <div class="col-12 pl-5">
             <h3 class="mt-2 pt-0 pb-0"> {{selectedOffer.title}} </h3>
-            <i class="text-muted"> 
+            <i class="text-muted">
               {{if selectedOffer.isBoard "Management Team"}}
               {{if (and selectedOffer.isBoard selectedOffer.fullTime) " / "}}
               {{if selectedOffer.fullTime "Fulltime"}}
               {{if (and selectedOffer.fullTime selectedOffer.halfTime) " / "}}
-              {{if selectedOffer.halfTime "Halftime"}} 
+              {{if selectedOffer.halfTime "Halftime"}}
               {{if (and selectedOffer.halfTime selectedOffer.partTime) " / "}}
-              {{if selectedOffer.partTime "Parttime"}} 
+              {{if selectedOffer.partTime "Parttime"}}
             </i>
           </div>
         </div>
