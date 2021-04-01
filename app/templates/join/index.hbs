@@ -11,7 +11,7 @@
 
           <button class="btn btn-lg btn-light mt-2">
             {{#link-to "join.form"}}
-              <h5 class="text-dark"> Keep me posted! </h5>
+              <h5 class="text-dark"> I am interested! </h5>
             {{/link-to}}
           </button>
 
@@ -36,7 +36,7 @@
                   {{if offer.isBoard "Management Team"}}
                   {{if (and offer.isBoard offer.fullTime) " / "}}
                   {{if offer.fullTime "Fulltime"}}
-                  {{if (and offer.fullTime offer.halfTime) " / "}}
+                  {{if (and (or offer.fullTime offer.isBoard) offer.halfTime) " / "}}
                   {{if offer.halfTime "Halftime"}}
                   {{if (and offer.halfTime offer.partTime) " / "}}
                   {{if offer.partTime "Parttime"}}
