@@ -7,7 +7,7 @@ module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'roboteam-website',
     environment,
-    rootURL: '/test/',
+    rootURL: '/',
     locationType: 'auto',
     historySupportMiddleware: true,
     torii: {
