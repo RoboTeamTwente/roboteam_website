@@ -1,9 +1,9 @@
 .sponsor {
-	max-height: 200px;
-	height: 200px;
-	width: 100%;
+  max-height: 150px;
+  height: 150px;
 	object-position: center;
-	object-fit: scale-down;
+	object-fit: contain;
+	width: 100%;
 	max-width: 100%;
 }
 

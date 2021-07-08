@@ -4,7 +4,7 @@
     {{simple-mde-preview settings.settings.partner_text}}
 
     {{#if gigaByteSponsors}}
-      <h3 class="mt-5"> Gigabyte </h3>
+      <h3 class="mt-5"> GigaByte </h3>
       <div class="row">
         {{#each gigaByteSponsors as |sponsor|}}
           <a class="col-4 col-md-2" href={{sponsor.link}}>
@@ -16,7 +16,7 @@
 
 
     {{#if megaByteSponsors}}
-      <h3 class="mt-5"> Megabyte </h3>
+      <h3 class="mt-5"> MegaByte </h3>
       <div class="row">
         {{#each megaByteSponsors as |sponsor|}}
           <a class="col-4 col-md-2" href={{sponsor.link}}>
@@ -31,7 +31,7 @@
       <h3 class="mt-5"> KiloByte </h3>
       <div class="row">
         {{#each kiloByteSponsors as |sponsor|}}
-          <a class="col-4 {{if sponsor.displayWide 'col-md-3' 'col-md-2'}}" href={{sponsor.link}}>
+          <a class="col-4 {{if sponsor.displayWide 'col-md-2' 'col-md-2'}}" href={{sponsor.link}}>
             <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
           </a>
         {{/each}}
@@ -74,7 +74,7 @@
     <h3 class="mt-5"> Crowdfunders </h3>
     <div class="row">
       {{#each model.crowdfunders as |crowdfunder|}}
-        <div class="col-6"> 
+        <div class="col-6">
           <span class="text-centered"> {{crowdfunder.name}} </span>
         </div>
       {{/each}}
@@ -85,4 +85,4 @@
 
 
 
-    
+
