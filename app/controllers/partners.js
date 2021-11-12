@@ -1,37 +1,13 @@
 import Controller from '@ember/controller';
-import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
+import { filterBy } from '@ember/object/computed';
 
 export default Controller.extend({
 	settings: service(),
-	gigaByteSponsors: computed('model.sponsors', function() {
-		return this.get('model.sponsors').filter(function(sponsor) {
-			return sponsor.get('package') === "GIGABYTE";
-		});
-	}), 
-	megaByteSponsors: computed('model.sponsors', function() {
-		return this.get('model.sponsors').filter(function(sponsor) {
-			return sponsor.get('package') === "MEGABYTE";
-		});
-	}), 
-	kiloByteSponsors: computed('model.sponsors', function() {
-		return this.get('model.sponsors').filter(function(sponsor) {
-			return sponsor.get('package') === "KILOBYTE";
-		});
-	}), 
-	byteSponsors: computed('model.sponsors', function() {
-		return this.get('model.sponsors').filter(function(sponsor) {
-			return sponsor.get('package') === "BYTE";
-		});
-	}), 
-	demoByteSponsors: computed('model.sponsors', function() {
-		return this.get('model.sponsors').filter(function(sponsor) {
-			return sponsor.get('package') === "DEMOBYTE";
-		});
-	}),
-	collaborationSponsors: computed('model.sponsors', function() {
-		return this.get('model.sponsors').filter(function(sponsor) {
-			return sponsor.get('package') === "COLLABORATION";
-		});
-	})
+  gigaByteSponsors : filterBy('model.sponsors', 'package', "GIGABYTE"),
+  megaByteSponsors : filterBy('model.sponsors', 'package', "MEGABYTE"),
+  kiloByteSponsors : filterBy('model.sponsors', 'package', "KILOBYTE"),
+  byteSponsors : filterBy('model.sponsors', 'package', "BYTE"),
+  demoByteSponsors : filterBy('model.sponsors', 'package', "DEMOBYTE"),
+  collaborationSponsors : filterBy('model.sponsors', 'package', "COLLABORATION")
 });
