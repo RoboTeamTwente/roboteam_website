@@ -1,0 +1,42 @@
+<div class="design-presentation-subteam-gradient"> </div>
+
+{{!-- preload all header backgrounds --}}
+  <img class="design-presentation-header-image" src={{model.page.imageSrc}} alt={{model.page.name}}>
+
+{{!-- Title and subtitle --}}
+<div class="container design-presentation-header">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="header-image-title text-white mt-5 pt-5 text-huge text-center text-md-left">
+        {{model.page.name}} <br>
+      </h1>
+      <span class="header-image-title subtitle text-white text-center text-md-left">
+        {{simple-mde-preview model.page.description}}
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="col-12 mt-5">
+    {{#each model.pageItems as |pageitem index|}}
+      <div class="row mt-5 mb-5">
+        {{#if pageitem.showVideo}}
+          <div class="col-12 col-md-6 order-6 align-self-center">
+            <div class="vimeo-container">
+              <iframe class="vimeo-video" src="https://player.vimeo.com/video/{{pageitem.vimeoId}}?loop=1&color=cc0000&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen/>
+            </div>
+          </div>
+        {{else}}
+          <div class="col-12 col-md-6 mt-2 order-6 align-self-center">
+            <img class="max-width" src={{pageitem.imageSrc}} alt={{pageitem.title}}>
+          </div>
+        {{/if}}
+        <div class="col-12 col-md-6 mt-2 {{if (is-even index) 'order-1' 'order-12'}}">
+          <h3> {{pageitem.title}} </h3>
+          {{simple-mde-preview pageitem.content}}
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

@@ -46,14 +46,17 @@ export default Component.extend({
         }
     ];
   },
-  getMenuItems: computed('menuItems', 'settings.settings.can_join', 'settings.settings.design_presentation_pages_enabled', function() {
+  getMenuItems: computed('menuItems', 'settings.settings.can_join', 'settings.settings.design_presentation_pages_enabled', 'settings.pages', function() {
 
     // const enabled = this.get('settings.settings.design_presentation_pages_enabled');
     // /*
     // * The page is only visible when authenticated
-    // */ 
+    // */
     // if (this.get('session.isAuthenticated')) {
-    //   // 
+    //   //
+
+    // <LinkTo @route="design-presentation.subteam" @query={{hash subteam=designitemcontainer.subteam.namedId}}>
+    // this.menuItems.push({name: 'Workshops', link: 'page:workshops'});
 
     // all routes are visible when logged in
     if (this.get('session.isAuthenticated')) {

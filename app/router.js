@@ -11,7 +11,7 @@ Router.map(function() {
   this.route('robocup')
   this.route('team')
   this.route('partners')
-  this.route('join', function() { 
+  this.route('join', function() {
       this.route('form')
   })
   this.route('documentation')
@@ -31,6 +31,8 @@ Router.map(function() {
   this.route('design-presentation', function() {
     this.route('subteam',  { path: '/subteam' });
   });
+
+  this.route('page', { path: 'page/:page_id' });
 
   // maintenance routes
   this.route('admin', function() {
@@ -88,6 +90,16 @@ Router.map(function() {
 
     this.route('subteams', function() {
       this.route('edit',  { path: 'edit/:subteam_id' });
+      this.route('new');
+    });
+
+    this.route('page', function() {
+      this.route('edit',  { path: 'edit/:page_id' });
+      this.route('new');
+    });
+
+    this.route('page-item', function() {
+      this.route('edit',  { path: 'edit/:pageitem_id' });
       this.route('new');
     });
   });
