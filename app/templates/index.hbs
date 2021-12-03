@@ -17,9 +17,15 @@
       </h1>
 
       {{#if selectedHeader.subtitleLink}}
-        {{#link-to selectedHeader.subtitleLink}}
-          <span class="header-image-title subtitle"> {{selectedHeader.subtitle}} &raquo; </span>
-        {{/link-to}}
+        {{#if selectedHeader.externalLink}}
+          <a href={{selectedHeader.subtitleLink}}>
+            <span class="header-image-title subtitle"> {{selectedHeader.subtitle}} &raquo; </span>
+          </a>
+        {{else}}
+          {{#link-to selectedHeader.subtitleLink}}
+            <span class="header-image-title subtitle"> {{selectedHeader.subtitle}} &raquo; </span>
+          {{/link-to}}
+        {{/if}}
       {{else}}
         <span class="header-image-title subtitle"> {{selectedHeader.subtitle}} &raquo; </span>
       {{/if}}
@@ -170,9 +176,7 @@
 
     <div class="row">
       {{#each model.crowdfunders as |crowdfunder|}}
-        <div class="col-6 text-center">
-          <span class="text-centered"> {{crowdfunder.name}} </span>
-        </div>
+        <div class="col-6 text-center"> {{crowdfunder.name}} </div>
       {{/each}}
     </div>
   </div>
