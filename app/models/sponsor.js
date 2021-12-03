@@ -8,7 +8,7 @@ export default Model.extend({
 
   createdAt: attr('date'),
   updatedAt: attr('date'),
-  
+
   name: attr('string'),
   link: attr('string'),
   imageSrc: attr('string'),
@@ -16,9 +16,5 @@ export default Model.extend({
 
   packageName: computed('package', function() {
     return packageOptions[0];
-  }),
-  displayWide: computed('package', function() {
-  	const pkg = this.get('package');
-  	return pkg === "MEGABYTE" || pkg === "GIGABYTE";
   })
 });
