@@ -3,9 +3,8 @@
 
     {{!-- Our beautiful logo! --}}
     {{#link-to "index"}}
-      <span {{action "closeMobileMenu"}}> 
-        <img class="header-logo ml-3 mr-0 mr-lg-4" alt="RoboTeam Twente" src="/images/header-logo.png">
-        <span class="nav-link d-inline d-lg-none text-light"> RoboTeam Twente </span>
+      <span {{action "closeMobileMenu"}}>
+        <img class="header-logo ml-3 mr-0 mr-lg-4" alt="RoboTeam Twente" src="/images/rtt_logo_small.png">
       </span>
     {{/link-to}}
 
@@ -28,7 +27,7 @@
         {{/each}}
       </ul>
     </div>
-   
+
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav ml-auto">
         {{#if session.isAuthenticated}}
@@ -51,7 +50,7 @@
               <a class="nav-link" href="login"> Login </a>
             {{/link-to}}
           </li>
-        {{/if}}  
+        {{/if}}
       </ul>
     </div>
   </div>

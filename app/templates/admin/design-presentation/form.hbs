@@ -56,7 +56,7 @@
             <label>
               <span class="text"> Image * </span>
             </label>
-            {{x-file-input class="btn btn-danger" multiple=false name="false" action=(action "didSelectImage") accept="image/*" alt="Upload Image"}}
+            {{x-file-input class="btn btn-primary" multiple=false name="false" action=(action "didSelectImage") accept="image/*" alt="Upload Image"}}
             <img id="output" class="img-sample" alt="preview" src={{model.imageSrc}} hidden={{shouldHideImage}}>          
           </div>
           
@@ -68,7 +68,7 @@
           </div>
 
           <div class="col-12"> 
-            <button type="submit" class="btn btn-danger mb-2 mt-2 d-inline"> {{if model.isNew "Add item" "Update item"}} </button>
+            <button type="submit" class="btn btn-primary mb-2 mt-2 d-inline"> {{if model.isNew "Add item" "Update item"}} </button>
             {{#link-to "admin.design-presentation"}}
               <button class="btn btn-default mb-2 mt-2 d-inline"> Cancel </button>
             {{/link-to}}
