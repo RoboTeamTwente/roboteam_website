@@ -9,22 +9,22 @@
 
           {{!-- Show error message if something went wrong --}}
           {{#if error}}
-            <div class="alert alert-danger"> 
-              <b> Oh oh... </b> <br> 
+            <div class="alert alert-danger">
+              <b> Oh oh... </b> <br>
               {{error}}
             </div>
           {{/if}}
 
           {{!-- title --}}
-          <div class="col-12 col-md-8"> 
+          <div class="col-12 col-md-8">
             <label>
               <span class="text"> Header title * </span>
-              {{input type="text" class="form-control mb-2" placeholder="e.g. We are the Robot soccer team of the university of Twente!" value=model.title}} 
+              {{input type="text" class="form-control mb-2" placeholder="e.g. We are the Robot soccer team of the university of Twente!" value=model.title}}
             </label>
           </div>
 
           {{!-- Image upload --}}
-          <div class="col-12 col-md-4"> 
+          <div class="col-12 col-md-4">
             <label>
               <span class="text"> Image * </span> <br>
               {{x-file-input class="btn btn-primary" multiple=false name="false" action=(action "didSelectImage") accept="image/*" alt="Upload Image"}}
@@ -33,21 +33,21 @@
           </div>
 
           {{!-- Subtitle --}}
-          <div class="col-12 col-md-8"> 
+          <div class="col-12 col-md-8">
             <label>
               <span class="text"> Header subtitle * </span>
-              {{input type="text" class="form-control mb-2" placeholder="e.g. We are looking for new members" value=model.subtitle}} 
+              {{input type="text" class="form-control mb-2" placeholder="e.g. We are looking for new members" value=model.subtitle}}
             </label>
           </div>
 
           {{!-- Subtitle link --}}
-          <div class="col-12 col-md-4"> 
+          <div class="col-12 col-md-4">
             <label>
               <span class="text"> Header subtitle link </span>
-              {{input type="text" class="form-control mb-2" placeholder="e.g. index" value=model.subtitleLink}} 
+              {{input type="text" class="form-control mb-2" placeholder="e.g. index" value=model.subtitleLink}}
+              <span> Either specify the route name, or an extenal link starting with </span> <code> https:// </code>
             </label>
           </div>
-        
 
           <div class="col-12"> 
             <button type="submit" class="btn btn-primary mb-2 mt-2 d-inline"> {{if model.isNew "Add header" "Update header"}} </button>
@@ -56,7 +56,7 @@
             {{/link-to}}
           </div>
         </div>
-      </div>            
+      </div>
     </form>
   </div>
 </div>

@@ -17,9 +17,15 @@
       </h1>
 
       {{#if selectedHeader.subtitleLink}}
-        {{#link-to selectedHeader.subtitleLink}}
-          <span class="header-image-title subtitle"> {{selectedHeader.subtitle}} &raquo; </span>
-        {{/link-to}}
+        {{#if selectedHeader.externalLink}}
+          <a href={{selectedHeader.subtitleLink}}>
+            <span class="header-image-title subtitle"> {{selectedHeader.subtitle}} &raquo; </span>
+          </a>
+        {{else}}
+          {{#link-to selectedHeader.subtitleLink}}
+            <span class="header-image-title subtitle"> {{selectedHeader.subtitle}} &raquo; </span>
+          {{/link-to}}
+        {{/if}}
       {{else}}
         <span class="header-image-title subtitle"> {{selectedHeader.subtitle}} &raquo; </span>
       {{/if}}
@@ -86,7 +92,7 @@
   </div>
 </div>
 
-<div class="container-fluid pb-5 m-3">
+<div class="container-fluid pb-5 my-3">
   <h1 class="text-centered"> Subscribe to our newsletter! </h1>
   <div class="row justify-content-center">
     {{#link-to 'newsletter'}}
@@ -104,7 +110,7 @@
 {{img-banner
   class="mt-5"
   title="We believe robotics and artificial intelligence can make the world a better place"
-  subtitle="Learn more about our goal of winning the Robocup"
+  subtitle="Learn more about our goal of winning the RoboCup"
   link="robocup"
   imageSrc="images/ai.jpg"
 }}
@@ -129,25 +135,32 @@
 </div>
 
 {{!-- partners content block (full width) --}}
-<div class="container-fluid p-5">
-  {{#if sponsors}}
+{{#if gigaAndMegaByteSponsors }}
+  <div class="container-fluid py-3 px-5">
     <div class="row justify-content-center">
       <h1 class="col-12 mt-5 pt-5 text-centered"> Partners </h1>
-      {{#each sponsors as |sponsor|}}
-        <a class="col-4 {{if sponsor.displayWide 'col-md-2' 'col-md-1'}}" href={{sponsor.link}}>
+      {{#each gigaAndMegaByteSponsors as |sponsor|}}
+        <a class="col-4 col-md-2 px-4" href={{sponsor.link}}>
           <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
         </a>
       {{/each}}
     </div>
-  {{/if}}
-</div>
+    <div class="row justify-content-center">
+      {{#each otherSponsors as |sponsor|}}
+        <a class="col-3 col-md-1 px-3'}}" href={{sponsor.link}}>
+          <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
+        </a>
+      {{/each}}
+    </div>
+  </div>
+{{/if}}
 
-<div class="container-fluid p-5">
+<div class="container-fluid p-3">
   {{#if collaborators}}
     <div class="row justify-content-center">
       <h1 class="col-12 mt-5 pt-5 text-centered"> Collaborations </h1>
       {{#each collaborators as |collaborator|}}
-        <a class="col-4 {{if collaborator.displayWide 'col-md-2' 'col-md-1'}}" href={{collaborator.link}}>
+        <a class="col-4 col-md-1" href={{collaborator.link}}>
           <img class="sponsor" alt={{collaborator.name}} src={{collaborator.imageSrc}}>
         </a>
       {{/each}}
@@ -158,14 +171,12 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h1 class="col-12 mt-5 pt-5 text-centered"> Our Crowdfunders! </h1>
+      <h1 class="col-12 mt-5 pt-5 pb-3 text-centered"> Our Crowdfunders! </h1>
     </div>
 
     <div class="row">
       {{#each model.crowdfunders as |crowdfunder|}}
-        <div class="col-6">
-          <span class="text-centered"> {{crowdfunder.name}} </span>
-        </div>
+        <div class="col-6 text-center"> {{crowdfunder.name}} </div>
       {{/each}}
     </div>
   </div>
