@@ -11,9 +11,7 @@ Router.map(function() {
   this.route('robocup')
   this.route('team')
   this.route('partners')
-  this.route('join', function() { 
-      this.route('form')
-  })
+  this.route('join')
   this.route('documentation')
   this.route('contact')
   this.route('login')
