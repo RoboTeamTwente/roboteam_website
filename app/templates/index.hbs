@@ -7,12 +7,9 @@
 
 {{!-- Title and subtitle --}}
 <div class="container frontpage-header">
-  <div class="row justify-content-center frontpage-header-row">
-    <img class="header-rtt-logo col-12 pt-0 pt-md-5" alt="RoboTeam Twente" src="images/rtt_logo_medium.png">
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <h1 class="header-image-title text-white mt-5 pt-5">
+  <div class="row h-100">
+    <div class="col-12 align-self-end pb-3">
+      <h1 class="header-image-title text-white">
         {{selectedHeader.title}} <br>
       </h1>
 
@@ -69,17 +66,14 @@
             <div class="row">
               <div class="col-4">
                 {{#if (is-same event.startdate event.enddate precision='days')}}
-                  <h2 class="mb-0 text-centered mt-1"> {{moment-format event.startdate "MM/DD"}} </h2>
+                  <h2 class="mb-0 text-centered mt-1"> {{moment-format event.startdate "DD/MM"}} </h2>
                 {{else}}
-                  <h4 class="mb-0 text-centered mt-2"> {{moment-format event.startdate "MM/DD"}} - {{moment-format event.enddate "MM/DD"}} </h4>
+                  <h4 class="mb-0 text-centered mt-2"> {{moment-format event.startdate "DD/MM"}} - {{moment-format event.enddate "DD/MM"}} </h4>
                 {{/if}}
               </div>
               <div class="col-8">
                 <span> {{event.title}} </span> <br>
                 <span class="text-muted">  {{event.location}} </span>
-                {{#if event.link}}
-                  <a href="event.link" target="_blank" rel="noopener"> Event website </a>
-                {{/if}}
               </div>
             </div>
           {{/link-to}}
@@ -101,21 +95,25 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container pb-5">
   <div class="row justify-content-center">
-    <iframe width="720" height="408" src="https://www.youtube.com/embed/XqC5gEr69tk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="720" height="408" src={{settings.settings.frontpage_video}} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 </div>
 
-{{img-banner
-  class="mt-5"
-  title="We believe robotics and artificial intelligence can make the world a better place"
-  subtitle="Learn more about our goal of winning the RoboCup"
-  link="robocup"
-  imageSrc="images/ai.jpg"
-}}
+<div class="img-banner-ai">
+  <div class="container">
+    <h2 class="img-banner-text text-light py-5">
+      We believe robotics and artificial intelligence can make the world a better place
+      <br>
+      {{#link-to 'robocup'}}
+        <span class="subtitle"> Learn more about our goal of winning the RoboCup </span>
+      {{/link-to}}
+    </h2>
+  </div>
+</div>
 
-<div class="container mt-5">
+<div class="container">
   {{!-- inspiration and innovation content block --}}
   <div class="row pt-2 pt-md-5 justify-content-center">
     <div class="col-12 col-md-6 mt-3 mt-md-0">
@@ -173,7 +171,9 @@
     <div class="col-12">
       <h1 class="col-12 mt-5 pt-5 pb-3 text-centered"> Our Crowdfunders! </h1>
     </div>
+  </div>
 
+  <div class="container">
     <div class="row">
       {{#each model.crowdfunders as |crowdfunder|}}
         <div class="col-6 text-center"> {{crowdfunder.name}} </div>

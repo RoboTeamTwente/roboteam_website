@@ -1,11 +1,15 @@
 .img-banner-text {
-  position: absolute;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
 
   .subtitle {
     font-weight: 100;
     font-size: 1rem;
   }
+}
+
+.img-banner-ai {
+  background-image: url(/images/ai.jpg);
+  background-size: cover;
 }
 
 .img-banner-img {
