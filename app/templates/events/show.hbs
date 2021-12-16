@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-12 col-md">
         {{#link-to "events"}} &laquo; Events {{/link-to}}
-        <span> 
+        <span>
           <h1> {{model.title}} </h1>
           {{#if (is-same model.startdate model.enddate precision='days')}}
             <h4 class="mb-0 text-muted"> {{moment-format model.startdate "MMM/DD"}} </h4>
@@ -20,15 +20,9 @@
     </div>
     <hr>
     <div class="row justify-content-center">
-      <div class="col-12"> 
+      <div class="col-12">
         {{#if model.imageSrc}}
-          {{img-banner
-            class=""
-            title=""
-            subtitle=""
-            link=""
-            imageSrc=model.imageSrc
-          }}
+          <img class="img-banner-img" alt="title" src={{model.imageSrc}}>
         {{/if}}
       </div>
       <div class="col-12 col-lg-10">
@@ -39,4 +33,3 @@
     </div>
   </div>
 </div>
-
