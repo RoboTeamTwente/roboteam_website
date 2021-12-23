@@ -3,19 +3,19 @@
 
     .page-item {
         z-index: 3;
-        color: #cc0000;
+        color: #5A1C74;
         background-color: #eee;
         border-color: #ddd;
 
         .page-link {
-            color: #cc0000;
+            color: #5A1C74;
         }
 
         &.active {
         	.page-link {
                 color: white;
-        	 	background-color: #cc0000;
-        	 	border-color: #cc0000;
+        	 	background-color: #5A1C74;
+        	 	border-color: #5A1C74;
         	}
         }
     }

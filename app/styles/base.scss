@@ -51,7 +51,7 @@ ul {
 }
 
 .bg-primary {
-  background-color: #CC0000 !important;
+  background-color: #5A1C74 !important;
 }
 
 .content {
@@ -59,20 +59,31 @@ ul {
 }
 
 a {
-  color: #cc0000;
+  color: #5A1C74;
 
   &:hover {
-    color: #aa0000;
+    color: #6D2197;
 
   }
 }
 
-.btn-danger {
-  background-color: #cc0000;
+.btn-primary {
+  background-color: #5A1C74;
+  border-color: #6D2197;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: #6D2197 !important;
+    border-color: #8027B0 !important;
+  }
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(90, 28, 116, 0.5) !important;
+  }
 }
 
 .text-danger {
-  color: #cc0000;
+  color: #5A1C74;
 }
 
 .link {
@@ -84,7 +95,7 @@ a {
 }
 
 .list-group-item > a.active {
-  color: #cc0000;
+  color: #5A1C74;
 }
 
 .bg-gray {
@@ -128,7 +139,7 @@ h2 {
 
 .max-width {
   width: 100%;
-  max-width: 100%; 
+  max-width: 100%;
 }
 
 img.contain {
@@ -136,8 +147,8 @@ img.contain {
 }
 
 img.cover {
-  .object-fit: cover 
-}  
+  .object-fit: cover
+}
 
 .no-pointer-events {
   pointer-events: none;
@@ -158,9 +169,9 @@ img.cover {
 
 label {
   width: inherit;
-  
+
   .text {
-    color: #cc0000;
+    color: #5A1C74;
     padding-top: 4px;
     font-family: "roboto condensed";
   }
@@ -246,7 +257,7 @@ img.contain {
     color: white;
 }
 
-.fa-youtube { 
+.fa-youtube {
     background: #bb0000;
     color: white;
 }

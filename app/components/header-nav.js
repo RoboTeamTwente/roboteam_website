@@ -46,7 +46,7 @@ export default Component.extend({
         }
     ];
   },
-  getMenuItems: computed('menuItems', 'settings.settings.can_join', 'settings.settings.design_presentation_pages_enabled', 'settings.pages', function() {
+  getMenuItems: computed('menuItems', 'settings.settings.design_presentation_pages_enabled', 'settings.pages', function() {
 
     // const enabled = this.get('settings.settings.design_presentation_pages_enabled');
     // /*
@@ -65,9 +65,6 @@ export default Component.extend({
 
     // Filter join and design presentation pages if needed.
     let items = this.menuItems;
-    if (!this.get('settings.settings.can_join')) {
-      items = items.filter(item => item.link !== 'join');
-    }
     if (!this.get('settings.settings.design_presentation_pages_enabled')) {
       items = items.filter(item => item.link !== 'design-presentation');
     }
