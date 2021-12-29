@@ -11,6 +11,13 @@ export default Component.extend({
           link: 'news'
         },
         {
+<<<<<<< HEAD
+=======
+          name: 'Events',
+          link: 'events'
+        },
+        {
+>>>>>>> 8a45f1fcb14c44f6dc5f9362d2a4a29ebe39f306
           name: 'Team',
           link: 'team'
         },
