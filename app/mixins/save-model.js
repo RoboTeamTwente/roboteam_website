@@ -3,7 +3,7 @@ import { inject as service } from '@ember/service';
 import { run } from '@ember/runloop';
 
 export default Mixin.create({
-  firebaseApp: service(),    
+  firebaseApp: service(),
   flashNotice: service('flash-notice'),
   error: null,
   storageRef: null,
@@ -22,7 +22,7 @@ export default Mixin.create({
   // sets an error an returns false if not
   validateModel() {
     const invalidProperties = [];
-    this.get('requiredProperties').forEach((property) => { 
+    this.get('requiredProperties').forEach((property) => {
       if (!this.get(this.get('modelName') + "." + property)) {
         invalidProperties.push(property);
       }
@@ -44,16 +44,16 @@ export default Mixin.create({
     const timestamp = new Date();
     if (this.get(this.get('modelName')).get('isNew')) {
       this.get(this.get('modelName')).set('createdAt', timestamp);
-    } 
+    }
     this.get(this.get('modelName')).set('updatedAt', timestamp);
 
-    this.get(this.get('modelName')).save().then(() => { 
+    this.get(this.get('modelName')).save().then(() => {
       flashNotice.sendSuccess(this.get('noticeAfterSave'));
 
       if (this.get('transitionToIndexRoute')) {
-        this.transitionToRoute(this.get('transitionAfterSuccess')); 
+        this.transitionToRoute(this.get('transitionAfterSuccess'));
       } else {
-        this.transitionToRoute(this.get('transitionAfterSuccess'), this.get(this.get('modelName')).get('id')); 
+        this.transitionToRoute(this.get('transitionAfterSuccess'), this.get(this.get('modelName')).get('id'));
       }
     });
   },
@@ -84,8 +84,10 @@ export default Mixin.create({
       // check the required variables
       // the model should be okay, and there should be a file or an existing imageSrc
       if (this.validateModel() && (this.get('file'))) {
-        const metadata = { contentType: 'image/png' };
+        this._save(); // Save first to make sure it has an ID
         
+        const metadata = { contentType: 'image/png' };
+
         // get reference to firebase storage
         this.get('firebaseApp').storage().then(storage => {
           const storageRef = storage.ref();
@@ -102,11 +104,10 @@ export default Mixin.create({
         });
 
         // else if there was already an image and it didnt change
-        // then we just save immediately 
+        // then we just save immediately
       } else if (this.validateModel() && this.get('model.imageSrc')) {
         this._save();
       }
     }
   }
 });
-
