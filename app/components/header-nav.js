@@ -7,32 +7,31 @@ export default Component.extend({
       this._super(...arguments);
       this.menuItems = [
         {
-          name: 'RoboCup',
-          link: 'robocup'
-        },
-        {
           name: 'News',
           link: 'news'
-        },
-        {
-          name: 'Events',
-          link: 'events'
-        },
-        {
-          name: 'Join us!',
-          link: 'join'
         },
         {
           name: 'Team',
           link: 'team'
         },
         {
-          name: 'Design Presentation',
-          link: 'design-presentation'
+          name: 'Join us!',
+          link: 'join'
+        },
+        {
+          name: 'RoboCup',
+          link: 'page',
+          model: 'robocup'
         },
         {
           name: 'Technology',
-          link: 'documentation'
+          link: 'page',
+          model: 'technology'
+        },
+        {
+          name: 'Workshops',
+          link: 'page',
+          model: 'workshops'
         },
         {
           name: 'Partners',
