@@ -84,8 +84,6 @@ export default Mixin.create({
       // check the required variables
       // the model should be okay, and there should be a file or an existing imageSrc
       if (this.validateModel() && (this.get('file'))) {
-        this._save(); // Save first to make sure it has an ID
-        
         const metadata = { contentType: 'image/png' };
 
         // get reference to firebase storage
