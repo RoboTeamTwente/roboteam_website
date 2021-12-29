@@ -9,7 +9,6 @@ export default Model.extend({
   name: attr('string'),
   imageSrc: attr('string'),
   description: attr('string'),
-  descriptionShort: attr('string'),
   order: attr('number'),
 
   namedId: computed('name', function() {

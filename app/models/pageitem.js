@@ -13,15 +13,6 @@ export default Model.extend({
   createdAt: attr('date'),
   updatedAt: attr('date'),
 
-  contentShortened: computed('content', function() {
-    let content = this.get('content');
-    const maxLength = 100; // max amount of characters
-
-    // cut off to the last space before maxlength
-    if (content.length <= maxLength) return content;
-    return content.substr(0, content.lastIndexOf(" ", maxLength)) + "...";
-  }),
-
   vimeoId: computed('videoSrc', function() {
     const src = this.get('videoSrc');
     if (!src) return src;
@@ -42,5 +33,13 @@ export default Model.extend({
 
   showVideo: computed('vimeoId', function() {
     return this.get('vimeoId') && this.get('vimeoId') !== "";
+  }),
+
+  showImage: computed('imageSrc', function() {
+    return this.get('imageSrc') && this.get('imageSrc') !== "";
+  }),
+  
+  fullwidth: computed('showVideo', 'showImage', function() {
+    return !this.get('showVideo') && !this.get('showImage');
   })
 });

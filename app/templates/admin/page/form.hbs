@@ -19,7 +19,7 @@
           <div class="col-12">
             <label>
               <span class="text"> Page name * </span>
-              {{input type="text" class="form-control mb-2" placeholder="e.g. Electronics" value=model.name}}
+              {{input type="text" class="form-control mb-2" placeholder="e.g. Workshops" value=model.name}}
               {{#if model.namedId}}
                 <span> The used </span> <code>namedId</code> <span> for this class will be: </span> <code>{{model.namedId}}</code>.
                 <span> This will be used in the URL. </span>
@@ -41,13 +41,6 @@
               <span class="text"> Description *</span>
             </label>
             {{simple-mde class="border border-radius-2 p-0" value=model.description change=(action (mut model.description))}}
-          </div>
-
-          <div class="col-12">
-            <label>
-              <span class="text"> Short description *</span>
-            </label>
-            {{simple-mde class="border border-radius-2 p-0" value=model.descriptionShort change=(action (mut model.descriptionShort))}}
           </div>
 
           <div class="col-12">

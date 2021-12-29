@@ -4,7 +4,7 @@ import saveModelMixin from "roboteam-website/mixins/save-model"
 export default Controller.extend(saveModelMixin, {
   init() {
     this._super(...arguments);
-    this.requiredProperties = ["name", "description", "descriptionShort"];
+    this.requiredProperties = ["name", "description"];
   },
   noticeDuringSave: "Updating page...",
   noticeAfterSave: "Page updated!",

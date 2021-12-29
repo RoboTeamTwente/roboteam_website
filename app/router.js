@@ -101,7 +101,9 @@ Router.map(function() {
 
   this.route('newsletter');
 
-  this.route('page', { path: 'page/:namedId' });
+  this.route('404', { path: '/404' });
+
+  this.route('page', { path: ':namedId' });
 
   this.route('404', { path: '/*path' });
 });

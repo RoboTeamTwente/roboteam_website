@@ -24,10 +24,10 @@ export default Controller.extend(saveModelMixin, {
       this.set('model.hasVideo', false);
     },
     customSave: function() {
-      if (this.get('model.hasVideo')) {
-        this.send('saveModel');
-      } else {
+      if (this.get('file') || this.get('model.imageSrc')) {
         this.send('saveModelWithImage');
+      } else {
+        this.send('saveModel');
       }
     }
   }
