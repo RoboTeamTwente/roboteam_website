@@ -22,10 +22,10 @@
     {{#each model.pageItems as |pageitem index|}}
       <div class="row mt-5 mb-5">
         {{#if pageitem.fullwidth}}
-        <div class="col-12 mt-2 {{if (is-even index) 'order-1' 'order-12'}}">
-          <h3> {{pageitem.title}} </h3>
-          {{simple-mde-preview pageitem.content}}
-        </div>
+          <div class="col-12 mt-2 {{if (is-even index) 'order-1' 'order-12'}}">
+            <h3> {{pageitem.title}} </h3>
+            {{simple-mde-preview pageitem.content}}
+          </div>
         {{else}}
           {{#if pageitem.showVideo}}
             <div class="col-12 col-md-6 order-6 align-self-center">

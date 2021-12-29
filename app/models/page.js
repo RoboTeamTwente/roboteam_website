@@ -1,6 +1,6 @@
 import DS from 'ember-data';
 
-const { attr, Model, hasMany } = DS;
+const { attr, Model } = DS;
 import { computed } from '@ember/object';
 
 export default Model.extend({

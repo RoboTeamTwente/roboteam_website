@@ -1,6 +1,6 @@
 import DS from 'ember-data';
 
-const { attr, Model, belongsTo } = DS;
+const { attr, Model } = DS;
 import { computed } from '@ember/object'
 
 export default Model.extend({
@@ -38,7 +38,7 @@ export default Model.extend({
   showImage: computed('imageSrc', function() {
     return this.get('imageSrc') && this.get('imageSrc') !== "";
   }),
-  
+
   fullwidth: computed('showVideo', 'showImage', function() {
     return !this.get('showVideo') && !this.get('showImage');
   })
