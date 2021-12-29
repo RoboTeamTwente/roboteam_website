@@ -8,11 +8,9 @@ export default class Router extends EmberRouterScroll {
 
 Router.map(function() {
   this.route('news')
-  this.route('robocup')
   this.route('team')
   this.route('partners')
   this.route('join')
-  this.route('documentation')
   this.route('contact')
   this.route('login')
   this.route('previousteams')
@@ -23,10 +21,6 @@ Router.map(function() {
 
   this.route('events', function() {
     this.route('show', { path: '/:event_id' });
-  });
-
-  this.route('design-presentation', function() {
-    this.route('subteam',  { path: '/subteam' });
   });
 
   // maintenance routes
@@ -53,11 +47,6 @@ Router.map(function() {
       this.route('new');
     });
 
-    this.route('documentation', function() {
-      this.route('edit',  { path: 'edit/:innovation_id' });
-      this.route('new');
-    });
-
     this.route('previousteams', function() {
       this.route('edit',  { path: 'edit/:previousteam_id' });
       this.route('new');
@@ -75,16 +64,6 @@ Router.map(function() {
 
     this.route('headers', function() {
       this.route('edit',  { path: 'edit/:header_id' });
-      this.route('new');
-    });
-
-    this.route('design-presentation', function() {
-      this.route('edit',  { path: 'edit/:designitem_id' });
-      this.route('new');
-    });
-
-    this.route('subteams', function() {
-      this.route('edit',  { path: 'edit/:subteam_id' });
       this.route('new');
     });
 
