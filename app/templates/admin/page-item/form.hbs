@@ -53,11 +53,13 @@
             <hr>
 
             <label>
-              <span class="text-muted"> Vimeo link </span>
+              <span class="text-muted"> Video link </span>
             </label>
-            {{input type="text" class="form-control mb-2" placeholder="https://vimeo.com/148751763" value=model.videoSrc}}
-            {{#if model.vimeoId}}
-              <span> Detected Vimeo ID: </span> <code> {{model.vimeoId}} </code>
+            {{input type="text" class="form-control mb-2" placeholder="https://vimeo.com/148751763 or https://www.youtube.com/watch?v=4jH0Bbn4wIA" value=model.videoSrc}}
+            {{#if model.videoId}}
+              <span> Detected video, type: <code> {{model.videoType}} </code>, video ID: <code> {{model.videoId}} </code></span>
+            {{else if (eq model.videoType "unknown")}}
+              <span> Invalid video url provided, should be formatted as either <code> https://vimeo.com/148751763 </code> or <code> https://www.youtube.com/watch?v=4jH0Bbn4wIA </code> </span>
             {{/if}}
           </div>
 

@@ -24,7 +24,7 @@
           <th scope="col" class="border-0"> Item </th>
           <th scope="col" class="border-0"> Page </th>
           <th scope="col" class="border-0"> Image </th>
-          <th scope="col" class="border-0"> Vimeo ID </th>
+          <th scope="col" class="border-0"> Video </th>
           <th scope="col" class="border-0"> Options </th>
         </tr>
       </thead>
@@ -42,7 +42,7 @@
             <td>{{pageitem.title}} </td>
             <td> <code> {{pageitem.page}} </code> </td>
             <td><img src={{pageitem.imageSrc}} alt="Image" width='50' height='50'></td>
-            <td> <code> {{pageitem.vimeoId}} </code> </td>
+            <td> <code> {{pageitem.videoType}} </code> </td>
             <td>
               <a class="link text-danger" {{action "remove" pageitem.id}}> Remove </a> /
               {{#link-to "admin.page-item.edit" pageitem.id}} <a class="link text-muted"> Edit </a> {{/link-to}}

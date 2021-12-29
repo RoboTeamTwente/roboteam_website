@@ -29,8 +29,12 @@
         {{else}}
           {{#if pageitem.showVideo}}
             <div class="col-12 col-md-6 order-6 align-self-center">
-              <div class="vimeo-container">
-                <iframe class="vimeo-video" src="https://player.vimeo.com/video/{{pageitem.vimeoId}}?loop=1&color=5a1c74&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen/>
+              <div class="video-container">
+                {{#if (eq pageitem.videoType "vimeo")}}
+                  <iframe class="video-video" src="https://player.vimeo.com/video/{{pageitem.videoId}}?loop=1&color=5a1c74&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen/>
+                {{else if (eq pageitem.videoType "youtube")}}
+                  <iframe class="video-video" src="https://www.youtube.com/embed/{{pageitem.videoId}}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                {{/if}}
               </div>
             </div>
           {{else if pageitem.showImage}}
