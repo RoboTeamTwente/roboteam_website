@@ -31,16 +31,6 @@ export default Component.extend({
           link: 'design-presentation'
         },
         {
-          name: 'Workshops',
-          link: 'page',
-          model: 'workshops'
-        },
-        {
-          name: 'Other',
-          link: 'page',
-          model: 'other'
-        },
-        {
           name: 'Technology',
           link: 'documentation'
         },
