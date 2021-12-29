@@ -17,12 +17,6 @@ export default Controller.extend(saveModelMixin, {
     return this.store.findAll('page');
   }),
   actions: {
-    setTypeToVideo: function() {
-      this.set('model.hasVideo', true);
-    },
-    setTypeToImage: function() {
-      this.set('model.hasVideo', false);
-    },
     customSave: function() {
       if (this.get('file') || this.get('model.imageSrc')) {
         this.send('saveModelWithImage');
