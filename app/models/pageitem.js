@@ -13,26 +13,34 @@ export default Model.extend({
   createdAt: attr('date'),
   updatedAt: attr('date'),
 
-  vimeoId: computed('videoSrc', function() {
+  videoType: computed('videoSrc', function() {
     const src = this.get('videoSrc');
-    if (!src) return src;
+    if (!src) return "none";
+
     if (src.startsWith('https://vimeo.com/')) {
-      return src.replace('https://vimeo.com/', '');
+      return "vimeo";
+    } else if (src.startsWith('https://www.youtube.com/watch?v=')) {
+      return "youtube";
+    } else {
+      return "unknown";
     }
-
-    if (src.startsWith('http://vimeo.com/')) {
-      return src.replace('http://vimeo.com/', '');
-    }
-
-    if (src.startsWith('vimeo.com/')) {
-      return src.replace('vimeo.com/', '');
-    }
-
-    return src.replace(/\D/g, '');
   }),
 
-  showVideo: computed('vimeoId', function() {
-    return this.get('vimeoId') && this.get('vimeoId') !== "";
+  videoId: computed('videoSrc', function() {
+    const src = this.get('videoSrc');
+    if (!src) return null;
+
+    if (src.startsWith('https://vimeo.com/')) {
+      return src.replace('https://vimeo.com/', '');
+    } else if (src.startsWith('https://www.youtube.com/watch?v=')) {
+      return src.replace('https://www.youtube.com/watch?v=', '');
+    }
+
+    return null;
+  }),
+
+  showVideo: computed('videoType', 'videoId', function() {
+    return this.get('videoType') != "unknown" && this.get('videoType') != "none" && this.get('videoId') && this.get('videoId') !== "";
   }),
 
   showImage: computed('imageSrc', function() {
