@@ -37,7 +37,7 @@ export default Mixin.create({
     return false;
   },
 
-  _save() {
+  _save(callback) {
     const flashNotice = this.get('flashNotice');
 
     // add time to the model. easy for sorting
@@ -48,12 +48,16 @@ export default Mixin.create({
     this.get(this.get('modelName')).set('updatedAt', timestamp);
 
     this.get(this.get('modelName')).save().then(() => {
-      flashNotice.sendSuccess(this.get('noticeAfterSave'));
-
-      if (this.get('transitionToIndexRoute')) {
-        this.transitionToRoute(this.get('transitionAfterSuccess'));
+      if (callback !== undefined) {
+        callback();
       } else {
-        this.transitionToRoute(this.get('transitionAfterSuccess'), this.get(this.get('modelName')).get('id'));
+        flashNotice.sendSuccess(this.get('noticeAfterSave'));
+
+        if (this.get('transitionToIndexRoute')) {
+          this.transitionToRoute(this.get('transitionAfterSuccess'));
+        } else {
+          this.transitionToRoute(this.get('transitionAfterSuccess'), this.get(this.get('modelName')).get('id'));
+        }
       }
     });
   },
@@ -84,21 +88,23 @@ export default Mixin.create({
       // check the required variables
       // the model should be okay, and there should be a file or an existing imageSrc
       if (this.validateModel() && (this.get('file'))) {
-        const metadata = { contentType: 'image/png' };
+        this._save(() => {
+          const metadata = { contentType: 'image/png' };
 
-        // get reference to firebase storage
-        this.get('firebaseApp').storage().then(storage => {
-          const storageRef = storage.ref();
-          const path = this.get('imagePath') + this.get(this.get('modelName')).get('id') + '.png';
-          storageRef.child(path).put(this.get('file'), metadata).then(async snapshot => {
-            // give the model the imageSrc when finished
-            const downloadURL = await snapshot.ref.getDownloadURL();
-            this.get(this.get('modelName')).set('imageSrc', downloadURL);
-            this._save();
-            this.set('file', null);
+          // get reference to firebase storage
+          this.get('firebaseApp').storage().then(storage => {
+            const storageRef = storage.ref();
+            const path = this.get('imagePath') + this.get(this.get('modelName')).get('id') + '.png';
+            storageRef.child(path).put(this.get('file'), metadata).then(async snapshot => {
+              // give the model the imageSrc when finished
+              const downloadURL = await snapshot.ref.getDownloadURL();
+              this.get(this.get('modelName')).set('imageSrc', downloadURL);
+              this._save();
+              this.set('file', null);
+            }).catch(() => {
+            });
           }).catch(() => {
           });
-        }).catch(() => {
         });
 
         // else if there was already an image and it didnt change
