@@ -1,0 +1,55 @@
+
+<div class="container">
+  <div class="card mt-5">
+    <div class="card-header">
+      <div class="row">
+        <strong class="col"> All listed Page Items </strong>
+        {{#if isChangingOrder}}
+          <a class="text-default mr-3 float-right link" {{action 'cancelChangeOrder'}}> Cancel changing order </a>
+          <a class="text-success mr-3 float-right link" {{action 'saveChangedOrder'}}> Save new order! </a>
+        {{else}}
+          <a class="text-default mr-3 float-right link" {{action 'allowChangeOrder'}}> Change order </a>
+          {{#link-to "admin.page-item.new" }}
+            <a class="text-danger mr-3 float-right link"> Create new item </a>
+          {{/link-to}}
+        {{/if}}
+      </div>
+    </div>
+    <table class="table {{if (not isChangingOrder) 'table-striped'}}">
+      <thead>
+        <tr>
+          {{#if isChangingOrder}}
+            <th> # </th>
+          {{/if}}
+          <th scope="col" class="border-0"> Item </th>
+          <th scope="col" class="border-0"> Page </th>
+          <th scope="col" class="border-0"> Image </th>
+          <th scope="col" class="border-0"> Vimeo ID </th>
+          <th scope="col" class="border-0"> Options </th>
+        </tr>
+      </thead>
+
+      {{#sortable-group model=sortedModel tagName="tbody" onChange=(action "reorderItems") as |group|}}
+        {{#each group.model as |pageitem|}}
+          {{#group.item tagName="tr" isDraggingDisabled=(not isChangingOrder) model=pageitem as |item|}}
+            {{#if isChangingOrder}}
+              <td>
+                {{#item.handle}}
+                  <span class="handle">&varr;</span>
+                {{/item.handle}}
+              </td>
+            {{/if}}
+            <td>{{pageitem.title}} </td>
+            <td> <code> {{pageitem.page}} </code> </td>
+            <td><img src={{pageitem.imageSrc}} alt="Image" width='50' height='50'></td>
+            <td> <code> {{pageitem.vimeoId}} </code> </td>
+            <td>
+              <a class="link text-danger" {{action "remove" pageitem.id}}> Remove </a> /
+              {{#link-to "admin.page-item.edit" pageitem.id}} <a class="link text-muted"> Edit </a> {{/link-to}}
+            </td>
+          {{/group.item}}
+        {{/each}}
+      {{/sortable-group}}
+    </table>
+  </div>
+</div>

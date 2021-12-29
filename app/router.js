@@ -17,7 +17,6 @@ Router.map(function() {
   this.route('login')
   this.route('previousteams')
 
-
   this.route('news', function() {
     this.route('show', { path: '/:article_id' });
   });
@@ -88,9 +87,23 @@ Router.map(function() {
       this.route('edit',  { path: 'edit/:subteam_id' });
       this.route('new');
     });
+
+    this.route('page', function() {
+      this.route('edit',  { path: 'edit/:page_id' });
+      this.route('new');
+    });
+
+    this.route('page-item', function() {
+      this.route('edit',  { path: 'edit/:pageitem_id' });
+      this.route('new');
+    });
   });
 
   this.route('newsletter');
+
+  this.route('404', { path: '/404' });
+
+  this.route('page', { path: ':namedId' });
 
   this.route('404', { path: '/*path' });
 });

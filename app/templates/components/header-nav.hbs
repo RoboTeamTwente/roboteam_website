@@ -18,11 +18,17 @@
     {{!-- Navbar for non-mobile devices --}}
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav">
-        {{#each getMenuItems as |item|}}
+        {{#each menuItems as |item|}}
           <li class="nav-item">
-            {{#link-to item.link}}
-              <a class="nav-link" href="#"> {{item.name}} </a>
-            {{/link-to}}
+            {{#if item.model}}
+              {{#link-to item.link item.model}}
+                <a class="nav-link" href="#"> {{item.name}} </a>
+              {{/link-to}}
+            {{else}}
+              {{#link-to item.link}}
+                <a class="nav-link" href="#"> {{item.name}} </a>
+              {{/link-to}}
+            {{/if}}
           </li>
         {{/each}}
       </ul>
@@ -56,10 +62,16 @@
     {{#link-to "index"}}
       <h5 class="p-2 text-dark" href="#">Home</h5>
     {{/link-to}}
-    {{#each getMenuItems as |item|}}
-      {{#link-to item.link}}
-        <h5 class="p-2 text-dark" href="#">{{item.name}}</h5>
-      {{/link-to}}
+    {{#each menuItems as |item|}}
+      {{#if item.model}}
+        {{#link-to item.link item.model}}
+          <h5 class="p-2 text-dark" href="#">{{item.name}}</h5>
+        {{/link-to}}
+      {{else}}
+        {{#link-to item.link}}
+          <h5 class="p-2 text-dark" href="#">{{item.name}}</h5>
+        {{/link-to}}
+      {{/if}}
     {{/each}}
   </div>
 </div>
