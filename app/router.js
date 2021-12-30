@@ -16,11 +16,11 @@ Router.map(function() {
   this.route('previousteams')
 
   this.route('news', function() {
-    this.route('show', { path: '/:article_id' });
+    this.route('show', { path: '/:namedId' });
   });
 
   this.route('events', function() {
-    this.route('show', { path: '/:event_id' });
+    this.route('show', { path: '/:namedId' });
   });
 
   // maintenance routes

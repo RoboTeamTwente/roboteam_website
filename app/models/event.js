@@ -16,6 +16,13 @@ export default Model.extend({
   createdAt: attr('date'),
   updatedAt: attr('date'),
 
+	namedId: computed('title', 'startdate', function() {
+    if (!this.get('title')) return '';
+    const trimmed = this.get('title').trim();
+		const suffix = this.get('startdate').getDate() + "-" + (this.get('startdate').getMonth() + 1) + "-" + (this.get('startdate').getFullYear() - 2000);
+    return trimmed.toLowerCase().replace(' ', '_') + "_" + suffix;
+	}),
+
 	isUpcoming: computed('enddate', function() {
 		return this.get('enddate') >= new Date();
 	})
