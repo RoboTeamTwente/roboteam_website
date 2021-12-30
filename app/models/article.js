@@ -15,7 +15,7 @@ export default Model.extend({
     if (!this.get('title')) return '';
     const trimmed = this.get('title').trim();
 		const suffix = this.get('createdAt').getDate() + "-" + (this.get('createdAt').getMonth() + 1) + "-" + (this.get('createdAt').getFullYear() - 2000);
-    return trimmed.toLowerCase().replace(' ', '_') + "_" + suffix;
+    return trimmed.toLowerCase().replaceAll(' ', '_') + "_" + suffix;
 	}),
 
   contentShortened: computed('content', function() {

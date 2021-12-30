@@ -14,6 +14,6 @@ export default Model.extend({
   namedId: computed('name', function() {
     if (!this.get('name')) return '';
     const trimmed = this.get('name').trim();
-    return trimmed.toLowerCase().replace(' ', '_');
+    return trimmed.toLowerCase().replaceAll(' ', '_');
   }),
 });
