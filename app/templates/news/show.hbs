@@ -1,21 +1,21 @@
 <div class="container">
-  <div class="col-12 mt-4">
-    <div class="row">
-      <div class="col">
-        {{#link-to "news"}} &laquo; News {{/link-to}}
-        <span>
-          <h1> {{model.title}} </h1>
-        </span>
-      </div>
+  <div class="row mt-4">
+    <div class="col-12">
+      {{#link-to "news"}} &laquo; News {{/link-to}}
+      <span>
+        <h1> {{model.title}} </h1>
+      </span>
     </div>
-    <hr>
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <img class="img-banner-img" alt="title" src={{model.imageSrc}}>
-      </div>
-      <div class="col-12 col-lg-10 mt-3">
-        {{simple-mde-preview model.content}}
-      </div>
+    <div class="col-12">
+      <hr>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <img class="img-banner-img" alt="title" src={{model.imageSrc}}>
+    </div>
+    <div class="col-12 col-lg-10 mt-3">
+      {{simple-mde-preview model.content}}
     </div>
   </div>
 </div>

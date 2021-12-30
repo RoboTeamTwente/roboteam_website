@@ -1,29 +1,30 @@
 <div class="container">
-  <div class="col-12 mt-5">
-    <h1 class="text-centered mb-4"> Upcoming events </h1>
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-8">
-        {{#each pagedContent as |event|}}
-          {{#link-to "events.show" event tagName="div" class="card mb-3 link event-card"}}
-            {{#if event.imageSrc}}
-              <img class="card-img" src={{event.imageSrc}} alt={{event.title}}>
+  <div class="row mt-5">
+    <div class="col-12">
+      <h1> Events </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-8">
+      {{#each pagedContent as |event|}}
+        {{#link-to "events.show" event tagName="div" class="card mb-3 link event-card"}}
+          {{#if event.imageSrc}}
+            <img class="card-img" src={{event.imageSrc}} alt={{event.title}}>
+          {{/if}}
+          <div class="card-img-overlay {{unless event.imageSrc 'bg-primary'}}">
+            <h1 class="card-title header-image-title text-white"> {{event.title}} </h1>
+            {{#if (is-same event.startdate event.enddate precision='days')}}
+              <h3 class="header-image-title text-white"> {{moment-format event.startdate "DD MMMM YYYY"}} </h3>
+            {{else}}
+              <h4 class="header-image-title text-white"> {{moment-format event.startdate "DD MMMM"}} - {{moment-format event.enddate "DD MMMM YYYY"}} </h4>
             {{/if}}
-            <div class="card-img-overlay {{unless event.imageSrc 'bg-primary'}}">
-              <h1 class="card-title header-image-title text-white"> {{event.title}} </h1>
-              {{#if (is-same event.startdate event.enddate precision='days')}}
-                <h3 class="header-image-title text-white"> {{moment-format event.startdate "MM/DD"}} </h3>
-              {{else}}
-                <h4 class="header-image-title text-white"> {{moment-format event.startdate "MM/DD"}} - {{moment-format event.enddate "MM/DD"}} </h4>
-              {{/if}}
-              <span class="card-text header-image-title text-white"> {{event.location}} </span>
-            </div>
-          {{/link-to}}
-        {{/each}}
-      </div>
+            <span class="card-text header-image-title text-white"> {{event.location}} </span>
+          </div>
+        {{/link-to}}
+      {{/each}}
     </div>
   </div>
   <div class="col-12">
     {{page-numbers content=pagedContent}}
   </div>
 </div>
-

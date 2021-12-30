@@ -1,20 +1,22 @@
 <div class="container">
-  <div class="col-12 mt-5">
-    <h1> RoboTeam Twente {{settings.settings.current_team_year}}</h1>
-    <p> 
-      {{#link-to 'previousteams'}}
-        <span class="link"> View previous teams </span>
-      {{/link-to}}
-    </p>
- 
-    <div class="row mb-5 pb-5">
-      {{#each model as |member|}}
-        <div class="col-6 mt-5 col-sm-4 col-md-3 col-xl-2 link" {{action 'selectMember' member.id}}>
-          <img class="max-width" alt={{member.name}} src={{member.imageSrc}}>
-          <h5 class="mb-0"> {{member.name}} </h5>
-          {{member.role}}
-        </div>
-      {{/each}}
+  <div class="row mt-5">
+    <div class="col-12">
+      <h1> RoboTeam Twente {{settings.settings.current_team_year}}</h1>
+      <p>
+        {{#link-to 'previousteams'}}
+          <span class="link"> View previous teams </span>
+        {{/link-to}}
+      </p>
+
+      <div class="row mb-5 pb-5">
+        {{#each model as |member|}}
+          <div class="col-6 mt-5 col-sm-4 col-md-3 col-xl-2 link" {{action 'selectMember' member.id}}>
+            <img class="max-width" alt={{member.name}} src={{member.imageSrc}}>
+            <h5 class="mb-0"> {{member.name}} </h5>
+            {{member.role}}
+          </div>
+        {{/each}}
+      </div>
     </div>
   </div>
 </div>

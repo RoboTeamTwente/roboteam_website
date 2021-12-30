@@ -3,7 +3,7 @@
     <div class="card-header">
       <div class="row">
         <strong class="col"> All listed events </strong>
-        {{#link-to "admin.events.new"}} 
+        {{#link-to "admin.events.new"}}
           <a class="text-danger mr-3 float-right link"> Create new event </a>
         {{/link-to}}
       </div>
@@ -18,20 +18,20 @@
           <th scope="col" class="border-0"> Options </th>
         </tr>
       </thead>
-      
+
       <tbody>
         {{#each pagedContent as |event|}}
           <tr>
-            <td> 
+            <td>
               {{#link-to "events.show" event}}
                 {{event.title}}
               {{/link-to}}
             </td>
             <td>{{event.location}}</td>
-            <td>{{moment-format event.startDate "DD-MM-YYYY hh:mm"}}</td>
-            <td>{{moment-format event.endDate "DD-MM-YYYY hh:mm"}}</td>
-            <td> 
-              <a class="link text-danger" {{action "remove" event.id}}> Remove </a> / 
+            <td>{{moment-format event.startdate "DD-MM-YYYY"}}</td>
+            <td>{{moment-format event.enddate "DD-MM-YYYY"}}</td>
+            <td>
+              <a class="link text-danger" {{action "remove" event.id}}> Remove </a> /
               {{#link-to "admin.events.edit" event.id}} <a class="link text-muted"> Edit </a> {{/link-to}}
             </td>
           </tr>

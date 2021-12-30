@@ -61,22 +61,24 @@
     <div class="col-12 col-md-6 mt-md-3 mt-5">
       <h1> Upcoming events </h1>
       <ul class="list-group">
-        {{#each model.events as |event|}}
-          {{#link-to "events.show" event tagName="li" class="list-group-item link"}}
-            <div class="row">
-              <div class="col-4">
-                {{#if (is-same event.startdate event.enddate precision='days')}}
-                  <h2 class="mb-0 text-centered mt-1"> {{moment-format event.startdate "DD/MM"}} </h2>
-                {{else}}
-                  <h4 class="mb-0 text-centered mt-2"> {{moment-format event.startdate "DD/MM"}} - {{moment-format event.enddate "DD/MM"}} </h4>
-                {{/if}}
+        {{#each orderedEvents as |event|}}
+          {{#if event.isUpcoming}}
+            {{#link-to "events.show" event tagName="li" class="list-group-item link"}}
+              <div class="row">
+                <div class="col-4">
+                  {{#if (is-same event.startdate event.enddate precision='days')}}
+                    <h2 class="mb-0 text-centered mt-1"> {{moment-format event.startdate "DD/MM"}} </h2>
+                  {{else}}
+                    <h4 class="mb-0 text-centered mt-2"> {{moment-format event.startdate "DD/MM"}} - {{moment-format event.enddate "DD/MM"}} </h4>
+                  {{/if}}
+                </div>
+                <div class="col-8">
+                  <span> {{event.title}} </span> <br>
+                  <span class="text-muted">  {{event.location}} </span>
+                </div>
               </div>
-              <div class="col-8">
-                <span> {{event.title}} </span> <br>
-                <span class="text-muted">  {{event.location}} </span>
-              </div>
-            </div>
-          {{/link-to}}
+            {{/link-to}}
+          {{/if}}
         {{/each}}
       </ul>
       {{#link-to 'events'}}

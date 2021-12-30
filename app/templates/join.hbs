@@ -1,60 +1,54 @@
-<div class="container mt-5">
-  {{#if model.length}}
-    <div class="col-12 mt-5">
-      <div class="row mt-5">
-        <div class="col-12">
-          {{#if settings.settings.can_join}}
-            {{simple-mde-preview settings.settings.join_text}}
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-12">
+      {{#if settings.settings.can_join}}
+        {{simple-mde-preview settings.settings.join_text}}
 
-            <a class="btn btn-lg btn-primary mt-2" href="mailto:info@roboteamtwente.nl?SUBJECT=Application%20RoboTeam %20Twente&BODY=- Name%3A%0D%0A- Preferred%20position%3A%0D%0A- Motivation%3A%0D%0A- Resume%3A%0D%0A">
-              <h5> Apply now! </h5>
-            </a>
-          {{else}}
-            {{simple-mde-preview settings.settings.can_not_join_text}}
-          {{/if}}
+        <a class="btn btn-lg btn-primary mt-2" href="mailto:info@roboteamtwente.nl?SUBJECT=Application%20RoboTeam %20Twente&BODY=- Name%3A%0D%0A- Preferred%20position%3A%0D%0A- Motivation%3A%0D%0A- Resume%3A%0D%0A">
+          <h5> Apply now! </h5>
+        </a>
+      {{else}}
+        {{simple-mde-preview settings.settings.can_not_join_text}}
+      {{/if}}
 
-          <a href={{ settings.settings.join_interest_form }} rel="noopener" target="_blank" class="btn btn-lg btn-light mt-2">
-            <h5 class="text-dark"> I am interested! </h5>
-          </a>
+      <a href={{ settings.settings.join_interest_form }} rel="noopener" target="_blank" class="btn btn-lg btn-light mt-2">
+        <h5 class="text-dark"> I am interested! </h5>
+      </a>
+      <a class="btn btn-lg btn-light mt-2" href="mailto:info@roboteamtwente.nl?SUBJECT=I have a question about ...">
+        <h5 class="link"> I have a question! </h5>
+      </a>
 
-          <a class="btn btn-lg btn-light mt-2" href="mailto:info@roboteamtwente.nl?SUBJECT=I have a question about ...">
-            <h5 class="link"> I have a question! </h5>
-          </a>
-        </div>
-      </div>
       <hr>
-      <div class="row">
-        <div class="col-12 mb-5">
-          {{#if settings.settings.can_join}}
-            <h1> Available positions </h1>
-            <i class="text-muted"> {{settings.settings.join_start}} </i>
-          {{else}}
-            <h1> Current positions </h1>
-          {{/if}}
-        </div>
-        {{#each model as |offer|}}
-          <div class="col-12 col-md-6 col-lg-4" {{action 'selectOffer' offer.id}}>
-            <div class="card offer-card border-0 border-radius-0 link mb-5">
-              <img class="card-img-top" src={{offer.imageSrc}} alt={{offer.title}}>
-              <div class="card-body">
-                <h5 class="card-title"> {{offer.title}} </h5>
-                <i class="text-muted">
-                  {{if offer.isBoard "Management Team"}}
-                  {{if (and offer.isBoard offer.fullTime) " / "}}
-                  {{if offer.fullTime "Fulltime"}}
-                  {{if (and (or offer.fullTime offer.isBoard) offer.halfTime) " / "}}
-                  {{if offer.halfTime "Halftime"}}
-                  {{if (and offer.halfTime offer.partTime) " / "}}
-                  {{if offer.partTime "Parttime"}}
-                </i>
-                <p class="card-text mt-2"> {{offer.contentShortened }} </p>
-              </div>
-            </div>
-          </div>
-        {{/each}}
-      </div>
+
+      {{#if settings.settings.can_join}}
+        <h1> Available positions </h1>
+        <i class="text-muted"> {{settings.settings.join_start}} </i>
+      {{else}}
+        <h1> Current positions </h1>
+      {{/if}}
     </div>
-  {{/if}}
+    
+    {{#each model as |offer|}}
+      <div class="col-12 col-md-6 col-lg-4" {{action 'selectOffer' offer.id}}>
+        <div class="card offer-card border-0 border-radius-0 link mb-5">
+          <img class="card-img-top" src={{offer.imageSrc}} alt={{offer.title}}>
+          <div class="card-body">
+            <h5 class="card-title"> {{offer.title}} </h5>
+            <i class="text-muted">
+              {{if offer.isBoard "Management Team"}}
+              {{if (and offer.isBoard offer.fullTime) " / "}}
+              {{if offer.fullTime "Fulltime"}}
+              {{if (and (or offer.fullTime offer.isBoard) offer.halfTime) " / "}}
+              {{if offer.halfTime "Halftime"}}
+              {{if (and offer.halfTime offer.partTime) " / "}}
+              {{if offer.partTime "Parttime"}}
+            </i>
+            <p class="card-text mt-2"> {{offer.contentShortened }} </p>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
 </div>
 
 <div class="backdrop {{if sideBarOpen 'visible'}}" {{action 'deselectOffer'}}> </div>

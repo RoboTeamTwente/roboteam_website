@@ -19,6 +19,12 @@
   background: #000;
 }
 
+@include media-breakpoint-down(sm) {
+  .page-media-container {
+    order: 12;
+  }
+}
+
 .video-container {
   padding:56.25% 0 0 0;
   position:relative;

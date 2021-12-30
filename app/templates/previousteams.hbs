@@ -1,16 +1,18 @@
 <div class="container">
-  <div class="col-12 mt-5">
-    <h1> Previous Teams </h1>
-    {{#each model as |previousteam index|}}
-      <div class="row mb-5">        
-        <div class="col-12 col-md-6 order-6">
-          <img class="max-width" alt={{previousteam.name}} src={{previousteam.imageSrc}}>
+  <div class="row mt-5">
+    <div class="col-12">
+      <h1> Previous Teams </h1>
+      {{#each model as |previousteam index|}}
+        <div class="row mb-5">
+          <div class="col-12 col-md-6 order-6">
+            <img class="max-width" alt={{previousteam.name}} src={{previousteam.imageSrc}}>
+          </div>
+          <div class="col-12 col-md-6 previousteam-text {{if (is-even index) 'order-1' 'order-12'}}">
+            <h3> {{previousteam.name}} </h3>
+            {{simple-mde-preview previousteam.content}}
+          </div>
         </div>
-        <div class="col-12 col-md-6 previousteam-text {{if (is-even index) 'order-1' 'order-12'}}">
-          <h3> {{previousteam.name}} </h3>
-          {{simple-mde-preview previousteam.content}}
-        </div>
-      </div>
-    {{/each}}
+      {{/each}}
+    </div>
   </div>
 </div>

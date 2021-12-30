@@ -1,34 +1,34 @@
 <div class="container">
-  <div class="col-12 mt-4">
-    <div class="row">
-      <div class="col-12 col-md">
-        {{#link-to "events"}} &laquo; Events {{/link-to}}
-        <span>
-          <h1> {{model.title}} </h1>
-          {{#if (is-same model.startdate model.enddate precision='days')}}
-            <h4 class="mb-0 text-muted"> {{moment-format model.startdate "MMM/DD"}} </h4>
-          {{else}}
-            <h4 class="mb-0 text-muted"> {{moment-format model.startdate "MMM/DD"}} - {{moment-format model.enddate "MMM/DD"}} </h4>
-          {{/if}}
-        </span>
+  <div class="row mt-4">
+    <div class="col-12 col-md">
+      {{#link-to "events"}} &laquo; Events {{/link-to}}
+      <span>
+        <h1> {{model.title}} </h1>
+        {{#if (is-same model.startdate model.enddate precision='days')}}
+          <h4 class="mb-0 text-muted"> {{moment-format model.startdate "DD MMMM YYYY"}} </h4>
+        {{else}}
+          <h4 class="mb-0 text-muted"> {{moment-format model.startdate "DD MMMM YYYY"}} - {{moment-format model.enddate "DD MMMM YYYY"}} </h4>
+        {{/if}}
+      </span>
+    </div>
+    {{#if model.link}}
+      <div class="col-12 col-md-3">
+        <a class="btn btn-md-lg btn-primary w-100 float-right mt-2 mt-md-5" href={{model.link}} target="_blank" rel="noopener"> Event website </a>
       </div>
-      {{#if model.link}}
-        <div class="col-12 col-md-3">
-          <a class="btn btn-md-lg btn-primary w-100 float-right mt-2 mt-md-5" href={{model.link}} target="_blank" rel="noopener"> Event website </a>
-        </div>
+    {{/if}}
+    <div class="col-12">
+      <hr>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12">
+      {{#if model.imageSrc}}
+        <img class="img-banner-img" alt="title" src={{model.imageSrc}}>
       {{/if}}
     </div>
-    <hr>
-    <div class="row justify-content-center">
-      <div class="col-12">
-        {{#if model.imageSrc}}
-          <img class="img-banner-img" alt="title" src={{model.imageSrc}}>
-        {{/if}}
-      </div>
-      <div class="col-12 col-lg-10">
-        <div class="event-description mt-4">
-          {{simple-mde-preview model.description}}
-        </div>
+    <div class="col-12 col-lg-10">
+      <div class="event-description mt-4">
+        {{simple-mde-preview model.description}}
       </div>
     </div>
   </div>
