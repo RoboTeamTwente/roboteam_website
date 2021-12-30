@@ -1,3 +1,4 @@
+{{page-title "News"}}
 <div class="container">
   <div class="row mt-5">
     <div class="col-12">
@@ -14,12 +15,12 @@
                 <img class="max-width article-img" src={{article.imageSrc}} alt={{article.title}}>
               </div>
               <div class="col">
-                <h5 class="card-title mt-3 mt-md-0"> {{article.title}} </h5> 
+                <h5 class="card-title mt-3 mt-md-0"> {{article.title}} </h5>
                 <span class="text-muted"> {{moment-format article.createdAt "DD MMM YYYY"}} </span>
                 <p class="card-text mt-2 d-none d-md-block"> {{remove-markdown article.contentShortened}} </p>
                 {{#link-to "news.show" article}}
                   <button class="btn btn-primary float-right"> Read more » </button>
-                {{/link-to}}  
+                {{/link-to}}
               </div>
             </div>
           </div>

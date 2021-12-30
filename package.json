@@ -48,6 +48,7 @@
     "ember-load-initializers": "^1.1.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-moment": "^7.8.0",
+    "ember-page-title": "^7.0.0",
     "ember-pell": "^1.4.2",
     "ember-pikaday": "^2.4.1",
     "ember-poll": "^1.4.0",
