@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 const { attr, Model } = DS;
@@ -13,5 +14,9 @@ export default Model.extend({
   link: attr('string'),
   imageSrc: attr('string'),
   createdAt: attr('date'),
-  updatedAt: attr('date')
+  updatedAt: attr('date'),
+
+	isUpcoming: computed('enddate', function() {
+		return this.get('enddate') >= new Date();
+	})
 });

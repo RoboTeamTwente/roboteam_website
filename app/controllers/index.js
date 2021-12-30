@@ -27,6 +27,10 @@ export default Controller.extend({
     });
   }),
 
+  orderedEvents: computed('model.events', function() {
+    return this.get('model.events').sortBy('startdate').toArray();
+  }),
+
   // Make a poll request to change the header automatically
   createPollingRequest() {
     let autoChangeHeader = () => {

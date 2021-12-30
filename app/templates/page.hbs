@@ -5,12 +5,12 @@
 
 {{!-- Title and subtitle --}}
 <div class="container page-header">
-  <div class="row">
-    <div class="col-12">
-      <h1 class="header-image-title text-white mt-5 pt-5 text-center text-md-left">
+  <div class="row h-100">
+    <div class="col-12 align-self-end pb-3">
+      <h1 class="header-image-title text-white">
         {{model.page.name}} <br>
       </h1>
-      <span class="header-image-title subtitle text-white text-center text-md-left">
+      <span class="header-image-title subtitle text-white">
         {{simple-mde-preview model.page.description}}
       </span>
     </div>
@@ -18,36 +18,27 @@
 </div>
 
 <div class="container">
-  <div class="col-12 mt-5">
-    {{#each model.pageItems as |pageitem index|}}
-      <div class="row mt-5 mb-5">
-        {{#if pageitem.fullwidth}}
-          <div class="col-12 mt-2 {{if (is-even index) 'order-1' 'order-12'}}">
-            <h3> {{pageitem.title}} </h3>
-            {{simple-mde-preview pageitem.content}}
-          </div>
-        {{else}}
-          {{#if pageitem.showVideo}}
-            <div class="col-12 col-md-6 order-6 align-self-center">
-              <div class="video-container">
-                {{#if (eq pageitem.videoType "vimeo")}}
-                  <iframe class="video-video" src="https://player.vimeo.com/video/{{pageitem.videoId}}?loop=1&color=5a1c74&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen/>
-                {{else if (eq pageitem.videoType "youtube")}}
-                  <iframe class="video-video" src="https://www.youtube.com/embed/{{pageitem.videoId}}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                {{/if}}
-              </div>
-            </div>
-          {{else if pageitem.showImage}}
-            <div class="col-12 col-md-6 mt-2 order-6 align-self-center">
-              <img class="max-width" src={{pageitem.imageSrc}} alt={{pageitem.title}}>
-            </div>
-          {{/if}}
-          <div class="col-12 col-md-6 mt-2 {{if (is-even index) 'order-1' 'order-12'}}">
-            <h3> {{pageitem.title}} </h3>
-            {{simple-mde-preview pageitem.content}}
-          </div>
-        {{/if}}
+  {{#each model.pageItems as |pageitem index|}}
+    <div class="row mt-5">
+      <div class="col-12 {{if (not pageitem.fullwidth) 'col-md-6 '}}mt-2 {{if (is-even index) 'order-1' 'order-12'}}">
+        <h3> {{pageitem.title}} </h3>
+        {{simple-mde-preview pageitem.content}}
       </div>
-    {{/each}}
-  </div>
+      {{#if pageitem.showVideo}}
+        <div class="page-media-container col-12 col-md-6 mt-2 order-6">
+          <div class="video-container">
+            {{#if (eq pageitem.videoType "vimeo")}}
+              <iframe class="video-video" src="https://player.vimeo.com/video/{{pageitem.videoId}}?loop=1&color=5a1c74&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen/>
+            {{else if (eq pageitem.videoType "youtube")}}
+              <iframe class="video-video" src="https://www.youtube.com/embed/{{pageitem.videoId}}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            {{/if}}
+          </div>
+        </div>
+      {{else if pageitem.showImage}}
+        <div class="page-media-container col-12 col-md-6 mt-2 order-6">
+          <img class="max-width" src={{pageitem.imageSrc}} alt={{pageitem.title}}>
+        </div>
+      {{/if}}
+    </div>
+  {{/each}}
 </div>

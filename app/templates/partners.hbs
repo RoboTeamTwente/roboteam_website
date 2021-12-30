@@ -1,81 +1,83 @@
 <div class="container">
-  <div class="col-12 mt-5">
-    <h1> Partners </h1>
-    {{simple-mde-preview settings.settings.partner_text}}
+  <div class="row mt-5">
+    <div class="col-12">
+      <h1> Partners </h1>
+      {{simple-mde-preview settings.settings.partner_text}}
 
-    {{#if gigaByteSponsors}}
-      <h3 class="mt-5"> GigaByte </h3>
-      <div class="row">
-        {{#each gigaByteSponsors as |sponsor|}}
-          <a class="col-4 col-md-2" href={{sponsor.link}}>
-            <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
-          </a>
-        {{/each}}
-      </div>
-    {{/if}}
-
-    {{#if megaByteSponsors}}
-      <h3 class="mt-5"> MegaByte </h3>
-      <div class="row">
-        {{#each megaByteSponsors as |sponsor|}}
-          <a class="col-4 col-md-2" href={{sponsor.link}}>
-            <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
-          </a>
-        {{/each}}
-      </div>
-    {{/if}}
-
-    {{#if kiloByteSponsors}}
-      <h3 class="mt-5"> KiloByte </h3>
-      <div class="row">
-        {{#each kiloByteSponsors as |sponsor|}}
-          <a class="col-4 col-md-2" href={{sponsor.link}}>
-            <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
-          </a>
-        {{/each}}
-      </div>
-    {{/if}}
-
-    {{#if byteSponsors}}
-      <h3 class="mt-5"> Byte </h3>
-      <div class="row">
-        {{#each byteSponsors as |sponsor|}}
-          <a class="col-4 col-md-2" href={{sponsor.link}}>
-            <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
-          </a>
-        {{/each}}
-      </div>
-    {{/if}}
-
-    {{#if demoByteSponsors}}
-      <h3 class="mt-5"> DemoByte </h3>
-      <div class="row">
-        {{#each demoByteSponsors as |sponsor|}}
-          <a class="col-4 col-md-2" href={{sponsor.link}}>
-            <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
-          </a>
-        {{/each}}
-      </div>
-    {{/if}}
-
-    {{#if collaborationSponsors}}
-      <h3 class="mt-5"> Collaborations </h3>
-      <div class="row">
-        {{#each collaborationSponsors as |sponsor|}}
-          <a class="col-4 col-md-2" href={{sponsor.link}}>
-            <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
-          </a>
-        {{/each}}
-      </div>
-    {{/if}}
-
-    <h3 class="mt-5"> Crowdfunders </h3>
-    <div class="row">
-      {{#each model.crowdfunders as |crowdfunder|}}
-        <div class="col-6">
-          <span class="text-centered"> {{crowdfunder.name}} </span>
+      {{#if gigaByteSponsors}}
+        <h3 class="mt-5"> GigaByte </h3>
+        <div class="row">
+          {{#each gigaByteSponsors as |sponsor|}}
+            <a class="col-4 col-md-2" href={{sponsor.link}}>
+              <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
+            </a>
+          {{/each}}
         </div>
-      {{/each}}
+      {{/if}}
+
+      {{#if megaByteSponsors}}
+        <h3 class="mt-5"> MegaByte </h3>
+        <div class="row">
+          {{#each megaByteSponsors as |sponsor|}}
+            <a class="col-4 col-md-2" href={{sponsor.link}}>
+              <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
+            </a>
+          {{/each}}
+        </div>
+      {{/if}}
+
+      {{#if kiloByteSponsors}}
+        <h3 class="mt-5"> KiloByte </h3>
+        <div class="row">
+          {{#each kiloByteSponsors as |sponsor|}}
+            <a class="col-4 col-md-2" href={{sponsor.link}}>
+              <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
+            </a>
+          {{/each}}
+        </div>
+      {{/if}}
+
+      {{#if byteSponsors}}
+        <h3 class="mt-5"> Byte </h3>
+        <div class="row">
+          {{#each byteSponsors as |sponsor|}}
+            <a class="col-4 col-md-2" href={{sponsor.link}}>
+              <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
+            </a>
+          {{/each}}
+        </div>
+      {{/if}}
+
+      {{#if demoByteSponsors}}
+        <h3 class="mt-5"> DemoByte </h3>
+        <div class="row">
+          {{#each demoByteSponsors as |sponsor|}}
+            <a class="col-4 col-md-2" href={{sponsor.link}}>
+              <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
+            </a>
+          {{/each}}
+        </div>
+      {{/if}}
+
+      {{#if collaborationSponsors}}
+        <h3 class="mt-5"> Collaborations </h3>
+        <div class="row">
+          {{#each collaborationSponsors as |sponsor|}}
+            <a class="col-4 col-md-2" href={{sponsor.link}}>
+              <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
+            </a>
+          {{/each}}
+        </div>
+      {{/if}}
+
+      <h3 class="mt-5"> Crowdfunders </h3>
+      <div class="row">
+        {{#each model.crowdfunders as |crowdfunder|}}
+          <div class="col-6">
+            <span class="text-centered"> {{crowdfunder.name}} </span>
+          </div>
+        {{/each}}
+      </div>
     </div>
   </div>
 </div>
