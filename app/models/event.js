@@ -24,6 +24,6 @@ export default Model.extend({
 	}),
 
 	isUpcoming: computed('enddate', function() {
-		return this.get('enddate') >= new Date();
+		return this.get('enddate') >= new Date(Date.now() - 86400 * 1000);
 	})
 });
