@@ -38,8 +38,6 @@ export default Mixin.create({
   },
 
   _save(callback) {
-    const flashNotice = this.get('flashNotice');
-
     // add time to the model. easy for sorting
     const timestamp = new Date();
     if (this.get(this.get('modelName')).get('isNew')) {
@@ -47,19 +45,23 @@ export default Mixin.create({
     }
     this.get(this.get('modelName')).set('updatedAt', timestamp);
 
-    this.get(this.get('modelName')).save().then(() => {
+    this.get(this.get('modelName')).save().then(function() {
       if (callback !== undefined) {
         callback();
-      } else {
-        flashNotice.sendSuccess(this.get('noticeAfterSave'));
-
-        if (this.get('transitionToIndexRoute')) {
-          this.transitionToRoute(this.get('transitionAfterSuccess'));
-        } else {
-          this.transitionToRoute(this.get('transitionAfterSuccess'), this.get(this.get('modelName')).get('id'));
-        }
       }
     });
+  },
+
+  _done() {
+    const flashNotice = this.get('flashNotice');
+
+    flashNotice.sendSuccess(this.get('noticeAfterSave'));
+
+    if (this.get('transitionToIndexRoute')) {
+      this.transitionToRoute(this.get('transitionAfterSuccess'));
+    } else {
+      this.transitionToRoute(this.get('transitionAfterSuccess'), this.get(this.get('modelName')).get('id'));
+    }
   },
 
   actions: {
@@ -67,7 +69,9 @@ export default Mixin.create({
       this.get('flashNotice').sendInfo(this.get('noticeDuringSave'));
       // check the required variables and save if it is okay
       if (this.validateModel()) {
-        this._save();
+        this._save(function() {
+          this._done();
+        });
       }
     },
 
@@ -88,29 +92,34 @@ export default Mixin.create({
       // check the required variables
       // the model should be okay, and there should be a file or an existing imageSrc
       if (this.validateModel() && (this.get('file'))) {
-        this._save(() => {
+        let self = this;
+
+        self._save(function() {
+          self.get(self.get('modelName')).reload();
           const metadata = { contentType: 'image/png' };
 
           // get reference to firebase storage
-          this.get('firebaseApp').storage().then(storage => {
+          self.get('firebaseApp').storage().then(storage => {
             const storageRef = storage.ref();
-            const path = this.get('imagePath') + this.get(this.get('modelName')).get('id') + '.png';
-            storageRef.child(path).put(this.get('file'), metadata).then(async snapshot => {
+            const path = self.get('imagePath') + self.get(self.get('modelName')).get('id') + '.png';
+            storageRef.child(path).put(self.get('file'), metadata).then(async snapshot => {
               // give the model the imageSrc when finished
               const downloadURL = await snapshot.ref.getDownloadURL();
-              this.get(this.get('modelName')).set('imageSrc', downloadURL);
-              this._save();
-              this.set('file', null);
-            }).catch(() => {
+              self.get(self.get('modelName')).set('imageSrc', downloadURL);
+              self._save(function() {
+                self.set('file', null);
+                self._done();
+              });
             });
-          }).catch(() => {
           });
         });
 
         // else if there was already an image and it didnt change
         // then we just save immediately
       } else if (this.validateModel() && this.get('model.imageSrc')) {
-        this._save();
+        this._save(function() {
+          this._done();
+        });
       }
     }
   }

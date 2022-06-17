@@ -17,13 +17,14 @@ export default Model.extend({
   updatedAt: attr('date'),
 
 	namedId: computed('title', 'startdate', function() {
-    if (!this.get('title')) return '';
+    if (!this.get('title') || !this.get('startdate')) return 'null';
     const trimmed = this.get('title').trim();
 		const suffix = this.get('startdate').getDate() + "-" + (this.get('startdate').getMonth() + 1) + "-" + (this.get('startdate').getFullYear() - 2000);
     return trimmed.toLowerCase().replaceAll(' ', '_') + "_" + suffix;
 	}),
 
 	isUpcoming: computed('enddate', function() {
+    if (!this.get('enddate')) return true;
 		return this.get('enddate') >= new Date(Date.now() - 86400 * 1000);
 	})
 });

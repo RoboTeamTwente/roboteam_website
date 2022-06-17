@@ -9,7 +9,6 @@ export default Controller.extend(saveModelMixin, {
   noticeDuringSave: "Updating event...",
   noticeAfterSave: "Event updated!",
   modelName: "model",
-  transitionAfterSuccess: "events.show",
+  transitionAfterSuccess: "admin.events.edit",
   imagePath: "images/events"
 });
-
