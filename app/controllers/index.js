@@ -15,15 +15,35 @@ export default Controller.extend({
 
   collaborators : filterBy('model.sponsors', 'package', "COLLABORATION"),
 
-  gigaAndMegaByteSponsors : computed('model.sponsors', function() {
+  orderedSponsors: computed.union('teraByteSponsors', 'gigaByteSponsors', 'megaByteSponsors', 'kiloByteSponsors', 'otherSponsors'),
+
+  teraByteSponsors : computed('model.sponsors', function() {
     return this.get('model.sponsors').filter(function(sponsor) {
-      return ["GIGABYTE", "MEGABYTE"].includes(sponsor.get("package"));
+      return sponsor.get("package") === "TERABYTE";
+    });
+  }),
+
+  gigaByteSponsors : computed('model.sponsors', function() {
+    return this.get('model.sponsors').filter(function(sponsor) {
+      return sponsor.get("package") === "GIGABYTE";
+    });
+  }),
+
+  megaByteSponsors : computed('model.sponsors', function() {
+    return this.get('model.sponsors').filter(function(sponsor) {
+      return sponsor.get("package") === "MEGABYTE";
+    });
+  }),
+
+  kiloByteSponsors : computed('model.sponsors', function() {
+    return this.get('model.sponsors').filter(function(sponsor) {
+      return sponsor.get("package") === "KILOBYTE";
     });
   }),
 
   otherSponsors : computed('model.sponsors', function() {
     return this.get('model.sponsors').filter(function(sponsor) {
-      return ["KILOBYTE", "BYTE", "DEMOBYTE"].includes(sponsor.get("package"));
+      return ["BYTE", "DEMOBYTE"].includes(sponsor.get("package"));
     });
   }),
 
