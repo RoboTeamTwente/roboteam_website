@@ -135,32 +135,41 @@
 </div>
 
 {{!-- partners content block (full width) --}}
-{{#if gigaAndMegaByteSponsors }}
-  <div class="container-fluid py-3 px-5">
-    <div class="row justify-content-center">
-      <h1 class="col-12 mt-5 pt-5 text-centered"> Partners </h1>
-      {{#each gigaAndMegaByteSponsors as |sponsor|}}
-        <a class="col-4 col-md-2 px-4" href={{sponsor.link}}>
+<div class="container-fluid py-3 px-5">
+  <div class="row justify-content-center">
+    <h1 class="col-12 mt-5 pt-5 text-centered"> Partners </h1>
+    {{#each orderedSponsors as |sponsor|}}
+      {{#if (eq sponsor.package "TERABYTE")}}
+        <a class="px-3" style="width: 200px" href={{sponsor.link}}>
           <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
         </a>
-      {{/each}}
-    </div>
-    <div class="row justify-content-center">
-      {{#each otherSponsors as |sponsor|}}
-        <a class="col-3 col-md-1 px-3'}}" href={{sponsor.link}}>
+      {{else if (eq sponsor.package "GIGABYTE")}}
+        <a class="px-3" style="width: 175px" href={{sponsor.link}}>
           <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
         </a>
-      {{/each}}
-    </div>
+      {{else if (eq sponsor.package "MEGABYTE")}}
+        <a class="px-2" style="width: 150px" href={{sponsor.link}}>
+          <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
+        </a>
+      {{else if (eq sponsor.package "KILOBYTE")}}
+        <a class="px-1" style="width: 125px" href={{sponsor.link}}>
+          <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
+        </a>
+      {{else}}
+        <a class="px-1" style="width: 100px" href={{sponsor.link}}>
+          <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
+        </a>
+      {{/if}}
+    {{/each}}
   </div>
-{{/if}}
+</div>
 
 <div class="container-fluid p-3">
   {{#if collaborators}}
     <div class="row justify-content-center">
       <h1 class="col-12 mt-5 pt-5 text-centered"> Collaborations </h1>
       {{#each collaborators as |collaborator|}}
-        <a class="col-4 col-md-1" href={{collaborator.link}}>
+        <a class="px-1" style="width: 125px" href={{collaborator.link}}>
           <img class="sponsor" alt={{collaborator.name}} src={{collaborator.imageSrc}}>
         </a>
       {{/each}}
