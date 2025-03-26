@@ -16,6 +16,17 @@
         </div>
       {{/if}}
 
+      {{#if teraByteSponsors}}
+        <h3 class="mt-5"> AI </h3>
+        <div class="row">
+          {{#each teraByteSponsors as |sponsor|}}
+            <a class="col-4 col-md-2" href={{sponsor.link}}>
+              <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
+            </a>
+          {{/each}}
+        </div>
+      {{/if}}
+
       {{#if gigaByteSponsors}}
         <h3 class="mt-5"> GigaByte </h3>
         <div class="row">
