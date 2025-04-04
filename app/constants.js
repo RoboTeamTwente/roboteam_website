@@ -21,6 +21,10 @@ const packageOptions = [
     value: "TERABYTE"
   },
   {
+    title: "AI",
+    value: "AI"
+  },
+  {
     title: "DemoByte",
     value: "DEMOBYTE"
   },

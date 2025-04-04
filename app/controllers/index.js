@@ -15,11 +15,17 @@ export default Controller.extend({
 
   collaborators : filterBy('model.sponsors', 'package', "COLLABORATION"),
 
-  orderedSponsors: computed.union('teraByteSponsors', 'gigaByteSponsors', 'megaByteSponsors', 'kiloByteSponsors', 'otherSponsors'),
+  orderedSponsors: computed.union('teraByteSponsors','ai', 'gigaByteSponsors', 'megaByteSponsors', 'kiloByteSponsors', 'otherSponsors'),
 
   teraByteSponsors : computed('model.sponsors', function() {
     return this.get('model.sponsors').filter(function(sponsor) {
       return sponsor.get("package") === "TERABYTE";
+    });
+  }),
+
+  aiSponsors : computed('model.sponsors', function() {
+    return this.get('model.sponsors').filter(function(sponsor) {
+      return sponsor.get("package") === "AI";
     });
   }),
 

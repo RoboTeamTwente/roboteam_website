@@ -143,6 +143,10 @@
         <a class="px-3" style="width: 200px" href={{sponsor.link}}>
           <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
         </a>
+      {{#if (eq sponsor.package "AI")}}
+        <a class="px-3" style="width: 180px" href={{sponsor.link}}>
+          <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
+        </a>
       {{else if (eq sponsor.package "GIGABYTE")}}
         <a class="px-3" style="width: 175px" href={{sponsor.link}}>
           <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
