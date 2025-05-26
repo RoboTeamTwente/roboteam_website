@@ -12,3 +12,38 @@
 	  max-height: 150px;
 	}
 }
+
+.terabyte_lnk {
+	@extend .px-3;
+	width: 200px;
+}
+
+.ai_lnk {
+	@extend .px-3;
+	width: 180px;
+}
+
+.gigabyte_lnk {
+	@extend .px-3;
+	width: 175px;
+}
+
+.megabyte_lnk {
+	@extend .px-2;
+	width: 150px;
+}
+
+.kilobyte_lnk {
+	@extend .px-1;
+	width: 125px;
+}
+
+.mic_partner_lnk {
+	@extend .px-1;
+	width: 100px;
+}
+
+.colab_lnk {
+	@extend .px-1;
+	width: 125px;
+}

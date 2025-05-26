@@ -140,27 +140,27 @@
     <h1 class="col-12 mt-5 pt-5 text-centered"> Partners </h1>
     {{#each orderedSponsors as |sponsor|}}
       {{#if (eq sponsor.package "TERABYTE")}}
-        <a class="px-3" style="width: 200px" href={{sponsor.link}}>
+        <a class="terabyte_lnk" href={{sponsor.link}}>
           <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
         </a>
-      {{#if (eq sponsor.package "AI")}}
-        <a class="px-3" style="width: 180px" href={{sponsor.link}}>
+      {{else if (eq sponsor.package "AI")}}
+        <a class="ai_lnk" href={{sponsor.link}}>
           <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
         </a>
       {{else if (eq sponsor.package "GIGABYTE")}}
-        <a class="px-3" style="width: 175px" href={{sponsor.link}}>
+        <a class="gigabyte_lnk" href={{sponsor.link}}>
           <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
         </a>
       {{else if (eq sponsor.package "MEGABYTE")}}
-        <a class="px-2" style="width: 150px" href={{sponsor.link}}>
+        <a class="megabyte_lnk" href={{sponsor.link}}>
           <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
         </a>
       {{else if (eq sponsor.package "KILOBYTE")}}
-        <a class="px-1" style="width: 125px" href={{sponsor.link}}>
+        <a class="kilobyte_lnk" href={{sponsor.link}}>
           <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
         </a>
       {{else}}
-        <a class="px-1" style="width: 100px" href={{sponsor.link}}>
+        <a class="misc_partner_lnk" href={{sponsor.link}}>
           <img class="sponsor" alt={{sponsor.name}} src={{sponsor.imageSrc}}>
         </a>
       {{/if}}
@@ -173,7 +173,7 @@
     <div class="row justify-content-center">
       <h1 class="col-12 mt-5 pt-5 text-centered"> Collaborations </h1>
       {{#each collaborators as |collaborator|}}
-        <a class="px-1" style="width: 125px" href={{collaborator.link}}>
+        <a class="colab_lnk" href={{collaborator.link}}>
           <img class="sponsor" alt={{collaborator.name}} src={{collaborator.imageSrc}}>
         </a>
       {{/each}}
